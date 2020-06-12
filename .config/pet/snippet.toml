@@ -1,0 +1,3318 @@
+[[snippets]]
+  description = "Ctrl+U: erase line"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+A: move to start of the line"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B: move back one word"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+F: move forward one word"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+Y: paste from the clipboard"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+Z: suspends (pauses) the currently running process; use fg or bg to resume it"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+R: reverse incremental search of history"
+  command = ""
+  tag = ["shortcuts"]
+  output = ""
+
+[[snippets]]
+  description = "$$ ‒ current process id"
+  command = ""
+  output = ""
+
+[[snippets]]
+  description = "$? ‒ last command exit code"
+  command = ""
+  output = ""
+
+[[snippets]]
+  description = "display man page of specific command"
+  command = "man <command>"
+  output = ""
+
+[[snippets]]
+  description = "bash tutorial"
+  command = "man bash"
+  output = ""
+
+[[snippets]]
+  description = "find the location of the binary, source, and manual page files for a given command"
+  command = "whereis <command>"
+  output = ""
+
+[[snippets]]
+  description = "short one line description of the man packages"
+  command = "whatis <command>"
+  output = ""
+
+[[snippets]]
+  description = "find executable location in the path"
+  command = "which <command>"
+  output = ""
+
+[[snippets]]
+  description = "kind of a command"
+  command = "type <command>"
+  output = ""
+
+[[snippets]]
+  description = "run the command ignoring functions and aliases with the same name"
+  command = "command <command>"
+  output = ""
+
+[[snippets]]
+  description = "search cheat sheets"
+  command = "cht.sh <query>"
+  output = ""
+
+[[snippets]]
+  description = "cheat.sh help"
+  command = "cht.sh /:help"
+  output = ""
+
+[[snippets]]
+  description = "learn language"
+  command = "cht.sh <lanuage>/:learn"
+  output = ""
+
+[[snippets]]
+  description = "interactive shell"
+  command = "cht.sh --shell <language>"
+  output = ""
+
+[[snippets]]
+  description = "search tldr pages"
+  command = "tldr"
+  output = ""
+
+[[snippets]]
+  description = "stackoverflow search"
+  command = "how2"
+  output = ""
+
+[[snippets]]
+  description = "correct a typo of previous command"
+  command = "fuck"
+  output = ""
+
+[[snippets]]
+  description = "repeat last command with sudo"
+  command = "sudo !!"
+  output = ""
+
+[[snippets]]
+  description = "create array"
+  command = "declare -a arr"
+  output = ""
+
+[[snippets]]
+  description = "check function exists"
+  command = "declare -f <name> > /dev/null"
+  output = ""
+
+[[snippets]]
+  description = "evaluate arithmetic expression, e.g. `expr 2 '*' 2`"
+  command = "expr"
+  output = ""
+
+[[snippets]]
+  description = "precision calculator"
+  command = "bc"
+  output = ""
+
+[[snippets]]
+  description = "show history/history shortcut"
+  command = "h"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "history clear"
+  output = ""
+
+[[snippets]]
+  description = "clear terminal screen"
+  command = "clear"
+  output = ""
+
+[[snippets]]
+  description = "redirect stdout to one file and stderr to another file (e.g. /dev/null)"
+  command = "<command> > <outfile> 2> <errfile>"
+  output = ""
+
+[[snippets]]
+  description = "login as user"
+  command = "su <user>"
+  output = ""
+
+[[snippets]]
+  description = "login as root"
+  command = "sudo su -"
+  output = ""
+
+[[snippets]]
+  description = "show the history of last logged in users"
+  command = "last"
+  output = ""
+
+[[snippets]]
+  description = "who are loggen in as"
+  command = "whoami"
+  output = ""
+
+[[snippets]]
+  description = "who currently logged in"
+  command = "w"
+  output = ""
+
+[[snippets]]
+  description = "gnome logout"
+  command = "gnome-session-save --logout"
+  output = ""
+
+[[snippets]]
+  description = "KDE logout"
+  command = "qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "shutdown -h <time=now>"
+  output = ""
+
+[[snippets]]
+  description = "reboot"
+  command = "shutdown -r <time=now>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "reboot"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "systemctl suspend"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "systemctl hibernate"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "systemctl poweroff"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "gsettings get <key>"
+  tag = ["gnome"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "gsettings set <key> <value>"
+  tag = ["gnome"]
+  output = ""
+
+[[snippets]]
+  description = "change password"
+  command = "passwd <username>"
+  output = ""
+
+[[snippets]]
+  description = "change password"
+  command = "echo '<username>:<password>' | chpasswd"
+  output = ""
+
+[[snippets]]
+  description = "manage groups of users"
+  command = "gpasswd"
+  output = ""
+
+[[snippets]]
+  description = "password information"
+  command = "chage -l <username>"
+  output = ""
+
+[[snippets]]
+  description = "password expiration period (-1 for disable)"
+  command = "sudo chage -M <days> <username>"
+  output = ""
+
+[[snippets]]
+  description = "add user"
+  command = "sudo useradd <username>"
+  output = ""
+
+[[snippets]]
+  description = "delete user"
+  command = "sudo userdel <username>"
+  output = ""
+
+[[snippets]]
+  description = "modify user"
+  command = "sudo usermod <username>"
+  output = ""
+
+[[snippets]]
+  description = "rename user"
+  command = "sudo usermod -l <new-username> <old-username>"
+  output = ""
+
+[[snippets]]
+  description = "list of usernames from /etc/passwd"
+  command = "awk -F':' '{ print $1 }' /etc/passwd"
+  output = ""
+
+[[snippets]]
+  description = "list of users"
+  command = "compgen -u"
+  output = ""
+
+[[snippets]]
+  description = "add group"
+  command = "sudo groupadd <name>"
+  output = ""
+
+[[snippets]]
+  description = "delete group"
+  command = "sudo groupdel <name>"
+  output = ""
+
+[[snippets]]
+  description = "modify group"
+  command = "sudo groupmod <name>"
+  output = ""
+
+[[snippets]]
+  description = "add user to group"
+  command = "sudo usermod -a -G <username> <group>"
+  output = ""
+
+[[snippets]]
+  description = "user UID"
+  command = "id -u <username>"
+  output = ""
+
+[[snippets]]
+  description = "list user groups"
+  command = "id -Gn"
+  output = ""
+
+[[snippets]]
+  description = "display linux system information"
+  command = "uname -a"
+  output = ""
+
+[[snippets]]
+  description = "display kernel release information"
+  command = "uname -r"
+  output = ""
+
+[[snippets]]
+  description = "cpu details"
+  command = "lscpu"
+  output = ""
+
+[[snippets]]
+  description = "cpu architecture"
+  command = "uname -m"
+  output = ""
+
+[[snippets]]
+  description = "gpu details"
+  command = "sudo lshw -C display"
+  output = ""
+
+[[snippets]]
+  description = "bios info"
+  command = "sudo dmidecode -t bios"
+  output = ""
+
+[[snippets]]
+  description = "motherboard info"
+  command = "sudo dmidecode -t 2"
+  output = ""
+
+[[snippets]]
+  description = "ram details"
+  command = "sudo dmidecode -t 17"
+  output = ""
+
+[[snippets]]
+  description = "display system information"
+  command = "neofetch"
+  output = ""
+
+[[snippets]]
+  description = "display this month's calendar"
+  command = "cal"
+  output = ""
+
+[[snippets]]
+  description = "fuzzy string search"
+  command = "fzf"
+  output = ""
+
+[[snippets]]
+  description = "delay in seconds"
+  command = "sleep <n>"
+  output = ""
+
+[[snippets]]
+  description = "delay in microseconds"
+  command = "usleep <n>"
+  output = ""
+
+[[snippets]]
+  description = "count lines"
+  command = "<command> | wc -l"
+  output = ""
+
+[[snippets]]
+  description = "change working directory"
+  command = "cd <dirname>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "change to previous working directory"
+  command = "cd -"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "current working directory"
+  command = "pwd"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "change directory and add it to the stack"
+  command = "pushd <directory>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "remove the directory from top of the stack and cd to it"
+  command = "popd"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "copy file"
+  command = "cp <src> <dst>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "copy files retaining ownership/permissions"
+  command = "cp -a <src> <dst>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "move or rename file"
+  command = "mv <src> <dst>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "delete/remove file"
+  command = "rm <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "delete/remove file with confirmation"
+  command = "rm -i <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "delete/remove directory"
+  command = "rmdir <dirname>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "delete/remove not empty directory"
+  command = "rm -rf <dirname>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create an empty file"
+  command = "touch <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "output file to stdout"
+  command = "cat <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "merge files"
+  command = "cat file1 file2  > output"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "show absolute path"
+  command = "realpath <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "display line numbers with outpout"
+  command = "cat -n <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "set modification time of a file (-a - access, -c - change)"
+  command = "touch -m --date='<iso-datetime>' <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "gunzip + cat"
+  command = "zcat <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "cat with syntax hightlighting"
+  command = "bat <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "highlight a file"
+  command = "pygmentize -f terminal256 -O style=native -g <filename>"
+  output = ""
+
+[[snippets]]
+  description = "zsh cat + more shortcut"
+  command = "< <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "display image in terminal"
+  command = "viu <filename>"
+  output = ""
+
+[[snippets]]
+  description = "prints file contents in reverse order"
+  command = "tac <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "split huge file into parts"
+  command = "split -b <size> <filename> <part-prefix>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "interactive reading (also see `man more`)"
+  command = "less <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "skip N lines"
+  command = "less +<num> <filename>"
+  output = ""
+
+[[snippets]]
+  description = "create temporary file"
+  command = "mktemp <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create temporary directory"
+  command = "mktemp -d <directory>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "remove temporary file on process exit"
+  command = "trap \"{ rm -f $templfile; }\" EXIT"
+  output = ""
+
+[[snippets]]
+  description = "create named pipe"
+  command = "mkfifo <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "total and available space"
+  command = "df -h"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "total space usage"
+  command = "du -hs <directory>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "file size"
+  command = "stat --printf=\"%s\" <filename>"
+  tag = ["filesystem"]
+
+[[snippets]]
+  description = "create symbolic link"
+  command = "ln -sf <source> <symlink>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "destination of a symlink"
+  command = "readlink -f <filename>"
+  output = ""
+
+[[snippets]]
+  description = "write iso image"
+  command = "sudo dd if=<image> of=<device> bs=8m status=progress; sync"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "Monitor the progress of data through a pipe"
+  command = "<command1> | pv -s <expected_amount_of_data_for_eta> | <command2>"
+  output = ""
+
+[[snippets]]
+  description = "list disks and partitions"
+  command = "sudo fdisk -l"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "device blocks number"
+  command = "cat /sys/block/<device>/size"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "device block size"
+  command = "sudo blockdev --getbsz /dev/<device>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "get a UUID of a partition"
+  command = "sudo blkid -s UUID -o value <device>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "disk health"
+  command = "sudo smartctl -a <device>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "nvme smart-log"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo mount <device> <mountpoint> -t <type> -o <options>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "unmount"
+  command = "sudo umount <mountpoint>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "unmount recursively"
+  command = "umount -R <mountpoint>"
+  output = ""
+
+[[snippets]]
+  description = "mount iso image"
+  command = "sudo mount <image> <mount-point> -o loop"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "remove hybernation file and mount windows partition"
+  command = "sudo mount -t ntfs-3g -o remove_hiberfile <device> <mountpoint>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create fat-32 filesystem"
+  command = "sudo mkfs.fat -F32 -n <label> <device>"
+  output = ""
+
+[[snippets]]
+  description = "create ext4 filesystem"
+  command = "sudo mkfs.ext4 -L <label> <device>"
+  output = ""
+
+[[snippets]]
+  description = "create btrfs filesystem"
+  command = "sudo mkfs.btrfs <device> -L <label>"
+  output = ""
+
+[[snippets]]
+  description = "show detailed information about internal filesystem usage"
+  command = "sudo btrfs fi usage <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "space usage for a mount point"
+  command = "sudo btrfs fi df <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "total size"
+  command = "sudo btrfs fi du -s <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "list subvolumes"
+  command = "sudo btrfs sub li -a <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create subvolume"
+  command = "sudo btrfs sub create <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "rename subvolume"
+  command = "sudo mv <old-name> <new-name>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "remove subvolume or snapshot"
+  command = "sudo btrfs sub del <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create snapshot"
+  command = "sudo btrfs sub snap -r <src> <dst>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create lightweight copy"
+  command = "cp --reflink <src> <dst>"
+  tag = ["filesystem", "btrfs"]
+  output = ""
+
+[[snippets]]
+  description = "disable compression on a file"
+  command = "btrfs property set <filename> compression ''"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "start defragmentation"
+  command = "sudo btrfs fi defrag -v -r -f <path>"
+  tag = ["filesytem"]
+  output = ""
+
+[[snippets]]
+  description = "balance data distribution"
+  command = "sudo btrfs balanace <path>"
+  tag = ["filesystem", "raid"]
+  output = ""
+
+[[snippets]]
+  description = "change the default sub-volume (top level)"
+  command = "sudo btrfs sub set-default <subvol-id> /"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "find mount"
+  command = "findmnt <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "list directory, including hidden files"
+  command = "ls -ahl <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "guess file type"
+  command = "file <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "file statistice (e.g. modification time)"
+  command = "stat <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "make file executable"
+  command = "chmod +x <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "change file permissions: 1 - execute, 2 - read, 4 - write, 1 + 4 = 5 - execute and read, 2 + 4 = 6 - read and write, 1 + 2 + 4 = 7 - all; u - user, g -group, o - owner"
+  command = "chmod <ugo> <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "show file permissions"
+  command = "ls -l <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "read stdin and write to file"
+  command = "tee <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "show contents of a binary file in hex"
+  command = "hexdump -C <filename>"
+  output = ""
+
+[[snippets]]
+  description = "backup directory"
+  command = "rsync -av --delete <src> <dst>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create tar.gz archive"
+  command = "tar -cvpzf <output> <dirname>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "extract tar.gz archive"
+  command = "tar -xzpvf <filename> -C <destination>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "create a zip archive from a directory"
+  command = "zip <dir.zip> -r <dir>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "show contents"
+  command = "unzip -l <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "extract zip archive"
+  command = "unzip <filename> -d <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "extract rar file with a password"
+  command = "unrar x <filename> -p<password>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "extract and remove archive"
+  command = "extract -r <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "show directory structure as tree"
+  command = "tree <dir>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "find files by name"
+  command = "find -name <name>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "find all files recursively"
+  command = "find . -type f"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "find all empty files"
+  command = "find <path> -type f -empty"
+  output = ""
+
+[[snippets]]
+  description = "Remove all matched files at once"
+  command = "find <pattern> -type f -exec rm {} +"
+  output = ""
+
+[[snippets]]
+  description = "search files in mlocate database. see: updatedb"
+  command = "locate -e <filename>"
+  tag = ["filesystem", "mlocate"]
+  output = ""
+
+[[snippets]]
+  description = "update database"
+  command = "sudo updatedb"
+  tag = ["filesystem", "mlocate"]
+  output = ""
+
+[[snippets]]
+  description = "find files by pattern"
+  command = "fd <pattern> -t f <path>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "find files by extension"
+  command = "fd --extension <extension>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "find files with size greater or equal than 100MiB"
+  command = "fd . -S +100mi -t f /"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "diff <old> <new>"
+  command = "compare files and directories"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "change owner recursively"
+  command = "sudo chown -R <username> <directory>"
+  tag = ["filesystem", "permissions"]
+  output = ""
+
+[[snippets]]
+  description = "generate uuid"
+  command = "uuidgen"
+  output = ""
+
+[[snippets]]
+  description = "random alphanumeric"
+  command = "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w <len> | head -n 1"
+  output = ""
+
+[[snippets]]
+  description = "create luks partition"
+  command = "sudo cryptsetup -y -v luksFormat <device>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "luks header information"
+  command = "sudo cryptsetup luksDump <device>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "open luks partition /dev/mapper/<name>"
+  command = "sudo cryptsetup luksOpen <device> <name>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "close luks partition"
+  command = "sudo cryptsetup luksClose <name>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "change luks password"
+  command = "cryptsetup luksChangeKey <device> -S <slot>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "delete luks password"
+  command = "cryptsetup luksRemoveKey <device>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "delete a key in specified slot"
+  command = "sudo cryptsetup luksKillSlot <device> <slot>"
+  tag = ["filesystem", "encryption"]
+  output = ""
+
+[[snippets]]
+  description = "trace system calls"
+  command = "strace <command>"
+  output = ""
+
+[[snippets]]
+  description = "display execution time and resource usage"
+  command = "time <command>"
+  output = ""
+
+[[snippets]]
+  description = "execute something and kill it soon after"
+  command = "timeout <timeout> <command>"
+  output = ""
+
+[[snippets]]
+  description = "reload sysctl configs"
+  command = "sudo sysctl --system"
+  tag = ["kernel"]
+  output = ""
+
+[[snippets]]
+  description = "display logs from current boot"
+  command = "journalctl -b"
+  output = ""
+
+[[snippets]]
+  description = "logs by unit"
+  command = "journalctl -u <unit>"
+  output = ""
+
+[[snippets]]
+  description = "follow logs"
+  command = "journalctl -f"
+  output = ""
+
+[[snippets]]
+  command = "journalctl -p 3 -xb"
+  description = "get all errors for running services"
+
+[[snippets]]
+  description = "view gnome-shell logs"
+  command = "journalctl /usr/bin/gnome-shell -f"
+
+[[snippets]]
+  description = "display kernel messages"
+  command = "dmesg | less"
+  output = ""
+
+[[snippets]]
+  description = "copy file contents to system clipboard"
+  command = "xclip -sel c <filename>"
+  output = ""
+
+[[snippets]]
+  description = "copy the output of the previous command"
+  command = "<command> | xclip -sel c"
+  output = ""
+
+[[snippets]]
+  description = "display system clipboard content"
+  command = "xclip -sel c -o"
+  output = ""
+
+[[snippets]]
+  description = "edit file with vim"
+  command = "vim <filename>"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "edit file with vim as root"
+  command = "sudoedit <filename>"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "open in visual studio code"
+  command = "code <filename>"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "add file to workspace"
+  command = "code -a <filename=.>"
+  tag = ["vscode"]
+
+[[snippets]]
+  description = ""
+  command = "code --install-extension <name>"
+  output = ""
+
+[[snippets]]
+  description = "remove all extensions for visual studio code"
+  command = "rm -rf ~/.vscode"
+  output = ""
+
+[[snippets]]
+  description = "head -n <num> <filename>"
+  command = "show first n lines"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "tail -n <num> <filename>"
+  command = "show last n lines"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "sort lines"
+  command = "sort <filename>"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  command = "file <filename>"
+  description = "file type"
+
+[[snippets]]
+  description = "display crc checksum, size and filename"
+  command = "cksum <filename>"
+  output = ""
+
+[[snippets]]
+  description = "calculate md5 checksum"
+  command = "md5sum <filename>"
+  output = ""
+
+[[snippets]]
+  description = "calculates md5 hash"
+  command = "echo -n <string> | openssl dgst -md5"
+  output = ""
+
+[[snippets]]
+  description = "replace string in the file"
+  command = "sed -ri 's;<search>;<replacement>;g' <filename>"
+  output = ""
+
+[[snippets]]
+  description = "find lines that match a regular expression"
+  command = "grep -P <regexp> <filename>"
+  output = ""
+
+[[snippets]]
+  description = "find only matches"
+  command = "grep -oP <regexp> <filename>"
+  output = ""
+
+[[snippets]]
+  description = "ignore lines starting with a comment"
+  command = "grep -v '^#'"
+  output = ""
+
+[[snippets]]
+  description = "find files by content"
+  command = "grep -HiRE <pattern> <path>"
+  output = ""
+
+[[snippets]]
+  command  = "jq <query>"
+  description = "JSON processor"
+  output = ""
+
+[[snippets]]
+  description = "Create JSON objects"
+  command = "jo -p foo=bar baz=42"
+
+[[snippets]]
+  description = "start process with a name"
+  command = "exec -a <process-name> <command>"
+  output = ""
+
+[[snippets]]
+  description = "disaplay all processes"
+  command = "ps aux"
+  output = ""
+
+[[snippets]]
+  description = "find process"
+  command = "ps aux | fzf"
+  output = ""
+
+[[snippets]]
+  description = "display process tree"
+  command = "pstree"
+  output = ""
+
+[[snippets]]
+  description = "kill proccess"
+  command = "kill -9 <pid>"
+  output = ""
+
+[[snippets]]
+  description = "kill process by name"
+  command = "pkill -f <pname>"
+  output = ""
+
+[[snippets]]
+  description = "kill all processes for an given user"
+  command = "sudo pkill -u <username>"
+  output = ""
+
+[[snippets]]
+  description = "kill all instances"
+  command = "killall <name>"
+  output = ""
+
+[[snippets]]
+  description = "find the process ID of a running program"
+  command = "pidof <program>"
+  output = ""
+
+[[snippets]]
+  description = "ps + grep. Returns PID(s)"
+  command = "pgrep"
+  output = ""
+
+[[snippets]]
+  description = "number of cpu cores"
+  command = "nproc --all"
+  output = ""
+
+[[snippets]]
+  description = "run task in the background"
+  command = "<command> &"
+  output = ""
+
+[[snippets]]
+  description = "Run process that can live beyond the terminal"
+  command = "nohup <command> &"
+  output = ""
+
+[[snippets]]
+  description = "run programs in parallel"
+  command = "parallel"
+  output = ""
+
+[[snippets]]
+  description = "list tasks"
+  command = "jobs"
+  output = ""
+
+[[snippets]]
+  description = "Bring a specific job to foreground"
+  command = "fg <num>"
+  output = ""
+
+[[snippets]]
+  description = "disown"
+  command = "protect a job from disconnect"
+  output = ""
+
+[[snippets]]
+  description = "system monitoring"
+  command = "top"
+  output = ""
+
+[[snippets]]
+  description = "better than top"
+  command = "htop"
+  tag = ["monitoring"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "glances"
+  tag = ["monitoring"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "gotop"
+  tag = ["monitoring"]
+  output = ""
+
+[[snippets]]
+  description = "system monitoring"
+  command = "glances"
+  output = ""
+
+[[snippets]]
+  description = "display free memory"
+  command = "free -h"
+  output = ""
+
+[[snippets]]
+  description = "debug programm"
+  command = "gdb <executable>"
+  output = ""
+
+[[snippets]]
+  description = "debug process"
+  command = "gdb -p <PID>"
+  output = ""
+
+[[snippets]]
+  description = "update fonts cache"
+  command = "fc-cache -f -v"
+  output = ""
+
+[[snippets]]
+  description = "list of fonts"
+  command = "fc-list"
+  output = ""
+
+[[snippets]]
+  description = "monospace font list"
+  command = "fc-list :mono family"
+
+[[snippets]]
+  description = "match available fonts"
+  command = "fc-match"
+  output = ""
+
+[[snippets]]
+  description = "list of systemd services"
+  command = "systemctl list-unit-files"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = "list of enabled services"
+  command = "systemctl --state=enabled list-unit-files"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "systemctl list-timers --all"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl -a list-timers"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl start <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl restart <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl stop <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl enable <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  command = "sudo systemctl enable --now <unit>"
+  description = "enable and start"
+  tag = ["systemd"]
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl disable <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = "Mask a unit to make it impossible to start it"
+  command = "sudo systemctl mask <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "sudo systemctl unmask <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "systemctl help <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = "view source"
+  command = "systemctl cat <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = "Reload systemd manager configuration, scanning for new or changed units"
+  command = "sudo systemctl daemon-reload"
+
+[[snippets]]
+  command = "systemd-analyze blame"
+  description = "prints a list of all running units, ordered by the time they took to initialize"
+
+[[snippets]]
+  description = "trim all mounted file systems on devices that supported discard"
+  command = "sudo fstrim --verbose --all"
+  tag = ["filesystem", "ssd"]
+  output = ""
+
+[[snippets]]
+  description = "trim ssd"
+  command = "sudo fstrim <mountpoint> -v"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "enable ssd trim"
+  command = "sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer"
+  tag = ["filesystem"]
+  output = ""
+
+[[snippets]]
+  description = "fstrim.timer logs"
+  command = "journalctl -u fstrim.timers"
+  output = ""
+
+[[snippets]]
+  command = "sudo journalctl --vacuum-time=2d"
+  description = "clear logs" 
+
+[[snippets]]
+  description = "test nginx config"
+  command = "sudo nginx -t"
+  output = ""
+
+[[snippets]]
+  description = "generate ssl certificate"
+  command = "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout <filename>.key -out <filename>.crt"
+  output = ""
+
+[[snippets]]
+  description = "generate random password"
+  command = "pwgen -cny <length=20> -s 1"
+  output = ""
+
+[[snippets]]
+  description = "update grub"
+  command = "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+  output = ""
+
+[[snippets]]
+  description = "Create an initial ramdisk environment"
+  command = "sudo mkinitcpio -p linux"
+  output = ""
+
+[[snippets]]
+  description = "generate ssh key"
+  command = "ssh-keygen -t rsa -b 4096 -C <email>"
+  output = ""
+
+[[snippets]]
+  description = "generate pgp key"
+  command = "gpg2 --gen-key"
+  output = ""
+
+[[snippets]]
+  description = "initialize storage"
+  command = "pass init <pgp_id>"
+  output = ""
+
+[[snippets]]
+  description = "generate new password"
+  command = "pass generate <entry> <length=20>"
+  output = ""
+
+[[snippets]]
+  description = "display password"
+  command = "pass <entry>"
+  output = ""
+
+[[snippets]]
+  description = "copy password"
+  command = "pass -c <entry>"
+  output = ""
+
+[[snippets]]
+  description = "delete/remove password"
+  command = "pass rm <entry>"
+  output = ""
+
+[[snippets]]
+  command = "setfont"
+  description = "set console font"
+
+[[snippets]]
+  command = "showconsolefont"
+  description = "print all characters"
+  tag = ["console"]
+
+[[snippets]]
+  command = "ls --color=always -l /usr/share/kbd/consolefonts/ | less"
+  description = "list of console fonts"
+
+[[snippets]]
+  command = "balooctl disable"
+  description = "Disable the file indexer"
+
+[[snippets]]
+  command = "rm -rf ~/.local/share/baloo"
+  description = "Detele the baloo index database file"
+
+[[snippets]]
+  command = "crd"
+  description = "Chrome Remote Desktop (TeamViewer Alternative)"
+
+[[snippets]]
+  description = "VK Auth"
+  command = "http post https://oauth.vk.com/token grant_type==password username==<username> password==<password> client_id==2274003 client_secret==hHbZxrka2uZ6jB1inYsH v==5.103"
+
+[[snippets]]
+  command = "go run <program>"
+  description = "test program"
+
+[[snippets]]
+  command = "go build <program>"
+  description = "compile program"
+
+[[snippets]]
+  description = "pretty json output"
+  command = "python -m json.tool"
+  output = ""
+
+[[snippets]]
+  command = "python -m asyncio"
+  description = "Python Asyncio REPL"
+
+[[snippets]]
+  description = "install packages from file"
+  command = "pip install -r requirements.txt"
+  tag = ["python"]
+  output = ""
+
+[[snippets]]
+  description = "install the package in an isolated environment and add executabs to ~ /.local/bin"
+  command = "pipx install <package>"
+  tag = ["python"]
+
+[[snippets]]
+  description = "save package list to file in requirements format"
+  command = "pip freeze > requirements.txt"
+  tag = ["python"]
+  output = ""
+
+[[snippets]]
+  description = "prints installed packages"
+  command = "pip list"
+  tag = ["python"]
+  output = ""
+
+[[snippets]]
+  description = "create virtual environment"
+  command = "python -m venv <env>"
+  output = ""
+
+[[snippets]]
+  description = "activate virtual environment"
+  command = "source venv/bin/activate"
+  tag = ["python", "venv"]
+  output = ""
+
+[[snippets]]
+  description = "deactivate virtual environment"
+  command = "deactivate"
+  tag = ["python"]
+  output = ""
+
+[[snippets]]
+  description = "uninstall all packages"
+  command = "pip freeze | xargs pip uninstall -y"
+  output = ""
+
+[[snippets]]
+  description = "run python idle"
+  command = "idle"
+  output = ""
+
+[[snippets]]
+  description = "start pydoc server"
+  command = "pydoc -p <port>"
+  tag = ["python"]
+  output = ""
+
+[[snippets]]
+  description = "serve current directory"
+  command = "python -m http.server"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "run builtin web server"
+  command = "php -S localhost:8000"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "interface configuration"
+  command = "ifconfig"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "list rules"
+  command = "sudo iptables -L"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "restart iptables firewall"
+  command = "sudo systemctl restart iptables"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "block all incoming requests"
+  command = "sudo iptables INPUT -j DROP"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "block a specific ip address"
+  command = "sudo iptables -A INPUT -s <ip> -j DROP"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "scan ports"
+  command = "nc -z -v <host> 20-80"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "show listening ports"
+  command = "sudo netstat -tulpn"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "lookup infornation about a domain name"
+  command = "whois <domain>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "name server lookup"
+  command = "nslookup <domain>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "ping -c <packets=5> <host>"
+  command = ""
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "torify <command>"
+  command = "make requests via tor"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "change tor ip"
+  command = "sudo systemctl restart tor"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "setup socks5 ssh tunnel"
+  command = "ssh -f -C2qTnN -D <port> <user>@<host>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "download file"
+  command = "wget -O <output> <url>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "connection information"
+  command = "nmcli dev show"
+  tag = ["networking"]
+
+[[snippets]]
+  command = "nmcli connection up <name>"
+  description = "activate connection"
+  tag = ["networking"]
+
+[[snippets]]
+  command = "nmcli connection down <name>"
+  description = "deactivate connection"
+  tag = ["networking"]
+
+[[snippets]]
+  command = "sudo resolvconf -u"
+  description = "update resolv.conf"
+  tag = ["networking"]
+
+[[snippets]]
+  description = "download files in parallel"
+  command = "parallel -j <jobs=10> wget < <urls.txt>"
+  output = ""
+
+[[snippets]]
+  description = "send post request via curl"
+  command = "curl -d <data> -X POST <url>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "local ip adress"
+  command = "ip route get 8.8.8.8 | awk '{ print $7 }'"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "external ip address"
+  command = "curl ifconfig.me"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "download an archive and extract them"
+  command = "curl -s <url> | tar xvz - -C <target>"
+  output = ""
+
+[[snippets]]
+  description = "make http request"
+  command = "http <url>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "list all open files on the system"
+  command = "lsof"
+  output = ""
+
+[[snippets]]
+  description = "find server pid by port"
+  command = "lsof -i :<port>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "socket statistics (netstat + ifconfig + …)"
+  command = "ss"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "monitor traffic on port 80"
+  command = "sudo tcpdump -i <interface> -v port 80"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "information about php configuration"
+  command = "php -r 'phpinfo();' | less"
+  output = ""
+
+[[snippets]]
+  description = "xml xpath query"
+  command = "xmllint --xpath <exp> <filename>"
+  output = ""
+
+[[snippets]]
+  description = "prints the environment variables"
+  command = "env"
+  output = ""
+
+[[snippets]]
+  description = "install from sources"
+  command = "./configure && make && sudo make install"
+  output = ""
+
+[[snippets]]
+  description = "convert text to uppercase"
+  command = "tr [:lower:] [:upper:]"
+  output = ""
+
+[[snippets]]
+  description = "description remove newline character"
+  command = "tr -d '\n'"
+  output = ""
+
+[[snippets]]
+  description = "convert file to encoding"
+  command = "iconv -f <from_encoding> -t <to_encoding> <filename> -o <filename>"
+  output = ""
+
+[[snippets]]
+  description = "filter unique lines"
+  command = "uniq"
+  output = ""
+
+[[snippets]]
+  description = "format columns"
+  command = "column -t <filename>"
+  output = ""
+
+[[snippets]]
+  description = "current date and time"
+  command = "date '+%F %T'"
+  output = ""
+
+[[snippets]]
+  description = "timestamp to datetime"
+  command = "date -r <timestamp>"
+  output = ""
+
+[[snippets]]
+  description = "timestamp"
+  command = "date +'%s'"
+  output = ""
+
+[[snippets]]
+  description = "set date and time"
+  command = "sudo date -s <datetime>"
+  output = ""
+
+[[snippets]]
+  description = "set the hardware clock to the current system time"
+  command = "sudo hwclock --systohc"
+  output = ""
+
+[[snippets]]
+  description = "change desktop wallpaper"
+  command = "gsettings set org.gnome.desktop.background picture-uri file://<filename>"
+  output = ""
+
+[[snippets]]
+  description = "resize terminal"
+  command = "printf '\\e[8;<rows>;<cols>t'"
+  output = ""
+
+[[snippets]]
+  description = "convert an image (e.g. PNG to JPEG)"
+  command = "convert <src> <dst>"
+  output = ""
+
+[[snippets]]
+  description = "create avatar"
+  command = "convert <input> -resize '150x150^' -gravity center -crop 150x150+0+0 <output>"
+  output = ""
+
+[[snippets]]
+  description = "create animated gif"
+  command = "convert -delay 0 -loop 0 *.jpg <output>"
+  output = ""
+
+[[snippets]]
+  description = "create animated gif from video"
+  command = "ffmpeg -i <input> -r 15 -vf scale=512:-1 -ss <StartTime-hh:mm:ss> -to <EndTime-hh:mm:ss> <output>"
+  output = ""
+
+[[snippets]]
+  description = "list commands"
+  command = "compgen -c"
+  output = ""
+
+[[snippets]]
+  description = "list locales"
+  command = "locale -a"
+  output = ""
+
+[[snippets]]
+  description = "select random line from a file"
+  command = "shuf -n 1 <filename>"
+  output = ""
+
+[[snippets]]
+  description = "show ASCII banner"
+  command = "figglet <text>"
+  output = ""
+
+[[snippets]]
+  description = "count lines of code"
+  command = "tokei <path=.>"
+  output = ""
+
+[[snippets]]
+  description = "change hostname"
+  command = "sudo hostnamectl set-hostname <name>"
+  output = ""
+
+[[snippets]]
+  description = "revert single file from a commit"
+  command = "git checkout <commit-hash> -- <filename>"
+  output = ""
+
+[[snippets]]
+  description = "start new session"
+  command = "tmux new -s <name>"
+  output = ""
+
+[[snippets]]
+  description = "list sessions"
+  command = "tmux ls"
+  output = ""
+
+[[snippets]]
+  description = "attach session"
+  command = "tmux -a <num>"
+  output = ""
+
+[[snippets]]
+  description = "attach a named session"
+  command = "tmux a -t <name>"
+  output = ""
+
+[[snippets]]
+  description = ":new ‒ New session"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "S ‒ List sessions"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "$ ‒ Name session"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "D ‒ Detach"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = ": ‒ Prompt"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B C ‒ Create window"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B W ‒ List Windows"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B N ‒ Next window"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B P ‒ Previous window"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B F ‒ Find window"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B , ‒ Name window"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B & ‒ Kill window"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B % ‒ Vertical split"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B \" ‒ Horizontal split"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B O ‒ Swap panes"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B Q ‒ Show pane numbers"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B X ‒ Kill pane"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "Ctrl+B Arrow Keys ‒ Move to pane"
+  command = ""
+  tag = ["shortcuts", "tmux"]
+  output = ""
+
+[[snippets]]
+  description = "open file with default application"
+  command = "xdg-open <uri-or-filename>"
+  output = ""
+
+[[snippets]]
+  description = "Open in File Manager"
+  command = "nautilus <directory>"
+  output = ""
+
+[[snippets]]
+  description = "empty file"
+  command = "> <filename>"
+  output = ""
+
+[[snippets]]
+  description = "show all shortcuts"
+  command = "bind -p"
+  output = ""
+
+[[snippets]]
+  description = "enter yes automatically"
+  command = "yes | <command>"
+  output = ""
+
+[[snippets]]
+  description = "number lines"
+  command = "<command> | nl"
+  output = ""
+
+[[snippets]]
+  description = "encode file"
+  command = "base64 <filename>"
+  output = ""
+
+[[snippets]]
+  description = "encode from stdin"
+  command = "<commad> | base64"
+  output = ""
+
+[[snippets]]
+  description = "decode from stdin"
+  command = "<command> | base64 -d"
+  output = ""
+
+[[snippets]]
+  description = "update mirrorlist with fastest mirrors"
+  command = "sudo reflector -l 50 -n 20 --sort rate --save /etc/pacman.d/mirrorlist"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "encode uri component"
+  command = "jq -nr --arg v \"<data>\" '$v|@uri'"
+  output = ""
+
+[[snippets]]
+  description = "add"
+  command = "dotfiles -a <filename>"
+  output = ""
+
+[[snippets]]
+  description = "remove"
+  command = "dotfiles -r <filename>"
+  output = ""
+
+[[snippets]]
+  description = "sync"
+  command = "dotfiles -s"
+  output = ""
+
+[[snippets]]
+  description = "compare two files: 0 — equal, 1 — differ, 2 — error"
+  command = "cmp <file1> <file2>"
+  output = ""
+
+[[snippets]]
+  description = "convert video from one format to another"
+  command = "ffmpeg -i <input> <output>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "psql -h <host> -p <port> -U <username> <database>"
+  tag = ["postgres"]
+  output = ""
+
+[[snippets]]
+  description = "backup database"
+  command = "pg_dump <database> > <filename>"
+  tag = ["postgres"]
+  output = ""
+
+[[snippets]]
+  description = "restore backup"
+  command = "psql <database> < <filename>"
+  tag = ["postgres"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "createdb <database>"
+  tag = ["postgres"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "dropdb <database>"
+  tag = ["postgres"]
+  output = ""
+
+[[snippets]]
+  description = "Create shortcut"
+  command = "gnome-desktop-item-edit <dst> --create-new"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "update /usr/share/applications/mimeinfo.cache file with mimetype-to-application associations"
+  command = "sudo update-desktop-database /usr/share/applications"
+  output = ""
+
+[[snippets]]
+  description = "show yes/no dialog"
+  command = "dialog --title '<title>' --yesno '<question>' 13 40"
+  output = ""
+
+[[snippets]]
+  command = "kdialog --title \"Question\" --yesno \"Do u have small penis?\""
+  description = "KDE yes/no dialog"
+
+[[snippets]]
+  description = "clear ram cache and swap space"
+  command = "echo 3 | sudo tee /proc/sys/vm/drop_caches && sudo swapoff -a && sudo swapon -a"
+  output = ""
+
+[[snippets]]
+  description = "empty trash"
+  command = "rm -rf ~/.local/share/Trash/*"
+  output = ""
+
+[[snippets]]
+  description = "create new confg"
+  command = "sudo snapper -c <config> create-config <mount-point>"
+  output = ""
+
+[[snippets]]
+  description = "list configs"
+  command = "sudo snapper list-configs"
+  output = ""
+
+[[snippets]]
+  description = "list snapshots"
+  command = "sudo snapper -c <config> list"
+  output = ""
+
+[[snippets]]
+  description = "delete snapshot"
+  command = "sudo snapper -c <config> delete <num>"
+  output = ""
+
+[[snippets]]
+  description = "delete snapshot sequence"
+  command = "sudo snapper -c <config> delete <start>-<end>"
+  output = ""
+
+[[snippets]]
+  description = "show changed files. 0 ‒ current subvolume"
+  command = "sudo snapper -c <config> status <pre>..<post=0>"
+  output = ""
+
+[[snippets]]
+  description = "show file differences between snapshots. see snapper status"
+  command = "sudo snapper -c <config> diff <pre>..<post=0> <filename>"
+  output = ""
+
+[[snippets]]
+  description = "undo changes. can specify filename"
+  command = "sudo snapper -c <config> -v undochange <pre>..<post=0>"
+  output = ""
+
+[[snippets]]
+  description = "List all currently loaded kernel modules"
+  command = "lsmod | less"
+  output = ""
+
+[[snippets]]
+  description = "load module"
+  command = "sudo insmod <path>"
+  output = ""
+
+[[snippets]]
+  description = "remove module"
+  command = "sudo rmmod <path>"
+  output = ""
+
+[[snippets]]
+  description = "list of all available modules"
+  command = "find /lib/modules/$(uname -r) -type f -name '*.ko*' | less"
+  output = ""
+
+[[snippets]]
+  description = "load a module into the kernel"
+  command = "sudo modprobe <module_name>"
+  output = ""
+
+[[snippets]]
+  description = "remove a module from the kernel"
+  command = "sudo modprobe -r <module_name>"
+  output = ""
+
+[[snippets]]
+  description = "information about driver"
+  command = "modinfo <driver_name>"
+  output = ""
+
+[[snippets]]
+  description = "test for vulnerabilities"
+  command = "sqlmap -u <url>"
+  output = ""
+
+[[snippets]]
+  description = "view markdown in terminal"
+  command = "mdv <filename>"
+  output = ""
+
+[[snippets]]
+  description = "execute bash script from URL"
+  command = "curl -o- <url> | sh"
+  output = ""
+
+[[snippets]]
+  description = "execute local script on a remote machine"
+  command = "ssh <username>@<hostname> 'bash -s' < <filename>"
+  output = ""
+
+[[snippets]]
+  description = "load testing"
+  command = "ab -n <number-of-request> -c <concurrency> <url>"
+  output = ""
+
+[[snippets]]
+  command = "m2r <filename>"
+  description = "convert md to rst"
+  tag = ["python"]
+
+[[snippets]]
+  description = "convert vdi to iso"
+  command = "VBoxManage clonehd <input> <output> --format RAW"
+  tag = ["virtualization", "VirtualBox"]
+  output = ""
+
+[[snippets]]
+  description = "connect file to nbd device"
+  command = "sudo qemu-nbd -c <device> <disk-image>"
+  tag = ["virtualization"]
+  output = ""
+
+[[snippets]]
+  description = "disconnect nbd device"
+  command = "sudo qemu-nbd -d <device>"
+  tag = ["virtualization"]
+  output = ""
+
+[[snippets]]
+  description = "create disk image"
+  command = "qemu-img create -f <type> <filename> <size>"
+  tag = ["virtualization"]
+  output = ""
+
+[[snippets]]
+  description = "Boot from Live CD"
+  command = "qemu-system-x86_64 -hda <disk-image> -cdrom <iso-image> -boot d"
+  tag = ["virtualization"]
+  output = ""
+
+[[snippets]]
+  description = "manage guest virtual machines"
+  command = "virsh"
+  tag = ["virtualization"]
+  output = ""
+
+[[snippets]]
+  description = "convert sass/scss to css"
+  command = "sass <input> <output>"
+  tag = ["sassc"]
+  output = ""
+
+[[snippets]]
+  command = "npx gedit <repo>"
+  description = "make copy git repository, e.g. degit gitlab:user/repo"
+
+[[snippets]]
+  description = "create nuxt.js project"
+  command = "npx create-nuxt-app <project>"
+
+[[snippets]]
+  description = "command line html processimg (inspired by jq)"
+  command = "pup"
+  output = ""
+
+[[snippets]]
+  description = "record terminal"
+  command = "asciinema rec"
+
+[[snippets]]
+  command = "numfmt --to=iec <bytes>"
+  description = "convert bytes to other units"
+  tag = ["conversion", "size"]
+
+[[snippets]]
+  description = "mount remote directory using ssh"
+  command = "sshfs <user>@<host>:/<remote_directory> <mountpoint>"
+
+[[snippets]]
+  command = "plasmashell --version"
+  tag = ["kde"]
+
+[[snippets]]
+  command = "kf5-config --version"
+  tag = ["kde"]
+
+[[snippets]]
+  command = "zplug update"
+  description = "update all plugins"
+
+[[snippets]]
+  description = ""
+  command = "pyenv install <version>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "pyenv global <version>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "pyenv local <version>"
+  output = ""
+
+[[snippets]]
+  description = "chamge the python version for the current terminal session"
+  command = "pyenv shell <version>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "pyenv uninstall <version>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "pyenv versions"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "pyenv commands"
+  output = ""
+
+[[snippets]]
+  command = "node --experimental-repl-await"
+  description = "Async Node.js REPL"
+
+[[snippets]]
+  description = "lists all of the available versions of NodeJs & iojs"
+  command = "nvm ls-remote"
+  output = ""
+
+[[snippets]]
+  description = "list locally installed version"
+  command = "nvm ls"
+  output = ""
+
+[[snippets]]
+  description = "install same node version (see ls-remote for available options)"
+  command = "nvm install <version>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "nvm uninstall <version>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "nvm use <version>"
+  tag = ["node.js"]
+  output = ""
+
+[[snippets]]
+  description = "show installed path"
+  command = "nvm wich <version>"
+  tag = ["node.js"]
+  output = ""
+
+[[snippets]]
+  description = "current version"
+  command = "nvm current"
+  tag = ["node.js"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "nvm alias default <version>"
+  tag = ["node.js"]
+  output = ""
+
+[[snippets]]
+  description = "Clone private github repository"
+  command = "git clone https://<access_token>@github.com/<username>/<repo>.git"
+
+[[snippets]]
+  description = "Add a plugin from the plugin repo OR, add a Git repo"
+  command = "asdf plugin-add <name>"
+  output = ""
+
+[[snippets]]
+  description = "List installed plugins"
+  command = "asdf plugin-list"
+  output = ""
+
+[[snippets]]
+  description = "List installed plugins with repository URLs"
+  command = "asdf plugin-list --urls"
+  output = ""
+
+[[snippets]]
+  description = "List plugins registered on asdf-plugins repository with URLs"
+  command = "asdf plugin-list-all"
+  output = ""
+
+[[snippets]]
+  description = "Remove plugin and package versions"
+  command = "asdf plugin-remove <name>"
+  output = ""
+
+[[snippets]]
+  description = "Update plugin"
+  command = "asdf plugin-update <name>"
+  output = ""
+
+[[snippets]]
+  description = "Update all plugins"
+  command = "asdf plugin-update --all"
+  output = ""
+
+[[snippets]]
+  description = "Install a specific version of a package, or with no arguments,"
+  command = "asdf install <name> <version>"
+  output = ""
+
+[[snippets]]
+  description = "Remove a specific version of a package"
+  command = "asdf uninstall <name> <version>"
+  output = ""
+
+[[snippets]]
+  description = "Display current version set or being used for all packages"
+  command = "asdf current"
+  output = ""
+
+[[snippets]]
+  description = "Display current version set or being used for package"
+  command = "asdf current <name>"
+  output = ""
+
+[[snippets]]
+  description = "Display install path for an installed or current version"
+  command = "asdf where <name>"
+  output = ""
+
+[[snippets]]
+  description = "Display install path for current version"
+  command = "asdf which <name>"
+  output = ""
+
+[[snippets]]
+  description = "Set the package local version"
+  command = "asdf local <name> <version>"
+  output = ""
+
+[[snippets]]
+  description = "Set the package global version"
+  command = "asdf global <name> <version>"
+  output = ""
+
+[[snippets]]
+  description = "List installed versions of a package"
+  command = "asdf list <name>"
+  output = ""
+
+[[snippets]]
+  description = "List all versions of a package"
+  command = "asdf list-all <name>"
+  output = ""
+
+[[snippets]]
+  description = "Recreate shims for version of a package"
+  command = "asdf reshim <name> <version>"
+  output = ""
+
+[[snippets]]
+  description = "Update asdf to the latest stable release"
+  command = "asdf update"
+  output = ""
+
+[[snippets]]
+  description = "Update asdf to the latest on the master branch"
+  command = "asdf update --head"
+  output = ""
+
+[[snippets]]
+  description = "Create an empty Git repository or reinitialize an existing one"
+  command = "git init"
+  output = ""
+
+[[snippets]]
+  description = "Clone target repository"
+  command = "git clone <uri>"
+  output = ""
+
+[[snippets]]
+  description = "Clone a repository with branch-name checked out"
+  command = "git clone -b <branch-name> <uri>"
+  output = ""
+
+[[snippets]]
+  description = "Add remote repository"
+  command = "git remote add origin <uri>"
+  output = ""
+
+[[snippets]]
+  description = "Adds given file to stage area"
+  command = "git add <source>"
+  output = ""
+
+[[snippets]]
+  description = "Interactively choose hunks of patch between the index and the work tree and add them to the index"
+  command = "git add --patch <source>"
+  output = ""
+
+[[snippets]]
+  description = "Adds all files within given folder"
+  command = "git add folder/*"
+  output = ""
+
+[[snippets]]
+  description = "Adds all extension files to stage area"
+  command = "git add *.extension"
+  output = ""
+
+[[snippets]]
+  description = "Changed files on your working directory"
+  command = "git status"
+  output = ""
+
+[[snippets]]
+  description = "Give the output in the short-format"
+  command = "git status -s"
+  output = ""
+
+[[snippets]]
+  description = "Show the branch and tracking info even in short-format"
+  command = "git status -b"
+  output = ""
+
+[[snippets]]
+  description = "Show changes all changes between the working tree and the index"
+  command = "git diff"
+  output = ""
+
+[[snippets]]
+  description = "Show changes to a file between the working tree and the index"
+  command = "git diff <source>"
+  output = ""
+
+[[snippets]]
+  description = "Use the given message as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs"
+  command = "git commit -m <message>"
+  output = ""
+
+[[snippets]]
+  description = "Tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected"
+  command = "git commit --all"
+  output = ""
+
+[[snippets]]
+  description = "Updates the last commit without creating a new commit"
+  command = "git commit --amend"
+  output = ""
+
+[[snippets]]
+  description = "Create a single commit on top of the current branch"
+  command = "git commit --squash"
+  output = ""
+
+[[snippets]]
+  description = "Shows all your stashes"
+  command = "git stash list"
+  output = ""
+
+[[snippets]]
+  description = "Saves your local modifications to a new stash entry"
+  command = "git stash save <Stash Message>"
+  output = ""
+
+[[snippets]]
+  description = "Applies the stash in index"
+  command = "git stash apply stash@{index}"
+  output = ""
+
+[[snippets]]
+  description = "Applies the stash in index and removes it from stash list"
+  command = "git stash pop stash@{index}"
+  output = ""
+
+[[snippets]]
+  description = "Removes the index from stash list without applying"
+  command = "git stash drop stash@{index}"
+  output = ""
+
+[[snippets]]
+  description = "Clears the stash list"
+  command = "git stash clear"
+  output = ""
+
+[[snippets]]
+  description = "Removes file from stage area"
+  command = "git rm <source>"
+  output = ""
+
+[[snippets]]
+  description = "Moves or renames source"
+  command = "git mv <source> <destination>"
+  output = ""
+
+[[snippets]]
+  description = "Forces to move or rename the source even if it exists in destination"
+  command = "git mv -f <source> <destination>"
+  output = ""
+
+[[snippets]]
+  description = "Lists all tags"
+  command = "git tag --list"
+  output = ""
+
+[[snippets]]
+  description = "Marks the current commit with a tag"
+  command = "git tag <name>"
+  output = ""
+
+[[snippets]]
+  description = "Delete existing tags with the given names"
+  command = "git tag --delete <name>"
+  output = ""
+
+[[snippets]]
+  description = "Creates a new branch from HEAD called branch-name"
+  command = "git branch <name>"
+  output = ""
+
+[[snippets]]
+  description = "Creates and checks out to a new branch from HEAD called branch-name"
+  command = "git branch -b <name>"
+  output = ""
+
+[[snippets]]
+  description = "List both remote-tracking branches and local branches"
+  command = "git branch --all"
+  output = ""
+
+[[snippets]]
+  description = "Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream"
+  command = "git branch --delete"
+  output = ""
+
+[[snippets]]
+  description = "Switch branches or restore working tree files"
+  command = "git checkout <name>"
+  output = ""
+
+[[snippets]]
+  description = "Checkout and track a remote branch"
+  command = "git checkout --track <origin/name>"
+  output = ""
+
+[[snippets]]
+  description = "Discard all tracked local changes in HEAD"
+  command = "git checkout ."
+  output = ""
+
+[[snippets]]
+  description = "Resets a tracked file"
+  command = "git checkout HEAD <source>"
+  output = ""
+
+[[snippets]]
+  description = "Fetch all remotes"
+  command = "git fetch --all"
+  output = ""
+
+[[snippets]]
+  description = "Before fetching, remove any remote-tracking references that no longer exist on the remote"
+  command = "git fetch --prune"
+  output = ""
+
+[[snippets]]
+  description = "Fetch from and integrate with another repository or a local branch"
+  command = "git pull"
+  output = ""
+
+[[snippets]]
+  description = "Update remote refs along with associated objects"
+  command = "git push"
+  output = ""
+
+[[snippets]]
+  description = "Merges a branch to your current HEAD"
+  command = "git merge <branch-name>"
+  output = ""
+
+[[snippets]]
+  description = "Rebase your current HEAD onto branch-name"
+  command = "git rebase <branch-name>"
+  output = ""
+
+[[snippets]]
+  description = "Makes a list of the commits which are about to be rebased. User can edit that list before rebasing."
+  command = "git rebase --interactive"
+  output = ""
+
+[[snippets]]
+  description = "Continue a rebase after resolving conflicts"
+  command = "git rebase --continue"
+  output = ""
+
+[[snippets]]
+  description = "Abort a rebase"
+  command = "git rebase --abort"
+  output = ""
+
+[[snippets]]
+  description = "Pick and apply changes from commit hash to your current HEAD"
+  command = "git cherry-pick <commit>"
+  output = ""
+
+[[snippets]]
+  description = "Resets the index entries for all paths to their state"
+  command = "git reset"
+  output = ""
+
+[[snippets]]
+  description = "Does not touch the index file or the working tree at all"
+  command = "git reset --soft"
+  output = ""
+
+[[snippets]]
+  description = "Resets the index but not the working tree and reports what has not been updated"
+  command = "git reset --mixed"
+  output = ""
+
+[[snippets]]
+  description = "Resets the index and working tree. Any changes to tracked files in the working tree since commit are discarded"
+  command = "git reset --hard"
+  output = ""
+
+[[snippets]]
+  description = "Shows untracked files about to be removed"
+  command = "git clean -n"
+  output = ""
+
+[[snippets]]
+  description = "Removes all untracked files"
+  command = "git clean -f"
+  output = ""
+
+[[snippets]]
+  description = "Show all commits"
+  command = "git log"
+  output = ""
+
+[[snippets]]
+  description = "Show changes to file"
+  command = "git log -p <source>"
+  output = ""
+
+[[snippets]]
+  description = "Shows all commits as graph"
+  command = "git log --graph"
+  output = ""
+
+[[snippets]]
+  description = "Initialize flow inside an existing repository"
+  command = "git flow init"
+  output = ""
+
+[[snippets]]
+  description = "Create a new branch from latest develop as feature/feature-name"
+  command = "git flow feature start <name>"
+  output = ""
+
+[[snippets]]
+  description = "Merges feature-name into develop and removes branch"
+  command = "git flow feature finish <name>"
+  output = ""
+
+[[snippets]]
+  description = "Publishes a feature to the remote"
+  command = "git flow feature publish <name>"
+  output = ""
+
+[[snippets]]
+  description = "Pull a feature from remote to your local repository"
+  command = "git flow feature pull origin <name>"
+  output = ""
+
+[[snippets]]
+  description = "Creates a release branch from latest develop"
+  command = "git flow release start <name>"
+  output = ""
+
+[[snippets]]
+  description = "Merges release branch into master and develop"
+  command = "git flow release finish <name>"
+  output = ""
+
+[[snippets]]
+  description = "Creates a hotfix/fix-name branch from master"
+  command = "git flow hotfix start <name>"
+  output = ""
+
+[[snippets]]
+  description = "Merges fix-name into master and develop"
+  command = "git flow hotfix finish <name>"
+  output = ""
+
+[[snippets]]
+  description = "reset changes and remove untracked files"
+  command = "git reset --hard HEAD && git clean -fd"
+
+[[snippets]]
+  description = "List everything you have installed in the current directory"
+  command = "npm ls"
+  output = ""
+
+[[snippets]]
+  description = "Search the registry for packages matching terms"
+  command = "npm search <query>"
+  output = ""
+
+[[snippets]]
+  description = "Install a package"
+  command = "npm install <name>"
+  output = ""
+
+[[snippets]]
+  description = "Install a package in the version"
+  command = "npm install <module-name>@<version-name>"
+  output = ""
+
+[[snippets]]
+  description = "Uninstall a package, completely removing everything npm installed on its behalf"
+  command = "npm uninstall"
+  output = ""
+
+[[snippets]]
+  description = "Update all the packages listed to the latest version (specified by the tag config). Also install missing packages"
+  command = "npm update <name>"
+  output = ""
+
+[[snippets]]
+  description = "Update the global npm version"
+  command = "npm update npm -g"
+  output = ""
+
+[[snippets]]
+  description = "Display the README.md / documentation / npmjs.org page of a give library"
+  command = "npm docs <module-name>"
+  output = ""
+
+[[snippets]]
+  description = "List outdated libraries compared to currently installed node_modules"
+  command = "npm outdated"
+  output = ""
+
+[[snippets]]
+  description = "Lock down dependency versions"
+  command = "npm shrinkwrap"
+  output = ""
+
+[[snippets]]
+  description = "Interactively create a package.json file"
+  command = "npm init"
+  output = ""
+
+[[snippets]]
+  description = "Install a git specific release"
+  command = "npm install git://github.com/Marak/colors.js#v0.6.0"
+  output = ""
+
+[[snippets]]
+  description = "Locally edit a dependency"
+  command = "npm edit <module_name>"
+  output = ""
+
+[[snippets]]
+  description = "Setup editor for npm edit"
+  command = "npm config set editor <name>"
+  output = ""
+
+[[snippets]]
+  description = "Publish a package not under the default \"latest\" tag"
+  command = "npm publish --tag beta"
+  output = ""
+
+[[snippets]]
+  description = "list packages"
+  command = "npm list --depth=0 2> /dev/null"
+  output = ""
+
+[[snippets]]
+  description = "list global packages"
+  command = "npm list -g --depth=0 2> /dev/null"
+  output = ""
+
+[[snippets]]
+  description = "execute package binaries (install package temporary)"
+  command = "npx <package>"
+  tag = ["npm"]
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "npx <name> -p <package>"
+  tag = ["npm"]
+  output = ""
+
+[[snippets]]
+  description = "npm check and update package if needed"
+  command = "ncu"
+  output = ""
+
+[[snippets]]
+  description = "create a new project powered by vue-cli-service"
+  command = "vue create <app-name>"
+  output = ""
+
+[[snippets]]
+  description = "install a plugin and invoke its generator in an already created project"
+  command = "vue add <plugin>"
+  output = ""
+
+[[snippets]]
+  description = "invoke the generator of a plugin in an already created project"
+  command = "vue invoke <plugin>"
+  output = ""
+
+[[snippets]]
+  description = "inspect the webpack config in a project with vue-cli-service"
+  command = "vue inspect"
+  output = ""
+
+[[snippets]]
+  description = "serve a .js or .vue file in development mode with zero config"
+  command = "vue serve"
+  output = ""
+
+[[snippets]]
+  description = "build a .js or .vue file in production mode with zero config"
+  command = "vue build"
+  output = ""
+
+[[snippets]]
+  description = "start and open the vue-cli ui"
+  command = "vue ui"
+  output = ""
+
+[[snippets]]
+  description = "generate a project from a remote template (legacy API, requires @vue/cli-init)"
+  command = "vue init <template> <app-name>"
+  output = ""
+
+[[snippets]]
+  description = "inspect and modify the config"
+  command = "vue config"
+  output = ""
+
+[[snippets]]
+  description = "(experimental) check for outdated vue cli service / plugins"
+  command = "vue outdated"
+  output = ""
+
+[[snippets]]
+  description = "(experimental) upgrade vue cli service / plugins"
+  command = "vue upgrade"
+  output = ""
+
+[[snippets]]
+  description = "print debugging information about your environment"
+  command = "vue info"
+  output = ""
+
+[[snippets]]
+  description = "Search and install a package"
+  command = "yay <query>"
+  output = ""
+
+[[snippets]]
+  description = "Install a package"
+  command = "yay -S <package>"
+  output = ""
+
+[[snippets]]
+  description = "Install a package without confirmation"
+  command = "yay -S <package> --noconfirm"
+  output = ""
+
+[[snippets]]
+  description = "Install local package"
+  command = "yay -U /path/to/package_name-version.pkg.tar.xz"
+  output = ""
+
+[[snippets]]
+  description = "Search for packages by keyword"
+  command = "yay -Ss <query>"
+  output = ""
+
+[[snippets]]
+  description = "Show packages of group"
+  command = "yay -Sg <group>"
+  output = ""
+
+[[snippets]]
+  description = "Search installed packages for keywords"
+  command = "yay -Qs <query>"
+  output = ""
+
+[[snippets]]
+  description = "List explictly-installed packages"
+  command = "yay -Qe <package>"
+  output = ""
+
+[[snippets]]
+  description = "View package files"
+  command = "yay -Ql <package>"
+  output = ""
+
+[[snippets]]
+  description = "List information on a package"
+  command = "yay -Qii <package>"
+  output = ""
+
+[[snippets]]
+  description = "Who owns this file?"
+  command = "yay -Qo <filename>"
+  output = ""
+
+[[snippets]]
+  description = "Update all packages"
+  command = "yay -Syu"
+  output = ""
+
+[[snippets]]
+  command = "yay -Syu --ignore asdf-vm"
+  description = "update all packages except one"
+
+[[snippets]]
+  description = "Install and update package list"
+  command = "yay -Syu <package>"
+  output = ""
+
+[[snippets]]
+  description = "Remove a package with dependencies"
+  command = "yay -Rns <package>"
+  output = ""
+
+[[snippets]]
+  description = "Force remove package"
+  command = "yay -Rdd <package>"
+  output = ""
+
+[[snippets]]
+  description = "Remove unwanted dependencies"
+  command = "yay -Yc"
+  output = ""
+
+[[snippets]]
+  description = "Clear a cache"
+  command = "yay -Sc"
+  output = ""
+
+[[snippets]]
+  description = "Show an information about a package"
+  command = "yay -Si <package>"
+  output = ""
+
+[[snippets]]
+  description = "Show a package statistics"
+  command = "yay -Ps"
+  output = ""
+
+[[snippets]]
+  description = "list packages installed explicitly"
+  command = "comm -23 <(yay -Qeqt | sort) <(yay -Sgq base base-devel | sort)"
+  output = ""
+
+[[snippets]]
+  description = "install packages from file"
+  command = "yay -Syu $(cat </path/to/packages>)"
+  output = ""
+
+[[snippets]]
+  description = "remove unused packages (orphans)"
+  command = "yay -Rns $(yay -Qtdq)"
+  output = ""
+
+[[snippets]]
+  description = "remove old versions of packages from the cache and keep 3 latets versions"
+  command = "paccache --remove --keep 3"
+  output = ""
+
+[[snippets]]
+  description = "Run an installed application"
+  command = "flatpak run <name>"
+  output = ""
+
+[[snippets]]
+  description = "Install an application from a remote source"
+  command = "flatpak install remote <name>"
+  output = ""
+
+[[snippets]]
+  description = "List all installed applications and runtimes"
+  command = "flatpak list"
+  output = ""
+
+[[snippets]]
+  description = "Update all installed applications and runtimes"
+  command = "flatpak update"
+  output = ""
+
+[[snippets]]
+  description = "Add a remote source"
+  command = "flatpak remote-add --if-not-exists <remote_name> <remote_url>"
+  output = ""
+
+[[snippets]]
+  description = "List all configured remote sources"
+  command = "flatpak remote-list"
+  output = ""
+
+[[snippets]]
+  description = "Create new project"
+  command = "poetry new <project-name>"
+  output = ""
+
+[[snippets]]
+  description = "Create and activate virtual environment"
+  command = "poetry shell"
+  output = ""
+
+[[snippets]]
+  description = "install dependencies"
+  command = "poetry install"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "poetry add <package>"
+  output = ""
+
+[[snippets]]
+  description = ""
+  command = "poetry remove <package>"
+  output = ""
+
+[[snippets]]
+  description = "Build and publish package to pypi"
+  command = "poetry publish --build"
+  output = ""
+
+[[snippets]]
+  description = "Create a new container from a particular image."
+  command = "docker create <image>"
+  output = ""
+
+[[snippets]]
+  description = "Log into the Docker Hub repository."
+  command = "docker login"
+  output = ""
+
+[[snippets]]
+  description = "Pull an image from the "
+  command = "docker pull <image>"
+  output = ""
+
+[[snippets]]
+  description = "Push an image to the Docker Hub repository."
+  command = "docker push <username/image>"
+  output = ""
+
+[[snippets]]
+  description = "Search the Docker Hub repository for a particular term."
+  command = "docker search <term>"
+  output = ""
+
+[[snippets]]
+  description = "Create a target tag or alias that refers to a source image."
+  command = "docker tag <source> <target>"
+  output = ""
+
+[[snippets]]
+  description = "Start a particular container."
+  command = "docker start <container>"
+  output = ""
+
+[[snippets]]
+  description = "Stop a particular container."
+  command = "docker stop <container>"
+  output = ""
+
+[[snippets]]
+  description = "Run a shell command inside a particular container."
+  command = "docker exec -ti <container> <command>"
+  output = ""
+
+[[snippets]]
+  description = "Create and start a container at the same time, and then run a command inside it."
+  command = "docker run -ti  --image <image> <container> <command>"
+  output = ""
+
+[[snippets]]
+  description = "Create and start a container at the same time, run a command inside it, and then remove the container after executing the command."
+  command = "docker run -ti  --rm  --image <image> <container> <command>"
+  output = ""
+
+[[snippets]]
+  description = "Display the history of a particular image."
+  command = "docker history <image>"
+  output = ""
+
+[[snippets]]
+  description = "List all of the images that are currently stored on the system."
+  command = "docker images"
+  output = ""
+
+[[snippets]]
+  description = "Display low-level information about a particular Docker object."
+  command = "docker inspect <object>"
+  output = ""
+
+[[snippets]]
+  description = "List all of the containers that are currently running."
+  command = "docker ps"
+  output = ""
+
+[[snippets]]
+  description = "Display the version of Docker that is currently installed on the system."
+  command = "docker version"
+  output = ""
+
+[[snippets]]
+  description = "Kill a particular container."
+  command = "docker kill <container>"
+  output = ""
+
+[[snippets]]
+  description = "Kill all containers that are currently running."
+  command = "docker kill $(docker ps -q)"
+  output = ""
+
+[[snippets]]
+  description = "Delete a particular container that is not currently running."
+  command = "docker rm <container>"
+  output = ""
+
+[[snippets]]
+  description = "Delete all containers that are not currently running."
+  command = "docker rm $(docker ps -a -q)"
+  output = ""
+
+[[snippets]]
+  command = "docker rmi $(docker images -a -q)"
+  description = "remove all images"
