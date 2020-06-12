@@ -131,6 +131,7 @@ set showmode
 set wildmenu
 set wildmode=longest:full,full
 
+
 "===============================================================================
 " Поведение
 "===============================================================================
@@ -264,5 +265,5 @@ let g:airline_powerline_fonts = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 let g:user_emmet_install_global = 0
-autocmd FileType htm*,css EmmetInstall
+autocmd FileType html,css,vue,scss EmmetInstall
 "let g:user_emmet_leader_key=''
