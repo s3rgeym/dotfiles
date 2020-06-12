@@ -69,7 +69,7 @@ set whichwrap+=<,>,h,l,[,]        " переходить на новую стр�
 set wrap                          " включить перенос строк
 
 " восстановление позиции курсора при открытии файла
-augroup jump
+augroup RestoreCurPos
   au!
   au BufReadPost *
     \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
@@ -78,16 +78,27 @@ augroup jump
 augroup end
 
 " автоматическая установка плагинов при запуске Vim
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
+augroup AutoInstall
+  au!
+  au VimEnter *
+    \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \ |   PlugInstall --sync | q
+    \ | endif
+augroup end
 
 " запускаем NERDTree открытии каталога
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+augroup NERDTree
+  au!
+  au StdinReadPre * let s:std_in=1
+  au VimEnter *
+    \ if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
+    \ |   exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0]
+    \ | endif
+augroup end
 
-autocmd FileType html,css,vue,scss EmmetInstall
+augroup FileTYpes
+  au FileType html,css,vue,scss EmmetInstall
+augroup end
 
 " :W сохранить файл с sudo
 command W w !sudo tee % > /dev/null
