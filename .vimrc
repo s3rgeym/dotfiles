@@ -6,9 +6,16 @@ filetype off
 " :PluggInstall и :PlugUpdate нужно вызывать вручную
 call plug#begin('~/.vim/plugged')
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'nathanaelkane/vim-indent-guides'
 " требует установки cmake
 Plug 'valloric/youcompleteme', { 'do': './install.py' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
 
 " плагины добавлять сюда
 
@@ -96,7 +103,8 @@ syntax enable
 "===============================================================================
 
 " цветовая схема
-color dracula
+color molokai
+set t_Co=256
 
 " всегда показывать строку состояния
 set laststatus=2
@@ -207,9 +215,10 @@ map <C-a> <esc>ggVG<cr>
 
 let mapleader = "\<Space>"
 
-" разделение экрана
-nmap <leader>v :vsplit<cr>
-nmap <leader>s :split<cr>
+" сохранение файлов, закрытие окна
+map <leader>w :w<CR>
+map <leader>x :x<CR>
+map <leader>q :q!<CR>
 
 " закрыть текущий буфер
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
@@ -228,5 +237,14 @@ map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 map <leader>tm :tabmove
 
+" разделение экрана
+nmap <leader>v :vsplit<cr>
+nmap <leader>s :split<cr>
+
 " используется для перезагрузки ~/.vimrc
 nmap <leader>so :w<cr>:so %<cr>
+
+nmap <leader>n :NERDTreeToggle<cr>
+
+let g:airline_powerline_fonts = 1
+let g:indent_guides_enable_on_vim_startup = 1
