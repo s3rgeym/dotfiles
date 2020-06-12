@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 
 " для управления плагинами используется vim-plug
-" :PluggInstall и :PlugUpdate нужно вызывать вручную
+" @use :PluggInstall, :PlugUpdate
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes'
@@ -177,6 +177,13 @@ augroup jump
     \ |   exe "normal! g`\""
     \ | endif
 augroup end
+
+" автоматическая установка плагинов
+" @url https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
 
 packadd! matchit
 
