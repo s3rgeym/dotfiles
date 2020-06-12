@@ -97,6 +97,7 @@ augroup NERDTree
 augroup end
 
 augroup FileTYpes
+  " запуск Emmet
   au FileType html,css,vue,scss EmmetInstall
 augroup end
 
