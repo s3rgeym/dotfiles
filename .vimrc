@@ -29,44 +29,66 @@ call plug#end()
 " цветовая схема
 color molokai
 
-set autochdir                     " менять рабочий каталог на тот, в котором
-                                  " расположен файл
-
-set clipboard=unnamed,unnamedplus " копируем в системный буфер обмена
-set cmdheight=3                   " количество строк в меню команд
-set colorcolumn=+1                " показывать визуальный ограничитель
-set confirm                       " показывать диалог при наличии несохраненных
-                                  " изменений
-
-set cursorline                    " выделять текущую строку
-set gdefault                      " добавлять флаг /g при замене текста
-set hidden                        " разрешить одновременное редактирование
-                                  " нескольких файлов
-
-set hlsearch                      " подсвечивать результаты поиска
-set ignorecase smartcase          " не учитывать регистр при поиске, если
-                                  " символы в одном регистре
-
-set linebreak                     " переносить строки по словам, а не символам
-set matchpairs+=<:>               " лучшая поддержка html
-set mouse=a                       " включить поддержку мыши
-set noeb vb t_vb=                 " отключить звук бипера
-set nomodeline                    " в целях безопасности игнорировать
-                                  " modeline's
-
-set nopaste                       " отключить режим вставки
-set nostartofline                 " принудительно не переводить курсор в начало
-                                  " строки
-
-set number relativenumber         " показывать номера строк
-set shiftwidth=2 tabstop=2        " отступы
-set showbreak=↪                   " показывать разрывы строк
-set showmatch                     " подсвечивать парные скобки
-set textwidth=79                  " ограничение на длину строки
-set whichwrap+=<,>,h,l,[,]        " переходить на новую строку с помощью
-                                  " влево-вправо
-
-set wrap                          " включить перенос строк
+" менять рабочий каталог на тот, в котором расположен файл
+set autochdir
+" использовать для копирования системный буфер
+set clipboard=unnamed,unnamedplus
+" количество строк для ввода команд
+set cmdheight=2
+" показывать визуальный ограничитель
+set colorcolumn=+1
+" спрашивать действие при наличии несохраненных изменений
+set confirm
+" выделять текущую строку
+set cursorline
+" добавлять флаг /g при замене текста
+set gdefault
+" разрешить одновременное редактирование нескольких файлов
+set hidden
+" подсвечивать результаты поиска
+set hlsearch
+" не учитывать регистр при поиске
+set ignorecase
+" переносить строки по словам, а не символам
+set linebreak
+" считать угловые скобки парными символами
+set matchpairs+=<:>
+" включить поддержку мыши
+set mouse=a
+" отключить резервное копирование
+set nobackup nowritebackup
+" отключить бипер
+set noeb vb t_vb=
+" в целях безопасности игнорировать modeline's
+set nomodeline
+" отключить режим вставки
+set nopaste
+" принудительно не переводить курсор в начало строки
+set nostartofline
+" не создавать файлы подкачки
+set noswapfile
+" показывать номера строк
+set number
+" показывать номера относительно текущей строки
+set relativenumber
+" округлять отступы при шифтинге
+set shiftround
+" показывать разрывы строк
+set showbreak=↪ "
+" подсвечивать парные символы
+set showmatch
+" учитывать регистр, если строка для поиска содержит символы в разном регистре
+set smartcase
+" установить размер отступа
+set sw=2 ts=2
+" длина строки
+set textwidth=79
+" изменять заголовок окна
+set title
+" переходить на новую строку с помощью влево-вправо
+set whichwrap+=<,>,h,l,[,]
+" включить перенос строк
+set wrap
 
 " восстановление позиции курсора при открытии файла
 augroup RestoreCurPos
@@ -104,8 +126,9 @@ augroup end
 " :W сохранить файл с sudo
 command W w !sudo tee % > /dev/null
 
-" переключение режима вставки
+" режима вставки
 set pastetoggle=<f2>
+
 " переключение режима переноса строк
 map <f3> :set wrap!<cr>
 " навигация по коду
@@ -182,5 +205,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_python_checkers = ['pylint']
