@@ -201,7 +201,7 @@ command W w !sudo tee % > /dev/null
 map Q gq
 
 " повторить операцию
-nmap U <C-r>
+nmap U <c-r>
 
 " выбрать целую строку
 nmap Y y$
@@ -215,24 +215,24 @@ map j gj
 map k gk
 
 " перемещение между окнами
-nmap <C-j> <c-w>j
-nmap <C-k> <c-w>k
-nmap <C-h> <c-w>h
-nmap <C-l> <c-w>l
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
 
 " добавление отступов в визуальном режиме
 vmap < <gv
 vmap > >gv
 
 " выбрать все
-map <C-a> <esc>ggVG<cr>
+map <c-a> <esc>ggVG<cr>
 
 let mapleader = "\<Space>"
 
 " сохранение файлов, закрытие окна
-map <leader>w :w<CR>
-map <leader>x :x<CR>
-map <leader>q :q!<CR>
+map <leader>w :w<cr>
+map <leader>x :x<cr>
+map <leader>q :q!<cr>
 
 " закрыть текущий буфер
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
@@ -262,3 +262,7 @@ nmap <leader>n :NERDTreeToggle<cr>
 
 let g:airline_powerline_fonts = 1
 let g:indent_guides_enable_on_vim_startup = 1
+
+let g:user_emmet_install_global = 0
+autocmd FileType htm*,css EmmetInstall
+"let g:user_emmet_leader_key=''
