@@ -98,6 +98,7 @@ eval "$(hub alias -s)"
 alias :q='exit'
 alias reload='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 mcd() { mkdir -p "$1" && cd "$1" }
 
@@ -117,4 +118,3 @@ stty -ixon
 bindkey '^s' pet-select
 
 neofetch
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
