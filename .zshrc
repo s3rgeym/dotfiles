@@ -96,6 +96,7 @@ zplug load # --verbose
 eval "$(hub alias -s)"
 
 alias :q='exit'
+alias cls='clear'
 alias reload='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
