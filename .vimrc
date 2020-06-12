@@ -6,8 +6,12 @@ filetype off
 " @use :PluggInstall, :PlugUpdate
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'luochen1990/rainbow'
+Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 " требует установки cmake
 Plug 'valloric/youcompleteme', { 'do': './install.py' }
@@ -15,6 +19,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+" требует ctags
+Plug 'vim-scripts/taglist.vim'
 Plug 'tpope/vim-surround'
 
 " плагины добавлять сюда
