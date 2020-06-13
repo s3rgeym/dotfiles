@@ -2,6 +2,9 @@
   "[go]": {
     "editor.insertSpaces": false
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[python]": {
     "editor.tabSize": 4
   },
@@ -9,7 +12,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
@@ -18,17 +20,19 @@
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [72, 80, 100, 110],
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true
+  },
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
-  "editor.tokenColorCustomizations": {
-    "semanticHighlighting": true
-  },
   "editor.wordWrap": "on",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.singleQuote": true,
@@ -49,6 +53,5 @@
   "terminal.integrated.fontSize": 12,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.colorTheme": "Atom One Dark",
-  "workbench.iconTheme": "material-icon-theme",
-  "go.formatTool": "goimports"
+  "workbench.iconTheme": "material-icon-theme"
 }

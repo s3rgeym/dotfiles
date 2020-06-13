@@ -41,6 +41,8 @@ set colorcolumn=+1
 set confirm
 " выделять текущую строку
 set cursorline
+" вставлять пробелы при нажатии на Tab
+set expandtab
 " добавлять флаг /g при замене текста
 set gdefault
 " разрешить одновременное редактирование нескольких файлов
@@ -110,7 +112,7 @@ augroup end
 
 augroup NERDTree
   au!
-	" запускаем NERDTree открытии каталога
+  " запускаем NERDTree открытии каталога
   au StdinReadPre * let s:std_in=1
   au VimEnter *
     \ if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
