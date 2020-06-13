@@ -108,9 +108,9 @@ augroup AutoInstall
     \ | endif
 augroup end
 
-" запускаем NERDTree открытии каталога
 augroup NERDTree
   au!
+	" запускаем NERDTree открытии каталога
   au StdinReadPre * let s:std_in=1
   au VimEnter *
     \ if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
