@@ -368,6 +368,17 @@
   output = ""
 
 [[snippets]]
+  command = "sensors"
+  description = "shows the current readings of all sensor chips"
+
+[[snippets]]
+  command = "sudo sensors-detect"
+
+[[snippets]]
+  command = "fancontrol"
+  description = "calculates fan speeds from temperatures and sets the corresponding PWM outputs"
+
+[[snippets]]
   description = "display system information"
   command = "neofetch"
   output = ""
@@ -1706,6 +1717,11 @@
   tag = ["networking"]
 
 [[snippets]]
+  command = "( nmcli dev list || nmcli dev show ) 2>/dev/null | grep DNS"
+  description = "show my dns"
+  tag = ["networking"]
+
+[[snippets]]
   command = "sudo resolvconf -u"
   description = "update resolv.conf"
   tag = ["networking"]
@@ -1750,8 +1766,8 @@
   output = ""
 
 [[snippets]]
-  description = "find server pid by port"
-  command = "lsof -i :<port>"
+  description = "find and kill all processes listening on a port"
+  command = "lsof -ti :<port> | xargs kill"
   tag = ["networking"]
   output = ""
 

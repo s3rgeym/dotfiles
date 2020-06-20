@@ -54,8 +54,8 @@ set ignorecase
 " переносить строки по словам, а не символам
 set linebreak
 " показывать непечатные символы
-set list
-" считать угловые скобки парными символами
+set list listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
+"считать угловые скобки парными символами
 set matchpairs+=<:>
 " включить поддержку мыши
 set mouse=a
