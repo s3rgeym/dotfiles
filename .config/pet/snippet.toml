@@ -883,6 +883,10 @@
   output = ""
 
 [[snippets]]
+  description = "extract rpm"
+  command = "rpm2cpio <filename> | cpio -idmv"
+
+[[snippets]]
   description = "extract and remove archive"
   command = "extract -r <filename>"
   tag = ["filesystem"]
@@ -1668,6 +1672,12 @@
 [[snippets]]
   description = "name server lookup"
   command = "nslookup <domain>"
+  tag = ["networking"]
+  output = ""
+
+[[snippets]]
+  description = "dns lookup"
+  command = "dig <host>"
   tag = ["networking"]
   output = ""
 
