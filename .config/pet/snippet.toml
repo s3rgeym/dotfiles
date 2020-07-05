@@ -1312,7 +1312,7 @@
 
 [[snippets]]
   description = "update fonts cache"
-  command = "fc-cache -f -v"
+  command = "sudo fc-cache -fv"
   output = ""
 
 [[snippets]]
