@@ -76,15 +76,24 @@ zplug "zdharma/fast-syntax-highlighting"
 # Сообщает о том, что для команды существует алиас
 zplug "MichaelAquilina/zsh-you-should-use"
 
-zplug romkatv/powerlevel10k, as:theme, depth:1
+# Темы Oh-My-Zsh
 
+# Минималистичная с правой угловой скобкой
 # zplug mafredri/zsh-async, from:github
 # zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
+# Похожа на предыдущую, но только со стрелочкой и показывает время выполнения
+# команды
 # zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
+# Одна из самых популярных на Github
 # setopt prompt_subst # Make sure prompt is able to be generated properly.
 # zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
+
+
+# Универсальная с констуктором, который позволяет в интерактивном режиме
+# создать свою тему, похожую на одну из перечисленных выше
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
