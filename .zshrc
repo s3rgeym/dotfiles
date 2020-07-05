@@ -1,12 +1,5 @@
 #!/usr/bin/env zsh
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 fpath+=~/.zfunc
 
 source /usr/share/zsh/scripts/zplug/init.zsh
@@ -106,10 +99,12 @@ fi
 # Флаг --verbose служит для вывода отладочной информации
 zplug load # --verbose
 
-. /opt/asdf-vm/asdf.sh
-# . /usr/share/bash-completion/completions/asdf
-
-eval "$(hub alias -s)"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 alias :q='exit'
 alias cls='clear'
@@ -118,6 +113,11 @@ alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 mcd() { mkdir -p "$1" && cd "$1" }
+
+. /opt/asdf-vm/asdf.sh
+# . /usr/share/bash-completion/completions/asdf
+
+eval "$(hub alias -s)"
 
 function prev() {
   PREV=$(fc -lrn | head -n 1)
@@ -138,4 +138,3 @@ bindkey '^s' pet-select
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 neofetch
-

@@ -49,7 +49,7 @@
   "python.linting.pylintEnabled": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'JetBrains Mono', 'Source Code Pro', Hack, monospace",
+  "terminal.integrated.fontFamily": "Hack, monospace",
   "terminal.integrated.fontSize": 12,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.colorTheme": "Dracula",
