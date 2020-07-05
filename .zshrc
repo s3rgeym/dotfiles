@@ -78,7 +78,7 @@ zplug "MichaelAquilina/zsh-you-should-use"
 
 # Темы Oh-My-Zsh
 
-# Минималистичная с правой угловой скобкой
+# Минималистичная с правой угловой скобкой для приглашения командной строки
 # zplug mafredri/zsh-async, from:github
 # zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
