@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #!/usr/bin/env zsh
 
 fpath+=~/.zfunc
@@ -69,12 +76,12 @@ zplug "zdharma/fast-syntax-highlighting"
 # Сообщает о том, что для команды существует алиас
 zplug "MichaelAquilina/zsh-you-should-use"
 
-# zplug romkatv/powerlevel10k, as:theme, depth:1
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # zplug mafredri/zsh-async, from:github
 # zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+# zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # setopt prompt_subst # Make sure prompt is able to be generated properly.
 # zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
@@ -118,4 +125,8 @@ zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 neofetch
+
