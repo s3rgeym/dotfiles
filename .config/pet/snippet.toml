@@ -1676,8 +1676,8 @@
   output = ""
 
 [[snippets]]
-  description = "dns lookup"
-  command = "dig <host>"
+  description = "get site ip"
+  command = "dig +short <host>"
   tag = ["networking"]
   output = ""
 
