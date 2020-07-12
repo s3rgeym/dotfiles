@@ -318,6 +318,10 @@
   output = ""
 
 [[snippets]]
+  command = "id"
+  description = "print current user and group ids"
+
+[[snippets]]
   description = "user UID"
   command = "id -u <username>"
   output = ""
@@ -1654,7 +1658,7 @@
 [[snippets]]
   description = "scan ports"
   command = "nc -z -v <host> 20-80"
-  tag = ["networking"]
+  tag = ["networking", "netcat"]
   output = ""
 
 [[snippets]]
@@ -2381,6 +2385,10 @@
 [[snippets]]
   command = "zplug update"
   description = "update all plugins"
+
+[[snippets]]
+  command = "alias ll"
+  description = "show alias definition"
 
 [[snippets]]
   description = ""
@@ -3342,3 +3350,37 @@
 [[snippets]]
   command = "docker rmi $(docker images -a -q)"
   description = "remove all images"
+
+[[snippets]]
+  command = "docker volume rm $(docker volume ls -q)"
+  description = "remove all volumes"
+
+[[snippets]]
+  command = "docker-compose up -d"
+  description = "run services in background"
+
+[[snippets]]
+  command = "docker-compose up --build --force-recreate --no-dep -d <service>"
+  description = "rebuild and update a container"
+
+[[snippets]]
+  command = "docker-compose down"
+  description = ""
+
+[[snippets]]
+  command = "docker-compose ps"
+  description ="list containers"
+
+[[snippets]]
+  command = "echo -e '*1\r\n$4\r\nPING\r\n' | nc 127.0.0.1 6379"
+  description = "test redis connection with netcat"
+
+[[snippets]]
+  command = "websocat"
+  description = "command-line websockets client"
+
+[[snippets]]
+  command = "p10k configure"
+  description = "power level 10k theme customization"
+  tag = ["zsh", "oh-my-zsh"]
+
