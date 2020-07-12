@@ -3258,7 +3258,7 @@
   output = ""
 
 [[snippets]]
-  description = "Pull an image from the "
+  description = "Pull an image from the Docker Hub repository."
   command = "docker pull <image>"
   output = ""
 
@@ -3293,13 +3293,8 @@
   output = ""
 
 [[snippets]]
-  description = "Create and start a container at the same time, and then run a command inside it."
-  command = "docker run -ti  --image <image> <container> <command>"
-  output = ""
-
-[[snippets]]
-  description = "Create and start a container at the same time, run a command inside it, and then remove the container after executing the command."
-  command = "docker run -ti  --rm  --image <image> <container> <command>"
+  description = "Run an interactive shell in an image."
+  command = "docker run -i -t <image> sh"
   output = ""
 
 [[snippets]]

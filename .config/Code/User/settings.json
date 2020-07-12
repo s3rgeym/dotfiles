@@ -49,10 +49,10 @@
   "python.linting.pylintEnabled": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
+  "terminal.integrated.fontFamily": "'MesloLGS NF', 'Hack Nerd Font', monospace",
   "terminal.integrated.fontSize": 12,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorTheme": "Dracula",
-"workbench.iconTheme": "material-icon-theme",
-"python.languageServer": "Microsoft"
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "python.languageServer": "Microsoft"
 }
