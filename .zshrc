@@ -29,7 +29,7 @@ zplug "plugins/fd", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
 zplug "plugins/git-flow-avh", from:oh-my-zsh
 # алиасы для git
-zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/git", from:oh-my-zsh
 # функции
 zplug "plugins/github", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
