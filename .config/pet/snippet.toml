@@ -1449,7 +1449,7 @@
 
 [[snippets]]
   command = "sudo journalctl --vacuum-time=2d"
-  description = "clear logs" 
+  description = "clear logs"
 
 [[snippets]]
   description = "test nginx config"
@@ -3184,7 +3184,7 @@
 
 [[snippets]]
   description = "remove old versions of packages from the cache and keep 3 latets versions"
-  command = "paccache --remove --keep 3"
+  command = "sudo paccache -rk 3"
   output = ""
 
 [[snippets]]
@@ -3379,3 +3379,26 @@
   description = "power level 10k theme customization"
   tag = ["zsh", "oh-my-zsh"]
 
+[[snippets]]
+  command = "gh"
+  description = "github cli"
+
+[[snippets]]
+  command = "gh repo create --public repo"
+  description = "create a new repository"
+  tag = ["github"]
+
+[[snippets]]
+  command = "gh repo view owner/repo"
+  description = "show description and readme of a repository"
+  tag = ["github"]
+
+[[snippets]]
+  command = "gh repo clone owner/repo"
+  description = "clone a repository"
+  tag = ["github"]
+
+[[snippets]]
+  command = "gh issue create -R owner/repo"
+  description = "create an issue"
+  tag = ["github"]
