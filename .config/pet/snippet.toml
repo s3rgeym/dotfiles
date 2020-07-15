@@ -1425,6 +1425,9 @@
   description = "prints a list of all running units, ordered by the time they took to initialize"
 
 [[snippets]]
+  command = "systemd-analyze plot > boot_analysis.svg"
+
+[[snippets]]
   description = "trim all mounted file systems on devices that supported discard"
   command = "sudo fstrim --verbose --all"
   tag = ["filesystem", "ssd"]
