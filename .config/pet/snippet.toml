@@ -1029,7 +1029,7 @@
   output = ""
 
 [[snippets]]
-  command = "hyperfine --min-runs <N> <command>"
+  command = "hyperfine --min-runs <number> <command>"
   description = "benchmark"
 
 [[snippets]]
