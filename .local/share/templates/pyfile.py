@@ -9,6 +9,7 @@ __version__ = '0.1.0'
 
 
 def main(argv: List[str]) -> Union[None, int, str]:
+    """Main function."""
     parser = argparse.ArgumentParser(description=__doc__)
 
     parser.add_argument(
