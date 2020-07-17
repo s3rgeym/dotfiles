@@ -3,7 +3,7 @@
 """Program description goes here."""
 import argparse
 import sys
-from typing import Any, List, Union
+from typing import List, Union
 
 __version__ = '0.1.0'
 
