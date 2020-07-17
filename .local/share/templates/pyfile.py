@@ -1,12 +1,17 @@
 #!/usr/bin/env python
+"""Program description goes here."""
 import argparse
 import sys
 from typing import List, Union
 
+__version__ = '0.1.0'
+
 
 def main(argv: List[str]) -> Union[None, int, str]:
-    parser = argparse.ArgumentParser()
-    ...
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        '-v', '--version', action='version', version=f'v{__version__}'
+    )
     args = parser.parse_args(argv)
     ...
 
