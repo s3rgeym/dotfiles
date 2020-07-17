@@ -1029,6 +1029,10 @@
   output = ""
 
 [[snippets]]
+  command = "hyperfine --min-runs <N> <command>"
+  description = "benchmark"
+
+[[snippets]]
   description = "execute something and kill it soon after"
   command = "timeout <timeout> <command>"
   output = ""
