@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """Program description goes here."""
 import argparse
 import sys
@@ -13,7 +14,6 @@ def main(argv: List[str]) -> Union[None, int, str]:
         '-v', '--version', action='version', version=f'v{__version__}'
     )
     args = parser.parse_args(argv)
-    ...
 
 
 if __name__ == '__main__':
