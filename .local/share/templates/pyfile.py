@@ -10,5 +10,6 @@ def main(argv: List[str]) -> Union[None, int, str]:
     args = parser.parse_args(argv)
     ...
 
+
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
