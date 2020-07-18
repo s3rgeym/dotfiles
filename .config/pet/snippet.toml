@@ -2309,6 +2309,10 @@
   output = ""
 
 [[snippets]]
+  command = "wrk"
+  description = "HTTP benchmarking tool"
+
+[[snippets]]
   command = "m2r <filename>"
   description = "convert md to rst"
   tag = ["python"]
