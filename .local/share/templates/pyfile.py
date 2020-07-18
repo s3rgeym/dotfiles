@@ -9,7 +9,7 @@ __author__ = 'Sergey M <yamldeveloper@proton.me>'
 __version__ = '0.1.0'
 
 
-def main(argv: Optional[Sequence[str]] = None) -> Union[int, str, None]:
+def main(argv: Optional[Sequence[str]] = None) -> Union[None, int, str]:
     """Main function."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
