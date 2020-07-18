@@ -2190,13 +2190,13 @@
   output = ""
 
 [[snippets]]
-  description = "show yes/no dialog"
-  command = "dialog --title '<title>' --yesno '<question>' 13 40"
+  description = "show dialog"
+  command = "dialog"
   output = ""
 
 [[snippets]]
-  command = "kdialog --title \"Question\" --yesno \"Do u have small penis?\""
-  description = "KDE yes/no dialog"
+  command = "kdialog
+  description = "KDE dialog"
 
 [[snippets]]
   description = "clear ram cache and swap space"
