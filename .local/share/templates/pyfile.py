@@ -3,20 +3,18 @@
 """Program description goes here."""
 import argparse
 import sys
-from typing import List, Union
+from typing import Optional, Sequence, Union
 
 __author__ = 'Sergey M <yamldeveloper@proton.me>'
 __version__ = '0.1.0'
 
 
-def main(argv: List[str]) -> Union[None, int, str]:
+def main(argv: Optional[Sequence[str]] = None) -> Union[None, int, str]:
     """Main function."""
     parser = argparse.ArgumentParser(description=__doc__)
-
     parser.add_argument(
         '-v', '--version', action='version', version=f'v{__version__}'
     )
-
     args = parser.parse_args(argv)
 
 
