@@ -13,3 +13,6 @@ export ELECTRON_TRASH=kioclient5 code
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 # Нужно для Go
 export GOO111MODULE=on
+# Решение проблемы с масштабированием интерфейса java-приложений, написанных на
+# Swing
+# export _JAVA_OPTIONS="-Dawt.useSystemAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"

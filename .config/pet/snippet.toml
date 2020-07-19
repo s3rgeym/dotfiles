@@ -1905,8 +1905,8 @@
   output = ""
 
 [[snippets]]
-  description = "list commands"
-  command = "compgen -c"
+  description = "list all commands and aliases"
+  command = "compgen -ac"
   output = ""
 
 [[snippets]]
@@ -2195,7 +2195,7 @@
   output = ""
 
 [[snippets]]
-  command = "kdialog
+  command = "kdialog"
   description = "KDE dialog"
 
 [[snippets]]
