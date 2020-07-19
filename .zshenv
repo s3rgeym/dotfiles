@@ -15,4 +15,6 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export GOO111MODULE=on
 # Решение проблемы с масштабированием интерфейса java-приложений, написанных на
 # Swing
-# export _JAVA_OPTIONS="-Dawt.useSystemAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+# -Dsun.java2d.uiScale=2 - для масштабирования интерфейса, остальное с вики
+# скопипастил
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.uiScale=2"

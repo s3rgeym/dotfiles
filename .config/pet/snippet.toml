@@ -1548,6 +1548,10 @@
   command = "http post https://oauth.vk.com/token grant_type==password username==<username> password==<password> client_id==2274003 client_secret==hHbZxrka2uZ6jB1inYsH v==5.103"
 
 [[snippets]]
+  command = "irb"
+  description = "Interactive Ruby Shell"
+
+[[snippets]]
   command = "go run <program>"
   description = "test program"
 
@@ -2417,7 +2421,7 @@
   output = ""
 
 [[snippets]]
-  description = "chamge the python version for the current terminal session"
+  description = "change the python version for the current terminal session"
   command = "pyenv shell <version>"
   output = ""
 
