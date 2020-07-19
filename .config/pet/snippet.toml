@@ -3417,3 +3417,7 @@
   command = "gh issue create -R owner/repo"
   description = "create an issue"
   tag = ["github"]
+
+[[snippets]]
+  command = "sed -ri 's;https://([^/]+)/([^/]+);git@\\1:\\2;' .git/config"
+  description = "rewrite https url to ssh"
