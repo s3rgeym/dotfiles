@@ -1,52 +1,52 @@
 [[snippets]]
-  description = "Ctrl+U: erase line"
+  description = "# Ctrl+U: erase line"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+A: move to start of the line"
+  description = "# Ctrl+A: move to start of the line"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B: move back one word"
+  description = "# Ctrl+B: move back one word"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+F: move forward one word"
+  description = "# Ctrl+F: move forward one word"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+Y: paste from the clipboard"
+  description = "# Ctrl+Y: paste from the clipboard"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+Z: suspends (pauses) the currently running process; use fg or bg to resume it"
+  description = "# Ctrl+Z: suspends (pauses) the currently running process; use fg or bg to resume it"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+R: reverse incremental search of history"
+  description = "# Ctrl+R: reverse incremental search of history"
   command = ""
   tag = ["shortcuts"]
   output = ""
 
 [[snippets]]
-  description = "$$ ‒ current process id"
+  description = "# $$ ‒ current process id"
   command = ""
   output = ""
 
 [[snippets]]
-  description = "$? ‒ last command exit code"
+  description = "# $? ‒ last command exit code"
   command = ""
   output = ""
 
