@@ -567,7 +567,7 @@
   output = ""
 
 [[snippets]]
-  description = "skip N lines"
+  description = "less skip first lines"
   command = "less +<num> <filename>"
   output = ""
 
@@ -1130,6 +1130,10 @@
   command = "show last n lines"
   tag = []
   output = ""
+
+[[snippets]]
+  description = "skip lines"
+  command = "tail -n +<N+1>"
 
 [[snippets]]
   description = "sort lines"
@@ -1715,10 +1719,19 @@
   output = ""
 
 [[snippets]]
+  command = "proxychains program"
+  description = "redirects the connections through socks or https proxies"
+
+[[snippets]]
   description = "setup socks5 ssh tunnel"
   command = "ssh -f -C2qTnN -D <port> <user>@<host>"
   tag = ["networking"]
   output = ""
+
+[[snippets]]
+  description = "connect to server"
+  command = "telnet <address> <port=23>"
+  tag = ["networking"]
 
 [[snippets]]
   description = "download file"
@@ -1925,12 +1938,12 @@
 
 [[snippets]]
   description = "show ASCII banner"
-  command = "figglet <text>"
+  command = "figlet <text>"
   output = ""
 
 [[snippets]]
-  description = "count lines of code"
-  command = "tokei <path=.>"
+  description = "count lines of code (CLOC)"
+  command = "tokei ."
   output = ""
 
 [[snippets]]

@@ -33,6 +33,8 @@
   "files.trimTrailingWhitespace": true,
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
+  "lua.format.singleQuote": true,
+  "lua.luacheckPath": "/usr/bin/luacheck",
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.singleQuote": true,
