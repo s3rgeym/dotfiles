@@ -6,13 +6,13 @@ import logging
 import sys
 from typing import List, Optional
 
-__version__ = '0.1.0'
 __author__ = 'Sergey M'
 __email__ = 'yamldeveloper@proton.me'
 __copyright__ = 'Copyright 2020, Sergey M'
 __credits__ = ['Sergey M']
 __license__ = 'MIT'
 __maintainer__ = 'Sergey M'
+__version__ = '0.1.0'
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
