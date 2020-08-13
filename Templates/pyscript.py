@@ -4,7 +4,7 @@
 import argparse
 import logging
 import sys
-from typing import Any, Optional, Sequence
+from typing import Any, List, Optional
 
 __version__ = '0.1.0'
 __author__ = 'Sergey M'
@@ -15,7 +15,7 @@ __license__ = 'MIT'
 __maintainer__ = 'Sergey M'
 
 
-def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
+def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -38,7 +38,7 @@ def run(args: argparse.Namespace) -> Any:
     raise NotImplementedError
 
 
-def main(argv: Optional[Sequence[str]] = None) -> Any:
+def main(argv: Optional[List[str]] = None) -> Any:
     args = parse_args(argv)
     levels = [logging.WARNING, logging.INFO, logging.DEBUG]
     log_level = levels[min(args.verbosity, len(levels) - 1)]
