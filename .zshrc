@@ -27,7 +27,7 @@ zplug "plugins/encode64", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/fd", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
-zplug "plugins/git-flow-avh", from:oh-my-zsh
+# zplug "plugins/git-flow-avh", from:oh-my-zsh
 # алиасы для git
 # zplug "plugins/git", from:oh-my-zsh
 # функции
@@ -106,16 +106,38 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export BROWSER="chromium"
+export EDITOR="vim"
+export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
+export SYSTEMD_EDITOR="$EDITOR"
+export TERMINAL="gnome-terminal"
+export ELECTRON_TRASH="gio trash"
+# Требуется для Python, установленного через pyenv, для компиляции YCM при
+# установке YouCompleteMe
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+# Нужно для Go
+# export GOO111MODULE=on
+# Решение проблемы с масштабированием интерфейса java-приложений, написанных на
+# Swing
+# -Dsun.java2d.uiScale=2 - для масштабирования интерфейса, остальное с вики
+# скопипастил
+# export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.uiScale=2"
+export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
 alias :q='exit'
 alias cls='clear'
 alias reload='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
+# git clone --bare git://github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
+# dotfiles rebase
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias work='cd ~/workspace'
 
 mcd() { mkdir -p "$1" && cd "$1" }
 
-. /opt/asdf-vm/asdf.sh
-# . /usr/share/bash-completion/completions/asdf
+source /opt/asdf-vm/asdf.sh
+# source /opt/asdf-vm/completions/asdf.bash
 
 eval "$(hub alias -s)"
 
@@ -137,4 +159,4 @@ bindkey '^s' pet-select
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-neofetch
+# neofetch
