@@ -39,9 +39,9 @@ def run(args: argparse.Namespace) -> Optional[int]:
 
 
 def main(argv: Optional[List[str]] = None) -> Optional[int]:
-    args = parse_args(argv)
-    levels = [logging.WARNING, logging.INFO, logging.DEBUG]
-    log_level = levels[min(args.verbosity, len(levels) - 1)]
+    args: argparse.Namespace = parse_args(argv)
+    levels: List[int] = [logging.WARNING, logging.INFO, logging.DEBUG]
+    log_level: int = levels[min(args.verbosity, len(levels) - 1)]
     logging.basicConfig(level=log_level, stream=sys.stderr)
     try:
         return args.func(args)
