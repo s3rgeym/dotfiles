@@ -129,8 +129,9 @@ alias :q='exit'
 alias cls='clear'
 alias reload='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
-# git clone --bare git://github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
-# dotfiles rebase
+# Развертывание на новой машине:
+# git clone --bare git@github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
+# dotfiles checkout
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias work='cd ~/workspace'
 
