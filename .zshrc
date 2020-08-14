@@ -106,23 +106,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export BROWSER="chromium"
-export EDITOR="vim"
-export VISUAL="$EDITOR"
-export GIT_EDITOR="$EDITOR"
-export SYSTEMD_EDITOR="$EDITOR"
-export TERMINAL="gnome-terminal"
-export ELECTRON_TRASH="gio trash"
 # Требуется для Python, установленного через pyenv, для компиляции YCM при
 # установке YouCompleteMe
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
-# Нужно для Go
-# export GOO111MODULE=on
-# Решение проблемы с масштабированием интерфейса java-приложений, написанных на
-# Swing
-# -Dsun.java2d.uiScale=2 - для масштабирования интерфейса, остальное с вики
-# скопипастил
-# export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.uiScale=2"
+# Поддержка модулей Go
+export GOO111MODULE=on
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 alias :q='exit'
