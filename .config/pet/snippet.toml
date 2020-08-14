@@ -628,7 +628,7 @@
 
 [[snippets]]
   description = "write iso image"
-  command = "sudo dd if=<image> of=<device> bs=8m status=progress; sync"
+  command = "sudo dd if=<image> of=/dev/<device> bs=8m status=progress; sync"
   tag = ["filesystem"]
   output = ""
 
@@ -657,13 +657,13 @@
 
 [[snippets]]
   description = "get a UUID of a partition"
-  command = "sudo blkid -s UUID -o value <device>"
+  command = "sudo blkid -s UUID -o value /dev/<device>"
   tag = ["filesystem"]
   output = ""
 
 [[snippets]]
   description = "disk health"
-  command = "sudo smartctl -a <device>"
+  command = "sudo smartctl -a /dev/<device>"
   tag = ["filesystem"]
   output = ""
 
@@ -675,7 +675,7 @@
 
 [[snippets]]
   description = ""
-  command = "sudo mount <device> <mountpoint> -t <type> -o <options>"
+  command = "sudo mount /dev/<device> <mountpoint> -t <type> -o <options>"
   tag = ["filesystem"]
   output = ""
 
@@ -698,23 +698,23 @@
 
 [[snippets]]
   description = "remove hybernation file and mount windows partition"
-  command = "sudo mount -t ntfs-3g -o remove_hiberfile <device> <mountpoint>"
+  command = "sudo mount -t ntfs-3g -o remove_hiberfile /dev/<device> <mountpoint>"
   tag = ["filesystem"]
   output = ""
 
 [[snippets]]
   description = "create fat-32 filesystem"
-  command = "sudo mkfs.fat -F32 -n <label> <device>"
+  command = "sudo mkfs.fat -F32 -n <label> /dev/<device>"
   output = ""
 
 [[snippets]]
   description = "create ext4 filesystem"
-  command = "sudo mkfs.ext4 -L <label> <device>"
+  command = "sudo mkfs.ext4 -L <label> /dev/<device>"
   output = ""
 
 [[snippets]]
   description = "create btrfs filesystem"
-  command = "sudo mkfs.btrfs <device> -L <label>"
+  command = "sudo mkfs.btrfs /dev/<device> -L <label>"
   output = ""
 
 [[snippets]]
@@ -982,19 +982,19 @@
 
 [[snippets]]
   description = "create luks partition"
-  command = "sudo cryptsetup -y -v luksFormat <device>"
+  command = "sudo cryptsetup -y -v luksFormat /dev/<device>"
   tag = ["filesystem", "encryption"]
   output = ""
 
 [[snippets]]
   description = "luks header information"
-  command = "sudo cryptsetup luksDump <device>"
+  command = "sudo cryptsetup luksDump /dev/<device>"
   tag = ["filesystem", "encryption"]
   output = ""
 
 [[snippets]]
   description = "open luks partition /dev/mapper/<name>"
-  command = "sudo cryptsetup luksOpen <device> <name>"
+  command = "sudo cryptsetup luksOpen /dev/<device> <name>"
   tag = ["filesystem", "encryption"]
   output = ""
 
@@ -1006,19 +1006,19 @@
 
 [[snippets]]
   description = "change luks password"
-  command = "cryptsetup luksChangeKey <device> -S <slot>"
+  command = "cryptsetup luksChangeKey /dev/<device> -S <slot>"
   tag = ["filesystem", "encryption"]
   output = ""
 
 [[snippets]]
   description = "delete luks password"
-  command = "cryptsetup luksRemoveKey <device>"
+  command = "cryptsetup luksRemoveKey /dev/<device>"
   tag = ["filesystem", "encryption"]
   output = ""
 
 [[snippets]]
   description = "delete a key in specified slot"
-  command = "sudo cryptsetup luksKillSlot <device> <slot>"
+  command = "sudo cryptsetup luksKillSlot /dev/<device> <slot>"
   tag = ["filesystem", "encryption"]
   output = ""
 
@@ -2359,13 +2359,13 @@
 
 [[snippets]]
   description = "connect file to nbd device"
-  command = "sudo qemu-nbd -c <device> <disk-image>"
+  command = "sudo qemu-nbd -c /dev/<device> <disk-image>"
   tag = ["virtualization"]
   output = ""
 
 [[snippets]]
   description = "disconnect nbd device"
-  command = "sudo qemu-nbd -d <device>"
+  command = "sudo qemu-nbd -d /dev/<device>"
   tag = ["virtualization"]
   output = ""
 
@@ -3618,6 +3618,6 @@
   description = "Gnome version"
 
 [[snippets]]
-  command = "sudo ntfsfix <device>"
+  command = "sudo ntfsfix /dev/<device>"
   description = ""
 
