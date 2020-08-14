@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 fpath+=~/.zfunc
 
 source /usr/share/zsh/scripts/zplug/init.zsh
@@ -125,21 +124,21 @@ alias work='cd ~/workspace'
 
 mcd() { mkdir -p "$1" && cd "$1" }
 
-source /opt/asdf-vm/asdf.sh
-# source /opt/asdf-vm/completions/asdf.bash
-
-eval "$(hub alias -s)"
-
-function prev() {
+prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
 }
 
-function pet-select() {
+pet-select() {
   BUFFER=$(pet search --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle redisplay
 }
+
+[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
+# source /opt/asdf-vm/completions/asdf.bash
+
+eval "$(hub alias -s)"
 
 zle -N pet-select
 stty -ixon
