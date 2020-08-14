@@ -21,7 +21,6 @@ cht.sh
 deepin-gtk-theme
 deepin-icon-theme
 docker-compose
-electrum
 fd
 figlet-fonts
 firefox
