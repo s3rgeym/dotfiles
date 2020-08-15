@@ -3625,3 +3625,7 @@
   command = "xkcd"
   description = "Generate secure passphares inspired by XKCD"
 
+[[snippets]]
+  command = "pgrep -f "<pattern>" | xrags -9 kill"
+  description = "kill list of processes"
+
