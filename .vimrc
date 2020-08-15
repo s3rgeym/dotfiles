@@ -169,7 +169,7 @@ nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 
 " добавление отступов в визуальном режиме
-vmap < <gv
+vmap <lt> <lt>gv
 vmap > >gv
 
 let mapleader = "\<Space>"
