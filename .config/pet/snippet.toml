@@ -216,28 +216,28 @@
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "suspend to ram"
   command = "systemctl suspend"
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "hibernate"
   command = "systemctl hibernate"
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "poweroff"
   command = "systemctl poweroff"
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "get dconf settings"
   command = "gsettings get <key>"
   tag = ["gnome"]
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "set dconf settings"
   command = "gsettings set <key> <value>"
   tag = ["gnome"]
   output = ""
@@ -3636,4 +3636,12 @@
 [[snippets]]
   command = "vim -i NONE --cmd 'set noswapfile' --cmd 'set nobackup' <file>"
   description = "edit sensitive data with vim"
+
+[[snippets]]
+  command = "<command> | jq -s '.'  > <output>"
+  description = "convert JSONL to JSON"
+
+[[snippets]]
+  command = "<command> | jq -s '.[]'  > <output>"
+  description = "convert JSON to JSONL"
 
