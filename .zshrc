@@ -105,6 +105,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+
 # Требуется для Python, установленного через pyenv, для компиляции YCM при
 # установке YouCompleteMe
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
