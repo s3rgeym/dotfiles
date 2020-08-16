@@ -3629,3 +3629,11 @@
   command = "pgrep -f \"<pattern>\" | xrags -9 kill"
   description = "kill list of processes"
 
+[[snippets]]
+  command = "vncpasswd"
+  description = "change vnc password"
+
+[[snippets]]
+  command = "vim -i NONE --cmd 'set noswapfile' --cmd 'set nobackup' <file>"
+  description = "edit sensitive data with vim"
+
