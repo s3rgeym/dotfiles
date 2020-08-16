@@ -3603,7 +3603,7 @@
 
 [[snippets]]
   command = "sudo dconf update"
-  description = "apply /etc/dconf/db/*"
+  description = "update the system dconf database (compile /etc/dconf/*)"
 
 [[snippets]]
   command = "ssh-keygen -p -f <filename>"
