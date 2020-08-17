@@ -3645,3 +3645,7 @@
   command = "<command> | jq -s '.[]'  > <output>"
   description = "convert JSON to JSONL"
 
+[[snippets]]
+  command = "<command> | jq -r '. | to_entries | map(.value) | @csv'"
+  description = "convert JSONL to CSV"
+
