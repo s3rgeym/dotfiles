@@ -52,7 +52,7 @@
 
 [[snippets]]
   description = "display man page of specific command"
-  command = "man <command>"
+  command = "man <entry> <command>"
   output = ""
 
 [[snippets]]
@@ -3644,4 +3644,9 @@
 [[snippets]]
   command = "<command> | jq -s '.[]'  > <output>"
   description = "convert JSON to JSONL"
+
+[[snippets]]
+  command = "flask run -p <port=5000>"
+  description = "run flask application (app.py)"
+  tag = ["python"]
 

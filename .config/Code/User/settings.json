@@ -41,6 +41,7 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "prettier.vueIndentScriptAndStyle": false,
+  "prettier.ignorePath": ".prettierignore",
   "python.formatting.blackArgs": [
     "--line-length",
     "79",
@@ -69,7 +70,8 @@
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'Hack Nerd Font', monospace",
   "terminal.integrated.fontSize": 13,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Atom One Dark",
   "workbench.iconTheme": "material-icon-theme",
-  "tabnine.experimentalAutoImports": true
+  "tabnine.experimentalAutoImports": true,
+  "window.zoomLevel": 0
 }

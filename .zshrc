@@ -124,7 +124,7 @@ alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
 # git clone --bare git@github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
 # dotfiles checkout
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias work='cd ~/workspace'
+alias dev='cd ~/Development'
 
 mcd() { mkdir -p "$1" && cd "$1" }
 

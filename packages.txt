@@ -50,6 +50,7 @@ man-pages
 mariadb
 materia-gtk-theme
 mc
+micro-bin
 mpv
 nano
 neofetch
@@ -58,9 +59,11 @@ nerd-fonts-terminus
 networkmanager-openvpn
 networkmanager-pptp
 nvme-cli
+pamac-aur
 parallel
 pass
 pet-bin
+pidgin
 pkgbuild-introspection
 pkgfile
 proxychains-ng
@@ -72,6 +75,7 @@ python-pytest
 qt5ct
 re2c
 reflector
+skypeforlinux-stable-bin
 slack-desktop
 smartmontools
 snapper

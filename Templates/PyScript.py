@@ -1,25 +1,37 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""My prog."""
+"""Describe what this script does."""
 import argparse
 import logging
 import sys
 from typing import List, Optional
 
 __author__ = 'Sergey M'
+__description__ = __doc__
 __email__ = 'yamldeveloper@proton.me'
-__copyright__ = 'Copyright 2020, Sergey M'
-__credits__ = ['Sergey M']
-__license__ = 'MIT'
-__maintainer__ = 'Sergey M'
+__LICENSE__ = 'MIT'
 __version__ = '0.1.0'
+
+
+def main(argv: Optional[List[str]] = None) -> Optional[int]:
+    args = parse_args(argv)
+    levels = [logging.WARNING, logging.INFO, logging.DEBUG]
+    log_level = levels[min(args.verbosity, len(levels) - 1)]
+    logging.basicConfig(level=log_level, stream=sys.stderr)
+    try:
+        return args.func(args)
+    except KeyboardInterrupt:
+        logging.warning("Ctrl+C pressed. Exiting...")
+    except Exception as e:
+        logging.critical(e, exc_info=True)
+        return 1
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        description=__description__, formatter_class=ArgumentFormatter
     )
+    parser.add_argument('-i', '--input', help='input filename')
     parser.add_argument(
         '-v',
         '--verbosity',
@@ -31,26 +43,19 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         '--version', action='version', version=f'v{__version__}'
     )
     parser.set_defaults(func=run)
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    return args
 
 
 def run(args: argparse.Namespace) -> Optional[int]:
     pass
 
 
-def main(argv: Optional[List[str]] = None) -> Optional[int]:
-    args: argparse.Namespace = parse_args(argv)
-    levels: List[int] = [logging.WARNING, logging.INFO, logging.DEBUG]
-    log_level: int = levels[min(args.verbosity, len(levels) - 1)]
-    logging.basicConfig(level=log_level, stream=sys.stderr)
-    try:
-        return args.func(args)
-    except KeyboardInterrupt:
-        logging.info('interrupted')
-    except Exception as e:
-        logging.critical(e, exc_info=True)
-    finally:
-        logging.shutdown()
+class ArgumentFormatter(
+    argparse.ArgumentDefaultsHelpFormatter,
+    argparse.RawDescriptionHelpFormatter,
+):
+    pass
 
 
 if __name__ == '__main__':
