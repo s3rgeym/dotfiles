@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    return 'Site Root.'
+    return 'Site root.'
 
 
 if __name__ == '__main__':
