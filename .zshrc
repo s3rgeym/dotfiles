@@ -82,7 +82,6 @@ zplug "MichaelAquilina/zsh-you-should-use"
 # setopt prompt_subst # Make sure prompt is able to be generated properly.
 # zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
 
-
 # Универсальная с констуктором, который позволяет в интерактивном режиме
 # создать свою тему, похожую на одну из перечисленных выше
 zplug romkatv/powerlevel10k, as:theme, depth:1
