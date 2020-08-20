@@ -3647,6 +3647,6 @@
 
 [[snippets]]
   command = "flask run -p <port=5000>"
-  description = "run flask application (app.py)"
+  description = "FLASK_APP=myapp run flask application"
   tag = ["python"]
 
