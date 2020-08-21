@@ -1427,6 +1427,10 @@
   output = ""
 
 [[snippets]]
+  command = "journalctl --user-unit <unit>"
+  description = "view user specific systemd service logs"
+
+[[snippets]]
   description = "Reload systemd manager configuration, scanning for new or changed units"
   command = "sudo systemctl daemon-reload"
 
@@ -3649,4 +3653,8 @@
   command = "flask run -p <port=5000>"
   description = "FLASK_APP=myapp run flask application"
   tag = ["python"]
+
+[[snippets]]
+  command = "stat -c '%a %n' <filename>"
+  description = "octal file permissions"
 
