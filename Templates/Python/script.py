@@ -29,7 +29,8 @@ def main(argv: Optional[List[str]] = None) -> Optional[int]:
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=__description__, formatter_class=ArgumentFormatter
+        description=__description__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument('-i', '--input', help='input filename')
     parser.add_argument(
@@ -48,13 +49,6 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
 
 
 def run(args: argparse.Namespace) -> Optional[int]:
-    pass
-
-
-class ArgumentFormatter(
-    argparse.ArgumentDefaultsHelpFormatter,
-    argparse.RawDescriptionHelpFormatter,
-):
     pass
 
 

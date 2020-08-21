@@ -73,5 +73,6 @@
   "workbench.colorTheme": "Atom One Dark",
   "workbench.iconTheme": "material-icon-theme",
   "tabnine.experimentalAutoImports": true,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "window.titleBarStyle": "custom"
 }
