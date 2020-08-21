@@ -32,7 +32,20 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         description=__description__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument('-i', '--input', help='input filename')
+    parser.add_argument(
+        '-i',
+        '--input',
+        default=sys.stdin,
+        help='input file',
+        type=argparse.FileType('r'),
+    )
+    parser.add_argument(
+        '-o',
+        '--output',
+        default=sys.stdout,
+        help='output file',
+        type=argparse.FileType('w'),
+    )
     parser.add_argument(
         '-v',
         '--verbosity',
