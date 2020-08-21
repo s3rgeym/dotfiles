@@ -13,6 +13,7 @@ zplug "plugins/archlinux", from:oh-my-zsh
 # zplug "plugins/asdf", from:oh-my-zsh
 zplug "plugins/autopep8", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
+# ccat и cless
 zplug "plugins/colorize", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
 # конфликтует с fd, заменяет rm на `rm -i` и т.д.

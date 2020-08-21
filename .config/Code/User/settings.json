@@ -70,7 +70,7 @@
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'Hack Nerd Font', monospace",
   "terminal.integrated.fontSize": 13,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "Solarized Dark",
   "workbench.iconTheme": "material-icon-theme",
   "tabnine.experimentalAutoImports": true,
   "window.zoomLevel": 0,
