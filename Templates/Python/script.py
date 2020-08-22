@@ -44,7 +44,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     )
     parser.set_defaults(func=run)
     args = parser.parse_args(argv)
-    return args
+    return args, parser
 
 
 def run(args: argparse.Namespace) -> Optional[int]:
