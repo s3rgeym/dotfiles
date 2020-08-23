@@ -14,8 +14,8 @@ __version__ = '0.1.0'
 def main(argv: Optional[List[str]] = None) -> Optional[int]:
     args = parse_args(argv)
     levels = [logging.WARNING, logging.INFO, logging.DEBUG]
-    log_level = levels[min(args.verbosity, len(levels) - 1)]
-    logging.basicConfig(level=log_level, stream=sys.stderr)
+    level = levels[min(args.verbosity, len(levels) - 1)]
+    logging.basicConfig(level=level, stream=sys.stderr)
     try:
         return args.func(args)
     except KeyboardInterrupt:
