@@ -6,17 +6,14 @@ import logging
 import sys
 from typing import List, Optional
 
-__author__ = 'Sergey M'
-__description__ = __doc__
-__email__ = 'yamldeveloper@proton.me'
-__LICENSE__ = 'MIT'
+__author__ = 'Sergey M <s3rgeym(at)gmail.com>'
+__license__ = 'MIT'
 __version__ = '0.1.0'
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=__description__,
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        description=__doc__, formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument(
         '-i',
