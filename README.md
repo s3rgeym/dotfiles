@@ -1,6 +1,4 @@
-# My Dotfiles
-
-## Usage
+# Dotfiles
 
 Добавляем alias:
 
