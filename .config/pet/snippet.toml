@@ -455,6 +455,11 @@
   output = ""
 
 [[snippets]]
+  command = "cp -s <src> <dest>"
+  description = "create symbolic link instead of copying"
+  tag = ["filesystem"]
+
+[[snippets]]
   description = "move or rename file"
   command = "mv <src> <dst>"
   tag = ["filesystem"]

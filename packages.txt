@@ -12,6 +12,8 @@ base
 bashtop
 bat
 bc
+bitcoin-cli
+bitcoin-daemon
 bitcoin-qt
 blender
 breeze-gtk
@@ -42,8 +44,8 @@ jo
 jq
 la-capitaine-icon-theme
 libldm
+libreoffice-still
 libzip
-lightdm-gtk-greeter-settings
 linux-headers
 macchanger
 man-pages
@@ -58,7 +60,10 @@ nerd-fonts-jetbrains-mono
 nerd-fonts-terminus
 networkmanager-openvpn
 networkmanager-pptp
+numix-circle-icon-theme-git
+numix-gtk-theme
 nvme-cli
+obs-studio
 pamac-aur
 parallel
 pass
@@ -68,7 +73,10 @@ pkgbuild-introspection
 pkgfile
 proxychains-ng
 pwgen
+python-aiodns
 python-black
+python-cchardet
+python-flask
 python-pipx
 python-poetry
 python-pytest
@@ -99,10 +107,10 @@ ttf-jetbrains-mono-git
 ttf-meslo-nerd-font-powerlevel10k
 ttf-roboto-mono
 ttf-ubuntu-font-family
+ultra-flat-icons-orange
 vim-plug
 visual-studio-code-bin
 vi-vim-symlink
-vlc
 wd719x-firmware
 wget
 wrk
@@ -111,8 +119,5 @@ xcursor-vanilla-dmz
 xf86-video-amdgpu
 xkcdpass
 yapf
-yaru-gtk-theme
-yaru-icon-theme
-yaru-sound-theme
 yay-bin
 zplug
