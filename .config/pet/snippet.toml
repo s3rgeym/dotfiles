@@ -3663,3 +3663,7 @@
   command = "stat -c '%a %n' <filename>"
   description = "octal file permissions"
 
+[[snippets]]
+  command = "libreoffice --convert-to <format> <filename>"
+  description = "convert document"
+
