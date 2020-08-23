@@ -19,7 +19,7 @@ def main(argv: Optional[List[str]] = None) -> Optional[int]:
     try:
         return args.func(args)
     except KeyboardInterrupt:
-        logging.warning("Ctrl+C pressed. Exiting...")
+        logging.warning("Ctrl+C pressed, exiting")
     except Exception as e:
         logging.critical(e, exc_info=True)
         return 1
