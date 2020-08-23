@@ -40,8 +40,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         '--version', action='version', version=f'v{__version__}'
     )
     parser.set_defaults(func=run)
-    args = parser.parse_args(argv)
-    return args, parser
+    return parser.parse_args(argv)
 
 
 def run(args: argparse.Namespace) -> Optional[int]:
