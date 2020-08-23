@@ -9,7 +9,6 @@ asdf-vm
 audacious
 autopep8
 base
-bashtop
 bat
 bc
 bitcoin-cli
@@ -88,6 +87,7 @@ slack-desktop
 smartmontools
 snapper
 sqlmap
+sysstat
 systemd-swap
 tableplus
 tela-icon-theme
