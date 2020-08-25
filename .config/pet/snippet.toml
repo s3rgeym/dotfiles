@@ -3668,6 +3668,6 @@
   description = "convert document"
 
 [[snippets]]
-  command = "xdg-user-dirs-update --set XDG_DOWNLOADS_DIR /mnt/hdd/Downloads"
+  command = "xdg-user-dirs-update --set DOWNLOADS /mnt/hdd/Downloads"
   description = "Change XDG user directory"
 
