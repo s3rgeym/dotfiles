@@ -121,7 +121,6 @@ alias cls='clear'
 alias reload='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias dev='cd ~/Development'
 
 mcd() { mkdir -p "$1" && cd "$1" }
 

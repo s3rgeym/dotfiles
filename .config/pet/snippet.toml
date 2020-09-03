@@ -1058,6 +1058,10 @@
   output = ""
 
 [[snippets]]
+  description = "display logs from previous boot"
+  command = "journalctl -b -1"
+
+[[snippets]]
   description = "logs by unit"
   command = "journalctl -u <unit>"
   output = ""
@@ -3670,4 +3674,8 @@
 [[snippets]]
   command = "xdg-user-dirs-update --set DOWNLOADS /mnt/hdd/Downloads"
   description = "Change XDG user directory"
+
+[[snippets]]
+  command = "sudo ntfsfix /dev/<device>"
+  description = "fix ntfs read only filesystem"
 
