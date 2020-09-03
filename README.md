@@ -12,14 +12,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 dotfiles config --local status.showUntrackedFiles no
 ```
 
-Клонируем репозиторий:
+Развертывание на другой машине:
 
 ```zsh
 git clone --bare git@github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
-```
-
-Развертывание на новой машине:
-
-```zsh
 dotfiles checkout
 ```
