@@ -6,7 +6,7 @@ import logging
 import sys
 from typing import List, Optional
 
-__author__ = 'Sergey M <s3rgeym(at)gmail.com>'
+__author__ = 'Sergey M <yamldeveloper@proton.me>'
 __license__ = 'MIT'
 __version__ = '0.1.0'
 
