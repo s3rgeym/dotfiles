@@ -1,8 +1,9 @@
-# Здесь задаются переменные окружения. Этот файл исполянется при логине.
+# Здесь задаются переменные окружения. Этот сценарий выполняется при входе в
+# систему (логине).
 # ~/.zprofile в отличие от ~/.zshenv выполняется только при логине через
 # консоль или ssh.
-# Системные переменныне можно задать  в /etc/environment или /etc/profile, /etc/profile.d/*.
-# Последние выполняются только при логине.
+# Системные переменные можно задать в /etc/environment. Сценарии /etc/profile
+# и /etc/profile.d/* выполняются только при логине.
 typeset -U path
 path=(~/.local/bin ~/bin $path[@])
 
@@ -11,8 +12,13 @@ export EDITOR="vim"
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
-export TERMINAL="gnome-terminal"
+export TERMINAL="tilix"
 export ELECTRON_TRASH="gio trash"
+
+# Масштабирование в Qt-приложениях
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCALE_FACTOR=1
+export QT_SCREEN_SCALE_FACTORS=2
 
 # Решение проблемы с масштабированием интерфейса java-приложений, написанных на
 # Swing
