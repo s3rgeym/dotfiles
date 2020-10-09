@@ -3679,3 +3679,11 @@
   command = "sudo ntfsfix /dev/<device>"
   description = "fix ntfs read only filesystem"
 
+[[snippets]]
+  command = "apktool d -r -s application.apk"
+  decription = "decompile"
+
+[[snippets]]
+  command = "apktool b -f -d application"
+  description = "build apk"
+
