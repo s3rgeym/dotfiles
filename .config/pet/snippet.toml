@@ -3687,3 +3687,7 @@
   command = "apktool b -f -d application"
   description = "build apk"
 
+[[snippets]]
+  command = "sort <filename> | uniq -u"
+  description = "print unique lines"
+
