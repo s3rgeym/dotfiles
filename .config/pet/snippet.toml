@@ -3404,6 +3404,10 @@
   output = ""
 
 [[snippets]]
+  command = "docker logs <container-id>"
+  description = "show container logs"
+
+[[snippets]]
   description = "Delete all containers that are not currently running."
   command = "docker rm $(docker ps -a -q)"
   output = ""
@@ -3691,3 +3695,11 @@
   command = "sort <filename> | uniq -u"
   description = "print unique lines"
 
+[[snippets]]
+  command = "ffmpeg -i <file>.{ogg,mp3} "
+  description = "convert ogg to mp3"
+
+[[snippets]]
+  command = "ffmpeg -i <src> -c:v libx264 -crf
+  20 -preset slow -c:a copy <dst>"
+  description = "convert 4k video to fullhd"
