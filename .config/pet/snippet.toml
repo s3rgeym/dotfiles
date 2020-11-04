@@ -3700,6 +3700,13 @@
   description = "convert ogg to mp3"
 
 [[snippets]]
-  command = "ffmpeg -i <src> -c:v libx264 -crf
-  20 -preset slow -c:a copy <dst>"
+  command = "ffmpeg -i <filename> -c:v libx264 -crf 20 -preset slow -c:a copy <new-filename>"
   description = "convert 4k video to fullhd"
+
+[[snippets]]
+  command = "jupyter kernelspec list"
+  description = ""
+
+[[snippets]]
+  command = "jupyter kernelspec remove <kernel-name>"
+  description = "jupyter notebook uninstall kernel"
