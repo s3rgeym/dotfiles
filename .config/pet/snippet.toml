@@ -3710,3 +3710,7 @@
 [[snippets]]
   command = "jupyter kernelspec remove <kernel-name>"
   description = "jupyter notebook uninstall kernel"
+
+[[snippets]]
+  command = "jupyter nbconvert --to script <filename>.ipynb"
+  description = "convert a ipython notebook into a python file"
