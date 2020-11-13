@@ -5,39 +5,43 @@
   output = ""
 
 [[snippets]]
-  description = "Ctrl+A: move to start of the line"
+  description = "^A: move to start of the line"
   command = ""
-  tag = ["shortcuts"]
+  tag = ["shortcut"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B: move back one word"
+  description = "^E: move to end of the line"
+  tag = ["shortcut"]
+
+[[snippets]]
+  description = "^B: move back one word"
   command = ""
-  tag = ["shortcuts"]
+  tag = ["shortcut"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+F: move forward one word"
+  description = "^F: move forward one word"
   command = ""
-  tag = ["shortcuts"]
+  tag = ["shortcut"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+Y: paste from the clipboard"
+  description = "^Y: paste from the clipboard"
   command = ""
-  tag = ["shortcuts"]
+  tag = ["shortcut"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+Z: suspends (pauses) the currently running process; use fg or bg to resume it"
+  description = "^Z: suspends (pauses) the currently running process; use fg or bg to resume it"
   command = ""
-  tag = ["shortcuts"]
+  tag = ["shortcut"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+R: reverse incremental search of history"
+  description = "^R: reverse incremental search of history"
   command = ""
-  tag = ["shortcuts"]
+  tag = ["shortcut"]
   output = ""
 
 [[snippets]]
