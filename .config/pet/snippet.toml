@@ -1,5 +1,5 @@
 [[snippets]]
-  description = "Ctrl+U: erase line"
+  description = "^U: erase line"
   command = ""
   tag = ["shortcuts"]
   output = ""
