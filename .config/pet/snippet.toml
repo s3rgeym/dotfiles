@@ -55,6 +55,10 @@
   output = ""
 
 [[snippets]]
+  command = "!<N>"
+  description = "repeat N command from history"
+
+[[snippets]]
   description = "display man page of specific command"
   command = "man <entry> <command>"
   output = ""
@@ -877,7 +881,7 @@
 
 [[snippets]]
   description = "create a zip archive from a directory"
-  command = "zip <dir.zip> -r <dir>"
+  command = "zip <dirname>.zip -r <dirname>"
   tag = ["filesystem"]
   output = ""
 
