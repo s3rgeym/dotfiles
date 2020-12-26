@@ -119,7 +119,7 @@ export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 alias :q='exit'
 alias cls='clear'
 alias reload='exec $SHELL -l'
-alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
+alias edit-zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 mcd() { mkdir -p "$1" && cd "$1" }

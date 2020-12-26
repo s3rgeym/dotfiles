@@ -1882,7 +1882,7 @@
   output = ""
 
 [[snippets]]
-  description = "description remove newline character"
+  description = "remove newline character"
   command = "tr -d '\n'"
   output = ""
 
@@ -2042,79 +2042,79 @@
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B C ‒ Create window"
+  description = "^B C ‒ Create window"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B W ‒ List Windows"
+  description = "^B W ‒ List Windows"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B N ‒ Next window"
+  description = "^B N ‒ Next window"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B P ‒ Previous window"
+  description = "^B P ‒ Previous window"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B F ‒ Find window"
+  description = "^B F ‒ Find window"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B , ‒ Name window"
+  description = "^B , ‒ Name window"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B & ‒ Kill window"
+  description = "^B & ‒ Kill window"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B % ‒ Vertical split"
+  description = "^B % ‒ Vertical split"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B \" ‒ Horizontal split"
+  description = "^B \" ‒ Horizontal split"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B O ‒ Swap panes"
+  description = "^B O ‒ Swap panes"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B Q ‒ Show pane numbers"
+  description = "^B Q ‒ Show pane numbers"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B X ‒ Kill pane"
+  description = "^B X ‒ Kill pane"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
 
 [[snippets]]
-  description = "Ctrl+B Arrow Keys ‒ Move to pane"
+  description = "^B Arrow Keys ‒ Move to pane"
   command = ""
   tag = ["shortcuts", "tmux"]
   output = ""
@@ -3722,3 +3722,7 @@
 [[snippets]]
   command = "jupyter nbconvert --to script <filename>.ipynb"
   description = "convert a ipython notebook into a python file"
+
+[[snippets]]
+  command = "gitlab"
+  description = "gitlab cli (python-gitlab package)"
