@@ -8,7 +8,7 @@ zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/*.zsh"
 
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins-Overview
 zplug "plugins/archlinux", from:oh-my-zsh
-# При установке из репозиторяи нужно задать переменную окружения ASDF_DIR
+# При установке из репозитория нужно задать переменную окружения ASDF_DIR
 # С последними версиями asdf-vm не работает
 # zplug "plugins/asdf", from:oh-my-zsh
 zplug "plugins/autopep8", from:oh-my-zsh
