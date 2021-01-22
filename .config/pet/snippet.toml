@@ -3441,6 +3441,10 @@
   description = ""
 
 [[snippets]]
+  command = "docker-compose down --remove-orphans"
+  description = "shutdown and remove containers !in compose file"
+
+[[snippets]]
   command = "docker-compose ps"
   description ="list containers"
 
