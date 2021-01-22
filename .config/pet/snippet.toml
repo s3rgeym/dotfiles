@@ -3445,6 +3445,9 @@
   description ="list containers"
 
 [[snippets]]
+  command = "docker-compose logs -f <service>"
+
+[[snippets]]
   command = "echo -e '*1\r\n$4\r\nPING\r\n' | nc 127.0.0.1 6379"
   description = "test redis connection with netcat"
 
@@ -3732,5 +3735,10 @@
   description = ""
 
 [[snippets]]
-  command = "git summary --since=2020-06-15 --until=2020-06-29"
-  descripton = "count additions/deletions for period"
+  command = "sshfs user@server.com:/remote/dir /home/user/testdir"
+  descripton = "mount filesystem over ssh"
+
+[[snippets]]
+  command = "dpkg-query -L <package>"
+  description = "list of installed files from a package"
+  tag = ["debian", "ubuntu"]
