@@ -1539,6 +1539,10 @@
   output = ""
 
 [[snippets]]
+  description = "save password"
+  command = "pass insert --multiline <domain>/<username>"
+
+[[snippets]]
   description = "display password"
   command = "pass <entry>"
   output = ""
@@ -1546,6 +1550,16 @@
 [[snippets]]
   description = "copy password"
   command = "pass -c <entry>"
+  output = ""
+
+[[snippets]]
+  description = "edit password"
+  command = "pass edit <entry>"
+  output = ""
+
+[[snippets]]
+  description = "rename the password directory"
+  command = "pass mv <old-name> <new-name>"
   output = ""
 
 [[snippets]]
@@ -1710,6 +1724,12 @@
 [[snippets]]
   command = "nc -z -v -w5 <host> <port>"
   description = "test port is open"
+  tag = ["networking"]
+
+[[snippets]]
+  command = "sudo ss -lnpt"
+  description = "list listening ports"
+  tag = ["networking"]
 
 [[snippets]]
   description = "show listening ports"
@@ -1758,10 +1778,18 @@
   description = "redirects the connections through socks or https proxies"
 
 [[snippets]]
+  command = "ssh -L local_port:destination_server_ip:remote_port ssh_server_hostname"
+  description = "local port forwarding"
+
+[[snippets]]
   description = "setup socks5 ssh tunnel"
   command = "ssh -f -C2qTnN -D <port> <user>@<host>"
   tag = ["networking"]
   output = ""
+
+[[snippets]]
+  command = "ssh-copy-id -p <port=22> <user>@<host>"
+  description = "copy ssh key to server"
 
 [[snippets]]
   description = "connect to server"
@@ -3322,6 +3350,10 @@
   output = ""
 
 [[snippets]]
+  command = "poetry export -f requirements.txt"
+  description = ""
+
+[[snippets]]
   description = "Create a new container from a particular image."
   command = "docker create <image>"
   output = ""
@@ -3416,6 +3448,14 @@
   description = "show container logs"
 
 [[snippets]]
+  command = "docker system df"
+  description = "disk usage"
+
+[[snippets]]
+  command = "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container>"
+  descripton = "get container ip address"
+
+[[snippets]]
   description = "Delete all containers that are not currently running."
   command = "docker rm $(docker ps -a -q)"
   output = ""
@@ -3443,6 +3483,9 @@
 [[snippets]]
   command = "docker-compose down --remove-orphans"
   description = "shutdown and remove containers !in compose file"
+
+[[snippets]]
+  command = "docker-compose restart <unit>"
 
 [[snippets]]
   command = "docker-compose ps"
@@ -3746,3 +3789,8 @@
   command = "dpkg-query -L <package>"
   description = "list of installed files from a package"
   tag = ["debian", "ubuntu"]
+
+[[snippets]]
+  command = "echo 'Some text here' | mail -s 'Test' -a 'From: noreply@mail.tld' to@mail.tld"
+  description = "Send mail"
+
