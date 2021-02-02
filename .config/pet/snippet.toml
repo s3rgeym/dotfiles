@@ -322,7 +322,7 @@
 
 [[snippets]]
   description = "add user to group"
-  command = "sudo usermod -a -G <username> <group>"
+  command = "sudo usermod -aG <group> <username>"
   output = ""
 
 [[snippets]]
@@ -338,6 +338,14 @@
   description = "list user groups"
   command = "id -Gn"
   output = ""
+
+[[snippets]]
+  description = "get group id"
+  command = "getent group <name>"
+
+[[snippets]]
+  description = "change group id (gid)"
+  command = "groupmod -g <NEW_GID> <groupname>"
 
 [[snippets]]
   description = "display linux system information"
@@ -1790,6 +1798,10 @@
 [[snippets]]
   command = "ssh-copy-id -p <port=22> <user>@<host>"
   description = "copy ssh key to server"
+
+[[snippets]]
+  command = "cat ~/.ssh/id_rsa.pub | ssh username@server.address.com 'cat >> ~/.ssh/authorized_keys'"
+  description = "add public SSH key to the server"
 
 [[snippets]]
   description = "connect to server"
@@ -3475,6 +3487,10 @@
 [[snippets]]
   command = "docker-compose up --build --force-recreate --no-dep -d <service>"
   description = "rebuild and update a container"
+
+[[snippets]]
+  command = "docker-compose exec -it <container> <command>"
+  descripton = "run command inside an existing container"
 
 [[snippets]]
   command = "docker-compose down"
