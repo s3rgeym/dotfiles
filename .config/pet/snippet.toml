@@ -1092,6 +1092,14 @@
   description = "get all errors for running services"
 
 [[snippets]]
+  command = "journalctl --disk-usage"
+  description = "logs size"
+
+[[snippets]]
+  command = "sudo journalctl vacuum-size=300M"
+  description = "clean logs"
+
+[[snippets]]
   description = "view gnome-shell logs"
   command = "journalctl /usr/bin/gnome-shell -f"
 
@@ -2451,8 +2459,11 @@
 [[snippets]]
   description = "convert sass/scss to css"
   command = "sass <input> <output>"
-  tag = ["sassc"]
   output = ""
+
+[[snippets]]
+  command = "npx node-sass <input> <output>"
+  descripton = "compile scss nodejs"
 
 [[snippets]]
   command = "npx gedit <repo>"
@@ -3098,6 +3109,9 @@
   output = ""
 
 [[snippets]]
+  command = "npm show <package> version"
+
+[[snippets]]
   description = "execute package binaries (install package temporary)"
   command = "npx <package>"
   tag = ["npm"]
@@ -3490,7 +3504,7 @@
 
 [[snippets]]
   command = "docker-compose exec -it <container> <command>"
-  descripton = "run command inside an existing container"
+  descripton = "execute command at running container"
 
 [[snippets]]
   command = "docker-compose down"
@@ -3809,4 +3823,8 @@
 [[snippets]]
   command = "echo 'Some text here' | mail -s 'Test' -a 'From: noreply@mail.tld' to@mail.tld"
   description = "Send mail"
+
+[[snippets]]
+  command = "wget -qO- https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts | sudo tee -a /etc/hosts &> /dev/null"
+  decription = "update hosts file and block ads"
 

@@ -13,7 +13,7 @@ module.exports = {
 
     // font family with optional fallbacks
     fontFamily:
-      '"JetBrainsMono Nerd Font Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      '"MesloLGS NF", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -168,13 +168,18 @@ module.exports = {
     // 'hyper-statusline',
     'hyper-tabs-enhanced',
     'hypercwd',
-    'hyperline',
+    // 'hyperline',
 
     // themes
+    // 'an-old-hype',
     // 'hyper-dracula',
     // 'hyper-electron-highlighter',
-    'hyper-material-theme',
-    // 'hyper-solarized-dark',
+    // 'hyper-flat',
+    // 'hyper-hypest',
+    // 'hyper-material-theme',
+    // 'hyper-pokemon',
+    // 'hyper-relaxed',
+    'hyper-solarized-dark',
     // 'verminal',
   ],
 
