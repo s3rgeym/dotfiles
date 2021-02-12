@@ -1794,7 +1794,7 @@
   description = "redirects the connections through socks or https proxies"
 
 [[snippets]]
-  command = "ssh -L local_port:destination_server_ip:remote_port ssh_server_hostname"
+  command = "ssh -L <local_port>:<remote_address>:<remote_port> -p <port=22> <username>@<server_address>"
   description = "local port forwarding"
 
 [[snippets]]
@@ -3828,3 +3828,6 @@
   command = "wget -qO- https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts | sudo tee -a /etc/hosts &> /dev/null"
   decription = "update hosts file and block ads"
 
+[[snippets]]
+  commnad = 'echo <data> | tr " " "\n" | sort | tr "\n" " "; echo'
+  description = 'sort words in a line'
