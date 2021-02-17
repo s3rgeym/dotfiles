@@ -3219,7 +3219,7 @@
 
 [[snippets]]
   description = "Install local package"
-  command = "yay -U /path/to/package_name-version.pkg.tar.xz"
+  command = "yay -U file://<path=/var/cache/pacman/pkg>/<package>-<version>-<arch=x86_64>.pkg.tar.zst"
   output = ""
 
 [[snippets]]
