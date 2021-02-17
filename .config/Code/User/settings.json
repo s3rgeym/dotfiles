@@ -31,7 +31,7 @@
   "editor.rulers": [
     80,
     100,
-    120,
+    120
   ],
   "editor.semanticTokenColorCustomizations": {
     "enabled": true
@@ -52,22 +52,31 @@
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
   "prettier.arrowParens": "avoid",
+  "prettier.bracketSpacing": true,
+  "prettier.endOfLine": "lf",
   "prettier.ignorePath": ".prettierignore",
+  "prettier.printWidth": 80,
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
+  "prettier.useTabs": false,
   "prettier.vueIndentScriptAndStyle": true,
   "python.formatting.blackArgs": [
     "--line-length",
     "79",
     "--skip-string-normalization"
   ],
-  // "python.formatting.blackPath": "/usr/bin/black",
-  // "python.formatting.provider": "black",
+  "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
   "python.linting.lintOnSave": true,
-  // "python.linting.pylintEnabled": true,
-  // "python.linting.pylintPath": "/usr/bin/pylint",
+  "python.linting.pylintArgs": [
+    "--reports",
+    "12",
+    "--disable",
+    "I0011"
+  ],
+  "python.linting.pylintEnabled": true,
   "python.pythonPath": "/bin/python",
   "ruby.format": "rubocop",
   "ruby.lint": {
@@ -88,6 +97,6 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Vue Theme",
   "workbench.iconTheme": "eq-material-theme-icons"
 }

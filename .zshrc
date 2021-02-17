@@ -85,7 +85,7 @@ zplug "MichaelAquilina/zsh-you-should-use"
 
 # Универсальная с констуктором, который позволяет в интерактивном режиме
 # создать свою тему, похожую на одну из перечисленных выше
-zplug romkatv/powerlevel10k, as:theme, depth:1
+# zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -101,9 +101,9 @@ zplug load # --verbose
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # zsh history size
 HISTSIZE=100000
@@ -112,7 +112,7 @@ SAVEHIST=$HISTSIZE
 # Требуется для Python, установленного через pyenv, для компиляции YCM при
 # установке YouCompleteMe
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
-# Поддержка модулей Go
+# Поддержка модулей Go. Не нужно, начиная с 1.16
 export GOO111MODULE=on
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
@@ -144,9 +144,13 @@ zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte.sh
-fi
+# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#   source /etc/profile.d/vte.sh
+# fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# По факту тема для zsh
+# https://github.com/starship/starship
+eval "$(starship init zsh)"
