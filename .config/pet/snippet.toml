@@ -2816,8 +2816,8 @@
   output = ""
 
 [[snippets]]
-  description = "Removes file from stage area"
-  command = "git rm <source>"
+  description = "Removes file from index"
+  command = "git rm --cached <file>"
   output = ""
 
 [[snippets]]
