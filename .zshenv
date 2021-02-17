@@ -7,7 +7,7 @@ path=(~/.local/bin ~/bin $path[@])
 
 export BROWSER="chromium"
 export EDITOR="vim"
-export VISUAL="code"
+export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 export TERMINAL="gnome-terminal"

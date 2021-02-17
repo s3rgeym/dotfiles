@@ -1150,6 +1150,12 @@
   description = ""
   command = "code --install-extension <name>"
   output = ""
+  tag = ["vscode"]
+
+[[snippets]]
+  command = "code --diff <file1> <file2>"
+  decription = "Use Visual Studio Code as diff tool"
+  tag = ["vscode"]
 
 [[snippets]]
   description = "remove all extensions for visual studio code"
@@ -3525,7 +3531,7 @@
   command = "docker-compose logs -f <service>"
 
 [[snippets]]
-  command = "echo -e '*1\r\n$4\r\nPING\r\n' | nc 127.0.0.1 6379"
+  command = "echo -e '*1\\r\\n$4\\r\\nPING\\r\\n' | nc 127.0.0.1 6379"
   description = "test redis connection with netcat"
 
 [[snippets]]
@@ -3831,3 +3837,8 @@
 [[snippets]]
   commnad = 'echo <data> | tr " " "\n" | sort | tr "\n" " "; echo'
   description = 'sort words in a line'
+
+[[snippets]]
+  command = "export $(grep -v '^#' .env | xargs)"
+  description = "load environment variables from dotenv file"
+

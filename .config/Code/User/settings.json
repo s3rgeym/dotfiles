@@ -1,4 +1,9 @@
 {
+  "[dockerfile]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  },
   "[go]": {
     "editor.insertSpaces": false
   },
@@ -7,6 +12,9 @@
   },
   "[python]": {
     "editor.tabSize": 4
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
   },
   "debug.console.fontSize": 13,
   "editor.codeActionsOnSave": {
@@ -17,13 +25,13 @@
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
     80,
     100,
-    120
+    120,
   ],
   "editor.semanticTokenColorCustomizations": {
     "enabled": true
@@ -36,6 +44,8 @@
   "files.associations": {
     "*.jsonl": "json"
   },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 60000,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -46,18 +56,18 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
-  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.vueIndentScriptAndStyle": true,
   "python.formatting.blackArgs": [
     "--line-length",
     "79",
     "--skip-string-normalization"
   ],
-  "python.formatting.blackPath": "/usr/bin/black",
-  "python.formatting.provider": "black",
+  // "python.formatting.blackPath": "/usr/bin/black",
+  // "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
   "python.linting.lintOnSave": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylintPath": "/usr/bin/pylint",
+  // "python.linting.pylintEnabled": true,
+  // "python.linting.pylintPath": "/usr/bin/pylint",
   "python.pythonPath": "/bin/python",
   "ruby.format": "rubocop",
   "ruby.lint": {
@@ -78,11 +88,6 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "Solarized Dark",
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
-  "workbench.iconTheme": "eq-material-theme-icons",
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 300000
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.iconTheme": "eq-material-theme-icons"
 }
