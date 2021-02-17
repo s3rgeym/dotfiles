@@ -60,9 +60,10 @@ zplug "plugins/web-search", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-# zplug "zsh-users/zsh-syntax-highlighting"
+# Нужен?
+# zplug "zsh-users/zsh-completions"
 
+# zplug "zsh-users/zsh-syntax-highlighting"
 # Работает намного быстрее предыдущего плагина и подсвечивает лучше
 zplug "zdharma/fast-syntax-highlighting"
 
@@ -135,15 +136,20 @@ pet-select() {
   zle redisplay
 }
 
+# yay -S asdf-vm
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 # source /opt/asdf-vm/completions/asdf.bash
 
+# yay -S hub
+# alias git=hub
 eval "$(hub alias -s)"
 
+# yay -S pet-bin
 zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
 
+# yay -S tilix
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #   source /etc/profile.d/vte.sh
 # fi
@@ -151,6 +157,6 @@ bindkey '^s' pet-select
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# По факту тема для zsh
 # https://github.com/starship/starship
+# yay -S starship-bin
 eval "$(starship init zsh)"
