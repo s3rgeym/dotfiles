@@ -1,5 +1,7 @@
 # Dotfiles
 
+## Инструкция
+
 Добавляем alias:
 
 ```zsh
@@ -19,3 +21,6 @@ git clone --bare git@github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
 dotfiles checkout
 ```
  
+ ## Галерея
+
+ ![image](https://user-images.githubusercontent.com/12753171/108149604-46f13780-70e4-11eb-81a5-57b17851cc03.png)
