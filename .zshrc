@@ -8,9 +8,9 @@ zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/*.zsh"
 
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins-Overview
 zplug "plugins/archlinux", from:oh-my-zsh
-# При установке из репозитория нужно задать переменную окружения ASDF_DIR
-# С последними версиями asdf-vm не работает
-# zplug "plugins/asdf", from:oh-my-zsh
+# yay -S asdf-vm
+# не работает без переменной окружения ASDF_DIR
+zplug "plugins/asdf", from:oh-my-zsh
 zplug "plugins/autopep8", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 # ccat и cless
@@ -61,7 +61,7 @@ zplug "plugins/zsh_reload", from:oh-my-zsh
 
 zplug "zsh-users/zsh-autosuggestions"
 # Нужен?
-# zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-completions"
 
 # zplug "zsh-users/zsh-syntax-highlighting"
 # Работает намного быстрее предыдущего плагина и подсвечивает лучше
@@ -136,8 +136,8 @@ pet-select() {
   zle redisplay
 }
 
-# yay -S asdf-vm
-[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
+# ранее требовалось вручную подключать
+# [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 # source /opt/asdf-vm/completions/asdf.bash
 
 # yay -S hub
