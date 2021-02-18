@@ -60,7 +60,7 @@ zplug "plugins/web-search", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 
 zplug "zsh-users/zsh-autosuggestions"
-# Нужен?
+# Добавляет автодополнение для некоторых команд, например, xsel
 zplug "zsh-users/zsh-completions"
 
 # zplug "zsh-users/zsh-syntax-highlighting"
