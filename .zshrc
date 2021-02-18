@@ -125,6 +125,10 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 mcd() { mkdir -p "$1" && cd "$1" }
 
+# yay -S hub
+# alias git=hub
+eval "$(hub alias -s)"
+
 prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
@@ -136,18 +140,14 @@ pet-select() {
   zle redisplay
 }
 
-# ранее требовалось вручную подключать
-# [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-# source /opt/asdf-vm/completions/asdf.bash
-
-# yay -S hub
-# alias git=hub
-eval "$(hub alias -s)"
-
 # yay -S pet-bin
 zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
+
+# ранее требовалось вручную подключать
+# [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
+# source /opt/asdf-vm/completions/asdf.bash
 
 # yay -S tilix
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
