@@ -1407,6 +1407,10 @@
   output = ""
 
 [[snippets]]
+  command = "systemctl list-units --type=target"
+  description = "list systemd targets"
+
+[[snippets]]
   description = ""
   command = "sudo systemctl start <unit>"
   tag = ["systemd"]
