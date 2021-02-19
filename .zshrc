@@ -117,13 +117,14 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export GOO111MODULE=on
 # export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
+# autoload aliases, functions and etc
 if [[ -v ZSHDOTDIR  ]]
 then
   [ ! -d "$ZSHDOTDIR" ] && mkdir -p "$ZSHDOTDIR"
 
   for file in $(find "$ZSHDOTDIR" -name '*.zsh' -type f)
   do 
-    . $file
+    . "$file"
   done
 fi
 
