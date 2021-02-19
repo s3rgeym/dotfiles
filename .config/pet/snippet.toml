@@ -3485,7 +3485,7 @@
 
 [[snippets]]
   command = "docker system prune"
-  descripton = "remove unused data"
+  descripton = "delete all dangling data"
 
 [[snippets]]
   command = "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container>"

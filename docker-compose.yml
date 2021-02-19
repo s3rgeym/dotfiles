@@ -5,9 +5,9 @@ services:
     image: postgres:latest
     restart: unless-stopped
     environment:
-      POSTGRES_USER: 'docker'
-      POSTGRES_PASSWORD: '1'
-      POSTGRES_DB: 'docker'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: db
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
