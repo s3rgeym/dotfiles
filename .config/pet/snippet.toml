@@ -3484,6 +3484,10 @@
   description = "disk usage"
 
 [[snippets]]
+  command = "docker system prune"
+  descripton = "remove unused data"
+
+[[snippets]]
   command = "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container>"
   descripton = "get container ip address"
 
@@ -3841,4 +3845,8 @@
 [[snippets]]
   command = "export $(grep -v '^#' .env | xargs)"
   description = "load environment variables from dotenv file"
+
+[[snippets]]
+  command = "rm -rf ~/.cache/thumbnails"
+  description = "remove image thumbnails"
 

@@ -9,8 +9,8 @@ zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/*.zsh"
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins-Overview
 zplug "plugins/archlinux", from:oh-my-zsh
 # yay -S asdf-vm
-# не работает без переменной окружения ASDF_DIR
-zplug "plugins/asdf", from:oh-my-zsh
+# не работает
+# zplug "plugins/asdf", from:oh-my-zsh
 zplug "plugins/autopep8", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 # ccat и cless
@@ -108,46 +108,33 @@ zplug load # --verbose
 
 # zsh history size
 HISTSIZE=100000
-SAVEHIST=$HISTSIZE
+SAVEHIST="$HISTSIZE"
 
 # Требуется для Python, установленного через pyenv, для компиляции YCM при
 # установке YouCompleteMe
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 # Поддержка модулей Go. Не нужно, начиная с 1.16
 export GOO111MODULE=on
-export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+# export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
-alias :q='exit'
-alias cls='clear'
-alias reload='exec $SHELL -l'
-alias edit-zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+if [[ -v ZSHDOTDIR  ]]
+then
+  [ ! -d "$ZSHDOTDIR" ] && mkdir -p "$ZSHDOTDIR"
 
-mcd() { mkdir -p "$1" && cd "$1" }
+  for file in $(find "$ZSHDOTDIR" -name '*.zsh' -type f)
+  do 
+    . $file
+  done
+fi
 
 # yay -S hub
 # alias git=hub
 eval "$(hub alias -s)"
 
-prev() {
-  PREV=$(fc -lrn | head -n 1)
-  sh -c "pet new `printf %q "$PREV"`"
-}
-
-pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-
-# yay -S pet-bin
-zle -N pet-select
-stty -ixon
-bindkey '^s' pet-select
-
-# ранее требовалось вручную подключать
-# [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-# source /opt/asdf-vm/completions/asdf.bash
+# plugin asdf для oh my zsh не робiт
+[ -d "/opt/asdf-vm" ] && source /opt/asdf-vm/asdf.sh
+  #source /opt/asdf-vm/completions/asdf.bash
+# fi
 
 # yay -S tilix
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
