@@ -1,14 +1,12 @@
 [Unit]
 Description=docker-compose %i service
-# Пользоватьские юниты не могут зависеть от системных
-# Список доступных:
-#   $ systemctl --user list-units --type=target
+# Пользоватьским юнитам не доступны системные
 #After=network-online.target docker.socket
 #Wants=network-online.target
 #Requires=docker.socket
 
 [Service]
-WorkingDirectory=%h
+WorkingDirectory=%h/docker-compose
 ExecStart=/usr/bin/docker-compose up --remove-orphans -d
 ExecReload=/usr/bin/docker-compose up --remove-orphans -d
 ExecStop=/usr/bin/docker-compose down

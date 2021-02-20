@@ -3554,7 +3554,11 @@
   command = "docker-compose logs -f <service>"
 
 [[snippets]]
-  command = "skopeo inspect <uri=docker://docker.io/fedora> | jq '.'"
+  command = "docker-compose config"
+  descripton = "valiadate and view compose file"
+
+[[snippets]]
+  command = "skopeo inspect docker://docker.io/<image> | jq '.'"
   description = "inspect remote repository image"
   tag = ["docker"]
 
