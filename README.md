@@ -27,10 +27,16 @@ dotfiles checkout
 $ systemctl --user enable --now docker-compose@dev
 ```
 
-[localhost:3000](http://localhost:3000)
-
-![image](https://user-images.githubusercontent.com/12753171/108596014-3f0aef00-7393-11eb-8108-e7937af55aee.png)
-
 ## Галерея
 
- ![image](https://user-images.githubusercontent.com/12753171/108149604-46f13780-70e4-11eb-81a5-57b17851cc03.png)
+### Gnome Terminal
+
+![image](https://user-images.githubusercontent.com/12753171/108596051-98731e00-7393-11eb-94bd-71d655c88149.png)
+
+### [PGAdmin](http://localhost:5050)
+
+![image](https://user-images.githubusercontent.com/12753171/108596104-ea1ba880-7393-11eb-83bb-15a5dfdaf343.png)
+
+### [Локальная Wiki](http://localhost:3000)
+
+![image](https://user-images.githubusercontent.com/12753171/108596014-3f0aef00-7393-11eb-8108-e7937af55aee.png)
