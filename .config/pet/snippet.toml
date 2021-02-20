@@ -3520,6 +3520,10 @@
   description = "remove all volumes"
 
 [[snippets]]
+  command = "docker stats --all"
+  descripton = "resource usage"
+
+[[snippets]]
   command = "docker-compose up -d"
   description = "run services in background"
 
