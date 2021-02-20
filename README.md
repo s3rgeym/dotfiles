@@ -33,6 +33,10 @@ $ systemctl --user enable --now docker-compose@dev
 
 ![image](https://user-images.githubusercontent.com/12753171/108596051-98731e00-7393-11eb-94bd-71d655c88149.png)
 
+### Vim
+
+![image](https://user-images.githubusercontent.com/12753171/108596258-e2103880-7394-11eb-9249-bb4a5be9e007.png)
+
 ### [PGAdmin](http://localhost:5050)
 
 ![image](https://user-images.githubusercontent.com/12753171/108596104-ea1ba880-7393-11eb-83bb-15a5dfdaf343.png)
