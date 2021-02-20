@@ -1,6 +1,6 @@
 # Dotfiles
 
-## Инструкция
+## Установка
 
 Добавляем alias:
 
@@ -20,7 +20,13 @@ dotfiles config --local status.showUntrackedFiles no
 git clone --bare git@github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
 dotfiles checkout
 ```
- 
- ## Галерея
+
+## Docker-Compose
+
+```zsh
+$ systemctl --user enable --now docker-compose@myservice
+```
+
+## Галерея
 
  ![image](https://user-images.githubusercontent.com/12753171/108149604-46f13780-70e4-11eb-81a5-57b17851cc03.png)
