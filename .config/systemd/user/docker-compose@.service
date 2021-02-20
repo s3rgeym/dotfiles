@@ -1,0 +1,22 @@
+[Unit]
+Description=docker-compose %i service
+# Пользоватьские юниты не могут зависеть от системных
+# Список доступных:
+#   $ systemctl --user list-units --type=target
+#After=network-online.target docker.socket
+#Wants=network-online.target
+#Requires=docker.socket
+
+[Service]
+WorkingDirectory=%h
+ExecStart=/usr/bin/docker-compose up -d
+ExecReload=/usr/bin/docker-compose up -d
+ExecStop=/usr/bin/docker-compose down
+Type=oneshot
+# После выхода из программы не убиваем запущенный процесс
+RemainAfterExit=yes
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target
