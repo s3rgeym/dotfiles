@@ -1,10 +1,10 @@
 [Unit]
 
 [Timer]
-OnStartupSec=1
 # Every 15 minutes
 OnCalendar=*:0/15
 Persistent=true
+AccuracySec=1s
 
 [Install]
 WantedBy=timers.target
