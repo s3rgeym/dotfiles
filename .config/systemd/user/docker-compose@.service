@@ -9,8 +9,8 @@ Description=docker-compose %i service
 
 [Service]
 WorkingDirectory=%h
-ExecStart=/usr/bin/docker-compose up -d
-ExecReload=/usr/bin/docker-compose up -d
+ExecStart=/usr/bin/docker-compose up --remove-orphans -d
+ExecReload=/usr/bin/docker-compose up --remove-orphans -d
 ExecStop=/usr/bin/docker-compose down
 Type=oneshot
 # После выхода из программы не убиваем запущенный процесс

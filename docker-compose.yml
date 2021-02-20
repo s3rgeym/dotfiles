@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:alpine
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
@@ -16,7 +16,7 @@ services:
       - postgres
 
   redis:
-    image: 'redis:alpine'
+    image: redis:alpine
     restart: unless-stopped
     volumes:
       - redis:/var/lib/redis
