@@ -24,8 +24,12 @@ dotfiles checkout
 ## Docker-Compose
 
 ```zsh
-$ systemctl --user enable --now docker-compose@deploy
+$ systemctl --user enable --now docker-compose@dev
 ```
+
+[localhost:3000](http://localhost:3000)
+
+![image](https://user-images.githubusercontent.com/12753171/108596014-3f0aef00-7393-11eb-8108-e7937af55aee.png)
 
 ## Галерея
 
