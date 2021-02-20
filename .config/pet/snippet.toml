@@ -3554,6 +3554,11 @@
   command = "docker-compose logs -f <service>"
 
 [[snippets]]
+  command = "skopeo inspect <uri=docker://docker.io/fedora> | jq '.'"
+  description = "inspect remote repository image"
+  tag = ["docker"]
+
+[[snippets]]
   command = "echo -e '*1\\r\\n$4\\r\\nPING\\r\\n' | nc 127.0.0.1 6379"
   description = "test redis connection with netcat"
 
