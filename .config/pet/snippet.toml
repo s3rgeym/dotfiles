@@ -1408,7 +1408,8 @@
 
 [[snippets]]
   command = "systemctl list-units --type=target"
-  description = "list systemd targets"
+  description = "get current targets"
+  tag = ["systemd"]
 
 [[snippets]]
   description = ""
@@ -1464,10 +1465,20 @@
   output = ""
 
 [[snippets]]
-  description = "view source"
+  description = "view unit source"
   command = "systemctl cat <unit>"
   tag = ["systemd"]
   output = ""
+
+[[snippets]]
+  command = "systemctl edit <unit>"
+  description = "drop-in-files"
+  tag = ["systemd"]
+
+[[snippets]]
+  command = "systemctl edit --full <unit>"
+  description = "replace unit file"
+  tag = ["systemd"]
 
 [[snippets]]
   command = "journalctl --user-unit <unit>"
