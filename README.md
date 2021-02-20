@@ -24,7 +24,7 @@ dotfiles checkout
 ## Docker-Compose
 
 ```zsh
-$ systemctl --user enable --now docker-compose@dev
+$ systemctl --user enable --now docker-compose@myservice
 ```
 
 ## Галерея
