@@ -1,22 +1,22 @@
 version: '3.7'
 
 services:
-  postgres:
+  postgresql:
     image: postgres:alpine
-    container_name: postgres
+    container_name: postgresql
     restart: unless-stopped
     environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: docker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgresql:/var/lib/postgresql/data
     ports:
-      # из других контейнеров в общей сети нужно подключиться к postgres:5432
+      # из других контейнеров в общей сети нужно подключиться к postgresql:5432
       # на хосте подключаемся к localhost:54321
       - '54321:5432'
     networks:
-      - postgres
+      - postgresql
 
   pgadmin:
     image: dpage/pgadmin4
@@ -32,7 +32,7 @@ services:
       - '5050:80'
     networks:
       - pgadmin
-      - postgres
+      - postgresql
 
   mongodb:
     image: mongo:latest
@@ -60,13 +60,13 @@ services:
       - redis
 
 volumes:
-  postgres:
+  postgresql:
   pgadmin:
   mongodb:
   redis:
 
 networks:
-  postgres:
+  postgresql:
     driver: bridge
 
   pgadmin:
