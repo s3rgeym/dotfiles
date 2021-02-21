@@ -29,10 +29,13 @@ dotfiles checkout
 $ systemctl --user enable --now docker-compose@default
 ```
 
-Где `@default` имя конфига, содержащего переменные окружения, см:
+Где `@default` имя конфига, содержащего переменные окружения, сам конфиг `docker-compose/default.env`.
+
+Systemd-юниты:
 
 ```
-./docker-compose/default.env
+config/systemd/user/docker-compose@.service
+config/systemd/user/docker-compose@.timer
 ```
 
 ## Галерея
