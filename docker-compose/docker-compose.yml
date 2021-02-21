@@ -9,7 +9,8 @@
 # того чтобы запускать все без установки переменной COMPOSE_ENV_FILE и указания
 # флага --env-file, т.е. чтобы с дефолтным пресетом все запустить выполняем:
 #
-#  $ docker-compose up -d
+#   $ docker-compose up -d
+#
 version: '3.7'
 
 services:
