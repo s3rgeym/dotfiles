@@ -46,6 +46,12 @@ config/systemd/user/docker-compose@.timer
 * [PGAdmin](http://pgadmin.localhost).
 * [Mongo Express](http://mongo-express.localhost).
 
+Чтобы эти ссылки заработали нужно изменить `/etc/hosts`:
+
+```hosts
+127.0.0.1 localhost wiki.localhost pgadmin.localhost mongodb-express.localhost
+```
+
 ## Галерея
 
 ### Gnome Terminal
@@ -64,7 +70,7 @@ config/systemd/user/docker-compose@.timer
 
 ![image](https://user-images.githubusercontent.com/12753171/108596568-ea697300-7396-11eb-9790-550f4818f834.png)
 
-### [PGAdmin](http://localhost:5050)
+### [PGAdmin](http://pgadmin.localhost)
 
 ![image](https://user-images.githubusercontent.com/12753171/108596104-ea1ba880-7393-11eb-83bb-15a5dfdaf343.png)
 
