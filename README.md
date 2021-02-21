@@ -23,6 +23,8 @@ dotfiles checkout
 
 ## Docker-Compose
 
+Все базы и сервисы, необходиме мне для работы, я запускаю через docker чтобы не засирать систему всяким говном и не ебаться с установкой всяких админок.
+
 ```zsh
 $ systemctl --user enable --now docker-compose@default
 ```
