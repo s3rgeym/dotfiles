@@ -122,7 +122,8 @@ if [[ -v ZSHDOTDIR  ]]
 then
   [ ! -d "$ZSHDOTDIR" ] && mkdir -p "$ZSHDOTDIR"
 
-  for file in $(find "$ZSHDOTDIR" -name '*.zsh' -type f)
+  # Дополнительно сортируем файлы по возрастанию
+  for file in $(find "$ZSHDOTDIR" -name '*.zsh' -type f | sort -n)
   do 
     . "$file"
   done
