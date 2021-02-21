@@ -55,6 +55,8 @@ $ systemctl --user enable --now docker-compose@default
 
 ![image](https://user-images.githubusercontent.com/12753171/108596104-ea1ba880-7393-11eb-83bb-15a5dfdaf343.png)
 
-### [Локальная Wiki](http://localhost:3000)
+### [Локальная Wiki](http://localhost:30001)
+
+Требуется подключиться к postgres и создать базу wiki.
 
 ![image](https://user-images.githubusercontent.com/12753171/108596014-3f0aef00-7393-11eb-8108-e7937af55aee.png)
