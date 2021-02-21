@@ -30,7 +30,7 @@ services:
       # на хосте подключаемся к localhost:54321
       - "${POSTGRES_PORT:-54321}:5432"
     networks:
-      - postgres
+      - postgres_net
 
   pgadmin:
     image: dpage/pgadmin4
@@ -44,9 +44,9 @@ services:
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
-      - pgadmin
-      - postgres
-      - traefik
+      - pgadmin_net
+      - postgres_net
+      - traefik_net
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.localhost`)"
@@ -62,7 +62,7 @@ services:
     ports:
       - "${MYSQL_PORT:-33061}:3306"
     networks:
-      - mysql
+      - mysql_net
 
   mongodb:
     image: mongo:latest
@@ -74,7 +74,7 @@ services:
     ports:
       - "${MONGODB_PORT:-37017}:27017"
     networks:
-      - mongodb
+      - mongo_net
     # Запрещаем автозапуск. См. `docker-compose --profile`
     profiles:
       - "cli-only"
@@ -94,9 +94,9 @@ services:
     ports:
       - "${MONGO_EXPRESS_PORT:-18081}:8081"
     networks:
-      - mongo-express
-      - mongodb
-      - traefik
+      - mongo_express_net
+      - mongo_net
+      - traefik_net
     depends_on:
       - mongodb
     labels:
@@ -115,7 +115,7 @@ services:
     ports:
       - "${REDIS_PORT:-63791}:6379"
     networks:
-      - redis
+      - redis_net
 
   # Локальная вики
   # Чтобы заработала надо в postgres создать базу wiki
@@ -137,30 +137,31 @@ services:
       # 3000 порт по-дефолту в примерах для node.js
       - "${WIKI_PORT:-30001}:3000"
     networks:
-      - wiki
-      - postgres
-      - traefik
+      - wiki_net
+      - postgres_net
+      - traefik_net
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.wiki.rule=Host(`wiki.localhost`)"
       - "traefik.http.routers.wiki.entrypoints=web"
 
   traefik:
-    image: "traefik:latest"
+    image: "traefik:v2.4"
     container_name: "traefik"
     command:
-      #- "--log.level=DEBUG"
+      #- "--ilog.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
+      - "--providers.docker.network=traefik_net"
     ports:
       - "80:80"
-      - "${TRAEFIK_DASHBOARD_PORT:-9080}:8080"
+      - "${TRAEFIK_PORT:-9080}:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     networks:
-      - traefik
+      - traefik_net
 
 volumes:
   pgdata:
@@ -169,13 +170,28 @@ volumes:
   mongo_data:
   redis_data:
 
-# некоторым можно добавить bridge.driver = 'local'
+# TODO: некоторым можно добавить bridge.driver = 'local'
 networks:
-  postgres:
-  pgadmin:
-  mysql:
-  mongodb:
-  mongo-express:
-  redis:
-  wiki:
-  traefik:
+  postgres_net:
+    name: postgres_net
+
+  pgadmin_net:
+    name: pgadmin_net
+
+  mysql_net:
+    name: mysql_net
+
+  mongo_net:
+    name: mongo_net
+
+  mongo_express_net:
+    name: mongo_express_net
+
+  redis_net:
+    name: redis_net
+
+  wiki_net:
+    name: wiki_net
+
+  traefik_net:
+    name: traefik_net
