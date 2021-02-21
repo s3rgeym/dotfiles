@@ -13,7 +13,7 @@
 #
 # Модифицируйте /etc/hosts чтобы иметь возможно обращаться к ресурсам по именам:
 #
-#  127.0.0.1 localhost wiki.localhost pgadmin.localhost mongodb-express.localhost
+#  127.0.0.1 localhost wiki.local pgadmin.loc ...
 #
 version: '3.7'
 
@@ -49,7 +49,7 @@ services:
       - traefik_net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.localhost`)"
+      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.local`)"
       - "traefik.http.routers.pgadmin.entrypoints=web"
 
   mysql:
@@ -101,7 +101,7 @@ services:
       - mongodb
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mongo-express.rule=Host(`mongo-express.localhost`)"
+      - "traefik.http.routers.mongo-express.rule=Host(`express.local`)"
       - "traefik.http.routers.mongo-express.entrypoints=web"
     profiles:
       - "cli-only"
@@ -142,8 +142,23 @@ services:
       - traefik_net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wiki.rule=Host(`wiki.localhost`)"
+      - "traefik.http.routers.wiki.rule=Host(`wiki.local`)"
       - "traefik.http.routers.wiki.entrypoints=web"
+
+  notebook:
+    image: 'jupyter/minimal-notebook'
+    container_name: 'notebook'
+    networks:
+      - notebook_net
+      - traefik_net
+    ports:
+      - '10000:8888'
+    volumes:
+      - notebook_data:/home/jovyan/work
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.notebook.entrypoints=web'
+      - 'traefik.http.routers.notebook.rule=Host(`notebook.local`)'
 
   traefik:
     image: "traefik:v2.4"
@@ -169,6 +184,7 @@ volumes:
   mysql_data:
   mongo_data:
   redis_data:
+  notebook_data:
 
 # TODO: некоторым можно добавить bridge.driver = 'local'
 networks:
@@ -192,6 +208,9 @@ networks:
 
   wiki_net:
     name: wiki_net
+
+  notebook_net:
+    name: notebook_net
 
   traefik_net:
     name: traefik_net
