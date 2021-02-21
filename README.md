@@ -78,4 +78,4 @@ config/systemd/user/docker-compose@.timer
 
 Требуется подключиться к postgres (`postgres:secret@localhost:54321`, в интерфейсе pgadmin нужно указывать хост `postgres` и порт `5432`) и создать базу wiki.
 
-![image](https://user-images.githubusercontent.com/12753171/108614454-9e0c4a80-740b-11eb-98f4-2af79c547e05.png)
+![image](https://user-images.githubusercontent.com/12753171/108618434-2c45f800-742f-11eb-9d01-3363fd6c2a57.png)
