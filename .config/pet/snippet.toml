@@ -3507,6 +3507,10 @@
   descripton = "get container ip address"
 
 [[snippets]]
+  command = "docker ps -a | grep <name> | awk '{ print $1 }' | xargs -I {} docker rm {}"
+  description = "remove all containers based on a docker image name"
+
+[[snippets]]
   description = "Delete all containers that are not currently running."
   command = "docker rm $(docker ps -a -q)"
   output = ""

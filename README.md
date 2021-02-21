@@ -40,6 +40,12 @@ config/systemd/user/docker-compose@.service
 config/systemd/user/docker-compose@.timer
 ```
 
+## Внутренние веб-сервисы
+
+* [Wiki](http://wiki.localhost).
+* [PGAdmin](http://pgadmin.localhost).
+* [Mongo Express](http://mongo-express.localhost).
+
 ## Галерея
 
 ### Gnome Terminal
@@ -62,7 +68,7 @@ config/systemd/user/docker-compose@.timer
 
 ![image](https://user-images.githubusercontent.com/12753171/108596104-ea1ba880-7393-11eb-83bb-15a5dfdaf343.png)
 
-### [Локальная Wiki](http://localhost:30001)
+### [Локальная Wiki](http://wiki.localhost)
 
 Требуется подключиться к postgres (`postgres:secret@localhost:54321`, в интерфейсе pgadmin нужно указывать хост `postgres` и порт `5432`) и создать базу wiki.
 
