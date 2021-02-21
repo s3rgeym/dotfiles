@@ -24,7 +24,13 @@ dotfiles checkout
 ## Docker-Compose
 
 ```zsh
-$ systemctl --user enable --now docker-compose@myservice
+$ systemctl --user enable --now docker-compose@default
+```
+
+Где `@default` имя конфига, содержащего переменные окружения, см:
+
+```
+./docker-compose/default.env
 ```
 
 ## Галерея

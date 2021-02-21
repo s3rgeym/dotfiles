@@ -1,4 +1,13 @@
-# Баг, если env_file имеет название отличное от `.env`.
+# Переменные из `env_file` используется только при запуске контейнера. При
+# сборке читается файл `.env`, если тот существует. Для сборки с произвольным
+# env-файлом исп. docker-compose --env-file myenv. Т.о., запуск с произвольными
+# настройками будет выглядеть так:
+#
+#   $ COMPOSE_ENV_FILE=/path/to/myenv docker-compose --env-file $COMPOSE_ENV_FILE up -d
+#
+# `.env` является лишь символической ссылкой на `default.env`. Это сделано для
+# того чтобы запустить все без установки переменной COMPOSE_ENV_FILE и указания
+# флага --env-file.
 version: '3.7'
 
 services:
@@ -6,13 +15,13 @@ services:
     image: postgres:alpine
     container_name: postgres
     restart: unless-stopped
-    env_file: .env
+    env_file: ${COMPOSE_ENV_FILE:-.env}
     volumes:
       - pgdata:/var/lib/postgresql/data:rw
     ports:
       # из других контейнеров в общей сети нужно подключиться к postgres:5432
       # на хосте подключаемся к localhost:54321
-      - '54321:5432'
+      - "${POSTGRES_PORT:-54321}:5432"
     networks:
       - postgres
 
@@ -22,11 +31,11 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
-    env_file: .env
+    env_file: ${COMPOSE_ENV_FILE:-.env}
     volumes:
       - pgadmin:/root/.pgadmin:rw
     ports:
-      - '5050:80'
+      - "${PGADMIN_PORT:-5050}:80"
     networks:
       - pgadmin
       - postgres
@@ -35,11 +44,11 @@ services:
     image: mariadb:latest
     container_name: mysql
     restart: unless-stopped
-    env_file: .env
+    env_file: ${COMPOSE_ENV_FILE:-.env}
     volumes:
       - mysql:/var/lib/mysql:rw
     ports:
-      - '33061:3306'
+      - "${MYSQL_PORT:-33061}:3306"
     networks:
       - mysql
 
@@ -47,11 +56,11 @@ services:
     image: mongo:latest
     container_name: mongodb
     restart: unless-stopped
-    env_file: .env
+    env_file: ${COMPOSE_ENV_FILE:-.env}
     volumes:
       - mongodb:/data/db:rw
     ports:
-      - '27017:27017'
+      - "${MONGODB_PORT:-27018}:27017"
     networks:
       - mongodb
 
@@ -62,18 +71,19 @@ services:
     volumes:
       - redis:/var/lib/redis:rw
     ports:
-      - '63791:6379'
+      - "${REDIS_PORT:-63791}:6379"
     networks:
       - redis
 
   # Локальная вики
+  # Чтобы заработала надо в postgres создать базу wiki
   wiki:
     image: requarks/wiki:latest
     container_name: wiki
     depends_on:
       - postgres
     restart: unless-stopped
-    env_file: .env
+    env_file: ${COMPOSE_ENV_FILE:-.env}
     environment:
       DB_TYPE: postgres
       DB_HOST: postgres
@@ -82,7 +92,8 @@ services:
       DB_PASS: "${POSTGRES_PASSWORD}"
       DB_NAME: wiki
     ports:
-      - '3000:3000'
+      # 3000 порт по-дефолту в примерах для node.js
+      - "${WIKI_PORT:-30001}:3000"
     networks:
       - wiki
       - postgres
