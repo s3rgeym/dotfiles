@@ -75,6 +75,9 @@ services:
       - "${MONGODB_PORT:-37017}:27017"
     networks:
       - mongodb
+    # Запрещаем автозапуск. См. `docker-compose --profile`
+    profiles:
+      - "cli-only"
 
   # веб-админка для mongodb
   mongo-express:
@@ -100,6 +103,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.mongo-express.rule=Host(`mongo-express.localhost`)"
       - "traefik.http.routers.mongo-express.entrypoints=web"
+    profiles:
+      - "cli-only"
 
   redis:
     image: redis:alpine
