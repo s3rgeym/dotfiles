@@ -159,6 +159,7 @@ services:
       - 'traefik.enable=true'
       - 'traefik.http.routers.notebook.entrypoints=web'
       - 'traefik.http.routers.notebook.rule=Host(`notebook.local`)'
+    profiles: ['cli-only']
 
   traefik:
     image: "traefik:v2.4"
