@@ -643,6 +643,9 @@
   output = ""
 
 [[snippets]]
+  command = "ln -s `$pwd`/<relpath> <symlink>"
+
+[[snippets]]
   description = "destination of a symlink"
   command = "readlink -f <filename>"
   output = ""
@@ -1681,7 +1684,7 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "prints installed packages"
+  description = "list installed packages"
   command = "pip list"
   tag = ["python"]
   output = ""
@@ -2933,6 +2936,10 @@ description = "pretty and highlight json"
   description = "Merges a branch to your current HEAD"
   command = "git merge <branch-name>"
   output = ""
+
+[[snippets]]
+  command = "git merge --abort"
+  descripton = "undo the merge"
 
 [[snippets]]
   description = "Rebase your current HEAD onto branch-name"
