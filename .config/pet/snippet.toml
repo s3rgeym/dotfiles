@@ -1078,6 +1078,10 @@
   command = "journalctl -b -1"
 
 [[snippets]]
+  command = "journalctl –since <start> –until <end>"
+  description = "display all message beetween two dates and times (YYYY-MM-DD HH:ii:ss)"
+
+[[snippets]]
   description = "logs by unit"
   command = "journalctl -u <unit>"
   output = ""
@@ -1096,7 +1100,7 @@
   description = "logs size"
 
 [[snippets]]
-  command = "sudo journalctl vacuum-size=300M"
+  command = "sudo journalctl --vacuum-size=300M"
   description = "clean logs"
 
 [[snippets]]
@@ -1649,6 +1653,11 @@
   description = "pretty json output"
   command = "python -m json.tool"
   output = ""
+
+[[snippets]]
+command =  "<command> | jq '.'"
+description = "pretty and highlight json"
+
 
 [[snippets]]
   command = "python -m asyncio"
@@ -3466,6 +3475,10 @@
   output = ""
 
 [[snippets]]
+  description = "show volume path"
+  command = "docker volume inspect <volume> | jq -r '.[].Mountpoint'"
+
+[[snippets]]
   description = "List all of the containers that are currently running."
   command = "docker ps"
   output = ""
@@ -3763,6 +3776,10 @@
 [[snippets]]
   command = "gnome-shell --version"
   description = "Gnome version"
+
+[[snippets]]
+  command = "gnome-shell -r"
+  descripton = "reload gnome shell"
 
 [[snippets]]
   command = "sudo ntfsfix /dev/<device>"

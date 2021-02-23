@@ -25,19 +25,9 @@ dotfiles checkout
 
 Все сервисы, необходиме мне для работы, я запускаю через docker чтобы не засирать систему всяким говном и не ебаться с установкой и настройкой этого говна.
 
-Автозапуск:
-
 ```zsh
-$ systemctl --user enable --now docker-compose@default
-```
-
-Где `@default` имя конфига, содержащего переменные окружения, сам конфиг `docker-compose/default.env`.
-
-Systemd-юниты:
-
-```
-config/systemd/user/docker-compose@.service
-config/systemd/user/docker-compose@.timer
+$ sudo ln -sf ~/docker-compose/dev/docker-compose-dev@.service /etc/systemd/system
+$ sudo systemctl enable --now docker-compose-dev@$USER 
 ```
 
 ## Внутренние веб-сервисы
