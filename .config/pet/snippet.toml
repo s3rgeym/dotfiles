@@ -569,6 +569,10 @@
   output = ""
 
 [[snippets]]
+  description = "show image in window"
+  command = "display <filename>"
+
+[[snippets]]
   description = "display image in terminal"
   command = "viu <filename>"
   output = ""
@@ -1913,6 +1917,10 @@ description = "pretty and highlight json"
   command = "http <url>"
   tag = ["networking"]
   output = ""
+
+[[snippets]]
+  descripton = "send request to socket"
+  command = "curl -s --unix-socket /var/run/docker.sock http://unix/json"
 
 [[snippets]]
   description = "list all open files on the system"
@@ -3484,6 +3492,9 @@ description = "pretty and highlight json"
 [[snippets]]
   description = "show volume path"
   command = "docker volume inspect <volume> | jq -r '.[].Mountpoint'"
+
+[[snippets]]
+  command = "PID=$(docker inspect --format {{.State.Pid}} <container>)"
 
 [[snippets]]
   description = "List all of the containers that are currently running."
