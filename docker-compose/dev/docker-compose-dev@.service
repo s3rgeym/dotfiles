@@ -1,7 +1,7 @@
+# Хуета нерабочая. Заеб этот systemd в край
 [Unit]
-After=network-online.target docker.socket
-Wants=network-online.target
-Requires=docker.socket
+After=docker.service
+Requires=docker.service
 
 [Service]
 Type=oneshot

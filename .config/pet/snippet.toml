@@ -1662,7 +1662,7 @@
   output = ""
 
 [[snippets]]
-command =  "<command> | jq '.'"
+command =  "<command> | jq"
 description = "pretty and highlight json"
 
 
