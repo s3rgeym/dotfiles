@@ -189,6 +189,10 @@
   output = ""
 
 [[snippets]]
+  command = "lastlog"
+  description = "display last login information"
+
+[[snippets]]
   description = "who are loggen in as"
   command = "whoami"
   output = ""
@@ -631,7 +635,7 @@
 
 [[snippets]]
   description = "total space usage"
-  command = "du -hs <directory>"
+  command = "du -hs <directory=.>"
   tag = ["filesystem"]
   output = ""
 
@@ -1741,8 +1745,13 @@ description = "pretty and highlight json"
 [[snippets]]
   description = "interface configuration"
   command = "ifconfig"
-  tag = ["networking"]
+  tag = ["networking", "deprecated"]
   output = ""
+
+[[snippets]]
+  command = "ip -c addr"
+  description = "display all network interfaces"
+  tag = ["networking", "ifconfig"]
 
 [[snippets]]
   description = "list rules"
@@ -1769,6 +1778,16 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
+  command = "sudo ufw allow http"
+  description = "open port 80"
+  tag = ["networking"]
+
+[[snippets]]
+  command = "sudo ufw status"
+  descripton = "show list of rules"
+  tag = ["networking"]
+
+[[snippets]]
   description = "scan ports"
   command = "nc -z -v <host> 20-80"
   tag = ["networking", "netcat"]
@@ -1787,7 +1806,7 @@ description = "pretty and highlight json"
 [[snippets]]
   description = "show listening ports"
   command = "sudo netstat -tulpn"
-  tag = ["networking"]
+  tag = ["networking", "deprecated"]
   output = ""
 
 [[snippets]]
@@ -1845,7 +1864,7 @@ description = "pretty and highlight json"
   description = "copy ssh key to server"
 
 [[snippets]]
-  command = "cat ~/.ssh/id_rsa.pub | ssh username@server.address.com 'cat >> ~/.ssh/authorized_keys'"
+  command = "cat ~/.ssh/id_rsa.pub | ssh -p <port=22> <username>@<address> 'cat >> ~/.ssh/authorized_keys'"
   description = "add public SSH key to the server"
 
 [[snippets]]
@@ -1938,6 +1957,11 @@ description = "pretty and highlight json"
   command = "ss"
   tag = ["networking"]
   output = ""
+
+[[snippets]]
+  command = "sudo ss -lntu"
+  descripton = "show all listening ports for tcp and udp connections in numeric values"
+  tag = ["networking"]
 
 [[snippets]]
   description = "monitor traffic on port 80"
@@ -2993,6 +3017,10 @@ description = "pretty and highlight json"
   description = "Resets the index and working tree. Any changes to tracked files in the working tree since commit are discarded"
   command = "git reset --hard"
   output = ""
+
+[[snippets]]
+  command = "git reset --hard HEAD"
+  description = "revert to a previous commit, ignoring any changes"
 
 [[snippets]]
   description = "Shows untracked files about to be removed"

@@ -25,7 +25,7 @@
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
-  "editor.minimap.enabled": true,
+  "editor.minimap.enabled": false,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
@@ -98,6 +98,7 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "Vue Theme",
-  "workbench.iconTheme": "eq-material-theme-icons"
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "json.maxItemsComputed": 10000
 }
