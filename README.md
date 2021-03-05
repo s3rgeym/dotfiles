@@ -1,5 +1,7 @@
 # Dotfiles
 
+## Install
+
 Add alias:
 
 ```zsh
@@ -12,7 +14,7 @@ Disable git status **untracked files**:
 dotfiles config --local status.showUntrackedFiles no
 ```
 
-Deployment:
+Fetch files:
 
 ```zsh
 git clone --bare git@github.com:s3rgeym/dotfiles.git $HOME/.dotfiles
