@@ -22,10 +22,10 @@ set clipboard+=unnamedplus
 let mapleader=" "
 
 " перемещение между окнами
-nmap <C-h> <C-w>h<CR>
-nmap <C-j> <C-w>j<CR>
-nmap <C-k> <C-w>k<CR>
-nmap <C-l> <C-w>l<CR>
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 silent! nmap <C-p> :NERDTreeToggle<CR>
 silent! map <F2> :NERDTreeFind<CR>
