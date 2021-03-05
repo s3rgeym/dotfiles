@@ -19,6 +19,18 @@ call plug#end()
 " использование системного буфера при копировании
 set clipboard+=unnamedplus
 
+" табуляция
+set ts=2 sw=2 et
+
+" поиск по тексту
+set hlsearch ignorecase incsearch smartcase
+
+" относительные номера строк
+set relativenumber
+
+" выделять строку курсора
+set cursorline
+
 let mapleader=" "
 
 " перемещение между окнами
@@ -50,12 +62,6 @@ let g:airline_theme='gruvbox'
 " NerdTree
 let g:NERDTreeMapActivateNode="<F2>"
 let g:NERDTreeMapPreview="<F3>"
-
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-" /NerdTree
 
 " NerdCommenter
 " Create default mappings
