@@ -21,4 +21,5 @@ dotfiles checkout
 
 ## Screens
 
-![image](https://user-images.githubusercontent.com/12753171/110113674-7c747100-7dc4-11eb-94f0-503d7d262dc3.png)
+* ![image](https://user-images.githubusercontent.com/12753171/110113674-7c747100-7dc4-11eb-94f0-503d7d262dc3.png).
+* ![image](https://user-images.githubusercontent.com/12753171/110150539-6ed4e080-7df0-11eb-8812-2c0001e5d74c.png).

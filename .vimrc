@@ -1,39 +1,57 @@
+call plug#begin('~/.vim/plugged')
 " Automatically install missing plugins on startup
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
 
-
-call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" linting
+Plug 'dense-analysis/ale'
+" quoting
 Plug 'tpope/vim-surround'
+" search and replace in files
+Plug 'mileszs/ack.vim'
+" highlight brackets
+Plug 'frazrepo/vim-rainbow'
+" git helper
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
+
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --ts-completer
+  endif
+endfunction
+
+Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
-" использование системного буфера при копировании
+" use system clipboard
 set clipboard+=unnamedplus
 
-" табуляция
-set ts=2 sw=2 et
+" indention
+set ts=2 sw=2 sts=2 et
 
-" поиск по тексту
+" text search
 set hlsearch ignorecase incsearch smartcase
 
-" относительные номера строк
+" show line numbers
 set relativenumber
 
-" выделять строку курсора
+" highlight cursor line
 set cursorline
 
 let mapleader=" "
 
-" перемещение между окнами
+" window navigation
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -42,19 +60,22 @@ nmap <C-l> <C-w>l
 silent! nmap <C-p> :NERDTreeToggle<CR>
 silent! map <F2> :NERDTreeFind<CR>
 
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
 " Edit vimr configuration file
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 " Reload vimr configuration file
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 
-" цветовой режим
+" color mode
 set termguicolors
 
-" цветовая схема
+" color theme
 colorscheme gruvbox
 set background=dark
 
-" тема airline
+" airline theme
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox'
@@ -62,6 +83,16 @@ let g:airline_theme='gruvbox'
 " NerdTree
 let g:NERDTreeMapActivateNode="<F2>"
 let g:NERDTreeMapPreview="<F3>"
+
+let g:rainbow_active = 1
+
+" YouCompleteMe
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+nnoremap <leader>d :YcmCompleter GetDoc<CR>
+nnoremap <leader>j :YcmCompleter GoTo<CR>
+" /YouCompleteMe
 
 " NerdCommenter
 " Create default mappings
