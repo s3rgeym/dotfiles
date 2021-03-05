@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 fpath+=~/.zfunc
 
+# периодически нужно выполнять `zplug update`
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # добавил после того как заметил, что нет привычных мне алиасов
@@ -117,17 +118,10 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export GOO111MODULE=on
 # export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
-# autoload aliases, functions and etc
-if [[ -v ZSHDOTDIR  ]]
-then
-  [ ! -d "$ZSHDOTDIR" ] && mkdir -p "$ZSHDOTDIR"
-
-  # Дополнительно сортируем файлы по возрастанию
-  for file in $(find "$ZSHDOTDIR" -name '*.zsh' -type f | sort -n)
-  do 
-    . "$file"
-  done
-fi
+conf_files=($HOME/.zsh/*.zsh(N))
+for conf_file in "${conf_files[@]}"; do
+  source "$conf_file"
+done
 
 # yay -S hub
 # alias git=hub
@@ -149,5 +143,3 @@ eval "$(hub alias -s)"
 # https://github.com/starship/starship
 # yay -S starship-bin
 eval "$(starship init zsh)"
-
-# neofetch

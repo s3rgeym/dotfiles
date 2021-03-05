@@ -1,7 +1,10 @@
+alias rm='rm -i'
+alias cp='cp --reflink=auto --sparse=always'
+
 alias :q='exit'
 alias cls='clear'
-alias reload-shell='exec $SHELL -l'
-alias edit-zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
+alias rel='exec $SHELL -l'
+alias zshrc='$EDITOR ~/.zshrc && . ~/.zshrc'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # stop all containers
@@ -12,8 +15,6 @@ alias docker-rm='docker rm $(docker ps -a -q)'
 alias docker-rmi='docker rmi $(docker images -a -q)'
 # remove all volumes
 alias docker-rmv='docker volume rm $(docker volume ls -q)'
-# remove all networks
-#alias docker-rmn='docker network rm `docker network ls -q`'
 alias docker-clean-all='docker-stop; docker-rm; docker-rmi; docker-rmv;'
 alias docker-clean-unused='docker system prune --all --force --volumes' 
 alias compose='docker-compose'

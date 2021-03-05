@@ -4,15 +4,15 @@ div
 
 <script>
 export default {
-  components: {},
-  props: {},
-  data: () => ({}),
-  computed: {},
-  methods: {},
-  mounted() {},
+  name: '',
+  data: () => ({
+  }),
+  created() {
+  },
+  methods: {
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 </style>
-

@@ -1855,7 +1855,8 @@ description = "pretty and highlight json"
 
 [[snippets]]
   description = "setup socks5 ssh tunnel"
-  command = "ssh -f -C2qTnN -D <port> <user>@<host>"
+  #command = "ssh -f -C2qTnN -D <port> <user>@<host>"
+  command = "ssh -f -D <local-port=1080> -p <port=22> <user>@<host>"
   tag = ["networking"]
   output = ""
 
@@ -2342,6 +2343,10 @@ description = "pretty and highlight json"
   command = "dropdb <database>"
   tag = ["postgres"]
   output = ""
+
+[[snippets]]
+  command = "mysql -h <hostname=localhost> -u <username> -p<password> <database>"
+  descripton = "connect to database"
 
 [[snippets]]
   description = "Create shortcut"
@@ -3583,6 +3588,10 @@ description = "pretty and highlight json"
   description = "remove all volumes"
 
 [[snippets]]
+  command = "docker network prune"
+  descripton = "remove all unused network"
+
+[[snippets]]
   command = "docker stats --all"
   descripton = "resource usage"
 
@@ -3944,4 +3953,17 @@ description = "pretty and highlight json"
 [[snippets]]
   command = "rm -rf ~/.cache/thumbnails"
   description = "remove image thumbnails"
+
+[[snippets]]
+  command = 'python -c "<code>";'
+  description = "execute python code"
+
+[[snippets]]
+  command = 'node -p "<code>";'
+  description = "execute javascript code"
+  tag = ["nodejs"]
+
+[[snippets]]
+  command = 'php -r "<code>";'
+  description = "execute php code"
 
