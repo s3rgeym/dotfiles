@@ -10,12 +10,14 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
+" yay -S fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " linting
 Plug 'dense-analysis/ale'
 " quoting
 Plug 'tpope/vim-surround'
 " search and replace in files
+" yay -S ack
 Plug 'mileszs/ack.vim'
 " highlight brackets
 Plug 'frazrepo/vim-rainbow'
@@ -30,6 +32,8 @@ function! BuildYCM(info)
   endif
 endfunction
 
+" autocomplete
+" yay -S cmake
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'preservim/nerdcommenter'
 call plug#end()
