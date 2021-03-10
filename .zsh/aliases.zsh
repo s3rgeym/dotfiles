@@ -5,7 +5,7 @@ alias :q='exit'
 alias cls='clear'
 alias rel='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc'
-alias vimrc='$EDITOR ~/.vimrc'
+alias vimrc='$EDITOR MYVIMRC'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # stop all containers
@@ -21,4 +21,3 @@ alias docker-clean-unused='docker system prune --all --force --volumes'
 alias compose='docker-compose'
 alias docker-logs='docker logs -f'
 alias compose-logs='compose logs -f'
-#alias compose-edit='$EDITOR ${COMPOSE_FILE:-docker-compose.yml}'

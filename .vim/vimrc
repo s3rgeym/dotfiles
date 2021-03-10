@@ -1,3 +1,4 @@
+" TODO: fix
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
@@ -35,13 +36,13 @@ Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 
 Plug 'preservim/nerdcommenter' " https://github.com/preservim/nerdcommenter
 
+" yay -S python-language-server python-black eslint
 Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
   set omnifunc=ale#completion#OmniFunc
   let g:ale_completion_enabled = 1
   let g:ale_completion_autoimport = 1
   let g:ale_fix_on_save = 1
 
-" yay -S python-language-server python-black eslint
   let g:ale_linters = {
   \   'javascript': ['eslint'],
   \   'python': ['pyls']
@@ -54,6 +55,8 @@ Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
   \ }
 
 call plug#end()
+
+set sts=2 ts=2 sw=2
 
 " Full color theme support
 set termguicolors
