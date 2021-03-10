@@ -1417,7 +1417,7 @@
 
 [[snippets]]
   description = ""
-  command = "sudo systemctl -a list-timers"
+  command = "systemctl -a list-timers"
   tag = ["systemd"]
   output = ""
 
@@ -1428,48 +1428,58 @@
 
 [[snippets]]
   description = ""
-  command = "sudo systemctl start <unit>"
+  command = "systemctl start <unit>"
   tag = ["systemd"]
   output = ""
 
 [[snippets]]
   description = ""
-  command = "sudo systemctl restart <unit>"
+  command = "systemctl restart <unit>"
+  tag = ["systemd"]
+  output = ""
+
+[[snippets]]
+  description = "reload config"
+  command = "systemctl reload <unit>"
+  tag = ["systemd"]
+
+[[snippets]]
+  description = "restart or reload config"
+  command = "systemctl reload-or-restart <unit>"
+  tag = ["systemd"]
+
+[[snippets]]
+  description = ""
+  command = "systemctl stop <unit>"
   tag = ["systemd"]
   output = ""
 
 [[snippets]]
   description = ""
-  command = "sudo systemctl stop <unit>"
+  command = "systemctl enable <unit>"
   tag = ["systemd"]
   output = ""
 
 [[snippets]]
-  description = ""
-  command = "sudo systemctl enable <unit>"
-  tag = ["systemd"]
-  output = ""
-
-[[snippets]]
-  command = "sudo systemctl enable --now <unit>"
+  command = "systemctl enable --now <unit>"
   description = "enable and start"
   tag = ["systemd"]
 
 [[snippets]]
   description = ""
-  command = "sudo systemctl disable <unit>"
+  command = "systemctl disable <unit>"
   tag = ["systemd"]
   output = ""
 
 [[snippets]]
   description = "Mask a unit to make it impossible to start it"
-  command = "sudo systemctl mask <unit>"
+  command = "systemctl mask <unit>"
   tag = ["systemd"]
   output = ""
 
 [[snippets]]
   description = ""
-  command = "sudo systemctl unmask <unit>"
+  command = "systemctl unmask <unit>"
   tag = ["systemd"]
   output = ""
 
@@ -1501,7 +1511,7 @@
 
 [[snippets]]
   description = "Reload systemd manager configuration, scanning for new or changed units"
-  command = "sudo systemctl daemon-reload"
+  command = "systemctl daemon-reload"
 
 [[snippets]]
   command = "systemd-analyze blame"
@@ -1524,7 +1534,7 @@
 
 [[snippets]]
   description = "enable ssd trim"
-  command = "sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer"
+  command = "systemctl enable fstrim.timer && systemctl start fstrim.timer"
   tag = ["filesystem"]
   output = ""
 
@@ -1761,7 +1771,7 @@ description = "pretty and highlight json"
 
 [[snippets]]
   description = "restart iptables firewall"
-  command = "sudo systemctl restart iptables"
+  command = "systemctl restart iptables"
   tag = ["networking"]
   output = ""
 
@@ -1841,7 +1851,7 @@ description = "pretty and highlight json"
 
 [[snippets]]
   description = "change tor ip"
-  command = "sudo systemctl restart tor"
+  command = "systemctl restart tor"
   tag = ["networking"]
   output = ""
 
@@ -1984,6 +1994,10 @@ description = "pretty and highlight json"
   description = "prints the environment variables"
   command = "env"
   output = ""
+
+[[snippets]]
+  command = 'envsubst'
+  description = "substitute environment variables"
 
 [[snippets]]
   description = "install from sources"
@@ -3600,7 +3614,7 @@ description = "pretty and highlight json"
   description = "run services in background"
 
 [[snippets]]
-  command = "docker-compose up --build --force-recreate --no-dep -d <service>"
+  command = "docker-compose up --build --force-recreate --no-deps -d <service>"
   description = "rebuild and update a container"
 
 [[snippets]]
