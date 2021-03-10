@@ -41,10 +41,10 @@ Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
   let g:ale_completion_autoimport = 1
   let g:ale_fix_on_save = 1
 
-" yay -S python-pylint python-black eslint
+" yay -S python-language-server python-black eslint
   let g:ale_linters = {
   \   'javascript': ['eslint'],
-  \   'python': ['pylint']
+  \   'python': ['pyls']
   \}
 
   let g:ale_fixers = {
