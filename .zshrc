@@ -143,3 +143,5 @@ eval "$(hub alias -s)"
 # https://github.com/starship/starship
 # yay -S starship-bin
 eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

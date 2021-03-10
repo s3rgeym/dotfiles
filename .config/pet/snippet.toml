@@ -3981,3 +3981,8 @@ description = "pretty and highlight json"
   command = 'php -r "<code>";'
   description = "execute php code"
 
+[[snippets]]
+  command = "eslint --init"
+  description = "create eslint config"
+  tag = ["linting", "javascript", "typescript", "nodejs"]
+
