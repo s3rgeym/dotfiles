@@ -12,55 +12,49 @@ zplug "plugins/archlinux", from:oh-my-zsh
 # yay -S asdf-vm
 # не работает
 # zplug "plugins/asdf", from:oh-my-zsh
-zplug "plugins/autopep8", from:oh-my-zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "plugins/autopep8", from:oh-my-zsh # autocomplete
+zplug "plugins/colored-man-pages", from:oh-my-zsh # colored + redefined man
 # ccat и cless
-zplug "plugins/colorize", from:oh-my-zsh
+zplug "plugins/colorize", from:oh-my-zsh # ccat, cless
 zplug "plugins/command-not-found", from:oh-my-zsh
-# конфликтует с fd, заменяет rm на `rm -i` и т.д.
-#zplug "plugins/common-aliases", from:oh-my-zsh
-zplug "plugins/copydir", from:oh-my-zsh
-zplug "plugins/copyfile", from:oh-my-zsh
-# в основном добавляют автодополнение для команд
-zplug "plugins/docker-compose", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/encode64", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/fd", from:oh-my-zsh
-zplug "plugins/fzf", from:oh-my-zsh
+zplug "plugins/common-aliases", from:oh-my-zsh
+zplug "plugins/copydir", from:oh-my-zsh # copydir -- copy directory path to the clipboard
+zplug "plugins/copyfile", from:oh-my-zsh # copyfile
+#zplug "plugins/docker-compose", from:oh-my-zsh # aliases
+zplug "plugins/docker", from:oh-my-zsh # autocomplete
+zplug "plugins/dotenv", from:oh-my-zsh # autoload .env
+zplug "plugins/extract", from:oh-my-zsh # extract
+zplug "plugins/fd", from:oh-my-zsh # autocomplete
+zplug "plugins/fzf", from:oh-my-zsh # autocomplete, keybindings, other
 # zplug "plugins/git-flow-avh", from:oh-my-zsh
-# алиасы для git
-# zplug "plugins/git", from:oh-my-zsh
-# функции
-zplug "plugins/github", from:oh-my-zsh
-zplug "plugins/history", from:oh-my-zsh
+# zplug "plugins/git", from:oh-my-zsh # aliases
+#zplug "plugins/github", from:oh-my-zsh # functions
+zplug "plugins/history", from:oh-my-zsh # h, hs, hsi
 zplug "plugins/history-substring-search", from:oh-my-zsh
-zplug "plugins/httpie", from:oh-my-zsh
+#zplug "plugins/httpie", from:oh-my-zsh
 # добавляет сочетания клавиш
-zplug "plugins/man", from:oh-my-zsh
+#zplug "plugins/man", from:oh-my-zsh
 # node-docs
-zplug "plugins/node", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/pylint", from:oh-my-zsh
-# задает алиас ipython, который не дружит с pyenv
-# zplug "plugins/python", from:oh-my-zsh
-zplug "plugins/rsync", from:oh-my-zsh
-# повторяет последнюю выполненную команду с sudo по двойному нажатию ESC
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/systemd", from:oh-my-zsh
-zplug "plugins/thefuck", from:oh-my-zsh
+zplug "plugins/node", from:oh-my-zsh # node-docs
+#zplug "plugins/npm", from:oh-my-zsh aliases
+zplug "plugins/pip", from:oh-my-zsh # autocomplete
+#zplug "plugins/pylint", from:oh-my-zsh # aliases
+# zplug "plugins/python", from:oh-my-zsh # aliases
+zplug "plugins/rsync", from:oh-my-zsh # rsync-copy, rsync-move, rsync-update, rsync-synchronize
+zplug "plugins/sudo", from:oh-my-zsh # <Esc><Esc> -- repeat command with sudo
+#zplug "plugins/systemd", from:oh-my-zsh # aliases
+#zplug "plugins/thefuck", from:oh-my-zsh # conmflicts withsudo
 zplug "plugins/themes", from:oh-my-zsh
-zplug "plugins/urltools", from:oh-my-zsh
-# модифицирует промпт
-zplug "plugins/virtualenv", from:oh-my-zsh
-zplug "plugins/virtualenvwrapper", from:oh-my-zsh
-# алиасы
-zplug "plugins/vscode", from:oh-my-zsh
-zplug "plugins/web-search", from:oh-my-zsh
-zplug "plugins/zsh_reload", from:oh-my-zsh
+#zplug "plugins/urltools", from:oh-my-zsh
+#zplug "plugins/virtualenv", from:oh-my-zsh # virtualenv_prompt_info fn
+zplug "plugins/virtualenvwrapper", from:oh-my-zsh # auto activate virtualenv
+#zplug "plugins/vscode", from:oh-my-zsh
+#zplug "plugins/web-search", from:oh-my-zsh
+zplug "plugins/zsh_reload", from:oh-my-zsh # src
 
+# https://github.com/zsh-users/zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
+
 # Добавляет автодополнение для некоторых команд, например, xsel
 zplug "zsh-users/zsh-completions"
 

@@ -94,6 +94,10 @@
   output = ""
 
 [[snippets]]
+  command = "\<command>"
+  description = "run the command ignoring aliases"
+
+[[snippets]]
   description = "search cheat sheets"
   command = "cht.sh <query>"
   output = ""
@@ -3986,3 +3990,52 @@ description = "pretty and highlight json"
   description = "create eslint config"
   tag = ["linting", "javascript", "typescript", "nodejs"]
 
+[[snippets]]
+  command = "paru <target>"
+  description = "Interactively search and install <target>."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru"
+  description = "Alias for paru -Syu."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -S <target>"
+  description = "Install a specific package."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -Sua"
+  description = "Upgrade AUR packages."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -Qua"
+  description = "Print available AUR updates."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -G <target>"
+  description = "Download the PKGBUILD and related files of <target>."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -Gp <target>"
+  description = "Print the PKGBUILD of <target>."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -Gc <target>"
+  description = "Print the AUR comments  of <target>."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru --gendb"
+  description = "Generate the devel database for tracking *-git packages. This is only needed when you initially start using paru."
+  tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "paru -Ui"
+  description = "Build and install a PKGBUILD in the current directory."
+  tag = ["aur", "helper"]

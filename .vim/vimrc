@@ -19,10 +19,10 @@ Plug 'vim-airline/vim-airline-themes' " https://github.com/vim-airline/vim-airli
 
 Plug 'editorconfig/editorconfig-vim' " https://github.com/editorconfig/editorconfig-vim
 
-" yay -S nnn
+" paru -S nnn
 Plug 'mcchrish/nnn.vim' " https://github.com/mcchrish/nnn.vim
 
-" yay -S fzf ripgrep
+" paru -S fzf ripgrep
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " https://github.com/junegunn/fzf.vim
 
@@ -36,7 +36,7 @@ Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 
 Plug 'preservim/nerdcommenter' " https://github.com/preservim/nerdcommenter
 
-" yay -S python-language-server python-black eslint
+" paru -S python-language-server python-black eslint
 Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
   set omnifunc=ale#completion#OmniFunc
   let g:ale_completion_enabled = 1
@@ -56,7 +56,7 @@ Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
 
 call plug#end()
 
-set sts=2 ts=2 sw=2
+set ts=2 sw=2 sts=2
 
 " Full color theme support
 set termguicolors

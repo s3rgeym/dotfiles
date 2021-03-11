@@ -5,11 +5,11 @@
 typeset -U path
 path=(~/.local/bin ~/bin $path[@])
 
-export MYVIMRC='~/.vim/vimrc'
+export MYVIMRC="$HOME/.vim/vimrc"
 export EDITOR="vim"
-export VISUAL="code"
+export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 export TERMINAL="gnome-terminal"
-export BROWSER="chromium"
+export BROWSER="google-chrome-stable"
 export ELECTRON_TRASH="gio trash"

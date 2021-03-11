@@ -4,9 +4,10 @@ alias cp='cp --reflink=auto --sparse=always'
 alias :q='exit'
 alias cls='clear'
 alias rel='exec $SHELL -l'
-alias zshrc='$EDITOR ~/.zshrc'
-alias vimrc='$EDITOR MYVIMRC'
+alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+alias vimrc='$EDITOR $MYVIMRC'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias yay='paru'
 
 # stop all containers
 alias docker-stop='docker stop $(docker ps -a -q)'
