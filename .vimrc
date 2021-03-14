@@ -56,11 +56,14 @@ Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 let g:ale_completion_autoimport = 1
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['pyls'],
 \}
+
 let g:ale_fix_on_save = 1
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
