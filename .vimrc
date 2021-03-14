@@ -80,7 +80,7 @@ call plug#end()
 set et sts=2 sw=2 ts=2
 set ignorecase smartcase
 set relativenumber
-set colorcolumn=80,100,120
+"set colorcolumn=80,100,120
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
