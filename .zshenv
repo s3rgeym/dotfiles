@@ -5,7 +5,7 @@
 typeset -U path
 path=(~/.local/bin ~/bin $path[@])
 
-export MYVIMRC="$HOME/.vim/vimrc"
+export MYVIMRC=~/.vimrc
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
