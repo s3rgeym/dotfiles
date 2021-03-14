@@ -79,11 +79,15 @@ call plug#end()
 
 set et sts=2 sw=2 ts=2
 set ignorecase smartcase
-set relativenumber
+set rnu
 set cc=80,100,120
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
+
+" set nobackup
+" set noswapfile
+" set noundofile
 
 "set t_Co=256
 color onedark
@@ -101,13 +105,13 @@ nnoremap <Leader>w :w<CR>
 " quit
 nnoremap <Leader>q :q<CR>
 
-" move between splits
+" navigation between splits
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
-" buffers
+" navigation between bufers
 nnoremap <C-p> :bp<CR>
 nnoremap <C-n> :silent :bn<CR>
 
@@ -120,7 +124,7 @@ nnoremap <Leader>r :!%:p
 
 " vimrc
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
-nnoremap <Leader>so :so $MYVIRC<CR>
+nnoremap <Leader>so :so $MYVIMRC<CR>
 
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
