@@ -72,10 +72,10 @@ Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'editorconfig/editorconfig-vim' " https://github.com/editorconfig/editorconfig-vim
 call plug#end()
 
-set et sts=2 sw=2 ts=2
+set ai et sts=2 sw=2 ts=2
 set ignorecase smartcase
 set relativenumber
-set colorcolumn=80,100
+set colorcolumn=80,100,120
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
@@ -87,8 +87,9 @@ set background=dark
 nnoremap <Space> <Nop>
 let mapleader = " "
 
-map <leader>n :NERDTreeToggle<CR>
-map <Leader>p :Files<CR>
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Bufers<CR>
 
 " move between splits
 nnoremap <C-J> <C-W><C-J>
