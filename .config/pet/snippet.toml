@@ -4043,3 +4043,11 @@ description = "pretty and highlight json"
   command = "paru -Ui"
   description = "Build and install a PKGBUILD in the current directory."
   tag = ["aur", "helper"]
+
+[[snippets]]
+  command = "nice -n <niceness-value> <command args>"
+  description = "run with priority"
+
+[[snippets]]
+  command = "renice -n <value> -p <PID>"
+  description = "change nice value of a running process"
