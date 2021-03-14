@@ -83,26 +83,31 @@ set cursorline
 set noshowmode
 set clipboard=unnamedplus
 
-" Theme
+" theme
 colorscheme onedark
 set background=dark
 
 nnoremap <Space> <Nop>
 let mapleader = " "
 
-nnoremap <silent> <leader>n :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Bufers<CR>
+nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+nnoremap <silent> <Leader>f :Files<cr>
+nnoremap <silent> <Leader>b :Bufers<cr>
+" ...
 
 " move between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " buffers
-nnoremap <silent> <C-b> :silent :bp<CR>
-nnoremap <silent> <C-n> :silent :bn<CR>
+nnoremap <silent> <C-b> :silent :bp<cr>
+nnoremap <silent> <C-n> :silent :bn<cr>
+
+" vimrc
+nnoremap <leader>e :vsplit $MYVIMRC<cr>
+nnoremap <Leader>so :so $MYVIRC<cr>
 
 " execute current file
 nnoremap <leader>r :!%:p
