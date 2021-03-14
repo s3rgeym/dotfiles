@@ -114,9 +114,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-" navigation between bufers
-nnoremap <C-p> :bp<CR>
-nnoremap <C-n> :silent :bn<CR>
+" bufers
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>d :bd<CR>
 
 " splitting
 nnoremap <Leader>h :split<CR>
@@ -129,8 +130,8 @@ nnoremap <Leader>r :!%:p
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>so :so $MYVIMRC<CR>
 
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>t :NERDTreeToggle<CR>
 
 " fzf
 nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Bufers<CR>
+nnoremap <silent> <Leader>bb :Bufers<CR>
