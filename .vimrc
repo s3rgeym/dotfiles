@@ -4,6 +4,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible' " https://github.com/tpope/vim-sensible
+Plug 'morhetz/gruvbox' " https://github.com/morhetz/gruvbox
 Plug 'joshdick/onedark.vim' " https://github.com/joshdick/onedark.vim
 
 Plug 'vim-airline/vim-airline' " https://github.com/vim-airline/vim-airline
@@ -84,6 +85,8 @@ set cc=80,100,120
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
+
+" set nomodeline
 
 " set nobackup
 " set noswapfile
