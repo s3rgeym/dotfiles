@@ -93,7 +93,13 @@ let mapleader = " "
 nnoremap <Space> <Nop>
 
 " selecr all
-nnoremap <leader>a ggVG
+nnoremap <Leader>a ggVG
+
+" save file
+nnoremap <Leader>w :w<CR>
+
+" quit
+nnoremap <Leader>q :q<CR>
 
 " move between splits
 nnoremap <C-j> <C-w><C-j>
@@ -102,16 +108,20 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " buffers
-nnoremap <silent> <C-b> :silent :bp<cr>
-nnoremap <silent> <C-n> :silent :bn<cr>
+nnoremap <silent> <C-b> :silent :bp<CR>
+nnoremap <silent> <C-n> :silent :bn<CR>
+
+" splitting
+nnoremap <Leader>h :split<CR>
+nnoremap <Leader>v :vsplit<CR>
 
 " execute current file
-nnoremap <leader>r :!%:p
+nnoremap <Leader>r :!%:p
 
 " vimrc
-nnoremap <leader>e :vsplit $MYVIMRC<cr>
-nnoremap <Leader>so :so $MYVIRC<cr>
+nnoremap <Leader>e :vsplit $MYVIMRC<CR>
+nnoremap <Leader>so :so $MYVIRC<CR>
 
-nnoremap <silent> <leader>n :NERDTreeToggle<cr>
-nnoremap <silent> <Leader>f :Files<cr>
-nnoremap <silent> <Leader>b :Bufers<cr>
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Bufers<CR>
