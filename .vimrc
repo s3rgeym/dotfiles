@@ -80,7 +80,7 @@ call plug#end()
 set et sts=2 sw=2 ts=2
 set ignorecase smartcase
 set relativenumber
-"set colorcolumn=80,100,120
+set cc=80,100,110
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
@@ -89,8 +89,11 @@ set clipboard=unnamedplus
 colorscheme onedark
 set background=dark
 
-nnoremap <Space> <Nop>
 let mapleader = " "
+nnoremap <Space> <Nop>
+
+" selecr all
+nnoremap <leader>a ggVG
 
 " move between splits
 nnoremap <C-j> <C-w><C-j>
@@ -102,15 +105,12 @@ nnoremap <C-h> <C-w><C-h>
 nnoremap <silent> <C-b> :silent :bp<cr>
 nnoremap <silent> <C-n> :silent :bn<cr>
 
-" selecr all
-nnoremap <leader>a ggVG
+" execute current file
+nnoremap <leader>r :!%:p
 
 " vimrc
 nnoremap <leader>e :vsplit $MYVIMRC<cr>
 nnoremap <Leader>so :so $MYVIRC<cr>
-
-" execute current file
-nnoremap <leader>r :!%:p
 
 nnoremap <silent> <leader>n :NERDTreeToggle<cr>
 nnoremap <silent> <Leader>f :Files<cr>
