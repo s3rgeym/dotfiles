@@ -115,4 +115,3 @@ nnoremap <leader>r :!%:p
 nnoremap <silent> <leader>n :NERDTreeToggle<cr>
 nnoremap <silent> <Leader>f :Files<cr>
 nnoremap <silent> <Leader>b :Bufers<cr>
-" ...
