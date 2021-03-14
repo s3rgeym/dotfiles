@@ -995,6 +995,11 @@
   output = ""
 
 [[snippets]]
+  command = "ack"
+  description = ""
+  tag = ["filesytem", "search"]
+
+[[snippets]]
   description = "diff <old> <new>"
   command = "compare files and directories"
   tag = ["filesystem"]
