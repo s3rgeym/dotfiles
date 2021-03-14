@@ -80,13 +80,13 @@ call plug#end()
 set et sts=2 sw=2 ts=2
 set ignorecase smartcase
 set relativenumber
-set cc=80,100,110
+set cc=80,100,120
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
 
-" theme
-colorscheme onedark
+"set t_Co=256
+color onedark
 set background=dark
 
 let mapleader = " "
