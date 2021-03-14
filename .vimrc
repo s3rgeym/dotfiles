@@ -108,8 +108,8 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " buffers
-nnoremap <silent> <C-b> :silent :bp<CR>
-nnoremap <silent> <C-n> :silent :bn<CR>
+nnoremap <C-p> :bp<CR>
+nnoremap <C-n> :silent :bn<CR>
 
 " splitting
 nnoremap <Leader>h :split<CR>
@@ -123,5 +123,7 @@ nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>so :so $MYVIRC<CR>
 
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+
+" fzf
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Bufers<CR>
