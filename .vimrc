@@ -51,7 +51,7 @@ let g:NERDToggleCheckAllLines = 1
 Plug 'junegunn/fzf' " https://github.com/junegunn/fzf
 Plug 'junegunn/fzf.vim' " https://github.com/junegunn/fzf.vim
 
-" requires eslint, python-language-server, python-black, prettier
+" requires eslint, prettier, python-black, python-isort, python-language-server
 Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
@@ -67,8 +67,10 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
-\   'python': ['black']
+\   'python': ['isort', 'black']
 \}
+
+let g:ale_python_black_options= '--line-length 79'
 
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
@@ -90,11 +92,6 @@ set background=dark
 nnoremap <Space> <Nop>
 let mapleader = " "
 
-nnoremap <silent> <leader>n :NERDTreeToggle<cr>
-nnoremap <silent> <Leader>f :Files<cr>
-nnoremap <silent> <Leader>b :Bufers<cr>
-" ...
-
 " move between splits
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -105,9 +102,17 @@ nnoremap <C-h> <C-w><C-h>
 nnoremap <silent> <C-b> :silent :bp<cr>
 nnoremap <silent> <C-n> :silent :bn<cr>
 
+" selecr all
+nnoremap <leader>a ggVG
+
 " vimrc
 nnoremap <leader>e :vsplit $MYVIMRC<cr>
 nnoremap <Leader>so :so $MYVIRC<cr>
 
 " execute current file
 nnoremap <leader>r :!%:p
+
+nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+nnoremap <silent> <Leader>f :Files<cr>
+nnoremap <silent> <Leader>b :Bufers<cr>
+" ...
