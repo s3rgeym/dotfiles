@@ -75,7 +75,7 @@ Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'editorconfig/editorconfig-vim' " https://github.com/editorconfig/editorconfig-vim
 call plug#end()
 
-set ai et sts=2 sw=2 ts=2
+set et sts=2 sw=2 ts=2
 set ignorecase smartcase
 set relativenumber
 set colorcolumn=80,100,120
