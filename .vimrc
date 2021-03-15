@@ -115,25 +115,23 @@ nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
 " buffer navigation
-nnoremap <Leader>, :bp<CR>
-nnoremap <Leader>. :bn<CR>
+nnoremap <Leader>, :bp<CR> " > next
+nnoremap <Leader>. :bn<CR> " < previos
 
-" split horizontal
-nnoremap <Leader>h :split<CR>
-" split vertical
-nnoremap <Leader>v :vsplit<CR>
+" splitting
+nnoremap <Leader>h :split<CR> " horizontal
+nnoremap <Leader>v :vsplit<CR> " vertical
 
-" execute current file
+" run current file
 nnoremap <Leader>r :!%:p
 
-" edit vimrc
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
-" source vimrc
-nnoremap <Leader>sv :so $MYVIMRC<CR>
+" vimrc
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR> " edit
+nnoremap <Leader>sv :so $MYVIMRC<CR> " source
 
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 " fzf
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>g :Ag<CR>
+nnoremap <silent> <Leader>f :Files<CR> " search files by name
+nnoremap <silent> <Leader>b :Buffers<CR> " search in buffers
+nnoremap <silent> <Leader>g :Ag<CR> " search by content
