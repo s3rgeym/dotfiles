@@ -140,4 +140,4 @@ nnoremap <silent> <Leader>t :NERDTreeToggle<CR>
 " fzf
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>g :Rg<CR>
+nnoremap <silent> <Leader>g :Ag<CR>
