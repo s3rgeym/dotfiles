@@ -114,12 +114,9 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
-" prev buffer
-nnoremap <Leader>p :bp<CR>
-" next buffer
-nnoremap <Leader>n :bn<CR>
-" delete buffer
-nnoremap <Leader>d :bd<CR>
+" buffer navigation
+nnoremap <Leader>, :bp<CR>
+nnoremap <Leader>. :bn<CR>
 
 " split horizontal
 nnoremap <Leader>h :split<CR>
@@ -134,8 +131,7 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 " source vimrc
 nnoremap <Leader>sv :so $MYVIMRC<CR>
 
-" file tree
-nnoremap <silent> <Leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 " fzf
 nnoremap <silent> <Leader>f :Files<CR>
