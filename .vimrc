@@ -48,7 +48,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-" requires fzf, ripgrep
+" requires fzf, ripgrep, the_silver_searcher
 Plug 'junegunn/fzf' " https://github.com/junegunn/fzf
 Plug 'junegunn/fzf.vim' " https://github.com/junegunn/fzf.vim
 

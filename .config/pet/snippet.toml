@@ -977,27 +977,32 @@
   output = ""
 
 [[snippets]]
-  description = "find files by pattern"
+  description = "find files by name"
   command = "fd <pattern> -t f <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "search"]
   output = ""
 
 [[snippets]]
   description = "find files by extension"
   command = "fd --extension <extension>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "search"]
   output = ""
 
 [[snippets]]
   description = "find files with size greater or equal than 100MiB"
   command = "fd . -S +100mi -t f /"
-  tag = ["filesystem"]
+  tag = ["filesystem", "search"]
   output = ""
 
 [[snippets]]
-  command = "ack"
-  description = ""
+  command = "ack <pattern> <path>"
+  description = "find files by content"
   tag = ["filesytem", "search"]
+
+[[snippets]]
+  command = "ag <pattern> <path>"
+  description = "find files by content"
+  tag = ["filesystem", "search"]
 
 [[snippets]]
   description = "diff <old> <new>"
