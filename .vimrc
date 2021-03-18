@@ -108,6 +108,10 @@ nnoremap <Leader>w :w<CR>
 " quit
 nnoremap <Leader>q :q<CR>
 
+" move throw wrapped lines
+noremap j gj  
+noremap k gk 
+
 " navigation between splits
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k

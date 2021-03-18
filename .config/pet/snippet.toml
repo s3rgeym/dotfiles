@@ -138,6 +138,10 @@
   output = ""
 
 [[snippets]]
+  command = "fc"
+  description = "edit the last command line in an editor then execute"
+
+[[snippets]]
   description = "create array"
   command = "declare -a arr"
   output = ""
@@ -1880,7 +1884,7 @@ description = "pretty and highlight json"
 [[snippets]]
   description = "setup socks5 ssh tunnel"
   #command = "ssh -f -C2qTnN -D <port> <user>@<host>"
-  command = "ssh -f -D <local-port=1080> -p <port=22> <user>@<host>"
+  command = "ssh -D <local-port=1080> -p <port=22> <user>@<host>"
   tag = ["networking"]
   output = ""
 
@@ -1938,6 +1942,11 @@ description = "pretty and highlight json"
   command = "curl -d <data> -X POST <url>"
   tag = ["networking"]
   output = ""
+
+[[snippets]]
+  command = "http --form httpbin.org/post photo@filename.jpg"
+  description = "upload a file"
+  tag = ["networking"]
 
 [[snippets]]
   description = "local ip adress"
@@ -2129,9 +2138,13 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "revert single file from a commit"
+  description = "revert file(s) from a commit"
   command = "git checkout <commit-hash> -- <filename>"
   output = ""
+
+[[snippets]]
+  command = "git checkout HEAD~1 -- path/to/the/folder/ "
+  description = "recover a directory from the previous commit"
 
 [[snippets]]
   description = "start new session"

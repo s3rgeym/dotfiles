@@ -22,7 +22,11 @@ zplug "plugins/copydir", from:oh-my-zsh # copydir -- copy directory path to the 
 zplug "plugins/copyfile", from:oh-my-zsh # copyfile
 #zplug "plugins/docker-compose", from:oh-my-zsh # aliases
 zplug "plugins/docker", from:oh-my-zsh # autocomplete
+
+# ZSH_DOTENV_FILE=.dotenv
 zplug "plugins/dotenv", from:oh-my-zsh # autoload .env
+# vi $ZSH_CACHE_DIR/dotenv-allowed.list
+
 zplug "plugins/extract", from:oh-my-zsh # extract
 zplug "plugins/fd", from:oh-my-zsh # autocomplete
 zplug "plugins/fzf", from:oh-my-zsh # autocomplete, keybindings, other
