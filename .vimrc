@@ -99,40 +99,46 @@ set background=dark
 let mapleader = " "
 nnoremap <Space> <Nop>
 
-" selecr all
+" выбрать все
 nnoremap <Leader>a ggVG
 
-" save file
+" сохранить
 nnoremap <Leader>w :w<CR>
 
-" quit
+" закрыть окно
 nnoremap <Leader>q :q<CR>
 
-" move throw wrapped lines
-noremap j gj  
-noremap k gk 
+" перемещение по перенесенным строкам
+noremap j gj
+noremap k gk
 
-" navigation between splits
+" быстрое перемещение между окнами
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
-" buffer navigation
-nnoremap <Leader>, :bp<CR> " > next
-nnoremap <Leader>. :bn<CR> " < previos
+" переключение буферов
+nnoremap <Leader>, :bp<CR> " next - клавиша >
+nnoremap <Leader>. :bn<CR> " previos - улавиша <
 
-" splitting
+" вкладки
+noremap <silent> <C-t> <ESC>:tabnew<CR>
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
+
+" разбиение экрана
 nnoremap <Leader>h :split<CR> " horizontal
 nnoremap <Leader>v :vsplit<CR> " vertical
 
-" run current file
+" запустить текущий файл
 nnoremap <Leader>r :!%:p
 
 " vimrc
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR> " edit
-nnoremap <Leader>sv :so $MYVIMRC<CR> " source
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR> " e[dit] v[imrc]
+nnoremap <Leader>sv :so $MYVIMRC<CR> " s[ource] v[imrc]
 
+" файловый менеджер
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 " fzf

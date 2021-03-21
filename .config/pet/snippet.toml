@@ -60,8 +60,14 @@
 
 [[snippets]]
   description = "display man page of specific command"
-  command = "man <entry> <command>"
+  command = "man <section> <page>"
   output = ""
+  tag = ["manual pages"]
+
+[[snippets]]
+  command = "man -f <page>"
+  description = "list of sections"
+  tag = ["manual pages"]
 
 [[snippets]]
   description = "bash tutorial"
@@ -75,7 +81,7 @@
 
 [[snippets]]
   description = "short one line description of the man packages"
-  command = "whatis <command>"
+  command = "whatis <x>"
   output = ""
 
 [[snippets]]
@@ -162,9 +168,8 @@
   output = ""
 
 [[snippets]]
-  description = "show history/history shortcut"
-  command = "h"
-  output = ""
+  description = "command history"
+  command = "history"
 
 [[snippets]]
   description = ""
@@ -602,7 +607,7 @@
   output = ""
 
 [[snippets]]
-  description = "interactive reading (also see `man more`)"
+  description = ""
   command = "less <filename>"
   tag = ["filesystem"]
   output = ""
@@ -1157,13 +1162,13 @@
   output = ""
 
 [[snippets]]
-  description = "edit file with vim"
-  command = "vim <filename>"
-  tag = []
+  description = "edit file"
+  command = "vi <filename>"
+  tag = ["vim"]
   output = ""
 
 [[snippets]]
-  description = "edit file with vim as root"
+  description = "edit file with vim as root using user preferences"
   command = "sudoedit <filename>"
   tag = []
   output = ""
@@ -1260,6 +1265,11 @@
   description = "find files by content"
   command = "grep -HiRE <pattern> <path>"
   output = ""
+
+[[snippets]]
+  command = "tail -f <filename>"
+  description = "monitor a file"
+  tag = ["monitoring"]
 
 [[snippets]]
   command  = "jq <query>"
@@ -1726,6 +1736,11 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
+  command = "pipenv"
+  description = "pip + venv"
+  tag = ["python"]
+
+[[snippets]]
   description = "create virtual environment"
   command = "python -m venv <env>"
   output = ""
@@ -1955,7 +1970,7 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "external ip address"
+  description = "get ip address"
   command = "curl ifconfig.me"
   tag = ["networking"]
   output = ""
@@ -3464,38 +3479,45 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "Create new project"
+  description = "Create new project/package"
   command = "poetry new <project-name>"
   output = ""
+  tag = ["python", "package manager"]
 
 [[snippets]]
   description = "Create and activate virtual environment"
   command = "poetry shell"
   output = ""
+  tag = ["python", "package manager"]
 
 [[snippets]]
   description = "install dependencies"
   command = "poetry install"
   output = ""
+  tag = ["python", "package manager"]
 
 [[snippets]]
   description = ""
   command = "poetry add <package>"
   output = ""
+  tag = ["python", "package manager"]
 
 [[snippets]]
   description = ""
   command = "poetry remove <package>"
   output = ""
+  tag = ["python", "package manager"]
 
 [[snippets]]
   description = "Build and publish package to pypi"
   command = "poetry publish --build"
   output = ""
+  tag = ["python", "package manager"]
 
 [[snippets]]
   command = "poetry export -f requirements.txt"
-  description = ""
+  description = "create requirements file"
+  tag = ["python", "package manager"]
 
 [[snippets]]
   description = "Create a new container from a particular image."

@@ -7,8 +7,9 @@ alias reload='exec $SHELL -l'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
 alias vimrc='$EDITOR $MYVIMRC'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias yay='paru'
+#alias yay='paru'
 #alias ack='ag'
+alias emacs='emacs -nw'
 
 # stop all containers
 alias docker-stop='docker stop $(docker ps -a -q)'
