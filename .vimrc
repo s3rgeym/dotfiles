@@ -81,7 +81,7 @@ call plug#end()
 set et sts=2 sw=2 ts=2
 set ignorecase smartcase
 set rnu
-set cc=80,100,120
+set cc=80
 set cursorline
 set noshowmode
 set clipboard=unnamedplus
@@ -119,8 +119,8 @@ nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
 " переключение буферов
-nnoremap <Leader>, :bp<CR> " next - клавиша >
-nnoremap <Leader>. :bn<CR> " previos - улавиша <
+nnoremap <Leader>, :bp<CR> " next - клавиша ">"
+nnoremap <Leader>. :bn<CR> " previos - клавиша "<"
 
 " вкладки
 noremap <silent> <C-t> <ESC>:tabnew<CR>
