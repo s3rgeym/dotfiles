@@ -111,6 +111,10 @@ nnoremap <Leader>q :q<CR>
 " перемещение по перенесенным строкам
 noremap j gj
 noremap k gk
+noremap <up> gk
+noremap <down> gj
+inoremap <up> <C-O>gk
+inoremap <down> <C-O>gj
 
 " быстрое перемещение между окнами
 nnoremap <C-J> <C-W>j
