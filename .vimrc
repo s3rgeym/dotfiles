@@ -78,13 +78,14 @@ Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'editorconfig/editorconfig-vim' " https://github.com/editorconfig/editorconfig-vim
 call plug#end()
 
-set et sts=2 sw=2 ts=2
-set ignorecase smartcase
-set rnu
-set cc=80
-set cursorline
-set noshowmode
-set clipboard=unnamedplus
+set et sts=2 sw=2 ts=2 " отступы
+set ignorecase smartcase " умный регистронезависимый поиск
+set rnu " относительная нумерация строк
+set cc=80 " граница строки
+set cursorline " подсвечивать текущую строку
+set noshowmode " в vim-airline уже отображается режим редактирования
+set list " отображать спецсимволы
+set clipboard=unnamedplus " копирование в системный буфер
 
 " set nomodeline
 

@@ -709,17 +709,17 @@
 [[snippets]]
   description = "disk health"
   command = "sudo smartctl -a /dev/<device>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "smart"]
   output = ""
 
 [[snippets]]
   description = ""
   command = "nvme smart-log"
-  tag = ["filesystem"]
+  tag = ["filesystem", "nvme"]
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "mount device"
   command = "sudo mount /dev/<device> <mountpoint> -t <type> -o <options>"
   tag = ["filesystem"]
   output = ""
@@ -734,6 +734,7 @@
   description = "unmount recursively"
   command = "umount -R <mountpoint>"
   output = ""
+  tag = ["filesystem"]
 
 [[snippets]]
   description = "mount iso image"
@@ -744,70 +745,73 @@
 [[snippets]]
   description = "remove hybernation file and mount windows partition"
   command = "sudo mount -t ntfs-3g -o remove_hiberfile /dev/<device> <mountpoint>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "ntfs"]
   output = ""
 
 [[snippets]]
   description = "create fat-32 filesystem"
   command = "sudo mkfs.fat -F32 -n <label> /dev/<device>"
   output = ""
+  tag = ["filesystem", "fat32"]
 
 [[snippets]]
   description = "create ext4 filesystem"
   command = "sudo mkfs.ext4 -L <label> /dev/<device>"
   output = ""
+  tag = ["filesystem", "ext4"]
 
 [[snippets]]
   description = "create btrfs filesystem"
   command = "sudo mkfs.btrfs /dev/<device> -L <label>"
   output = ""
+  tag = ["filesystem", "btrfs"]
 
 [[snippets]]
   description = "show detailed information about internal filesystem usage"
   command = "sudo btrfs fi usage <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "space usage for a mount point"
   command = "sudo btrfs fi df <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "total size"
   command = "sudo btrfs fi du -s <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "list subvolumes"
   command = "sudo btrfs sub li -a <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "create subvolume"
   command = "sudo btrfs sub create <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "rename subvolume"
   command = "sudo mv <old-name> <new-name>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "remove subvolume or snapshot"
   command = "sudo btrfs sub del <path>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs"]
   output = ""
 
 [[snippets]]
   description = "create snapshot"
   command = "sudo btrfs sub snap -r <src> <dst>"
-  tag = ["filesystem"]
+  tag = ["filesystem", "btrfs", "snapshot"]
   output = ""
 
 [[snippets]]
@@ -815,6 +819,11 @@
   command = "cp --reflink <src> <dst>"
   tag = ["filesystem", "btrfs"]
   output = ""
+
+[[snippets]]
+  command = "sudo btrfs property get <object>"
+  description = "get properties"
+  tag = ["filesystem", "btrfs"]
 
 [[snippets]]
   description = "disable compression on a file"
@@ -2818,6 +2827,10 @@ description = "pretty and highlight json"
   description = "Update asdf to the latest on the master branch"
   command = "asdf update --head"
   output = ""
+
+[[snippets]]
+  command = "asdf install <package> $(asdf list-all <package> | fzf)"
+  description = "choose and install a some package version"
 
 [[snippets]]
   description = "Create an empty Git repository or reinitialize an existing one"
