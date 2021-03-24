@@ -9,3 +9,4 @@ export SYSTEMD_EDITOR="$EDITOR"
 export TERMINAL="gnome-terminal"
 export BROWSER="google-chrome-stable"
 export ELECTRON_TRASH="gio trash"
+#export STARSHIP_CONFIG=~/.starship/config.toml

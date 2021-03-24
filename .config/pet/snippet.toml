@@ -66,7 +66,7 @@
 
 [[snippets]]
   command = "man -f <page>"
-  description = "list of sections"
+  description = "list of sections (same as whatis)"
   tag = ["manual pages"]
 
 [[snippets]]
@@ -1030,9 +1030,14 @@
 
 [[snippets]]
   description = "change owner recursively"
-  command = "sudo chown -R <username> <directory>"
+  command = "sudo chown -R <username>:<groupname> <directory>"
   tag = ["filesystem", "permissions"]
   output = ""
+
+[[snippets]]
+  command = "chown :users <path>"
+  description = ""
+  tag = ["filesystem", "permissions"]
 
 [[snippets]]
   description = "generate uuid"
