@@ -1634,42 +1634,60 @@
 
 [[snippets]]
   description = "initialize storage"
-  command = "pass init <pgp_id>"
+  command = "pass init <pgp_id or email>"
   output = ""
+  tag = ["password management"]
 
 [[snippets]]
   description = "generate new password"
   command = "pass generate <entry> <length=20>"
   output = ""
+  tag = ["password management"]
 
 [[snippets]]
   description = "save password"
   command = "pass insert --multiline <domain>/<username>"
+  tag = ["password management"]
 
 [[snippets]]
-  description = "display password"
+  description = "show password"
   command = "pass <entry>"
   output = ""
+  tag = ["password management"]
 
 [[snippets]]
   description = "copy password"
   command = "pass -c <entry>"
   output = ""
+  tag = ["password management"]
 
 [[snippets]]
   description = "edit password"
   command = "pass edit <entry>"
   output = ""
-
-[[snippets]]
-  description = "rename the password directory"
-  command = "pass mv <old-name> <new-name>"
-  output = ""
+  tag = ["password management"]
 
 [[snippets]]
   description = "delete/remove password"
   command = "pass rm <entry>"
   output = ""
+  tag = ["password management"]
+
+[[snippets]]
+  description = "rename the password directory"
+  command = "pass mv <old-name> <new-name>"
+  output = ""
+  tag = ["password management"]
+
+[[snippets]]
+  command = "pass git init"
+  description = "initialize git repo"
+  tag = ["password management"]
+
+[[snippets]]
+  command = "pass git <command>"
+  description = "execut git command"
+  tag = ["password management"]
 
 [[snippets]]
   command = "setfont"
@@ -1697,7 +1715,7 @@
   description = "Chrome Remote Desktop (TeamViewer Alternative)"
 
 [[snippets]]
-  description = "VK Auth"
+  description = "VK OAuth"
   command = "http post https://oauth.vk.com/token grant_type==password username==<username> password==<password> client_id==2274003 client_secret==hHbZxrka2uZ6jB1inYsH v==5.103"
 
 [[snippets]]
@@ -1733,12 +1751,12 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "install the package in an isolated environment and add executabs to ~ /.local/bin"
+  description = "install the package in an isolated environment and add executable to ~ /.local/bin"
   command = "pipx install <package>"
   tag = ["python"]
 
 [[snippets]]
-  description = "save package list to file in requirements format"
+  description = "save package list into a file in the requirements format"
   command = "pip freeze > requirements.txt"
   tag = ["python"]
   output = ""
@@ -4109,3 +4127,7 @@ description = "pretty and highlight json"
 [[snippets]]
   command = "renice -n <value> -p <PID>"
   description = "change nice value of a running process"
+
+[[snippets]]
+  description = "save html page as pdf"
+  command = "chromium --headless --disable-gpu --print-to-pdf=<output> <url>"
