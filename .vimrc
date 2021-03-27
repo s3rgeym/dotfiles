@@ -11,7 +11,7 @@ Plug 'vim-airline/vim-airline' " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline-themes' " https://github.com/vim-airline/vim-airline-themes
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#ale#enabled = 1
 
 Plug 'preservim/nerdtree' " https://github.com/preservim/nerdtree
@@ -48,11 +48,11 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-" requires fzf, ripgrep, the_silver_searcher
+" paru -S fzf ripgrep the_silver_searcher
 Plug 'junegunn/fzf' " https://github.com/junegunn/fzf
 Plug 'junegunn/fzf.vim' " https://github.com/junegunn/fzf.vim
 
-" requires eslint, prettier, python-black, python-isort, python-language-server
+" paru -S eslint prettier python-black python-isort python-language-server
 Plug 'dense-analysis/ale' " https://github.com/dense-analysis/ale
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
@@ -93,8 +93,8 @@ set clipboard=unnamedplus " копирование в системный буф�
 " set noswapfile
 " set noundofile
 
-"set t_Co=256
-color onedark
+set termguicolors
+color gruvbox
 set background=dark
 
 let mapleader = " "

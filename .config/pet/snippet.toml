@@ -1295,6 +1295,10 @@
   command = "jo -p foo=bar baz=42"
 
 [[snippets]]
+  command = "rm -rf ~/.cache"
+  description = "clean cache"
+
+[[snippets]]
   description = "start process with a name"
   command = "exec -a <process-name> <command>"
   output = ""
@@ -1409,6 +1413,7 @@
   description = "display free memory"
   command = "free -h"
   output = ""
+  tag = ["monitoring"]
 
 [[snippets]]
   description = "debug programm"
