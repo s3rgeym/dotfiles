@@ -45,6 +45,10 @@
   output = ""
 
 [[snippets]]
+  description = "^T: file search"
+  tag = ["shortcut"]
+
+[[snippets]]
   description = "$$ ‒ current process id"
   command = ""
   output = ""
@@ -66,7 +70,7 @@
 
 [[snippets]]
   command = "man -f <page>"
-  description = "list of sections (same as whatis)"
+  description = "list of sections. =whatis"
   tag = ["manual pages"]
 
 [[snippets]]
@@ -875,14 +879,14 @@
 
 [[snippets]]
   description = "make file executable"
-  command = "chmod +x <filename>"
+  command = "chmod u+x <filename>"
   tag = ["filesystem"]
   output = ""
 
 [[snippets]]
-  description = "change file permissions: 1 - execute, 2 - read, 4 - write (1 + 2 + 4 = 7); u - user, g -group, o - owner"
-  command = "chmod <ugo> <filename>"
-  tag = ["filesystem"]
+  description = "Change U_ser, G_roup, O_thers file permissions: execute = 1, read = 2, write = 4. eg, 2 + 4 = 6"
+  command = "chmod <UGO> <filename>"
+  tag = ["filesystem", "permissions"]
   output = ""
 
 [[snippets]]
@@ -1027,6 +1031,21 @@
   command = "compare files and directories"
   tag = ["filesystem"]
   output = ""
+
+[[snippets]]
+  command = "comm -12 \\<file1> \\<file2>"
+  description = "print common lines"
+  tag = ["filesystem"]
+
+[[snippets]]
+  command = "comm -23 <file1> <file2>"
+  description = "print unique lines for file1"
+  tag = ["filesystem"]
+
+[[snippets]]
+  command = "comm -13 <file1> <file2>"
+  description = "print unique lines for file2"
+  tag = ["filesystem"]
 
 [[snippets]]
   description = "change owner recursively"
@@ -3797,7 +3816,23 @@ description = "pretty and highlight json"
   description = "generate locales"
 
 [[snippts]]
-  command = "localectl set-locale LANG="
+  command = "localectl set-locale LANG=en_US.UTF-8"
+  description = "language"
+  tag = ["xorg"]
+
+[[snippets]]
+  command = "localectl --no-convert set-x11-keymap us,ru pc105 ,winkeys grp:alt_shift_toggle"
+  description = "keyboard configuration"
+  tag = ["xorg"]
+
+[[snippets]]
+  command = "systemctl restart display-manager"
+  description = "restart x window server"
+  tag = ["xorg"]
+
+[[snippets]]
+  command = "setxkbmap <laout>"
+  description = "set keyboard layout"
 
 [[snippets]]
   command = 'bash -c  "$(curl -sLo- https://git.io/vQgMr)"'

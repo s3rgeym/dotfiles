@@ -5,7 +5,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible' " https://github.com/tpope/vim-sensible
 Plug 'morhetz/gruvbox' " https://github.com/morhetz/gruvbox
-Plug 'joshdick/onedark.vim' " https://github.com/joshdick/onedark.vim
+"Plug 'joshdick/onedark.vim' " https://github.com/joshdick/onedark.vim
 
 Plug 'vim-airline/vim-airline' " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline-themes' " https://github.com/vim-airline/vim-airline-themes
@@ -93,7 +93,7 @@ set clipboard=unnamedplus " копирование в системный буф�
 " set noswapfile
 " set noundofile
 
-set termguicolors
+set t_Co=256
 color gruvbox
 set background=dark
 
@@ -109,7 +109,7 @@ nnoremap <Leader>w :w<CR>
 " закрыть окно
 nnoremap <Leader>q :q<CR>
 
-" перемещение по перенесенным строкам
+" line wrap navigation
 noremap j gj
 noremap k gk
 noremap <up> gk
@@ -117,11 +117,15 @@ noremap <down> gj
 inoremap <up> <C-O>gk
 inoremap <down> <C-O>gj
 
-" быстрое перемещение между окнами
+" window navigation
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+
+"keep visual mode after indent
+vnoremap > >gv
+vnoremap < <gv
 
 " переключение буферов
 nnoremap <Leader>, :bp<CR> " next - клавиша ">"
