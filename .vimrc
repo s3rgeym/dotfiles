@@ -4,14 +4,17 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible' " https://github.com/tpope/vim-sensible
-Plug 'morhetz/gruvbox' " https://github.com/morhetz/gruvbox
+"Plug 'morhetz/gruvbox' " https://github.com/morhetz/gruvbox
 "Plug 'joshdick/onedark.vim' " https://github.com/joshdick/onedark.vim
+Plug 'tomasr/molokai' " https://github.com/tomasr/molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
 
 Plug 'vim-airline/vim-airline' " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline-themes' " https://github.com/vim-airline/vim-airline-themes
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='molokai'
 let g:airline#extensions#ale#enabled = 1
 
 Plug 'preservim/nerdtree' " https://github.com/preservim/nerdtree
@@ -93,8 +96,8 @@ set clipboard=unnamedplus " копирование в системный буф�
 " set noswapfile
 " set noundofile
 
-set t_Co=256
-color gruvbox
+"set t_Co=256
+color molokai
 set background=dark
 
 let mapleader = " "
@@ -114,8 +117,9 @@ noremap j gj
 noremap k gk
 noremap <up> gk
 noremap <down> gj
-inoremap <up> <C-O>gk
-inoremap <down> <C-O>gj
+" при выборе из списка добавляют лишние символы
+"inoremap <up> <C-O>gk
+"inoremap <down> <C-O>gj
 
 " window navigation
 nnoremap <C-J> <C-W>j

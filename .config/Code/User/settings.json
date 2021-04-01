@@ -93,7 +93,7 @@
   "tabnine.experimentalAutoImports": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'MesloLGS NF', 'Hack Nerd Font Mono', monospace",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', 'Source Code Pro', monospace",
   "terminal.integrated.fontSize": 13,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.titleBarStyle": "custom",

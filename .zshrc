@@ -17,7 +17,8 @@ zplug "plugins/colored-man-pages", from:oh-my-zsh # colored + redefined man
 # ccat и cless
 zplug "plugins/colorize", from:oh-my-zsh # ccat, cless
 zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/common-aliases", from:oh-my-zsh
+# алис для rm
+# zplug "plugins/common-aliases", from:oh-my-zsh
 zplug "plugins/copydir", from:oh-my-zsh # copydir -- copy directory path to the clipboard
 zplug "plugins/copyfile", from:oh-my-zsh # copyfile
 #zplug "plugins/docker-compose", from:oh-my-zsh # aliases

@@ -260,16 +260,21 @@
   output = ""
 
 [[snippets]]
-  description = "get dconf settings"
+  description = "get value"
   command = "gsettings get <key>"
-  tag = ["gnome"]
+  tag = ["gnome", "settings", "dconf"]
   output = ""
 
 [[snippets]]
-  description = "set dconf settings"
+  description = "set value"
   command = "gsettings set <key> <value>"
-  tag = ["gnome"]
+  tag = ["gnome", "settings", "dconf"]
   output = ""
+
+[[snippets]]
+  command = "gsettings reset <key>"
+  descriotion = "restore default value"
+  tag = ["gnome", "settings", "dconf"]
 
 [[snippets]]
   description = "change password"
@@ -1660,58 +1665,63 @@
   description = "initialize storage"
   command = "pass init <pgp_id or email>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "generate new password"
   command = "pass generate <entry> <length=20>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "save password"
   command = "pass insert --multiline <domain>/<username>"
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "show password"
   command = "pass <entry>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "copy password"
   command = "pass -c <entry>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "edit password"
   command = "pass edit <entry>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "delete/remove password"
   command = "pass rm <entry>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   description = "rename the password directory"
   command = "pass mv <old-name> <new-name>"
   output = ""
-  tag = ["password management"]
+  tag = ["password manager"]
+
+[[snippets]]
+  command = "pass find "
+  description = "search entries"
+  tag = ["password manager"]
 
 [[snippets]]
   command = "pass git init"
   description = "initialize git repo"
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   command = "pass git <command>"
   description = "execut git command"
-  tag = ["password management"]
+  tag = ["password manager"]
 
 [[snippets]]
   command = "setfont"
@@ -1760,9 +1770,8 @@
   output = ""
 
 [[snippets]]
-command =  "<command> | jq"
-description = "pretty and highlight json"
-
+  command =  "<command> | jq"
+  description = "pretty and highlight json"
 
 [[snippets]]
   command = "python -m asyncio"
@@ -1947,10 +1956,12 @@ description = "pretty and highlight json"
 [[snippets]]
   command = "proxychains program"
   description = "redirects the connections through socks or https proxies"
+  tag = ["networking"]
 
 [[snippets]]
   command = "ssh -L <local_port>:<remote_address>:<remote_port> -p <port=22> <username>@<server_address>"
   description = "local port forwarding"
+  tag = ["networking"]
 
 [[snippets]]
   description = "setup socks5 ssh tunnel"
@@ -1962,10 +1973,22 @@ description = "pretty and highlight json"
 [[snippets]]
   command = "ssh-copy-id -p <port=22> <user>@<host>"
   description = "copy ssh key to server"
+  tag = ["networking"]
 
 [[snippets]]
   command = "cat ~/.ssh/id_rsa.pub | ssh -p <port=22> <username>@<address> 'cat >> ~/.ssh/authorized_keys'"
   description = "add public SSH key to the server"
+  tag = ["networking"]
+
+[[snippets]]
+  command = "scp <username>@<hostname>:<src> <dst>"
+  description = "copy file from remote host to local host"
+  tag = ["networking", "ssh"]
+
+[[snippets]]
+  command = "scp <src> <username>@<hostname>:<dst>"
+  description = "copy file from local host to remote host"
+  tag = ["networking", "ssh"]
 
 [[snippets]]
   description = "connect to server"
@@ -2218,6 +2241,10 @@ description = "pretty and highlight json"
   description = "recover a directory from the previous commit"
 
 [[snippets]]
+  command = "git describe --abbrev=0 --tags"
+  description = "get latest tag"
+
+[[snippets]]
   description = "start new session"
   command = "tmux new -s <name>"
   output = ""
@@ -2439,19 +2466,19 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "restore backup"
+  description = "restore database from backup"
   command = "psql <database> < <filename>"
   tag = ["postgres"]
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "create new database"
   command = "createdb <database>"
   tag = ["postgres"]
   output = ""
 
 [[snippets]]
-  description = ""
+  description = "delete database"
   command = "dropdb <database>"
   tag = ["postgres"]
   output = ""
@@ -2467,7 +2494,7 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "update /usr/share/applications/mimeinfo.cache file with mimetype-to-application associations"
+  description = "update mime type associations"
   command = "sudo update-desktop-database /usr/share/applications"
   output = ""
 
@@ -3539,8 +3566,8 @@ description = "pretty and highlight json"
   output = ""
 
 [[snippets]]
-  description = "Create new project/package"
-  command = "poetry new <project-name>"
+  description = "Create new package (also u can use --name, --src)"
+  command = "poetry new <package>"
   output = ""
   tag = ["python", "package manager"]
 
@@ -3557,13 +3584,18 @@ description = "pretty and highlight json"
   tag = ["python", "package manager"]
 
 [[snippets]]
-  description = ""
+  command = "poetry install --remove-untracked"
+  description = "remove old dependencies"
+  tag = ["python", "package manager"]
+
+[[snippets]]
+  description = "add package"
   command = "poetry add <package>"
   output = ""
   tag = ["python", "package manager"]
 
 [[snippets]]
-  description = ""
+  description = "remove package"
   command = "poetry remove <package>"
   output = ""
   tag = ["python", "package manager"]
@@ -4113,52 +4145,57 @@ description = "pretty and highlight json"
 [[snippets]]
   command = "paru <target>"
   description = "Interactively search and install <target>."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru"
   description = "Alias for paru -Syu."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -S <target>"
   description = "Install a specific package."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -Sua"
   description = "Upgrade AUR packages."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -Qua"
   description = "Print available AUR updates."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -G <target>"
   description = "Download the PKGBUILD and related files of <target>."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -Gp <target>"
   description = "Print the PKGBUILD of <target>."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -Gc <target>"
   description = "Print the AUR comments  of <target>."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru --gendb"
   description = "Generate the devel database for tracking *-git packages. This is only needed when you initially start using paru."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "paru -Ui"
   description = "Build and install a PKGBUILD in the current directory."
-  tag = ["aur", "helper"]
+  tag = ["package manager", "aur"]
+
+[[snippets]]
+  command = "paru -Qo <filename>"
+  description = "show package that owns a file"
+  tag = ["package manager", "aur"]
 
 [[snippets]]
   command = "nice -n <niceness-value> <command args>"
@@ -4171,3 +4208,9 @@ description = "pretty and highlight json"
 [[snippets]]
   description = "save html page as pdf"
   command = "chromium --headless --disable-gpu --print-to-pdf=<output> <url>"
+
+[[snippets]]
+  command = "xrandr -q"
+  description = "display hardware information"
+  tag = ["display"]
+

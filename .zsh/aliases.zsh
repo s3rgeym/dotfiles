@@ -1,4 +1,4 @@
-alias rm='rm -i'
+#alias rm='rm -i'
 alias cp='cp --reflink=auto --sparse=always'
 
 alias :q='exit'
