@@ -1,0 +1,22 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# Указываем, что это корневой файл конфигурации
+root = true
+
+# Настройки по умолчанию для всех файлов
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+# Исключение для Python: отступ 4 пробела
+[*.py]
+indent_size = 4
+
+# Исключение для Go: использовать табы (2 таба)
+[*.go]
+indent_style = tab
+indent_size = 2
