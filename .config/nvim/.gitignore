@@ -1,0 +1,6 @@
+/lazy-lock.json
+/package-lock.json
+/package.json
+/spell
+.ruff_cache
+__pycache__
