@@ -47,7 +47,9 @@ wk.add({
     { "<leader>w", vim.cmd.write, desc = "Write file" },
   },
 
-  { "<leader>x",  vim.cmd.bdelete,               desc = "Close buffer" },
+  -- { "<leader>x",  vim.cmd.bdelete,               desc = "Close buffer" },
+  -- Переходим назад и закрываем до этого открытый
+  { "<leader>x",  cmd [[bp|bd #]],               desc = "Close buffer" },
 
   -- :%y<cr>, :%y+<cr>
   { "<leader>a",  "ggVG",                        desc = "Select entire buffer" },
@@ -120,6 +122,8 @@ wk.add({
 
   -- Прочее
   { '<leader>cd', cmd [[cd %:p:h]],              desc = 'Change directory to current file location' },
+  { '<leader>co', vim.cmd.copen,                 desc = 'Open quickfix' },
+  { '<leader>cc', vim.cmd.cclose,                desc = 'Close quickfix' },
   -- Оно мало нужно, если честно
   { "<leader>ss", cmd [[setlocal spell!]],       desc = "Toggle Spellcheck" },
 })
