@@ -1,0 +1,8 @@
+# У Mono шрифта размеры иконок подогнаны под один размер, от того мельчат
+font-family = JetBrains Mono NFM
+font-size = 11.5
+theme = tokyonight-storm
+background-opacity = 0.96
+# cursor-style = bar
+# shell-integration-features = sudo
+#gtk-custom-css = ./custom.css
