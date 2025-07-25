@@ -1,0 +1,25 @@
+# https://sw.kovidgoyal.net/kitty/conf/
+# У Mono иконки мелкие
+font_family JetBrains Mono Nerd Font
+font_size 12.5
+background_opacity 0.92
+scrollback_lines 100000
+wheel_scroll_multiplier 5.0
+copy_on_select clipboard
+# удалять пробелы в конце строки при копировании в буфер
+strip_trailing_spaces always
+enable_audio_bell no
+
+#tab_bar_edge top
+tab_bar_style powerline
+tab_powerline_style slanted
+
+# Нужно для использования `kitty @ load-config`
+allow_remote_control yes
+# Показывает уведомления в трее, если долговыполняемая задача была завершена
+notify_on_cmd_finish unfocused
+
+# BEGIN_KITTY_THEME
+# Solarized Dark Higher Contrast
+include current-theme.conf
+# END_KITTY_THEME
