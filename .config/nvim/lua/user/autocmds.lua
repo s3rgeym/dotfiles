@@ -1,12 +1,12 @@
-local au = vim.api.nvim_create_autocmd
+local create_autocmd = vim.api.nvim_create_autocmd
 
 -- Автоперечтение файла при изменении
-au({ "FocusGained", "BufEnter", "CursorHold" }, {
+create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   command = "checktime",
 })
 
 -- Восстановление последней позиции курсора при открытии файла
-au("BufReadPost", {
+create_autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
     if vim.fn.line("'\"") >= 1 and vim.fn.line("'\"") <= vim.fn.line("$") and not vim.bo.filetype:match("commit") then
@@ -28,7 +28,7 @@ vim.cmd [[autocmd TermOpen * startinsert]]
 -- })
 
 -- Автоматическое форматирование при сохранении
-au("BufWritePre", {
+create_autocmd("BufWritePre", {
   callback = function()
     vim.lsp.buf.format {
       async = false
@@ -37,7 +37,7 @@ au("BufWritePre", {
 })
 
 -- Показывать сообщения диагностики в всплывающем окне при наведении курсора
--- au({ "CursorHold", "CursorHoldI" }, {
+-- create_autocmd({ "CursorHold", "CursorHoldI" }, {
 --   callback = function()
 --     vim.diagnostic.open_float(nil, { focus = false })
 --   end
