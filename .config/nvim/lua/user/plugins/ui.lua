@@ -25,6 +25,11 @@ return {
     -- Функция config нужна
     config = function()
       require('lualine').setup({
+        options = {
+          disabled_filetypes = {
+            -- statusline = { "neo-tree" },
+          }
+        },
         sections = {
           lualine_c = {
             'filename',
