@@ -5,6 +5,7 @@ root = true
 
 # Настройки по умолчанию для всех файлов
 [*]
+max_line_length = 80
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
@@ -16,7 +17,10 @@ indent_size = 2
 [*.py]
 indent_size = 4
 
-# Исключение для Go: использовать табы (2 таба)
+# Исключение для Go: использовать табы
 [*.go]
 indent_style = tab
-indent_size = 2
+
+# Markdown: не обрезаем пробелы в конце строк
+[*.md]
+trim_trailing_whitespace = false
