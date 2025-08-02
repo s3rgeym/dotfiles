@@ -153,10 +153,3 @@ end
 -- Цветовая схеме и оформление
 opt.guifont = "JetBrainsMono Nerd Font:h12"
 opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor20"
-
-if opt.termguicolors then
-  opt.background = "dark"
-  vim.cmd [[colorscheme tokyonight-storm]]
-else
-  vim.cmd.colorscheme('desert')
-end

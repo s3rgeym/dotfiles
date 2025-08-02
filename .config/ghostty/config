@@ -1,8 +1,15 @@
 # У Mono шрифта размеры иконок подогнаны под один размер, от того мельчат
+#font-family = CaskaydiaMono Nerd Font Mono
+#font-family = CommitMono Nerd Font Mono
+#font-family = FiraCode Nerd Font Mono
 font-family = JetBrains Mono NFM
 font-size = 11.5
-theme = tokyonight-storm
-background-opacity = 0.96
+#theme = catppuccin-macchiato
+#theme = tokyonight-storm
+theme = Solarized Dark - Patched
+# В ghostty все равно нет динамической прозрачности, из-за чего в темах nvim та
+# перестает работать
+#background-opacity = 0.96
 # cursor-style = bar
 # shell-integration-features = sudo
 #gtk-custom-css = ./custom.css

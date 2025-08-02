@@ -5,6 +5,7 @@ local function cmd(command)
   return "<Cmd>" .. command .. "<CR>"
 end
 
+-- Чтобы все сочетания работали, нужно чтобы which-key был с lazy=false
 local which_key_ok, wk = pcall(require, "which-key")
 if not which_key_ok then
   return
@@ -49,12 +50,14 @@ wk.add({
 
   -- { "<leader>x",  vim.cmd.bdelete,               desc = "Close buffer" },
   -- Переходим назад и закрываем до этого открытый
+  -- { "<leader>x",  '<cmd>bp|bd #<cr>',            desc = "Close buffer" },
   { "<leader>x",  cmd [[bp|bd #]],               desc = "Close buffer" },
+  { "<leader>X",  cmd [[%bd|e #|bd #]],          desc = "Close other buffers" },
 
   -- :%y<cr>, :%y+<cr>
   { "<leader>a",  "ggVG",                        desc = "Select entire buffer" },
   { "<leader>y",  cmd [[%y]],                    desc = "Yank entire buffer" },
-  { "<leader>p",  ":%d_<cr>p",                   desc = "Paste and replace with last yanked text" },
+  { "<leader>p",  [[:%d_<cr>"+p]],               desc = "Paste and replace with last yanked text" },
   { "<Esc><Esc>", vim.cmd.nohlsearch,            desc = "Clear search highlight" },
 
   -- Нужно придумать сочетание для этого
