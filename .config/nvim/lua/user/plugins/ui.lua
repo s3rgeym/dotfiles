@@ -1,6 +1,8 @@
 return {
   {
     'akinsho/bufferline.nvim',
+    -- Не работает
+    -- after = "solarized.nvim",
     dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
       options = {
@@ -9,7 +11,7 @@ return {
         offsets = {
           {
             filetype = "neo-tree",
-            text = "Nvim Tree",
+            text = "Neo-tree Explorer",
             separator = true,
             text_align = "left",
           },
@@ -49,20 +51,29 @@ return {
       })
     end,
   },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "maxmx03/solarized.nvim",
+    lazy = false,
     priority = 1000,
-    lazy = false, -- Загружаем сразу
-    opts = {
-      -- Geovide как-то неправильно работает с этой прозрачностью (через
-      -- bg=None).
-      -- Включать прозрачность для темы не нужно, если установить
-      -- colors.transparent_background_colors = true в настройках alacritty
-      -- transparent = true,
-      -- styles = {
-      --   sidebars = "transparent",
-      --   floats = "transparent",
-      -- },
-    },
+    -- Без config и строчек выше bufferline не похватывает тему
+    config = function()
+      if vim.opt.termguicolors then
+        vim.cmd [[colorscheme solarized]]
+      else
+        vim.cmd.color('desert')
+      end
+    end
   },
 }

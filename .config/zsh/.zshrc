@@ -9,6 +9,7 @@ export GOPATH="${GOPATH:-$HOME/go}"
 typeset -U path fpath
 
 path=(
+  "$HOME/bin"
   "$HOME/.local/bin"
   "$GOPATH/bin"
   "$HOME/.cargo/bin"
