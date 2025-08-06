@@ -36,6 +36,10 @@ create_autocmd("BufWritePre", {
   end,
 })
 
+-- vim.cmd([[
+--   au colorscheme * highlight Normal ctermbg=none guibg=none
+-- ]])
+
 -- Показывать сообщения диагностики в всплывающем окне при наведении курсора
 -- create_autocmd({ "CursorHold", "CursorHoldI" }, {
 --   callback = function()

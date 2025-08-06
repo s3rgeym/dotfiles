@@ -3,12 +3,13 @@
 #font-family = CommitMono Nerd Font Mono
 #font-family = FiraCode Nerd Font Mono
 font-family = JetBrains Mono NFM
-font-size = 11.5
-#theme = tokyonight-storm
-#theme = Dracula
+font-size = 12.0
+# Dracula, Solarized Dark - Patched, Solarized Dark Higher Contrast, catppuccin-macchiato, catppuccin-mocha, solarized-osaka-night, tokyonight-storm
+theme = Solarized Dark Higher Contrast
 # В ghostty все равно нет динамической прозрачности, из-за чего в темах nvim та
-# перестает работать
-#background-opacity = 0.96
+# перестает
+background-opacity = 0.95
+background-blur-radius = 0
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = false
