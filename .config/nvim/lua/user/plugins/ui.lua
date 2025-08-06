@@ -6,12 +6,12 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
       options = {
-        separator_style = "slant",
+        --separator_style = "slant",
         diagnostics = "nvim_lsp",
         offsets = {
           {
             filetype = "neo-tree",
-            text = "Neo-tree Explorer",
+            text = "Neo-tree",
             separator = true,
             text_align = "left",
           },
@@ -75,7 +75,12 @@ return {
     -- Без config и строчек выше bufferline не похватывает тему
     config = function()
       if vim.opt.termguicolors then
-        vim.cmd [[colorscheme solarized]]
+        vim.cmd [[
+          colorscheme solarized
+          " Прозрачность (проблемы с bufferline)
+          hi Normal ctermbg=NONE guibg=NONE
+          hi NonText ctermbg=NONE guibg=NONE
+        ]]
       else
         vim.cmd.color('desert')
       end
