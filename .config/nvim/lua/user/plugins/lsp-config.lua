@@ -61,6 +61,10 @@ return {
         "ruff",
         "lua_ls",
         "vimls",
+
+        -- TS/JS + Vue
+        "ts_ls",
+        "vue_ls",
       },
       automatic_installation = true,
     })
@@ -69,6 +73,25 @@ return {
       -- on_attach = on_attach,
       capabilities = capabilities,
     })
+
+    local lspconfig = require('lspconfig')
+    -- TypeScript + Vue
+    -- https://www.reddit.com/r/neovim/comments/1g4e3sa/finally_neovim_native_vue_lsp_perfection_2024
+    lspconfig.ts_ls.setup({
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_plugin_path,
+            languages = { "vue" },
+          },
+        },
+      },
+      filetypes = { "javascript", "typescript", "vue" },
+      capabilities = capabilities,
+    })
+
+    lspconfig.volar.setup {}
 
     -- Настройка уже установленных серверов
     local servers = {

@@ -29,33 +29,6 @@ autoload -Uz "$ZDOTDIR/functions/*(D:tN)"
 # Проверяет пути из fpath и ищет файлы с именем типа _foo
 autoload -Uz compinit && compinit
 
-# Настройки плагинов через zstyle должны быть до их подключения
-#zstyle ':antidote:compatibility-mode' 'antibody' 'on'
-
-# Отображение иконок в ls
-zstyle ':omz:plugins:eza' 'icons' yes
-
-# Запрещаем Pure автоматически выполнять 'git fetch' для проверки обновлений
-# в удаленном репозитории и отображения индикаторов отставания/опережения.
-export PURE_GIT_PULL=0
-
-# Указываем Pure выполнять 'git fetch' только для вышестоящей ветки
-# текущей локальной ветки. Это может ускорить обновление индикаторов Git.
-zstyle :prompt:pure:git:fetch only_upstream yes
-
-# https://github.com/Aloxaf/fzf-tab/wiki/Configuration
-# zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
-# zstyle ':fzf-tab:*' accept-line enter
-
-antidote_dir="${ZDOTDIR}/.antidote"
-if [[ ! -d $antidote_dir ]]; then
-  git clone --depth=1 https://github.com/mattmc3/antidote.git "$antidote_dir"
-fi
-
-# Обновление всех плагинов: `antidote update`
-source "${antidote_dir}/antidote.zsh"
-antidote load "${ZDOTDIR}/.zsh_plugins.txt"
-
 # Настройки самого zsh
 HISTFILE="${ZDOTDIR}/.zsh_history"
 HISTSIZE=100000
