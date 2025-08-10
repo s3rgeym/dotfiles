@@ -70,17 +70,15 @@ return {
   -- },
   {
     "maxmx03/solarized.nvim",
+    -- bufferline только так похватывает тему
     lazy = false,
     priority = 1000,
-    -- Без config и строчек выше bufferline не похватывает тему
     config = function()
       if vim.opt.termguicolors then
-        vim.cmd [[
-          colorscheme solarized
-          " Прозрачность (проблемы с bufferline)
-          "hi Normal ctermbg=NONE guibg=NONE
-          "hi NonText ctermbg=NONE guibg=NONE
-        ]]
+        vim.cmd [[colorscheme solarized]]
+        -- Если нет динамической прозрачности, то лучше сделать ее через
+        -- композитор
+        --vim.api.nvim_set_hl(0, 'Normal', { bg = "none" })
       else
         vim.cmd.color('desert')
       end

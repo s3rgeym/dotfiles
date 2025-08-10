@@ -1,6 +1,6 @@
 [2b42b8f4-e533-410f-b3d9-48b3617bd241]
 Description=Settings for foot
-opacityactive=95
+noborderrule=3
 opacityactiverule=2
 wmclass=foot
 wmclasscomplete=true

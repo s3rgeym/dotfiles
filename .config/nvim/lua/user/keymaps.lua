@@ -85,11 +85,11 @@ wk.add({
   { "<Tab>",      vim.cmd.bnext,                 desc = "Previous buffer" },
   { "<S-Tab>",    vim.cmd.bprev,                 desc = "Next buffer" },
 
-  { "<S-l>",      vim.cmd.bnext,                 desc = "Previous buffer" },
-  { "<S-h>",      vim.cmd.bprev,                 desc = "Next buffer" },
+  { "<S-l>",      vim.cmd.bnext,                 desc = "Next buffer" },
+  { "<S-h>",      vim.cmd.bprev,                 desc = "Previous buffer" },
 
-  { "]b",         vim.cmd.bnext,                 desc = "Previous buffer" },
-  { "[b",         vim.cmd.bprev,                 desc = "Next buffer" },
+  { "]b",         vim.cmd.bnext,                 desc = "Next buffer" },
+  { "[b",         vim.cmd.bprev,                 desc = "Previous buffer" },
 
   -- Indentation
   -- Конфликтуют с >}
@@ -138,31 +138,31 @@ wk.add({
 })
 
 -- LSP
-local function jump(c)
-  -- float=true == open_float
-  vim.diagnostic.jump({ count = c, float = false })
-end
+-- local function jump(c)
+--   -- float=true == open_float
+--   vim.diagnostic.jump({ count = c, float = false })
+-- end
 
-wk.add({
-  -- { "gd",          vim.lsp.buf.definition,       desc = "Go to definition" },
-  -- { "gD",          vim.lsp.buf.declaration,      desc = "Go to declaration" },
-  -- { "gi",          vim.lsp.buf.implementation,   desc = "Go to implementation" },
-  -- { "gr",          vim.lsp.buf.references,       desc = "List references" },
-  -- { "gy",          vim.lsp.buf.type_definition,  desc = "Type definition" },
-  { "<leader>ca", vim.lsp.buf.code_action,    desc = "Code actions" },
-  { "<leader>rn", vim.lsp.buf.rename,         desc = "Rename" },
-  { "K",          vim.lsp.buf.hover,          desc = "Hover docs" },
-  { "gs",         vim.lsp.buf.signature_help, desc = "Signature help" },
-  -- Это сочетание лишнее, но пусть будет
-  { "<leader>d",  vim.diagnostic.open_float,  desc = "Diagnostics float" },
-  { "[d",         function() jump(-1) end,    desc = "Previous diagnostic" },
-  { "]d",         function() jump(1) end,     desc = "Next diagnostic" },
-  -- { "<leader>lds",  vim.lsp.buf.document_symbol,  desc = "Document symbols" },
-  -- { "<leader>lws",  vim.lsp.buf.workspace_symbol, desc = "Workspace symbols" },
-  -- Команды nvim-lspconfig
-  -- { "<leader>lr", cmd [[LspRestart]],         desc = "Restart LSP" },
-  -- { "<leader>li", cmd [[LspInfo]],         desc = "LSP Info" },
-})
+-- wk.add({
+-- { "gd",          vim.lsp.buf.definition,       desc = "Go to definition" },
+-- { "gD",          vim.lsp.buf.declaration,      desc = "Go to declaration" },
+-- { "gi",          vim.lsp.buf.implementation,   desc = "Go to implementation" },
+-- { "gr",          vim.lsp.buf.references,       desc = "List references" },
+-- { "gy",          vim.lsp.buf.type_definition,  desc = "Type definition" },
+-- { "<leader>ca", vim.lsp.buf.code_action,    desc = "Code actions" },
+-- { "<leader>rn", vim.lsp.buf.rename,         desc = "Rename" },
+-- { "K",          vim.lsp.buf.hover,          desc = "Hover docs" },
+-- { "gs",         vim.lsp.buf.signature_help, desc = "Signature help" },
+-- -- Это сочетание лишнее, но пусть будет
+-- { "<leader>d",  vim.diagnostic.open_float,  desc = "Diagnostics float" },
+-- { "[d",         function() jump(-1) end,    desc = "Previous diagnostic" },
+-- { "]d",         function() jump(1) end,     desc = "Next diagnostic" },
+-- { "<leader>lds",  vim.lsp.buf.document_symbol,  desc = "Document symbols" },
+-- { "<leader>lws",  vim.lsp.buf.workspace_symbol, desc = "Workspace symbols" },
+-- Команды nvim-lspconfig
+-- { "<leader>lr", cmd [[LspRestart]],         desc = "Restart LSP" },
+-- { "<leader>li", cmd [[LspInfo]],         desc = "LSP Info" },
+-- })
 
 -- Debugger
 wk.add({
