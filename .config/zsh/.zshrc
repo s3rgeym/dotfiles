@@ -102,6 +102,6 @@ if [[ -d $ZDOTDIR/zshrc.d ]]; then
 fi
 
 # [[ $XDG_SESSION_TYPE == "tty" ]]
-if [[ $TERM == "foot" ]]; then
-  [[ $(command -v zellij) ]] && zellij attach --index 0 --create
+if [[ -o interactive ]] && [[ -z "$ZELLIJ" ]]; then
+  exec zellij attach --index 0 --create
 fi

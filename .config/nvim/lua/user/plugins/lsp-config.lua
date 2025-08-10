@@ -21,8 +21,8 @@ local function on_attach(_, bufnr)
   map("[d", function() jump(-1) end, "Previous diagnostic")
   map("]d", function() jump(1) end, "Next diagnostic")
 
-  map("<leader>sd", vim.lsp.buf.document_symbol, "Document symbols")
-  map("<leader>sw", vim.lsp.buf.workspace_symbol, "Workspace symbols")
+  map("<leader>lds", vim.lsp.buf.document_symbol, "Document symbols")
+  map("<leader>lws", vim.lsp.buf.workspace_symbol, "Workspace symbols")
 end
 
 -- :help lspconfig-all
@@ -71,7 +71,7 @@ return {
     })
 
     vim.lsp.config("*", {
-      -- on_attach = on_attach,
+      on_attach = on_attach,
       capabilities = capabilities,
     })
 
