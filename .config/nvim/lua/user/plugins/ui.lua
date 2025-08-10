@@ -6,7 +6,7 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
       options = {
-        --separator_style = "slant",
+        separator_style = "slant",
         diagnostics = "nvim_lsp",
         offsets = {
           {
@@ -78,8 +78,8 @@ return {
         vim.cmd [[
           colorscheme solarized
           " Прозрачность (проблемы с bufferline)
-          hi Normal ctermbg=NONE guibg=NONE
-          hi NonText ctermbg=NONE guibg=NONE
+          "hi Normal ctermbg=NONE guibg=NONE
+          "hi NonText ctermbg=NONE guibg=NONE
         ]]
       else
         vim.cmd.color('desert')

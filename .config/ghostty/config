@@ -5,11 +5,11 @@
 font-family = JetBrains Mono NFM
 font-size = 12.0
 # Dracula, Solarized Dark - Patched, Solarized Dark Higher Contrast, catppuccin-macchiato, catppuccin-mocha, solarized-osaka-night, tokyonight-storm
-theme = Solarized Dark Higher Contrast
+theme = Solarized Dark - Patched
 # В ghostty все равно нет динамической прозрачности, из-за чего в темах nvim та
 # перестает
-background-opacity = 0.95
-background-blur-radius = 0
+background-opacity = 0.90
+background-blur-radius = 10
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = false
