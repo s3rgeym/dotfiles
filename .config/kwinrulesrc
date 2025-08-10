@@ -1,0 +1,11 @@
+[2b42b8f4-e533-410f-b3d9-48b3617bd241]
+Description=Settings for foot
+opacityactive=95
+opacityactiverule=2
+wmclass=foot
+wmclasscomplete=true
+wmclassmatch=2
+
+[General]
+count=1
+rules=2b42b8f4-e533-410f-b3d9-48b3617bd241
