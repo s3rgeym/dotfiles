@@ -65,6 +65,28 @@ setopt share_history          # Общая история между сесси�
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
+# Настройки плагинов через zstyle должны быть до их подключения
+#zstyle ':antidote:compatibility-mode' 'antibody' 'on'
+
+#zstyle ':omz:update' mode disabled
+
+# Отображение иконок в ls
+zstyle ':omz:plugins:eza' 'icons' yes
+
+# Запрещаем Pure автоматически выполнять 'git fetch' для проверки обновлений
+# в удаленном репозитории и отображения индикаторов отставания/опережения.
+export PURE_GIT_PULL=0
+
+# Указываем Pure выполнять 'git fetch' только для вышестоящей ветки
+# текущей локальной ветки. Это может ускорить обновление индикаторов Git.
+zstyle :prompt:pure:git:fetch only_upstream yes
+
+# https://github.com/Aloxaf/fzf-tab/wiki/Configuration
+# zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+# zstyle ':fzf-tab:*' accept-line enter
+
+zstyle ':omz:plugins:nvm' lazy yes
+
 # Автозагрузка конфигов
 # mkdir -p "$ZDOTDIR/zshrc.d"
 # конфигам лучше добавлять числовые префиксы, чтобы управлять порядком их загрузки
@@ -74,14 +96,12 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 if [[ -d $ZDOTDIR/zshrc.d ]]; then
   # игнорируем дот-файлы
   for config ($ZDOTDIR/zshrc.d/[^.]*(N)); do
-    #echo $config
+    #echo $config >&2
     . "$config"
   done
 fi
 
-# ZELLIJ_AUTO_ATTACH=true
-# ZELLIJ_AUTO_EXIT=true
-# # [[ $XDG_SESSION_TYPE == "tty" ]]
-# if [ $(command -v zellij) ] && [ "$TERM" == *alacritty* ]; then
-#   eval "$(zellij setup --generate-auto-start zsh)"
-# fi
+# [[ $XDG_SESSION_TYPE == "tty" ]]
+if [[ $TERM == "foot" ]]; then
+  [[ $(command -v zellij) ]] && zellij attach --index 0 --create
+fi

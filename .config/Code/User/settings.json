@@ -57,5 +57,6 @@
   "workbench.editor.empty.hint": "hidden",
   //"workbench.editor.empty.hint": "hidden",
   "workbench.iconTheme": "material-icon-theme",
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
