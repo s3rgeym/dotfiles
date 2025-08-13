@@ -3,9 +3,15 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  cmd = "FzfLua", -- fix: Not and editor command: FzfLua ... при использовании в keys
-  config = function()
-    require('fzf-lua').setup()
-    require('fzf-lua').register_ui_select()
+  cmd = "FzfLua",
+  opts = function(_, opts)
+    local actions = require("fzf-lua.actions")
+    opts.grep = vim.tbl_deep_extend("force", opts.grep or {}, {
+      actions = {
+        ["ctrl-g"] = false, -- ctrl-g используется в zellij
+        ["alt-g"] = actions.grep_lgrep,
+      },
+    })
+    return opts
   end,
 }

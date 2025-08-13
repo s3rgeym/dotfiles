@@ -101,7 +101,11 @@ if [[ -d $ZDOTDIR/zshrc.d ]]; then
   done
 fi
 
-# [[ $XDG_SESSION_TYPE == "tty" ]]
-if [[ -o interactive ]] && [[ -z "$ZELLIJ" ]]; then
-  exec zellij attach --index 0 --create
+if [[ "$TERM" == "foot" ]]; then
+  [[ -z "$ZELLIJ" ]] && exec zellij attach --index 0 --create
+fi
+
+# https://code.visualstudio.com/docs/terminal/shell-integration
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  . "$(code --locate-shell-integration-path zsh)"
 fi

@@ -10,6 +10,7 @@ ohmyzsh/ohmyzsh path:plugins/command-not-found
 ohmyzsh/ohmyzsh path:plugins/copybuffer
 # eval $(direnv hook zsh)
 ohmyzsh/ohmyzsh path:plugins/direnv
+ohmyzsh/ohmyzsh path:plugins/dotenv
 ohmyzsh/ohmyzsh path:plugins/extract
 # Заменяем ls на exa
 # sudo pacman -S eza

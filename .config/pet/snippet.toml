@@ -9610,3 +9610,9 @@
   Output = ""
   Tag = []
   command = "ghostty +list-keybinds"
+
+[[Snippets]]
+  Description = "install packages from file via pacman"
+  Output = ""
+  Tag = []
+  command = "sudo pacman -S --needed - < ~/dev-packages.txt"

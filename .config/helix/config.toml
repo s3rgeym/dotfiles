@@ -1,0 +1,30 @@
+theme = "solarized_dark"
+
+# https://tqwewe.com/blog/enhanced-helix-config/
+[editor]
+line-number = "relative"
+cursorline = true
+cursorcolumn = false
+bufferline = "always"
+true-color = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.indent-guides]
+character = "╎"
+render = true
+
+[editor.lsp]
+# Disable automatically popups of signature parameter help
+#auto-signature-help = false
+# Show LSP messages in the status line
+display-messages = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
