@@ -101,7 +101,9 @@ if [[ -d $ZDOTDIR/zshrc.d ]]; then
   done
 fi
 
+# TODO: это можно вынести в отдельные конфиги
 if [[ "$TERM" == "foot" ]]; then
+  # После exec прекратится дальнейшее выполнение
   [[ -z "$ZELLIJ" ]] && exec zellij attach --index 0 --create
 fi
 
