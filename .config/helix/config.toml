@@ -1,12 +1,21 @@
+# :theme<Tab> для просмотра тем
 theme = "solarized_dark"
 
 # https://tqwewe.com/blog/enhanced-helix-config/
 [editor]
-line-number = "relative"
+# Если нравятся нумерация строк относительно текущей
+#line-number = "relative"
 cursorline = true
 cursorcolumn = false
+rulers = [72, 80, 100, 120]
 bufferline = "always"
 true-color = true
+# По умолчанию настройки подхватываются из .editorconfig
+#editor-config = true
+text-width = 100
+default-line-ending = "lf"
+insert-final-newline = true
+trim-final-newlines = true
 
 [editor.cursor-shape]
 normal = "block"
@@ -21,10 +30,13 @@ render = true
 # Disable automatically popups of signature parameter help
 #auto-signature-help = false
 # Show LSP messages in the status line
-display-messages = true
+#display-messages = true
 
 [editor.file-picker]
 hidden = false
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
+
+[editor.soft-wrap]
+enable = true

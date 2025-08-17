@@ -1,4 +1,7 @@
 [language-server.ruff]
+# uvx — это аналог npx для Python из пакета uv
+# command = "uvx"
+# args = ["ruff", "server"]
 command = "ruff"
 args = ["server"]
 config = {}
@@ -6,9 +9,13 @@ config = {}
 [language-server.pyright]
 command = "pyright-langserver"
 args = ["--stdio"]
-config = {}
+config = { python = { analysis = { typeCheckingMode = "basic", autoSearchPaths = true, diagnostics = ["reportMissingImports"] } } }
 
 [[language]]
 name = "python"
 language-servers = ["ruff", "pyright"]
 auto-format = true
+# Можно использовать black вместо ruff
+#formatter = { command = "black", args = ["--stdin", "--quiet", "-"] }
+file-types = ["py", "ipynb"]
+roots = ["pyproject.toml", "setup.py", ".git"]
