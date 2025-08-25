@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 # fish всем хорош кроме багов и синтаксиса, который не имеет обратной
 # совместимости с Bash
 # $XDG_CONFIG_HOME
@@ -68,7 +69,8 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # Настройки плагинов через zstyle должны быть до их подключения
 #zstyle ':antidote:compatibility-mode' 'antibody' 'on'
 
-#zstyle ':omz:update' mode disabled
+# Отключаем автообговление zsh
+zstyle ':omz:update' mode disabled
 
 # Отображение иконок в ls
 zstyle ':omz:plugins:eza' 'icons' yes
@@ -99,15 +101,4 @@ if [[ -d $ZDOTDIR/zshrc.d ]]; then
     #echo $config >&2
     . "$config"
   done
-fi
-
-# TODO: это можно вынести в отдельные конфиги, подключаемые выше
-if [[ "$TERM" == "foot" ]]; then
-  # После exec прекратится дальнейшее выполнение
-  [[ -z "$ZELLIJ" ]] && exec zellij attach --index 0 --create
-fi
-
-# https://code.visualstudio.com/docs/terminal/shell-integration
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  . "$(code --locate-shell-integration-path zsh)"
 fi

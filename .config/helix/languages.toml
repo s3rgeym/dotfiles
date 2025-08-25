@@ -1,16 +1,3 @@
-[language-server.ruff]
-# uvx — это аналог npx для Python из пакета uv
-# command = "uvx"
-# args = ["ruff", "server"]
-command = "ruff"
-args = ["server"]
-config = {}
-
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-config = { python = { analysis = { typeCheckingMode = "basic", autoSearchPaths = true, diagnostics = ["reportMissingImports"] } } }
-
 [[language]]
 name = "python"
 language-servers = ["ruff", "pyright"]
@@ -19,3 +6,45 @@ auto-format = true
 #formatter = { command = "black", args = ["--stdin", "--quiet", "-"] }
 file-types = ["py", "ipynb"]
 roots = ["pyproject.toml", "setup.py", ".git"]
+
+[language-server.ruff]
+# uvx — это аналог npx для Python из пакета uv
+# command = "uvx"
+# args = ["ruff", "server"]
+command = "ruff"
+args = ["server", "--preview"]
+config = {}
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+# Настройки pyright
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+autoSearchPaths = true
+diagnostics = ["reportMissingImports"]
+
+[language.debugger]
+name = "debugpy"
+transport = "stdio"
+command = "python"
+args = ["-m",  "debugpy.adapter"]
+
+[[language.debugger.templates]]
+name = "source"
+request = "launch"
+completion = [ { name = "entrypoint", completion = "filename", default = "." } ]
+args = { mode = "debug", program = "{0}"}
+
+[[language]]
+name = "bash"
+file-types = ["sh", "bash", "zsh"]
+language-servers = ["bash-language-server"]
+formatter = { command = "shfmt", args = ["-bn", "-ci", "-i", "2"] }
+auto-format = true
+
+# Языковые серверы можно через npx запускать
+[language-server.bash-language-server]
+command = "npx"
+args = ["bash-language-server"]
