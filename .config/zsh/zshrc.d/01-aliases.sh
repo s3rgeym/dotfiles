@@ -1,3 +1,4 @@
+alias hx=helix
 alias vim=helix
 alias vi=vim
 #alias vimdiff='nvim -d'

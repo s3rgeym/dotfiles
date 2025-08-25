@@ -9615,10 +9615,40 @@
   Description = "install packages from file via pacman"
   Output = ""
   Tag = []
-  command = "sudo pacman -S --needed - <(grep -vE '^#' ~/dev-packages.txt)"
+  command = "sudo pacman -S --needed - <(sed -r 's/#.*//' ~/packages-dev.txt | grep -vE '^\\s*$')"
 
 [[Snippets]]
   Description = "wayland forwarding over ssh"
   Output = ""
   Tag = []
   command = "waypipe ssh"
+
+[[Snippets]]
+  Description = "create a virtual environment using a specified python version"
+  Output = ""
+  Tag = []
+  command = "uv venv --seed -p <version>"
+
+[[Snippets]]
+  Description = "Install latest lts Node.js version"
+  Output = ""
+  Tag = []
+  command = "nvm install --lts"
+
+[[Snippets]]
+  Description = "Use a latest LTS Node.js version"
+  Output = ""
+  Tag = []
+  command = "nvm use --lts"
+
+[[Snippets]]
+  Description = "Set default version for the Node.js"
+  Output = ""
+  Tag = []
+  command = "nvm alias default v22.18.0"
+
+[[Snippets]]
+  Description = "List installed Node.js versions"
+  Output = ""
+  Tag = []
+  command = "nvm ls"
