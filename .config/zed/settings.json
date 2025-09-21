@@ -7,23 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-  "ui_font_family": "JetBrainsMono Nerd Font Mono",
+  "ui_font_size": 15,
+  "buffer_font_size": 14,
+  "buffer_font_family": "MonaspiceNe Nerd Font Mono",
+  "ui_font_family": "MonaspiceNe Nerd Font Mono",
   "ensure_final_newline_on_save": true,
   "format_on_save": "on",
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": "JetBrains New UI Icons (Dark)",
   "preferred_line_length": 80,
   "remove_trailing_whitespace_on_save": true,
   "show_whitespaces": "boundary",
-  "soft_wrap": "editor_width",
+  "soft_wrap": "bounded",
   "tab_size": 2,
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "theme": "One Dark Pro",
+  "theme": "Kanagawa Wave",
   //"agent": { "button": false },
   "lsp": {
     "pyright": {
