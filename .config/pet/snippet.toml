@@ -7032,10 +7032,10 @@
   command = "fold -w 80 -s <file>"
 
 [[Snippets]]
-  Description = "du + ncdu (dua -i)"
+  Description = "analize disk usage"
   Output = ""
-  Tag = ["alternative"]
-  command = "dua"
+  Tag = []
+  command = "dua i"
 
 [[Snippets]]
   Description = "tail -f"
@@ -9615,7 +9615,7 @@
   Description = "install packages from file via pacman"
   Output = ""
   Tag = []
-  command = "sudo pacman -S --needed - <(sed -r 's/#.*//' ~/packages-dev.txt | grep -vE '^\\s*$')"
+  command = "grep -vE '^#' ~/packages-dev.txt | sudo pacman -S --needed -"
 
 [[Snippets]]
   Description = "wayland forwarding over ssh"
@@ -9652,3 +9652,21 @@
   Output = ""
   Tag = []
   command = "nvm ls"
+
+[[Snippets]]
+  Description = "create new pyhon project"
+  Output = ""
+  Tag = []
+  command = "uv init <project-name>"
+
+[[Snippets]]
+  Description = "add dependecy to the python project"
+  Output = ""
+  Tag = []
+  command = "uv add <package>"
+
+[[Snippets]]
+  Description = "Runs a shell inside the Zed Flatpak sandbox"
+  Output = ""
+  Tag = []
+  command = "flatpak run --command=sh dev.zed.Zed"

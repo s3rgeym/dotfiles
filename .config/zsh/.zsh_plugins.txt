@@ -3,6 +3,7 @@ getantidote/use-omz
 ohmyzsh/ohmyzsh path:lib
 
 # Наиболее полезные плагины oh my zsh
+ohmyzsh/ohmyzsh path:plugins/asdf
 # sudo pacman -S python-pygmentize
 ohmyzsh/ohmyzsh path:plugins/colorize
 ohmyzsh/ohmyzsh path:plugins/command-not-found

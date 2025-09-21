@@ -30,7 +30,8 @@ autoload -Uz "$ZDOTDIR/functions/*(D:tN)"
 # Проверяет пути из fpath и ищет файлы с именем типа _foo
 autoload -Uz compinit && compinit
 
-# Настройки самого zsh
+# Настройки zsh
+# История
 HISTFILE="${ZDOTDIR}/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
@@ -39,6 +40,9 @@ setopt hist_expire_dups_first # Удаление дубликатов при п�
 setopt hist_ignore_dups       # Игнорирование повторяющихся команд
 setopt hist_ignore_space      # Пропуск команд, начинающихся с пробела
 setopt share_history          # Общая история между сессиями
+
+# Частичная поддержка регулярных выражений в выражениях с *
+setopt extended_glob
 
 # Этот режим что-то совсем бесполезный
 # # Включаем vi-mode (Ctrl-[, Esc - переход в нормальный режим)
@@ -63,8 +67,8 @@ setopt share_history          # Общая история между сесси�
 # Этот вариант не работат
 # bindkey "^[[A" history-substring-search-up
 # bindkey "^[[B" history-substring-search-down
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+# bindkey "$terminfo[kcuu1]" history-substring-search-up
+# bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # Настройки плагинов через zstyle должны быть до их подключения
 #zstyle ':antidote:compatibility-mode' 'antibody' 'on'
@@ -92,9 +96,6 @@ zstyle ':omz:plugins:nvm' lazy yes
 # Автозагрузка конфигов
 # mkdir -p "$ZDOTDIR/zshrc.d"
 # конфигам лучше добавлять числовые префиксы, чтобы управлять порядком их загрузки
-# touch $ZDOTDIR/zshrc.d/00-core.zsh
-# echo "alias zshrc='$EDITOR $ZDOTDIR/.zshrc'" >> "$ZDOTDIR/zshrc.d/editor.sh"
-# echo 'alias vimrc="vim $MYVIMRC"' >> "$ZDOTDIR/zshrc.d/aliases.sh"
 if [[ -d $ZDOTDIR/zshrc.d ]]; then
   # игнорируем дот-файлы
   for config ($ZDOTDIR/zshrc.d/[^.]*(N)); do

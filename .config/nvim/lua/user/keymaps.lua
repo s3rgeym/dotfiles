@@ -1,18 +1,62 @@
--- Все сочетания лучше держать в одном месте
-local utils = require("user.utils")
-
 local function cmd(command)
   return "<Cmd>" .. command .. "<CR>"
 end
 
--- Чтобы все сочетания работали, нужно чтобы which-key был с lazy=false
-local which_key_ok, wk = pcall(require, "which-key")
-if not which_key_ok then
-  return
-end
+local wk = require("which-key")
+wk.setup()
 
--- which-key — это то ради чего стоит с vim перейти на neovim
 wk.add({
+  { "<leader>q",  vim.cmd.quit,             desc = "Quit" },
+  { "<leader>x",  cmd [[bp|bd #]],          desc = "Close current buffer" },
+  { "<leader>X",  cmd [[%bd|e #|bd #]],     desc = "Close other buffers" },
+  { "<leader>y",  cmd [[%y]],               desc = "Yank all" },
+  { "<leader>p",  "ggVGp",                  desc = "Replace buffer with register" },
+
+  -- Files
+  { "<leader>e",  vim.cmd.Ex,               desc = "Explorer (:Ex)" },
+  { "<leader>f",  cmd [[FzfLua files]],     desc = "Find file" },
+  { "<leader>b",  cmd [[FzfLua buffers]],   desc = "Find buffer" },
+  { "<leader>g",  cmd [[FzfLua live_grep]], desc = "Grep project" },
+  { "<leader>r",  cmd [[FzfLua resume]],    desc = "Resume last picker" },
+
+  -- Buffers
+  { "<tab>",      vim.cmd.bnext,            desc = "Next buffer" },
+  { "<s-tab>",    vim.cmd.bprev,            desc = "Prev buffer" },
+
+  -- Navigation for wrapped lines
+  -- { "k",         "gk",               silent = true },
+  -- { "j",         "gj",               silent = true },
+  -- { "<Up>",      "gk",               silent = true },
+  -- { "<Down>",    "gj",               silent = true },
+
+  -- Windows
+  { "<c-h>",      "<c-w>h",                 desc = "Left window" },
+  { "<c-j>",      "<c-w>j",                 desc = "Down window" },
+  { "<c-k>",      "<c-w>k",                 desc = "Up window" },
+  { "<c-l>",      "<c-w>l",                 desc = "Right window" },
+
+  -- Indent/Unindent
+  { "<",          "<<_",                    desc = "Unindent line",               noremap = true, silent = true },
+  { ">",          ">>_",                    desc = "Indent line",                 noremap = true, silent = true },
+  { "<",          "<gv",                    desc = "Unindent lines",              noremap = true, silent = true, mode = "v" },
+  { ">",          ">gv",                    desc = "Indent lines",                noremap = true, silent = true, mode = "v" },
+
+  -- Move lines
+
+  -- nnoremap <A-j> :m .+1<CR>==
+  -- nnoremap <A-k> :m .-2<CR>==
+  -- inoremap <A-j> <Esc>:m .+1<CR>==gi
+  -- inoremap <A-k> <Esc>:m .-2<CR>==gi
+  -- vnoremap <A-j> :m '>+1<CR>gv=gv
+  -- vnoremap <A-k> :m '<-2<CR>gv=gv
+  { "<A-k>",      ":m .-2<CR>==",           desc = "Move line up" },
+  { "<A-j>",      ":m .+1<CR>==",           desc = "Move line down" },
+  { "<A-k>",      ":m '<-2<CR>gv=gv",       desc = "Move selection up",           mode = "v" },
+  { "<A-j>",      ":m '>+1<CR>gv=gv",       desc = "Move selection down",         mode = "v" },
+
+  { "<leader>ev", cmd [[edit $MYVIMRC]],    desc = "Edit neo[v]im config" },
+  { "<leader>rv", vim.cmd.restart,          desc = "Restart neo[v]im" },
+
   {
     "<leader>?",
     function()
@@ -20,213 +64,19 @@ wk.add({
     end,
     desc = "Buffer Local Keymaps (which-key)",
   },
-  -- Подсмотреть глобальные сочетание
   {
-    '<leader>k',
-    function()
-      wk.show({ mode = vim.fn.input("Enter mode: ") })
-    end,
-    desc = "Show All Keymaps (which-key)"
+    "<leader>k",
+    wk.show,
+    desc = "Show all keyamps"
   },
-  -- Это один из самых полезных режимов, который позволяет удобно выполнять
-  -- разные действия над окнами без лишний нажатий клавиш
   {
-    "<c-w><leader>",
+    "<leader>K",
     function()
-      -- Кроме сочетания <c-w>w в принципе ничего не нужно
-      wk.show({ keys = "<c-w>", loop = true })
+      local mode = vim.fn.input("Which-key mode (n/i/v/x/t/...): ")
+      if mode ~= "" then
+        wk.show({ mode = mode })
+      end
     end,
-    desc = "Window Hydra Mode (which-key)",
-  },
-})
-
--- Basic mappings
-wk.add({
-  {
-    mode = { "n", "v" },
-    { "<leader>q", vim.cmd.quit,  desc = "Close window" },
-    { "<leader>w", vim.cmd.write, desc = "Write file" },
-  },
-
-  -- { "<leader>x",  vim.cmd.bdelete,               desc = "Close buffer" },
-  -- Переходим назад и закрываем до этого открытый
-  -- { "<leader>x",  '<cmd>bp|bd #<cr>',            desc = "Close buffer" },
-  { "<leader>x",  cmd [[bp|bd #]],               desc = "Close buffer" },
-  { "<leader>X",  cmd [[%bd|e #|bd #]],          desc = "Close other buffers" },
-
-  -- :%y<cr>, :%y+<cr>
-  { "<leader>a",  "ggVG",                        desc = "Select entire buffer" },
-  { "<leader>y",  cmd [[%y]],                    desc = "Yank entire buffer" },
-  { "<leader>p",  [[:%d_<cr>"+p]],               desc = "Paste and replace with last yanked text" },
-  { "<Esc><Esc>", vim.cmd.nohlsearch,            desc = "Clear search highlight" },
-
-  -- Нужно придумать сочетание для этого
-  --{ "gV",         desc = "Reselect last change/paste" },
-
-  -- Перемещение по перенесенным строкам как по физическим
-  { "k",          "gk",                          silent = true },
-  { "j",          "gj",                          silent = true },
-  { "<Up>",       "gk",                          silent = true },
-  { "<Down>",     "gj",                          silent = true },
-
-  -- Window Navigation
-  { "<C-h>",      cmd [[wincmd h]],              desc = "Go to left window" },
-  { "<C-j>",      cmd [[wincmd j]],              desc = "Go to window below" },
-  { "<C-k>",      cmd [[wincmd k]],              desc = "Go to window above" },
-  { "<C-l>",      cmd [[wincmd l]],              desc = "Go to right window" },
-
-  -- Resize Windows
-  { "<C-Left>",   cmd [[vertical resize -2]],    desc = "Decrease width" },
-  { "<C-Right>",  cmd [[vertical resize +2]],    desc = "Increase width" },
-  { "<C-Down>",   cmd [[resize -2]],             desc = "Decrease height" },
-  { "<C-Up>",     cmd [[resize +2]],             desc = "Increase height" },
-
-  -- Buffer Navigation
-  { "<Tab>",      vim.cmd.bnext,                 desc = "Previous buffer" },
-  { "<S-Tab>",    vim.cmd.bprev,                 desc = "Next buffer" },
-
-  { "<S-l>",      vim.cmd.bnext,                 desc = "Next buffer" },
-  { "<S-h>",      vim.cmd.bprev,                 desc = "Previous buffer" },
-
-  { "]b",         vim.cmd.bnext,                 desc = "Next buffer" },
-  { "[b",         vim.cmd.bprev,                 desc = "Previous buffer" },
-
-  -- Indentation
-  -- Конфликтуют с >}
-  { ">",          ">>",                          desc = "Indent" },
-  { "<",          "<<",                          desc = "Unindent" },
-  { "<S-Tab>",    "<C-D>",                       desc = "Unindent line",                            mode = "i" },
-  { "<Tab>",      ">gv",                         desc = "Indent selection",                         mode = "v" },
-  { "<S-Tab>",    "<gv",                         desc = "Unindent selection",                       mode = "v" },
-
-  -- Move Lines
-  { "<M-j>",      "<Esc>:m .+1<CR>==",           desc = "Move line down" },
-  { "<M-k>",      "<Esc>:m .-2<CR>==",           desc = "Move line up" },
-  { "<M-j>",      "<Esc>:m .+1<CR>==gi",         desc = "Move line down",                           mode = "i" },
-  { "<M-k>",      "<Esc>:m .-2<CR>==gi",         desc = "Move line up",                             mode = "i" },
-  { "<M-j>",      ":m '>+1<CR>gv=gv",            desc = "Move selection down",                      mode = "v" },
-  { "<M-k>",      ":m '<-2<CR>gv=gv",            desc = "Move selection up",                        mode = "v" },
-
-
-  { "<leader>-",  vim.cmd.split,                 desc = "Horizontal split" },
-  { "<leader>|",  vim.cmd.vsplit,                desc = "Vertical split" },
-
-  { "<leader>v",  group = "Neovim Configuration" },
-  { "<leader>ve", cmd [[edit $MYVIMRC]],         desc = "Edit Neo[v]im config" },
-  { "<leader>vs", utils.ReloadConfig,            desc = "Reload Neo[v]im config" },
-
-  -- Terminal
-  { "<leader>t",  cmd [[split | terminal]],      desc = "Open terminal" },
-  { "<Esc>",      [[<C-\><C-n>]],                desc = "Exit terminal mode",                       mode = "t" },
-  { "<C-h>",      [[<C-\><C-n><C-w>h]],          desc = "Terminal: go left",                        mode = "t" },
-  { "<C-j>",      [[<C-\><C-n><C-w>j]],          desc = "Terminal: go down",                        mode = "t" },
-  { "<C-k>",      [[<C-\><C-n><C-w>k]],          desc = "Terminal: go up",                          mode = "t" },
-  { "<C-l>",      [[<C-\><C-n><C-w>l]],          desc = "Terminal: go right",                       mode = "t" },
-
-  -- Прочее
-  { '<leader>cd', cmd [[cd %:p:h]],              desc = 'Change directory to current file location' },
-  { '<leader>co', vim.cmd.copen,                 desc = 'Open quickfix' },
-  { '<leader>cc', vim.cmd.cclose,                desc = 'Close quickfix' },
-  -- Оно мало нужно, если честно
-  { "<leader>ss", cmd [[setlocal spell!]],       desc = "Toggle Spellcheck" },
-})
-
--- NeoTree
-wk.add({
-  -- { "<C-p>", cmd [[Neotree toggle]], desc = "Toggle NeoTree" },
-  { "<leader>e", cmd [[Neotree toggle]], desc = "Explorer NeoTree" },
-})
-
--- LSP
--- local function jump(c)
---   -- float=true == open_float
---   vim.diagnostic.jump({ count = c, float = false })
--- end
-
--- wk.add({
--- { "gd",          vim.lsp.buf.definition,       desc = "Go to definition" },
--- { "gD",          vim.lsp.buf.declaration,      desc = "Go to declaration" },
--- { "gi",          vim.lsp.buf.implementation,   desc = "Go to implementation" },
--- { "gr",          vim.lsp.buf.references,       desc = "List references" },
--- { "gy",          vim.lsp.buf.type_definition,  desc = "Type definition" },
--- { "<leader>ca", vim.lsp.buf.code_action,    desc = "Code actions" },
--- { "<leader>rn", vim.lsp.buf.rename,         desc = "Rename" },
--- { "K",          vim.lsp.buf.hover,          desc = "Hover docs" },
--- { "gs",         vim.lsp.buf.signature_help, desc = "Signature help" },
--- -- Это сочетание лишнее, но пусть будет
--- { "<leader>d",  vim.diagnostic.open_float,  desc = "Diagnostics float" },
--- { "[d",         function() jump(-1) end,    desc = "Previous diagnostic" },
--- { "]d",         function() jump(1) end,     desc = "Next diagnostic" },
--- { "<leader>lds",  vim.lsp.buf.document_symbol,  desc = "Document symbols" },
--- { "<leader>lws",  vim.lsp.buf.workspace_symbol, desc = "Workspace symbols" },
--- Команды nvim-lspconfig
--- { "<leader>lr", cmd [[LspRestart]],         desc = "Restart LSP" },
--- { "<leader>li", cmd [[LspInfo]],         desc = "LSP Info" },
--- })
-
--- Debugger
-wk.add({
-  { "<F5>",  function() require 'dap'.continue() end,          desc = "Debug: Start/Continue" },
-  -- Shift-F5 не работает у меня в alacritty/zellij
-  { "<F6>",  function() require 'dap'.terminate() end,         desc = "Debug: Terminate" },
-  { "<F9>",  function() require 'dap'.toggle_breakpoint() end, desc = "Debug: Toggle breakpoint" },
-  { "<F10>", function() require 'dap'.step_over() end,         desc = "Debug: Step over" },
-  { "<F11>", function() require 'dap'.step_into() end,         desc = "Debug: Step into" },
-  { "<F12>", function() require 'dap'.step_out() end,          desc = "Debug: Step out" },
-  { "<M-e>", function() require 'dapui'.eval() end,            desc = "Debug: Evaluate expression", mode = { "n", "v" } },
-})
-
--- Mason
--- Интерфейс для установки различных LSP/дебаггеров и линтеров с форматтерами
-wk.add({ "<leader>M", cmd [[Mason]], desc = "Open Mason UI" })
-
--- Git Integration
-wk.add({
-  { "<leader>g",  group = "Git" },
-  { "<leader>gs", cmd [[Git]],        desc = "Git status" },
-  { "<leader>ga", cmd [[Git add .]],  desc = "Git add" },
-  { "<leader>gc", cmd [[Git commit]], desc = "Git commit" },
-  { "<leader>gp", cmd [[Git push]],   desc = "Git push" },
-  { "<leader>gP", cmd [[Git pull]],   desc = "Git pull" },
-  { "<leader>gw", cmd [[Gwrite]],     desc = "Gwrite" },
-  { "<leader>gr", cmd [[Gread]],      desc = "Gread" },
-  { "<leader>gd", cmd [[Git diff]],   desc = "Git diff" },
-  { "<leader>gl", cmd [[Git log]],    desc = "Git log" },
-})
-
--- FzfLua
-wk.add({
-  { "<leader>/",   cmd [[FzfLua grep_curbuf]],           desc = "Grep current buffer" },
-  { "<leader>b",   cmd [[FzfLua buffers]],               desc = "Buffers" },
-  { "<leader>f",   cmd [[FzfLua live_grep]],             desc = "Live grep" },
-  { "<leader>F",   cmd [[FzfLua files]],                 desc = "Find file" },
-  { "<leader>o",   cmd [[FzfLua oldfiles]],              desc = "Recent files" },
-  { "<leader>r",   cmd [[FzfLua resume]],                desc = "Resume search" },
-  -- LSP
-  { "gd",          cmd [[FzfLua lsp_definitions]],       desc = "LSP Definitions (Fzf)" },
-  { "gD",          cmd [[FzfLua lsp_declarations]],      desc = "LSP Declarations (Fzf)" },
-  { "gi",          cmd [[FzfLua lsp_implementations]],   desc = "LSP Implementations (Fzf)" },
-  { "gr",          cmd [[FzfLua lsp_references]],        desc = "LSP References (Fzf)" },
-  { "gy",          cmd [[FzfLua lsp_type_definitions]],  desc = "LSP Type Definitions (Fzf)" },
-  { "<leader>lds", cmd [[FzfLua lsp_document_symbols]],  desc = "LSP Document Symbols (Fzf)" },
-  { "<leader>lws", cmd [[FzfLua lsp_workspace_symbols]], desc = "LSP Workspace Symbols (Fzf)" },
-})
-
--- grug-far
-wk.add({
-  {
-    "<leader>sr",
-    function()
-      local grug = require("grug-far")
-      local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-      grug.open({
-        transient = true,
-        prefills = {
-          filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-        },
-      })
-    end,
-    desc = "Search and Replace",
-    mode = { "n", "v" },
+    desc = "Show keymaps for specific mode"
   },
 })
