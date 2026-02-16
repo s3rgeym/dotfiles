@@ -1,3 +1,4 @@
+-- Сочетания я предпочитаю хранить в одном месте, а не раскидывать их по плагинам
 local ok, wk = pcall(require, "which-key")
 if not ok then
   return
@@ -133,6 +134,15 @@ wk.add({
     { "<A-k>", ":m '<-2<CR>gv=gv", desc = "Move Selection Up" },
   },
 
+  -- Folding
+  { "<cr>", function()
+    if vim.fn.foldlevel('.') > 0 then
+      return 'za'
+    else
+      return '<CR>'
+    end
+  end, expr = true, desc = "Toggle Fold" },
+
   -- Он громоздкий и бесполезный. Мне нужно что-то простое, но не такое убогое
   -- как netrw
 
@@ -230,7 +240,7 @@ wk.add({
     desc = "LSP Restart",
   },
   {
-    "<leader>co",
+    "<leader>oi",
     function()
       vim.lsp.buf.code_action({
         context = { only = { "source.organizeImports" }, diagnostics = {} },
