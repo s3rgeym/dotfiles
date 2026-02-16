@@ -73,12 +73,12 @@ opt.updatetime = 200 -- Faster CursorHold / diagnostics
 opt.timeoutlen = 500 -- Key sequence timeout
 
 -- Russian keyboard layout
+-- Исп. <c-^> (Ctrl-6) для переключения внутренней раскладки
 opt.keymap = "russian-jcukenwin"
 opt.iminsert = 0
 opt.imsearch = -1
 
--- Если мы переключим раскладку с <c-^> (Ctrl-6), то сочетания продолжат
--- работать
+-- При переключении раскладки сочетания продолжат работать
 opt.langmap =
   [[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz]]
 

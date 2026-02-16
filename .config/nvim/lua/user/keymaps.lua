@@ -1,4 +1,5 @@
 -- Сочетания я предпочитаю хранить в одном месте, а не раскидывать их по плагинам
+-- Это позволяет сохранить порядок задания сочетаний
 local ok, wk = pcall(require, "which-key")
 if not ok then
   return
@@ -135,13 +136,18 @@ wk.add({
   },
 
   -- Folding
-  { "<cr>", function()
-    if vim.fn.foldlevel('.') > 0 then
-      return 'za'
-    else
-      return '<CR>'
-    end
-  end, expr = true, desc = "Toggle Fold" },
+  {
+    "<cr>",
+    function()
+      if vim.fn.foldlevel(".") > 0 then
+        return "za"
+      else
+        return "<CR>"
+      end
+    end,
+    expr = true,
+    desc = "Toggle Fold",
+  },
 
   -- Он громоздкий и бесполезный. Мне нужно что-то простое, но не такое убогое
   -- как netrw
