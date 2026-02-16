@@ -8,35 +8,12 @@ end
 -- local utils = require("user.utils")
 
 wk.add({
-  -- which-key
-  {
-    "<leader>?",
-    function()
-      wk.show({ global = false })
-    end,
-    desc = "Show Buffer Keymaps",
-  },
-  {
-    "<leader>k",
-    wk.show,
-    desc = "Show All Keymaps",
-  },
-  {
-    "<leader>K",
-    function()
-      local mode = vim.fn.input("mode: ")
-      if mode ~= "" then
-        wk.show({ mode = mode })
-      end
-    end,
-    desc = "Show Mode Keymaps",
-  },
-
   -- General
   { "<leader>w", "<cmd>w<cr>", desc = "Save File" },
   { "<leader>x", "<cmd>x<cr>", desc = "Save and Quit" },
   { "<leader>q", vim.cmd.quit, desc = "Quit" },
   { "<leader>Q", "<cmd>qa<cr>", desc = "Quit All" },
+  -- Часто еще другие сочетания добавляют типа <leader>z как аналог Ctrl-Z
   {
     "<leader>a",
     "ggVG",
@@ -45,7 +22,7 @@ wk.add({
   {
     "<Esc>",
     "<cmd>noh<cr><Esc>",
-    desc = "Escape and clear hlsearch",
+    desc = "Clear hlsearch",
   },
   {
     "<leader>cd",
@@ -324,7 +301,31 @@ wk.add({
     },
   },
 
-  -- Other
+  -- Package Management
   { "<leader>L", "<cmd>Lazy<cr>", desc = "Lazy" },
   { "<leader>M", "<cmd>Mason<cr>", desc = "Mason" },
+
+  -- which-key
+  {
+    "<leader>?",
+    function()
+      wk.show({ global = false })
+    end,
+    desc = "Show Buffer Keymaps",
+  },
+  {
+    "<leader>k",
+    wk.show,
+    desc = "Show All Keymaps",
+  },
+  {
+    "<leader>K",
+    function()
+      local mode = vim.fn.input("mode: ")
+      if mode ~= "" then
+        wk.show({ mode = mode })
+      end
+    end,
+    desc = "Show Mode Keymaps",
+  },
 })
