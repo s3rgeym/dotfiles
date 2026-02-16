@@ -25,5 +25,11 @@
       "ctrl-s": ["terminal::SendKeystroke", "ctrl-s"],
       "ctrl-t": ["terminal::SendKeystroke", "ctrl-t"]
     }
+  },
+  {
+    //"context": "Editor",
+    "bindings": {
+      "ctrl-alt-g": ["agent::NewExternalAgentThread", { "agent": "gemini" }]
+    }
   }
 ]

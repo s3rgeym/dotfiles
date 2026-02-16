@@ -1,0 +1,40 @@
+-- :MasonInstall ruff stylua biome prettier shellcheck shfmt
+-- Если мы форматируем через conform, то настройки, заданные в конфигах lsp не
+-- применяются!!!
+local formatters_by_ft = {
+  -- https://docs.astral.sh/ruff/editors/setup/#neovim
+  python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+  lua = { "stylua" },
+  go = { "goimports", "gofmt" },
+  rust = { "rustfmt" },
+  bash = { "shfmt" },
+  -- Ломает специфический для zsh синтаксис
+  --zsh = { "shfmt" },
+  javascript = { "biome" },
+  typescript = { "biome" },
+  vue = { "biome" },
+  json = { "biome" },
+  jsonc = { "biome" },
+  html = { "prettier" },
+  css = { "biome" },
+  scss = { "biome" },
+  yaml = { "prettier" },
+  markdown = { "prettier" },
+}
+
+return {
+  "stevearc/conform.nvim",
+  opts = {
+    formatters_by_ft = formatters_by_ft,
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = "fallback",
+    },
+    -- Настройки для форматтеров
+    formatters = {
+      shfmt = {
+        prepend_args = { "-i", "2", "-ci", "-s" },
+      },
+    },
+  },
+}

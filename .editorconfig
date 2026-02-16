@@ -20,6 +20,7 @@ indent_size = 4
 # Исключение для Go: использовать табы
 [*.go]
 indent_style = tab
+indent_size = 4
 
 # Markdown: не обрезаем пробелы в конце строк
 [*.md]

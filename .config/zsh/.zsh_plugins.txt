@@ -1,60 +1,71 @@
-# you can even use Oh My Zsh plugins
+# =========================================================
+# Oh My Zsh (Core & Libs)
+# =========================================================
 getantidote/use-omz
 ohmyzsh/ohmyzsh path:lib
 
-# Наиболее полезные плагины oh my zsh
-ohmyzsh/ohmyzsh path:plugins/asdf
-# sudo pacman -S python-pygmentize
-ohmyzsh/ohmyzsh path:plugins/colorize
+# =========================================================
+# Плагины Oh My Zsh (Встроенные)
+# =========================================================
+
+# Подсказывает, какой пакет установить, если команда не найдена
 ohmyzsh/ohmyzsh path:plugins/command-not-found
-# Копировать текст в командной строке по Ctrl-O
+# Копирует текущую командную строку в буфер обмена по Ctrl-O
 ohmyzsh/ohmyzsh path:plugins/copybuffer
-# eval $(direnv hook zsh)
+# Интеграция с direnv для автоматической загрузки переменных окружения
 ohmyzsh/ohmyzsh path:plugins/direnv
-ohmyzsh/ohmyzsh path:plugins/dotenv
-ohmyzsh/ohmyzsh path:plugins/extract
-# Заменяем ls на exa
-# sudo pacman -S eza
+# Алиасы и автодополнение для Docker
+ohmyzsh/ohmyzsh path:plugins/docker
+# Заменяет стандартный ls на современный eza с иконками и цветами
 ohmyzsh/ohmyzsh path:plugins/eza
-# Переопределяет сочетания Ctrl-R, Ctrl-T
-# sudo pacman -S fzf
+# Распаковывает архивы любой сложности одной командой 'extract'
+ohmyzsh/ohmyzsh path:plugins/extract
+# Интеграция с fzf для быстрого поиска файлов и истории (Ctrl-R/T)
 ohmyzsh/ohmyzsh path:plugins/fzf
+# Огромный набор алиасов и функций для работы с Git
 ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/nvm
-# Дополнение хостов для ssh
+# Автодополнение имен хостов из файла ~/.ssh/config
 ohmyzsh/ohmyzsh path:plugins/ssh
-# systemctl --user enable --now ssh-agent
-#ohmyzsh/ohmyzsh path:plugins/ssh-agent
-# Два раза <Esc> подставляет к текущей или предыдущей команде sudo
+# Позволяет добавить sudo к команде, дважды нажав Esc
 ohmyzsh/ohmyzsh path:plugins/sudo
-# Не работает
-#ohmyzsh/ohmyzsh path:plugins/pyenv
-#ohmyzsh/ohmyzsh path:plugins/virtualenv
-# sudo pacman -S zoxide
-#ohmyzsh/ohmyzsh path:plugins/zoxide
+# Алиасы для управления системными сервисами через systemctl
+ohmyzsh/ohmyzsh path:plugins/systemd
 
-# Подсветка синтаксиса
-zdharma-continuum/fast-syntax-highlighting kind:defer
+# =========================================================
+# Сторонние плагины (External)
+# =========================================================
 
-# Более удобная подстановка команд и их аргументов
-# fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
+# Умная навигация: запоминает часто посещаемые папки (команда 'z')
+agkozak/zsh-z
+# Заменяет стандартное меню автодополнения на интерактивное через fzf
 Aloxaf/fzf-tab
+# Автоматически закрывает парные скобки и кавычки при вводе
+hlissner/zsh-autopair
+# Автоматически загружает переменные из .env файлов при входе в каталог
+hyperupcall/autoenv
+# Автоматически активирует Python virtualenv при переходе в папку проекта
+MichaelAquilina/zsh-autoswitch-virtualenv
+# Напоминает о существовании алиаса, если вы ввели команду целиком
+MichaelAquilina/zsh-you-should-use
+# Создание сокращений (abbreviations), которые раскрываются при нажатии пробела
+olets/zsh-abbr
+# Команда 'git-open' открывает текущий репозиторий в браузере
+paulirish/git-open
+# Интерактивный интерфейс для git (add, log, diff) на базе fzf
+wfxr/forgit
 
+# Плагины с отложенной загрузкой (для быстрого старта терминала)
+# Дополнительные правила автодополнения для множества программ
+zsh-users/zsh-completions kind:defer
+# Подсказывает команды серым цветом на основе вашей истории
 zsh-users/zsh-autosuggestions kind:defer
-# Поиск по истории с клавишей Up
+# Быстрая и корректная подсветка синтаксиса в командной строке
+zdharma-continuum/fast-syntax-highlighting kind:defer
+# Поиск по истории команд с помощью стрелок (учитывает уже введенное)
 zsh-users/zsh-history-substring-search kind:defer
 
-# Подсказывает алиасы для команд
-MichaelAquilina/zsh-you-should-use
-
-# Автоматическая активация/деактивация виртуальных окружений
-MichaelAquilina/zsh-autoswitch-virtualenv
-
-# Нативная реализация z для быстрого перехода
-agkozak/zsh-z
-
-# Подключение темы
-sindresorhus/pure
-# То же самое, что и предыдущее
-#ohmyzsh/ohmyzsh path:themes/refined.zsh-theme
-#ohmyzsh/ohmyzsh path:themes/robbyrussell.zsh-theme
+# =========================================================
+# Тема оформления
+# =========================================================
+# Минималистичная и быстрая тема
+reobin/typewritten

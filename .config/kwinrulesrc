@@ -1,11 +1,12 @@
-[2b42b8f4-e533-410f-b3d9-48b3617bd241]
-Description=Settings for foot
-noborderrule=3
-opacityactiverule=2
-wmclass=foot
-wmclasscomplete=true
-wmclassmatch=2
-
 [General]
 count=1
-rules=2b42b8f4-e533-410f-b3d9-48b3617bd241
+rules=b5f1a2b9-d66e-476d-add4-365abf651e5a
+
+[b5f1a2b9-d66e-476d-add4-365abf651e5a]
+Description=Chrome PiP
+above=true
+aboverule=2
+title=Picture in picture
+titlematch=1
+types=1
+wmclassmatch=1
