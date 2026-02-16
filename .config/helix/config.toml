@@ -1,48 +1,103 @@
-# :theme<Tab> для просмотра тем
-#theme = "catppuccin_macchiato"
+# :theme<Tab> для просмотра тем, если хочется отличную от темы терминала
 theme = "tokyonight_storm"
 
 # https://tqwewe.com/blog/enhanced-helix-config/
 [editor]
-# Если нравятся нумерация строк относительно текущей
-#line-number = "relative"
-cursorline = true
-cursorcolumn = false
-#rulers = [72, 80, 100, 120]
-bufferline = "always"
-true-color = true
-# По умолчанию настройки подхватываются из .editorconfig
-#editor-config = true
-text-width = 100
+text-width = 80
 default-line-ending = "lf"
 insert-final-newline = true
 trim-final-newlines = true
+trim-trailing-whitespace = true
+
+# Если нравятся нумерация строк относительно текущей
+#line-number = "relative"
+cursorline = true
+#cursorcolumn = true
+rulers = [80, 120]
+bufferline = "always"
+# По умолчанию настройки подхватываются из .editorconfig
+#editor-config = true
 # Копирует текст в системный буфер
 default-yank-register = "+"
+
+auto-completion = true
+
+# Эта настройка странная и не работает?
+auto-format = true
+
+completion-replace = true
+#color-modes = true
+
+# Будет работать только в граф сессии wayland?
+#clipboard-provider = "wayland"
+
+[editor.lsp]
+# display-messages = false
+auto-signature-help = true
+display-signature-help-docs = true
+display-inlay-hints = true
 
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
 select = "underline"
 
-[editor.indent-guides]
-character = "╎"
-render = true
+# [editor.whitespace]
+# render = "all"
 
-[editor.lsp]
-# Disable automatically popups of signature parameter help
-#auto-signature-help = false
-# Show LSP messages in the status line
-#display-messages = true
+# Можно управлять отображение каждого символа
+[editor.whitespace.render]
+#space = "all"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+#newline = "all"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+# Добавляются к символу табуляции до ширины отступа
+tabpad = "·"
+
+# [editor.indent-guides]
+# character = "╎"
+# render = true
 
 [editor.file-picker]
 hidden = false
 
-[editor.statusline]
-left = ["mode", "spinner", "version-control", "file-name"]
-
 [editor.soft-wrap]
 enable = true
 
+[editor.gutters.line-numbers]
+min-width = 1
+
 [keys.normal]
-#"S-tab" = "unindent"
+"C-h" = "jump_view_left"
+"C-j" = "jump_view_down"
+"C-k" = "jump_view_up"
+"C-l" = "jump_view_right"
+
+#C-s = ":w"
+tab = "goto_previous_buffer"
+S-tab = "goto_next_buffer"
+
+H = "goto_line_start"
+L = "goto_line_end"
+
+# Выделить предыдущую строку или отменить x
+X = "select_line_above"
+
+# moving line up/down
+A-k = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+A-j = [ "extend_to_line_bounds", "delete_selection", "move_line_down", "paste_before" ]
+
+
+[keys.insert]
+# В некоторых терминалах работает только C-@
+C-space = "completion"
+# C-s = ["commit_undo_checkpoint", ":write"]
+S-tab = "unindent"

@@ -1,50 +1,84 @@
+# Посмотреть текущие настройки LSP можно вызвав `hx --health <lang>`
+# Недостающий сервер можно поставить через `pacman` либо `npm install -g`
+
+# [[language]]
+# name = ""
+# indent = { tab-width = 2, unit = "  " }
+
 [[language]]
 name = "python"
-language-servers = ["ruff", "pyright"]
+# uv tool install basedpyright
+# ! игнорировать сервер
+# можно перечислить несколь
+language-servers = [ "!ty", "basedpyright" ]
+# sudo pacman -S ruff
+formatter = { command = "ruff", args = ["format", "-"] }
+# Не наследуется от editor.auto-save... всегда нужно указывать
 auto-format = true
-# Можно использовать black вместо ruff
-#formatter = { command = "black", args = ["--stdin", "--quiet", "-"] }
-file-types = ["py", "ipynb"]
-roots = ["pyproject.toml", "setup.py", ".git"]
 
-[language-server.ruff]
-# uvx — это аналог npx для Python из пакета uv
-# command = "uvx"
-# args = ["ruff", "server"]
-command = "ruff"
-args = ["server", "--preview"]
-config = {}
+[language-server.ty]
+command = "ty"
+args = ["server"]
 
-[language-server.pyright]
-command = "pyright-langserver"
+[language-server.basedpyright]
+command = "basedpyright-langserver"
 args = ["--stdio"]
 
-# Настройки pyright
-[language-server.pyright.config.python.analysis]
+[language-server.basedpyright.config]
+basedpyright.analysis.diagnosticMode = "openFilesOnly"
+
+[language-server.basedpyright.config.python.analysis]
+# Отключает строгую проверку типов
 typeCheckingMode = "basic"
-autoSearchPaths = true
-diagnostics = ["reportMissingImports"]
+# Дополнительно подавляем специфические уведомления, если они останутся
+# reportOptionalSubscript = "none"
+# reportOptionalMemberAccess = "none"
+# reportGeneralTypeIssues = "none"
 
-[language.debugger]
-name = "debugpy"
-transport = "stdio"
-command = "python"
-args = ["-m",  "debugpy.adapter"]
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "babel"] }
 
-[[language.debugger.templates]]
-name = "source"
-request = "launch"
-completion = [ { name = "entrypoint", completion = "filename", default = "." } ]
-args = { mode = "debug", program = "{0}"}
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+
+# [language-server.eslint]
+# command = "eslint-language-server"
+# args = ["--stdio"]
+
+[[language]]
+name = "javascript"
+language-servers = [
+  "typescript-language-server", # optional
+  "vscode-eslint-language-server", # Содержится в пакете eslint-language-server
+]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
 
 [[language]]
 name = "bash"
-file-types = ["sh", "bash", "zsh"]
-language-servers = ["bash-language-server"]
-formatter = { command = "shfmt", args = ["-bn", "-ci", "-i", "2"] }
 auto-format = true
+formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-bn"] }
 
-# Языковые серверы можно через npx запускать
-[language-server.bash-language-server]
-command = "npx"
-args = ["bash-language-server"]
+[language-server.phpactor]
+command = "phpactor"
+args = ["language-server"]
+
+[[language]]
+name = "php"
+scope = "source.php"
+injection-regex = "php"
+file-types = ["php", "inc", "php4", "php5", "phtml", "ctp"]
+shebangs = ["php"]
+roots = ["composer.json", "index.php"]
+comment-token = "//"
+language-servers = [ "phpactor" ]
+indent = { tab-width = 4, unit = "    " }

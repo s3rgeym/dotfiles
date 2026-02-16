@@ -5592,7 +5592,7 @@
   command = "systemctl reset-failed"
 
 [[Snippets]]
-  Description = "Restart a running service"
+  Description = "Restart a running service (stop + start)"
   Output = ""
   Tag = []
   command = "systemctl restart <service>"
@@ -5610,7 +5610,7 @@
   command = "systemctl show <service>"
 
 [[Snippets]]
-  Description = "Start a service"
+  Description = "Start a service (run ExecStart command)"
   Output = ""
   Tag = []
   command = "systemctl start <service>"
@@ -5622,7 +5622,7 @@
   command = "systemctl status <service>"
 
 [[Snippets]]
-  Description = "Stop a running service"
+  Description = "Stop a running service (run ExexcStop command)"
   Output = ""
   Tag = []
   command = "systemctl stop <service>"
@@ -9654,7 +9654,7 @@
   command = "nvm ls"
 
 [[Snippets]]
-  Description = "create new pyhon project"
+  Description = "create new pyhon project via"
   Output = ""
   Tag = []
   command = "uv init <project-name>"
@@ -9666,7 +9666,115 @@
   command = "uv add <package>"
 
 [[Snippets]]
+  Description = "run script using uv"
+  Output = ""
+  Tag = []
+  command = "uv run <script>"
+
+[[Snippets]]
   Description = "Runs a shell inside the Zed Flatpak sandbox"
   Output = ""
   Tag = []
   command = "flatpak run --command=sh dev.zed.Zed"
+
+[[Snippets]]
+  Description = "sign efi"
+  Output = ""
+  Tag = ["secure", "boot"]
+  command = "sudo sbctl sign -s /boot/memtest86+/memtest.efi"
+
+[[Snippets]]
+  Description = "reboot into"
+  Output = ""
+  Tag = []
+  command = "sudo bootctl set-oneshot <entry>"
+
+[[Snippets]]
+  Description = "decompress an archive"
+  Output = ""
+  Tag = []
+  command = "ouch decompress <archive>"
+
+[[Snippets]]
+  Description = "archive files"
+  Output = ""
+  Tag = []
+  command = "ouch compress <..files> <archive>"
+
+[[Snippets]]
+  Description = "list files in an archive"
+  Output = ""
+  Tag = []
+  command = "ouch list <archive>"
+
+[[Snippets]]
+  Description = "run gemini cli"
+  Output = ""
+  Tag = []
+  command = "gemini"
+
+[[Snippets]]
+  Description = "enable tor mode"
+  Output = ""
+  Tag = ["not working"]
+  command = "torify on"
+
+[[Snippets]]
+  Description = "show function definition"
+  Output = ""
+  Tag = ["zsh"]
+  command = "functions <func>"
+
+[[Snippets]]
+  Description = "show ghostty commands"
+  Output = ""
+  Tag = []
+  command = "ghostty +[tab]"
+
+[[Snippets]]
+  Description = "kill all processes in tty"
+  Output = ""
+  Tag = []
+  command = "sudo fuser -k /dev/tty3"
+
+[[Snippets]]
+  Description = "remove containers and volumes"
+  Output = ""
+  Tag = []
+  command = "docker-compose down -v"
+
+[[Snippets]]
+  Description = "analyze docker image layers for size and efficiency"
+  Output = ""
+  Tag = ["docker"]
+  command = "dive <image>"
+
+[[Snippets]]
+  Description = "delete subvolumes recursively"
+  Output = ""
+  Tag = []
+  command = "sudo btrfs subvolume delete --recursive <mountpoint>"
+
+[[Snippets]]
+  Description = "install tool via uv such LSPs, formatters and etc"
+  Output = ""
+  Tag = ["package", "management"]
+  command = "uv tool install <tool>"
+
+[[Snippets]]
+  Description = "upgrade all python tools installed via uv"
+  Output = ""
+  Tag = []
+  command = "uv tool upgrade --all"
+
+[[Snippets]]
+  Description = "packages installed from archlinuxcn"
+  Output = ""
+  Tag = []
+  command = "pacman -Sl archlinuxcn | grep installed"
+
+[[Snippets]]
+  Description = "Installs a package globally to your home directory using pnpm."
+  Output = ""
+  Tag = []
+  command = "pnpm add -g <package>"

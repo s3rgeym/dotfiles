@@ -1,114 +1,111 @@
 local opt = vim.opt
 
--- Нумерация строк
-opt.number = true
--- opt.relativenumber = true
+-- Interface
+opt.number = true -- Show absolute line numbers
+opt.cursorline = true -- Highlight the line under the cursor
+opt.signcolumn = "yes" -- Always show sign column
+opt.laststatus = 3 -- Always display the status line
+opt.showmode = false -- Do not show current mode
+opt.shortmess:append("I") -- Skip startup intro
+opt.colorcolumn = "+1" -- Column right after textwidth
+opt.termguicolors = true -- Enable 24-bit colors
+opt.fillchars:append({ eob = " " }) -- Убрать "~" в конце файла
 
--- Подсветка текущей строки
-opt.cursorline = true
+-- Cursor and scrolling
+opt.scrolloff = 5 -- Context lines above/below cursor
+opt.sidescrolloff = 5 -- Context columns left/right
+opt.whichwrap = "h,l,<,>,[,]" -- Allow cursor to wrap across lines
+opt.mouse = "a" -- Enable mouse support
 
--- Прокрутка
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+-- Text wrapping
+opt.wrap = true -- Enable visual line wrapping
+opt.linebreak = true -- Wrap at word boundaries
+opt.breakindent = true -- Keep indentation on wrapped lines
+opt.showbreak = "↪ " -- Mark wrapped line continuation
 
--- Отображение элементов интерфейса
-opt.signcolumn = "yes"
-opt.laststatus = 2
--- Только при использовании statusline
--- opt.showmode = false
-opt.shortmess:append("I")
+-- Text editing
+opt.expandtab = true -- Use spaces instead of tabs
+opt.tabstop = 4 -- Visual tab width
+opt.shiftwidth = 2 -- Indent width
+opt.softtabstop = 2 -- Insert/delete spaces with Tab
+opt.smarttab = true -- Tab respects shiftwidth at line start
+opt.autoindent = true -- Copy indent from previous line
+opt.smartindent = true -- Smart indent for C-like code
+opt.textwidth = 80 -- Preferred line length
+--opt.joinspaces = false -- One space after sentence join
+opt.formatoptions:remove({ "t", "c" })
 
--- Перенос строк
-opt.linebreak = true
-
--- Отображение различных символов
+-- Invisible characters
 opt.list = true
+
 opt.listchars = {
-  tab = '→ ',
-  lead = '·',
-  trail = '·',
-  nbsp = '␣',
-  extends = '⟩',
-  precedes = '⟨',
+  tab = "→ ",
+  trail = "·",
+  nbsp = "␣",
 }
 
--- Отступы и форматирование
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 2
-opt.softtabstop = 2
-opt.autoindent = true
-opt.smartindent = true
-opt.breakindent = true
-opt.textwidth = 80
-opt.colorcolumn = "+1"
-opt.formatoptions = {
-  c = true,
-  q = true,
-  j = true,
-  r = true,
-  n = true,
-  l = true,
-}
+-- Search
+opt.ignorecase = true -- Case-insensitive search
+opt.smartcase = true -- Case-sensitive if uppercase used
+opt.hlsearch = true -- Highlight search matches
+opt.incsearch = true -- Incremental search
+opt.inccommand = "split" -- Live substitute preview
 
--- Максимальный размер строки для подсветки
-opt.synmaxcol = 1024
+-- Completion
+opt.completeopt = { "menu", "menuone", "noselect" }
+opt.backspace = { "indent", "eol", "start" }
 
--- Поиск
-opt.ignorecase = true
-opt.smartcase = true
-opt.inccommand = "split"
+-- Files and buffers
+opt.clipboard = "unnamedplus" -- Use system clipboard
+opt.swapfile = false -- Disable swap files
+opt.backup = false -- Disable backup files
+opt.undofile = true -- Persistent undo
+opt.hidden = true -- Allow buffer switching without saving
+opt.autoread = true -- Reload files changed externally
+opt.confirm = true -- Confirm before losing changes
 
--- Файлы и буферы
-opt.clipboard = "unnamedplus"
-opt.swapfile = false
-opt.backup = false
-opt.writebackup = false
-opt.autoread = true
-opt.undofile = true
-opt.undolevels = 1000
--- opt.shada = "!,'1000,<50,s10,h"
-opt.confirm = true
+-- Windows
+opt.splitbelow = true -- Horizontal splits open below
+opt.splitright = true -- Vertical splits open right
 
--- Разделение окон
-opt.splitbelow = true
-opt.splitright = true
+-- Performance
+opt.updatetime = 200 -- Faster CursorHold / diagnostics
+opt.timeoutlen = 500 -- Key sequence timeout
 
--- Фолдинг
-opt.foldmethod = "expr"
-opt.foldlevelstart = 99
-opt.foldenable = true
-
--- Мышь, перемещение курсора и выделение текста
-opt.mouse = "a"
-opt.mousemoveevent = true
-opt.whichwrap = 'h,l,<,>,[,]'
--- opt.keymodel = "startsel,stopsel"
-
--- В vim есть встроенная поддержка русской раскладки. Мы можем переключаться на нее и обратно с помощью Ctrl-6, при этом при включенной русской, связки клавиш продолжат работать.
+-- Russian keyboard layout
 opt.keymap = "russian-jcukenwin"
 opt.iminsert = 0
-opt.imsearch = 0
+opt.imsearch = -1
 
--- Автодополнение
-opt.wildmenu = true
-opt.wildmode = "longest:full,full"
-opt.wildignore:append {
-  '*.o',
-  '*.obj',
-  '*.pyc',
-  '*.so',
-  '.git',
-  '.svn',
-  '__pycache__',
+-- Если мы переключим раскладку с <c-^> (Ctrl-6), то сочетания продолжат
+-- работать
+opt.langmap =
+  [[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz]]
+
+-- UI Appearance & Styling
+local hl = vim.api.nvim_set_hl
+
+local transparent_groups = {
+  "Normal",
+  "NormalNC",
+  "SignColumn",
+  "EndOfBuffer",
+  "LineNr",
+  "FoldColumn",
 }
 
--- Сессии
-opt.sessionoptions:append("localoptions")
+for _, group in ipairs(transparent_groups) do
+  hl(0, group, { bg = "none" })
+end
 
--- Таймауты
-opt.timeoutlen = 500
-opt.updatetime = 200
+-- Курсив
+hl(0, "Comment", { italic = true })
+hl(0, "@comment", { italic = true })
 
--- Тема
-vim.cmd.colorscheme [[catppuccin-macchiato]]
+-- Жирный
+hl(0, "Keyword", { bold = true })
+hl(0, "Statement", { bold = true })
+hl(0, "Function", { bold = true })
+
+-- Жирный курсив (акценты)
+hl(0, "Todo", { bold = true, italic = true })

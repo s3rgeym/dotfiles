@@ -1,60 +1,130 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "ui_font_size": 15,
+  // --- Внешний вид (UI) ---
+  "edit_predictions": {
+    "provider": "none"
+  },
+  "icon_theme": "Material Icon Theme",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 14,
-  "buffer_font_family": "MonaspiceNe Nerd Font Mono",
-  "ui_font_family": "MonaspiceNe Nerd Font Mono",
+  "indent_guides": {
+    "coloring": "indent_aware",
+    "enabled": true,
+    // "background_coloring": "indent_aware"
+  },
+  "colorize_brackets": true,
+  "scrollbar": {
+    "show": "auto",
+  },
+  "theme": "Catppuccin Mocha",
+  // Авторизация
+  "title_bar": {
+    "show_onboarding_banner": false,
+    "show_sign_in": false,
+    "show_user_picture": false,
+  },
+  "ui_font_family": "JetBrainsMono Nerd Font Mono",
+  "ui_font_size": 15,
+
+  "minimap": {
+    "show": "auto",
+  },
+
+  // --- LSP и Диагностика ---
+  // "completions": {
+  //   "lsp": true,
+  // },
+  "show_diagnostics": "all",
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+    },
+  },
+  // "diagnostics_max_severity": "warning",
+  "inlay_hints": {
+    "enabled": true,
+  },
+  "show_signature_help_after_edits": true,
+  "languages": {
+    "Python": {
+      "code_actions_on_format": {
+        "source.fixAll.ruff": true,
+        "source.organizeImports.ruff": true,
+      },
+      "indent_guides": {
+        "active_line_width": 1,
+        "coloring": "indent_aware",
+      },
+      // ! отключает сервер
+      // ty что-то тайпхинты не видит
+      "language_servers": ["!ty", "basedpyright", "ruff"],
+      "preferred_line_length": 80,
+      "tab_size": 4,
+    },
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python",
+        },
+        // Вот эта настройка отключает всякий мусор в автодополнении
+        "basedpyright.analysis": {
+          "diagnosticMode": "openFilesOnly",
+        },
+      },
+    },
+  },
+
+  // --- Редактор и Форматирование ---
+  // "cursor_blink": false,
+  // "cursor_shape": "block",
   "ensure_final_newline_on_save": true,
   "format_on_save": "on",
-  "icon_theme": "JetBrains New UI Icons (Dark)",
   "preferred_line_length": 80,
   "remove_trailing_whitespace_on_save": true,
   "show_whitespaces": "boundary",
   "soft_wrap": "bounded",
   "tab_size": 2,
+
+  // --- AI и Инструменты ---
+  "agent": {
+    "always_allow_tool_actions": false,
+    "message_editor_min_lines": 4,
+    "model_parameters": [],
+    "use_modifier_to_send": true,
+  },
+  "disable_ai": false,
+  // Автодополнения от Zed
+  "show_edit_predictions": false,
+  // Агенты
+  "agent_servers": {
+    "Qwen Code": {
+      "command": "qwen",
+      "args": ["--acp"],
+      "env": {},
+      "type": "custom",
+    },
+  },
+
+  // --- Терминал ---
+  "terminal": {
+    "blinking": "on",
+    "copy_on_select": true,
+    "font_size": 14,
+    // "line_height": { "custom": 1.2 },
+    "line_height": "standard",
+    // "font_weight": 700,
+  },
+
+  // --- Системные настройки ---
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
-  "theme": "Kanagawa Wave",
-  //"agent": { "button": false },
-  "lsp": {
-    "pyright": {
-      "settings": {
-        // Эти настройки могут перепределены в pyproject.toml
-        "python.analysis": {
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "basic"
-        }
-      }
-    }
+  "session": {
+    "trust_all_worktrees": true,
   },
-  "languages": {
-    "Python": {
-      "tab_size": 4,
-      // Отключаем встроенные серваки, а потом дописываем свои
-      "language_servers": ["pyright"],
-      "format_on_save": "on",
-      "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
-  }
+  "proxy": "socks5://localhost:1080",
+  "hour_format": "hour24",
 }

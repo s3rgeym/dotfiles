@@ -1,0 +1,9 @@
+-- Служит для установки языковых серверов, форматтеров и др
+return {
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+}
