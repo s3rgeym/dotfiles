@@ -18,10 +18,13 @@ return {
     -- Обзяательно должен вызываться первым
     require("mason-lspconfig").setup({
       -- Тут объявлены языковые сервера, которые нужно поставить через Mason
+      -- Компиляторы лучше ставить системно
       ensure_installed = {
         "bashls",
         "biome",
+        "clangd",
         "cssls",
+        "docker_compose_language_service",
         "docker_language_server",
         "html",
         "jsonls",
@@ -55,9 +58,7 @@ return {
     vim.lsp.enable({
       -- rust-analyzer поставляется вместе с rust, отдельная установка не требуется
       "rust_analyzer",
-      -- basedpyright поставлен через 'pnpm add -g', чтобы избежать так как при
-      -- автоматической установке через pip ставится nodejs-wheel — полноценный
-      -- бинарник Node.js
+      -- basedpyright поставлен через 'pnpm add -g', так как при автоматической установке через pip ставится nodejs-wheel — статически-собранный бинарник Node.js и другие +400MiB зависимостей
       "basedpyright",
     })
 
