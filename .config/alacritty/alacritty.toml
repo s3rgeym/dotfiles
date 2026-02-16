@@ -35,5 +35,6 @@ hide_when_typing = true
 bindings = [
   # Конфликтует с zellij
   { key = "F", mods = "Control|Shift", action = "ReceiveChar" },
+  # Переназначил старое сочетания Ctrl-Shift-F на это
   { key = "S", mods = "Control|Shift", action = "SearchForward" },
 ]
