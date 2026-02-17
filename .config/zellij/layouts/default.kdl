@@ -1,0 +1,19 @@
+layout {
+    // ВЕРХНЯЯ ПАНЕЛЬ (ТАБЫ)
+    pane size=1 borderless=true {
+        plugin location="zjstatus" {
+            format_left  "#[fg=black,bg=blue,bold] {session} #[fg=blue,bg=black]{tabs}"
+            format_space "#[bg=black]"
+            tab_normal   "#[fg=black,bg=white]#[fg=black,bg=white] {name} #[fg=white,bg=black]"
+            tab_active   "#[fg=black,bg=green,bold]#[fg=black,bg=green,bold] {name} #[fg=green,bg=black]"
+        }
+    }
+
+    // ОСНОВНОЕ ОКНО
+    pane
+
+    // НИЖНЯЯ ПАНЕЛЬ (ПОДСКАЗКИ КЛАВИШ)
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
