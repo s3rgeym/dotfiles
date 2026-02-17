@@ -6,13 +6,13 @@
 alias q='exit'
 # Короткий вызов sudo.
 alias s='sudo'
+alias se='sudo -e'
 # Запуск редактора Helix.
 #alias hx='helix'
-# Использование helix вместо vim.
 alias nv='nvim'
+alias nvc='nvim $HOME/.config/nvim/init.lua'
 # Быстрое редактирование конфига zsh.
 alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
-alias nvimrc='nvim $HOME/.config/nvim/init.lua'
 # Переход в рабочую директорию.
 alias ws="cd ~/workspace/"
 # Управление dotfiles через "bare" git-репозиторий.
