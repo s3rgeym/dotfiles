@@ -84,13 +84,8 @@ return {
         local bufnr = args.buf
 
         -- Установка сочетаний клавиш для конкретного буфера
-        local function map(lhs, rhs, desc_or_opts, mode)
-          local opts = type(desc_or_opts) == "string"
-              and { desc = desc_or_opts }
-            or vim.deepcopy(desc_or_opts or {})
-
-          opts.buffer = bufnr
-          vim.keymap.set(mode or "n", lhs, rhs, opts)
+        local function map(lhs, rhs, desc, mode)
+          vim.keymap.set(mode or "n", lhs, rhs, { desc = desc, buffer = bufnr })
         end
 
         map("gd", vim.lsp.buf.definition, "Go to Definition")
