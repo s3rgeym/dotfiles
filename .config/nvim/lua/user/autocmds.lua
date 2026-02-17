@@ -78,38 +78,30 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
--- На этой стадии нет 
 vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = augroup,
-  desc = "Disable heavy features for large files",
+  desc = "Detect large file",
   callback = function(ev)
     local ok, stats = pcall(vim.uv.fs_stat, ev.file)
-    if ok and stats and stats.size > 1024 * 1024 then -- 1MB
+    if ok and stats and stats.size > 100000 then
       vim.b[ev.buf].large_file = true
-
-      vim.opt_local.swapfile = false
-      vim.opt_local.undofile = false
-      vim.opt_local.foldmethod = "manual"
-      vim.opt_local.spell = false
-  
-      vim.cmd("syntax clear")
-      pcall(vim.treesitter.stop, ev.buf)
-      vim.bo[ev.buf].filetype = ""
     end
   end,
 })
 
--- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
---   group = augroup,
---   desc = "Disable heavy features for large files",
---   callback = function(ev)
---     if not vim.b[ev.buf].large_file then
---       return
---     end
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  group = augroup,
+  desc = "Disable syntax highlight for large files",
+  callback = function(ev)
+    if not vim.b[ev.buf].large_file then
+      return
+    end
 
---     ...
---   end,
--- })
+    vim.cmd("syntax clear")
+    pcall(vim.treesitter.stop, ev.buf)
+    vim.bo[ev.buf].filetype = ""
+  end,
+})
 
 -- Ненужное
 vim.api.nvim_create_autocmd("FileType", {
