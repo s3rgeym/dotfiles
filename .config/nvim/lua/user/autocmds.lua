@@ -78,20 +78,42 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufReadPre", {
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+  group = augroup,
+  desc = "Detect large file",
+  callback = function(ev)
+    local ok, stats = pcall(vim.uv.fs_stat, ev.file)
+    if ok and stats and stats.size > 1024 * 1024 then -- 1MB
+      vim.b[ev.buf].large_file = true
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   group = augroup,
   desc = "Disable heavy features for large files",
   callback = function(ev)
-    local ok, stats = pcall(vim.uv.fs_stat, ev.match)
-    if ok and stats and stats.size > 100000 then
-      vim.b.large_file = true
-      vim.opt_local.swapfile = false
-      vim.opt_local.undofile = false
-      vim.opt_local.foldmethod = "manual"
-      vim.opt_local.spell = false
-      vim.opt_local.syntax = "off"
-      vim.treesitter.stop(ev.buf)
+    if not vim.b[ev.buf].large_file then
+      return
     end
+
+    -- Отключаем тяжёлые вещи
+    vim.opt_local.swapfile = false
+    vim.opt_local.undofile = false
+    vim.opt_local.foldmethod = "manual"
+    vim.opt_local.spell = false
+
+    -- Выключаем syntax
+    vim.cmd("syntax off")
+
+    -- Останавливаем Treesitter
+    pcall(vim.treesitter.stop, ev.buf)
+
+    -- Отключаем LSP подсветку (если есть)
+    vim.lsp.buf_detach_client(ev.buf)
+
+    -- Опционально
+    vim.opt_local.bufhidden = "unload"
   end,
 })
 
