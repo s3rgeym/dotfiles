@@ -6,6 +6,7 @@ return {
     spec = {
       {"<leader>f", group = "Find" },
       {"<leader>g", group = "Git" },
+      -- TODO: добавь еще группы
     }
   },
   keys = {
