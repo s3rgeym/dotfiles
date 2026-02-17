@@ -1,3 +1,10 @@
+local function keymap()
+  if vim.opt.iminsert:get() > 0 and vim.b.keymap_name ~= "" then
+    return "⌨ " .. vim.b.keymap_name
+  end
+  return ""
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -6,23 +13,43 @@ return {
   config = function()
     vim.opt.showmode = false
 
-    local show_keymap = function()
-      return vim.opt.iminsert:get() > 0 and vim.b.keymap_name or ""
-    end
-
     require("lualine").setup({
       options = {
         globalstatus = true,
         -- component_separators = { left = '', right = ''},
-        component_separators = { left = "", right = "" },
+        -- component_separators = { left = "│", right = "│" },
+        -- component_separators = { left = "", right = "" },
         -- component_separators = { left = "", right = "" },
         -- section_separators = { left = '', right = '' },
         -- section_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
         -- section_separators = { left = '', right = ''},
       },
       sections = {
-        lualine_x = { show_keymap, "encoding", "fileformat", "filetype", "lsp_status" },
+        lualine_x = {
+          keymap,
+          -- Скрываем кодировку и окончания, если они дефолт = UTF-8/LF
+          {
+            "encoding",
+            cond = function()
+              return vim.bo.fileencoding ~= "utf-8"
+            end,
+          },
+          {
+            "fileformat",
+            cond = function()
+              return vim.bo.fileformat ~= "unix"
+            end,
+          },
+          {
+            "filetype",
+            icon_only = true,
+          },
+          "lsp_status",
+        },
+
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
       tabline = {
         lualine_a = { "buffers" },

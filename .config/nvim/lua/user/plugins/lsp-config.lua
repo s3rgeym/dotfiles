@@ -97,7 +97,7 @@ return {
         bufmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
         bufmap("K", vim.lsp.buf.hover, "Show Documentation")
         bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
-        bufmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+        bufmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol (use grn instead)")
         bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
         bufmap("[d", function()
           vim.diagnostic.jump({ count = -1 })
@@ -107,7 +107,7 @@ return {
         end, "Next Diagnostic")
 
         if client.supports_method("textDocument/codeAction") then
-          bufmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+          bufmap("<leader>ca", vim.lsp.buf.code_action, "Code Action (use gra instead)")
         end
 
         if client.server_capabilities.codeActionProvider then

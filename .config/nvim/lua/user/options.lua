@@ -1,99 +1,106 @@
-local opt = vim.opt
+local o = vim.opt
 
 -- Interface
-opt.number = true -- Show absolute line numbers
-opt.cursorline = true -- Highlight the line under the cursor
-opt.signcolumn = "yes" -- Always show sign column
-opt.laststatus = 3 -- Always display the status line
-opt.showmode = false -- Do not show current mode
-opt.shortmess:append("I") -- Skip startup intro
-opt.colorcolumn = "+1" -- Column right after textwidth
-opt.termguicolors = true -- Enable 24-bit colors
-opt.fillchars:append({ eob = " " }) -- Remove "~" at the end of the file
+o.number = true -- Show absolute line numbers
+o.cursorline = true -- Highlight the line under the cursor
+o.signcolumn = "yes" -- Always show sign column
+o.laststatus = 3 -- Always display the status line
+o.showmode = false -- Do not show current mode
+o.shortmess:append("I") -- Skip startup intro
+o.colorcolumn = "+1" -- Column right after textwidth
+o.termguicolors = true -- Enable 24-bit colors
+o.fillchars:append({ eob = " " }) -- Remove "~" at the end of the file
 
 -- Cursor and scrolling
-opt.scrolloff = 5 -- Context lines above/below cursor
-opt.sidescrolloff = 5 -- Context columns left/right
-opt.whichwrap = "h,l,<,>,[,]" -- Allow cursor to wrap across lines
-opt.mouse = "a" -- Enable mouse support
+o.scrolloff = 5 -- Context lines above/below cursor
+o.sidescrolloff = 5 -- Context columns left/right
+o.whichwrap = "h,l,<,>,[,]" -- Allow cursor to wrap across lines
+o.mouse = "a" -- Enable mouse support
 
 -- Text wrapping
-opt.wrap = true -- Enable visual line wrapping
-opt.linebreak = true -- Wrap at word boundaries
-opt.breakindent = true -- Keep indentation on wrapped lines
-opt.showbreak = "↪ " -- Mark wrapped line continuation
+o.wrap = true -- Enable visual line wrapping
+o.linebreak = true -- Wrap at word boundaries
+o.breakindent = true -- Keep indentation on wrapped lines
+o.showbreak = "↪ " -- Mark wrapped line continuation
 
 -- Text editing
-opt.expandtab = true -- Use spaces instead of tabs
-opt.tabstop = 4 -- Visual tab width
-opt.shiftwidth = 2 -- Indent width
-opt.softtabstop = 2 -- Insert/delete spaces with Tab
-opt.smarttab = true -- Tab respects shiftwidth at line start
-opt.autoindent = true -- Copy indent from previous line
-opt.smartindent = true -- Smart indent for C-like code
-opt.textwidth = 80 -- Preferred line length
+o.expandtab = true -- Use spaces instead of tabs
+o.tabstop = 4 -- Visual tab width
+o.shiftwidth = 2 -- Indent width
+o.softtabstop = 2 -- Insert/delete spaces with Tab
+o.smarttab = true -- Tab respects shiftwidth at line start
+o.autoindent = true -- Copy indent from previous line
+o.smartindent = true -- Smart indent for C-like code
+o.textwidth = 80 -- Preferred line length
 --opt.joinspaces = false -- One space after sentence join
-opt.formatoptions = "crqnj"
+o.formatoptions = "crqnj"
 
 -- Invisible characters
-opt.list = true
+o.list = true
 
-opt.listchars = {
+o.listchars = {
   tab = "→ ",
   trail = "·",
   nbsp = "␣",
 }
 
 -- Search
-opt.ignorecase = true -- Case-insensitive search
-opt.smartcase = true -- Case-sensitive if uppercase used
-opt.hlsearch = true -- Highlight search matches
-opt.incsearch = true -- Incremental search
-opt.inccommand = "split" -- Live substitute preview
+o.ignorecase = true -- Case-insensitive search
+o.smartcase = true -- Case-sensitive if uppercase used
+o.hlsearch = true -- Highlight search matches
+o.incsearch = true -- Incremental search
+o.inccommand = "split" -- Live substitute preview
 
 -- Wildmenu
-opt.wildignorecase = true -- Ignore case in command line
-opt.wildignore = {
-  "*.pyc", "*.o", "*.obj", "*/.git/*", "*/node_modules/*",
-  "*/build/*", "*/dist/*", "*.swp", "*.DS_Store",
+o.wildignorecase = true -- Ignore case in command line
+o.wildignore = {
+  "*.pyc",
+  "*.o",
+  "*.obj",
+  "*/.git/*",
+  "*/node_modules/*",
+  "*/build/*",
+  "*/dist/*",
+  "*.swp",
+  "*.DS_Store",
 }
 
 -- Completion
-opt.completeopt = { "menu", "menuone", "noselect" }
-opt.backspace = { "indent", "eol", "start" }
+o.completeopt = { "menu", "menuone", "noselect" }
+o.backspace = { "indent", "eol", "start" }
 
 -- Files and buffers
-opt.clipboard = "unnamedplus" -- Use system clipboard
-opt.swapfile = false -- Disable swap files
-opt.backup = false -- Disable backup files
-opt.undofile = true -- Persistent undo
-opt.hidden = true -- Allow buffer switching without saving
-opt.autoread = true -- Reload files changed externally
-opt.confirm = true -- Confirm before losing changes
+o.clipboard = "unnamedplus" -- Use system clipboard
+o.swapfile = false -- Disable swap files
+o.backup = false -- Disable backup files
+o.undofile = true -- Persistent undo
+o.hidden = true -- Allow buffer switching without saving
+o.autoread = true -- Reload files changed externally
+o.confirm = true -- Confirm before losing changes
 
 -- Session and Shada
 -- Global options are not saved in sessions to avoid plugin conflicts
-opt.sessionoptions =
+o.sessionoptions =
   "buffers,curdir,folds,help,tabpages,winsize,terminal,localoptions"
 -- Shada files store cursor position, marks, and registers
-opt.shada = "!,'100,<1000,s10,h"
+o.shada = "!,'100,<1000,s10,h"
 
 -- Windows
-opt.splitbelow = true -- Horizontal splits open below
-opt.splitright = true -- Vertical splits open right
+o.splitbelow = true -- Horizontal splits open below
+o.splitright = true -- Vertical splits open right
 
 -- Performance
-opt.updatetime = 200 -- Faster CursorHold / diagnostics
-opt.timeoutlen = 500 -- Key sequence timeout
+o.updatetime = 200 -- Faster CursorHold / diagnostics
+o.timeoutlen = 500 -- Key sequence timeout
 
 -- Russian keyboard layout
 -- Use <c-^> (Ctrl-6) to toggle internal keymap
-opt.keymap = "russian-jcukenwin"
-opt.iminsert = 0
-opt.imsearch = -1
+o.keymap = "russian-jcukenwin"
+o.iminsert = 0
+o.imsearch = -1
 
 -- Keep shortcuts working when switching layouts
-opt.langmap =
+o.langmap =
   [[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz]]
 
 -- UI Appearance & Styling
