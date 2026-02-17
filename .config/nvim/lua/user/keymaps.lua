@@ -40,19 +40,6 @@ wk.add({
   { "<tab>", vim.cmd.bnext, desc = "Next Buffer" },
   { "<s-tab>", vim.cmd.bprev, desc = "Previous Buffer" },
 
-  -- Vim
-  {
-    { "<leader>v", group = "Vim" },
-    {
-      "<leader>ve",
-      "<cmd>edit $MYVIMRC<cr>",
-      desc = "Edit Vim Config",
-    },
-    -- Сочетание для перезагрузки все равно не будет работать до версии 0.12,
-    -- где добавили команду :restart
-    -- {"<leader>vr", vim.cmd.restart, "Restart Vim"},
-  },
-
   -- Windows
   -- Не всегда работает как надо
   -- { "<C-h>", "<C-w>h", desc = "Window Left" },
@@ -125,6 +112,23 @@ wk.add({
     expr = true,
     desc = "Toggle Fold / Enter",
   },
+
+  -- Vim
+  {
+    { "<leader>v", group = "Vim" },
+    {
+      "<leader>ve",
+      "<cmd>edit $MYVIMRC<cr>",
+      desc = "Edit Vim Config",
+    },
+    -- Сочетание для перезагрузки все равно не будет работать до версии 0.12,
+    -- где добавили команду :restart
+    -- {"<leader>vr", vim.cmd.restart, "Restart Vim"},
+  },
+
+  -- Session
+  { "<leader>ss", "<cmd>mksession!<cr>", desc = "Session Save" },
+  { "<leader>sl", "<cmd>source Session.vim<cr>", desc = "Session Load" },
 
   -- Он громоздкий и бесполезный. Мне нужно что-то простое, но не такое убогое
   -- как netrw
@@ -266,18 +270,17 @@ wk.add({
 
   -- grug-far
   {
-    { "<leader>s", group = "Search and Replace" },
+    { "<leader>r", group = "Replace" },
     {
-      "<leader>ss",
+      "<leader>rg",
       function()
         require("grug-far").open()
       end,
-      desc = "grug-far: open search",
+      desc = "grug-far: Replace Global",
     },
     {
-      "<leader>sr",
+      "<leader>rw",
       function()
-        -- Открываем поиск, предварительно заполнив поле текущим словом под курсором
         require("grug-far").open({
           prefills = {
             search = vim.fn.expand("<cword>"),
@@ -286,18 +289,18 @@ wk.add({
         })
       end,
       mode = { "n", "v" },
-      desc = "grug-far: search and replace",
+      desc = "grug-far: Replace Word",
     },
     {
-      "<leader>sf",
+      "<leader>rf",
       function()
         require("grug-far").open({
           prefills = {
-            paths = vim.fn.expand("%"), -- Ограничиваем поиск текущим файлом
+            paths = vim.fn.expand("%"),
           },
         })
       end,
-      desc = "grug-far: Search and replace in the current file",
+      desc = "grug-far: Replace in File",
     },
   },
 
