@@ -13,6 +13,8 @@ return {
     require("lualine").setup({
       options = {
         globalstatus = true,
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
       },
       sections = {
         lualine_x = { keymap, "encoding", "fileformat", "filetype" },
