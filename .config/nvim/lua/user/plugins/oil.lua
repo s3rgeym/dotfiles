@@ -13,6 +13,8 @@ return {
     view_options = {
       show_hidden = true,
     },
+    -- Пропускаем подтверждение для переименования файлов
+    skip_confirm_for_simple_edits = true,
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
