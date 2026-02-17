@@ -33,7 +33,7 @@ opt.autoindent = true -- Copy indent from previous line
 opt.smartindent = true -- Smart indent for C-like code
 opt.textwidth = 80 -- Preferred line length
 --opt.joinspaces = false -- One space after sentence join
-opt.formatoptions:remove({ "t", "c" })
+opt.formatoptions = "crqnj"
 
 -- Invisible characters
 opt.list = true

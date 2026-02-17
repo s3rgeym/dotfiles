@@ -44,6 +44,9 @@ return {
       shfmt = {
         prepend_args = { "-i", "2", "-ci", "-s" },
       },
+      stylua = {
+        -- prepend_args = { "--config", vim.fn.expand("~/.config/stylua/stylua.toml") },
+      },
     },
   },
 }

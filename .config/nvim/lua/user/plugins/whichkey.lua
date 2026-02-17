@@ -3,11 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "modern",
-    spec = {
-      {"<leader>f", group = "Find" },
-      {"<leader>g", group = "Git" },
-      -- TODO: добавь еще группы
-    }
+    spec = require("user.keymaps"),
   },
   keys = {
     {
