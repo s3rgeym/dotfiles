@@ -230,14 +230,21 @@ wk.add({
     desc = "LSP Restart",
   },
   {
-    "<leader>oi",
+    "<leader>cf",
+    function()
+      require("conform").format({ lsp_format = "fallback" })
+    end,
+    desc = "Code Format",
+  },
+  {
+    "<leader>co",
     function()
       vim.lsp.buf.code_action({
         context = { only = { "source.organizeImports" }, diagnostics = {} },
         apply = true,
       })
     end,
-    desc = "Organize Imports",
+    desc = "Code Organize Imports",
   },
 
   -- Other FzfLua
@@ -273,38 +280,35 @@ wk.add({
 
   -- grug-far
   {
-    { "<leader>r", group = "Replace" },
-    {
-      "<leader>rg",
-      function()
-        require("grug-far").open()
-      end,
-      desc = "grug-far: Replace Global",
-    },
-    {
-      "<leader>rw",
-      function()
-        require("grug-far").open({
-          prefills = {
-            search = vim.fn.expand("<cword>"),
-            replace = vim.fn.expand("<cword>"),
-          },
-        })
-      end,
-      mode = { "n", "v" },
-      desc = "grug-far: Replace Word",
-    },
-    {
-      "<leader>rf",
-      function()
-        require("grug-far").open({
-          prefills = {
-            paths = vim.fn.expand("%"),
-          },
-        })
-      end,
-      desc = "grug-far: Replace in File",
-    },
+    "<leader>sr",
+    function()
+      require("grug-far").open()
+    end,
+    desc = "grug-far: Search and Replace",
+  },
+  {
+    "<leader>sw",
+    function()
+      require("grug-far").open({
+        prefills = {
+          search = vim.fn.expand("<cword>"),
+          replace = vim.fn.expand("<cword>"),
+        },
+      })
+    end,
+    mode = { "n", "v" },
+    desc = "grug-far: [S]earch and Replace [W]ord",
+  },
+  {
+    "<leader>sf",
+    function()
+      require("grug-far").open({
+        prefills = {
+          paths = vim.fn.expand("%"),
+        },
+      })
+    end,
+    desc = "grug-far: [S]earch and Replace in [F]ile",
   },
 
   -- Package Management

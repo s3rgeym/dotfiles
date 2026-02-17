@@ -65,8 +65,9 @@ opt.autoread = true -- Reload files changed externally
 opt.confirm = true -- Confirm before losing changes
 
 -- Session and Shada
--- Options are not saved in sessions to avoid plugin conflicts
-opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal"
+-- Global options are not saved in sessions to avoid plugin conflicts
+opt.sessionoptions =
+  "buffers,curdir,folds,help,tabpages,winsize,terminal,localoptions"
 -- Shada files store cursor position, marks, and registers
 opt.shada = "!,'100,<1000,s10,h"
 
