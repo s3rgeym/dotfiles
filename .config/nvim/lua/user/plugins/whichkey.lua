@@ -2,11 +2,7 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    preset = "modern",
-    defaults = {
-      ["<leader>f"] = { name = "Find" },
-      ["<leader>g"] = { name = "Git" },
-    },
+    preset = "modern"
   },
   keys = {
     {
