@@ -1,5 +1,10 @@
 local M = {}
 
+function M.map(lhs, rhs, desc_or_opts, mode)
+  local opts = type(desc_or_opts) == "string" and { desc = desc_or_opts } or desc_or_opts
+  vim.keymap.set(mode or "n", lhs, rhs, opts)
+end
+
 function M.find_project_root()
   local root_markers = {
     ".git",
