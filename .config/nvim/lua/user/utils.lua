@@ -1,4 +1,5 @@
 local M = {}
+
 function M.find_project_root()
   local root_markers = {
     ".git",
@@ -28,6 +29,5 @@ function M.set_keymaps(t)
     end
   end
 end
-
 
 return M
