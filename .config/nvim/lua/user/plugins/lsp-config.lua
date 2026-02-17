@@ -85,7 +85,7 @@ return {
 
         -- Установка сочетаний клавиш для конкретного буфера
         local function map(lhs, rhs, desc, mode)
-          vim.keymap.set(mode or "n", lhs, rhs, { desc = desc, buffer = bufnr })
+          vim.keymap.set(mode or "n", lhs, rhs, { desc = "LSP: " .. desc, buffer = bufnr })
         end
 
         map("gd", vim.lsp.buf.definition, "Go to Definition")
