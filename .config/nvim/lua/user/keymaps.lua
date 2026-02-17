@@ -22,7 +22,7 @@ wk.add({
   {
     "<Esc>",
     "<cmd>noh<cr><Esc>",
-    desc = "Clear hlsearch",
+    desc = "Clear hlsearch and Escape",
   },
   {
     "<leader>cd",
@@ -114,7 +114,7 @@ wk.add({
 
   -- Folding
   {
-    "<cr>",
+    "<CR>",
     function()
       if vim.fn.foldlevel(".") > 0 then
         return "za"
@@ -123,7 +123,7 @@ wk.add({
       end
     end,
     expr = true,
-    desc = "Toggle Fold",
+    desc = "Toggle Fold / Enter",
   },
 
   -- Он громоздкий и бесполезный. Мне нужно что-то простое, но не такое убогое
