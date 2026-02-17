@@ -119,11 +119,11 @@ wk.add({
     {
       "<leader>ve",
       "<cmd>edit $MYVIMRC<cr>",
-      desc = "Edit Vim Config",
+      desc = "Vim Edit",
     },
     -- Сочетание для перезагрузки все равно не будет работать до версии 0.12,
     -- где добавили команду :restart
-    -- {"<leader>vr", vim.cmd.restart, "Restart Vim"},
+    -- {"<leader>vr", vim.cmd.restart, "Vim Restart"},
   },
 
   -- Session
