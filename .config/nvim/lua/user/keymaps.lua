@@ -63,9 +63,8 @@ require("user.utils").set_keymaps({
       function()
         if vim.fn.foldlevel(".") > 0 then
           return "za"
-        else
-          return "<CR>"
         end
+        return "<CR>"
       end,
       "Toggle Fold",
       expr = true,
