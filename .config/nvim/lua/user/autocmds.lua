@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup,
   desc = "Create parent directories on save",
   callback = function(event)
-    -- Без этой строки создаются каталоги oil:
+    -- Ничего не делаем при окрытии протоколов типа oil://path/to/file
     if event.match:match("^%w+://") then
       return
     end
