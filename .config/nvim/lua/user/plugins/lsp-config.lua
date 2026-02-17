@@ -84,29 +84,34 @@ return {
         local bufnr = args.buf
 
         -- Установка сочетаний клавиш для конкретного буфера
-        local function map(lhs, rhs, desc, mode)
-          vim.keymap.set(mode or "n", lhs, rhs, { desc = "LSP: " .. desc, buffer = bufnr })
+        local function bufmap(lhs, rhs, desc, mode)
+          vim.keymap.set(
+            mode or "n",
+            lhs,
+            rhs,
+            { desc = "LSP: " .. desc, buffer = bufnr }
+          )
         end
 
-        map("gd", vim.lsp.buf.definition, "Go to Definition")
-        map("gD", vim.lsp.buf.declaration, "Go to Declaration")
-        map("K", vim.lsp.buf.hover, "Show Documentation")
-        map("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
-        map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
-        map("gl", vim.diagnostic.open_float, "Line Diagnostics")
-        map("[d", function()
+        bufmap("gd", vim.lsp.buf.definition, "Go to Definition")
+        bufmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
+        bufmap("K", vim.lsp.buf.hover, "Show Documentation")
+        bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
+        bufmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+        bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
+        bufmap("[d", function()
           vim.diagnostic.jump({ count = -1 })
         end, "Prev Diagnostic")
-        map("]d", function()
+        bufmap("]d", function()
           vim.diagnostic.jump({ count = 1 })
         end, "Next Diagnostic")
 
-        -- if client.supports_method("textDocument/codeAction") then
-        --   map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-        -- end
+        if client.supports_method("textDocument/codeAction") then
+          bufmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+        end
 
         if client.server_capabilities.codeActionProvider then
-          map("<leader>co", function()
+          bufmap("<leader>co", function()
             vim.lsp.buf.code_action({
               context = {
                 only = { "source.organizeImports" },
@@ -129,13 +134,14 @@ return {
               end,
             }
           )
-          map("<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
+
+          bufmap("<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
         end
 
         if client.supports_method("textDocument/inlayHint") then
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-          map("<leader>th", function()
+          bufmap("<leader>th", function()
             vim.lsp.inlay_hint.enable(
               not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
               { bufnr = bufnr }

@@ -1,8 +1,8 @@
 local utils = require("user.utils")
-local aucmd = vim.api.nvim_create_autocmd
+local au = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
-aucmd("TextYankPost", {
+au("TextYankPost", {
   group = augroup,
   desc = "Highlight yanked text",
   callback = function()
@@ -10,7 +10,7 @@ aucmd("TextYankPost", {
   end,
 })
 
-aucmd("BufReadPost", {
+au("BufReadPost", {
   group = augroup,
   desc = "Restore last cursor position",
   callback = function(ev)
@@ -21,7 +21,7 @@ aucmd("BufReadPost", {
   end,
 })
 
-aucmd("BufWritePre", {
+au("BufWritePre", {
   group = augroup,
   desc = "Create parent directories on save",
   callback = function(event)
@@ -36,19 +36,19 @@ aucmd("BufWritePre", {
   end,
 })
 
-aucmd({ "FocusGained", "BufEnter" }, {
+au({ "FocusGained", "BufEnter" }, {
   group = augroup,
   desc = "Reload file if changed outside Neovim",
   command = "checktime",
 })
 
-aucmd("TermOpen", {
+au("TermOpen", {
   group = augroup,
   desc = "Start terminal in insert mode",
   command = "startinsert",
 })
 
-aucmd("VimResized", {
+au("VimResized", {
   group = augroup,
   desc = "Equalize window splits on resize",
   callback = function()
@@ -56,7 +56,7 @@ aucmd("VimResized", {
   end,
 })
 
-aucmd("VimEnter", {
+au("VimEnter", {
   group = augroup,
   desc = "Autoload session",
   nested = true, -- Без этого LSP не запустятся?
@@ -71,7 +71,7 @@ aucmd("VimEnter", {
   end,
 })
 
-aucmd("VimLeavePre", {
+au("VimLeavePre", {
   group = augroup,
   desc = "Save session on exit",
   callback = function()
@@ -83,7 +83,7 @@ aucmd("VimLeavePre", {
   end,
 })
 
-aucmd({ "BufReadPre" }, {
+au({ "BufReadPre" }, {
   group = augroup,
   desc = "Detect large file",
   callback = function(ev)
@@ -94,7 +94,7 @@ aucmd({ "BufReadPre" }, {
   end,
 })
 
-aucmd({ "BufReadPost" }, {
+au({ "BufReadPost" }, {
   group = augroup,
   desc = "Disable syntax highlight for large files",
   callback = function(ev)
@@ -109,7 +109,7 @@ aucmd({ "BufReadPost" }, {
 })
 
 -- Ненужное
-aucmd("FileType", {
+au("FileType", {
   group = augroup,
   desc = "Close special buffers with 'q'",
   pattern = { "help", "checkhealth", "qf", "man", "lspinfo" },

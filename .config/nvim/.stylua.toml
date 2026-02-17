@@ -1,0 +1,18 @@
+# Лимит строки в 80 символов
+column_width = 80
+
+# Стиль отступов: Пробелы (2) — стандарт для Lua/Neovim
+indent_type = "Spaces"
+indent_width = 2
+
+# Окончания строк (Unix — стандарт для большинства IDE)
+line_endings = "Unix"
+
+# Кавычки: Автоматически заменять на двойные, где это возможно
+quote_style = "AutoPreferDouble"
+
+# Обработка вызовов функций: Переносить аргументы, если не влезают в 80 символов
+call_parentheses = "Always"
+
+[sort_requires]
+enabled = true
