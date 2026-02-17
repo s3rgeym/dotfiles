@@ -89,9 +89,8 @@ vim.api.nvim_create_autocmd("BufReadPre", {
       vim.opt_local.undofile = false
       vim.opt_local.foldmethod = "manual"
       vim.opt_local.spell = false
-      vim.cmd("syntax off")
-      vim.treesitter.stop()
-      vim.cmd("LspStop")
+      vim.opt_local.syntax = "off"
+      vim.treesitter.stop(ev.buf)
     end
   end,
 })
