@@ -127,8 +127,11 @@ wk.add({
   },
 
   -- Session
-  { "<leader>ss", "<cmd>mksession!<cr>", desc = "Session Save" },
-  { "<leader>sl", "<cmd>source Session.vim<cr>", desc = "Session Load" },
+  {
+    { "<leader>s", desc = "Session" },
+    { "<leader>ss", "<cmd>mksession!<cr>", desc = "Session Save" },
+    { "<leader>sl", "<cmd>source Session.vim<cr>", desc = "Session Load" },
+  },
 
   -- Он громоздкий и бесполезный. Мне нужно что-то простое, но не такое убогое
   -- как netrw
