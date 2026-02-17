@@ -97,23 +97,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
       return
     end
 
-    -- Отключаем тяжёлые вещи
     vim.opt_local.swapfile = false
     vim.opt_local.undofile = false
     vim.opt_local.foldmethod = "manual"
     vim.opt_local.spell = false
 
-    -- Выключаем syntax
-    vim.cmd("syntax off")
-
-    -- Останавливаем Treesitter
+    vim.cmd("syntax clear")
     pcall(vim.treesitter.stop, ev.buf)
-
-    -- Отключаем LSP подсветку (если есть)
-    vim.lsp.buf_detach_client(ev.buf)
-
-    -- Опционально
-    vim.opt_local.bufhidden = "unload"
+    vim.bo[ev.buf].filetype = ""
   end,
 })
 
