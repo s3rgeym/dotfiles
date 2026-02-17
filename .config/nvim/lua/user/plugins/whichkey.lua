@@ -4,11 +4,8 @@ return {
   opts = {
     preset = "modern",
     defaults = {
-      ["<leader>f"] = { name = "Find (FzfLua)" },
-      ["<leader>g"] = { name = "Git (FzfLua)" },
-      ["<leader>v"] = { name = "Vim" },
-      ["<leader>s"] = { name = "Session" },
-      ["<leader>t"] = { name = "Toggle" },
+      ["<leader>f"] = { name = "Find" },
+      ["<leader>g"] = { name = "Git" },
     },
   },
   keys = {
