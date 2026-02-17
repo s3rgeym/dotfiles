@@ -6,7 +6,7 @@ return {
   config = function()
     vim.opt.showmode = false
 
-    local keymap = function()
+    local show_keymap = function()
       return vim.opt.iminsert:get() > 0 and vim.b.keymap_name or ""
     end
 
@@ -17,7 +17,7 @@ return {
         component_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_x = { keymap, "encoding", "fileformat", "filetype" },
+        lualine_x = { show_keymap, "encoding", "fileformat", "filetype", "lsp_status" },
       },
       tabline = {
         lualine_a = { "buffers" },

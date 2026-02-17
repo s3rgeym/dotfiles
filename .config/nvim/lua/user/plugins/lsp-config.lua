@@ -83,23 +83,47 @@ return {
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        -- Вынес все сочетания в ./whichkey.lua чтобы их редактировать в одном
-        -- месте
-        -- local function map(lhs, rhs, desc_or_opts, mode)
-        --   local opts = type(desc_or_opts) == "string"
-        --       and { desc = desc_or_opts }
-        --     or vim.deepcopy(desc_or_opts or {})
-        --
-        --   opts.buffer = bufnr
-        --   if opts.desc then
-        --     opts.desc = "LSP: " .. opts.desc
-        --   end
-        --
-        --   vim.keymap.set(mode or "n", lhs, rhs, opts)
+        -- Установка сочетаний клавиш для конкретного буфера
+        local function map(lhs, rhs, desc_or_opts, mode)
+          local opts = type(desc_or_opts) == "string"
+              and { desc = desc_or_opts }
+            or vim.deepcopy(desc_or_opts or {})
+
+          opts.buffer = bufnr
+          vim.keymap.set(mode or "n", lhs, rhs, opts)
+        end
+
+        map("gd", vim.lsp.buf.definition, "Go to Definition")
+        map("gD", vim.lsp.buf.declaration, "Go to Declaration")
+        map("K", vim.lsp.buf.hover, "Show Documentation")
+        map("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
+        map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+        map("gl", vim.diagnostic.open_float, "Line Diagnostics")
+        map("[d", function()
+          vim.diagnostic.jump({ count = -1 })
+        end, "Prev Diagnostic")
+        map("]d", function()
+          vim.diagnostic.jump({ count = 1 })
+        end, "Next Diagnostic")
+
+        -- if client.supports_method("textDocument/codeAction") then
+        --   map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
         -- end
 
-        -- CodeLens: автоматическое обновление и запуск
+        if client.server_capabilities.codeActionProvider then
+          map("<leader>co", function()
+            vim.lsp.buf.code_action({
+              context = {
+                only = { "source.organizeImports" },
+                diagnostics = {},
+              },
+              apply = true,
+            })
+          end, "Code Organize Imports")
+        end
+
         if client.supports_method("textDocument/codeLens") then
+          vim.lsp.codelens.refresh({ bufnr = bufnr })
           vim.api.nvim_create_autocmd(
             { "BufEnter", "InsertLeave", "TextChanged" },
             {
@@ -110,11 +134,18 @@ return {
               end,
             }
           )
+          map("<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
         end
 
-        -- Inlay Hints
         if client.supports_method("textDocument/inlayHint") then
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+          map("<leader>th", function()
+            vim.lsp.inlay_hint.enable(
+              not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+              { bufnr = bufnr }
+            )
+          end, "Toggle Inlay Hints")
         end
 
         -- Подсветка упоминаний символа
