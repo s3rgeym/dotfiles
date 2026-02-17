@@ -64,6 +64,12 @@ opt.hidden = true -- Allow buffer switching without saving
 opt.autoread = true -- Reload files changed externally
 opt.confirm = true -- Confirm before losing changes
 
+-- Session and Shada
+-- В сессии не сохраняют options из-за конфликта с плагинами
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal"
+-- Shada-файлы хранят позицию курсора
+opt.shada = "!,'100,<1000,s10,h"
+
 -- Windows
 opt.splitbelow = true -- Horizontal splits open below
 opt.splitright = true -- Vertical splits open right
