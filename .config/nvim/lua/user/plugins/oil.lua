@@ -2,6 +2,9 @@
 -- Можно так же попобовать альтернативу в виде mini-files
 return {
   "stevearc/oil.nvim",
+  keys = {
+    { "-", "<CMD>Oil<CR>", desc = "oil: Open parent directory" },
+  },
   opts = {
     default_file_explorer = true,
     columns = {

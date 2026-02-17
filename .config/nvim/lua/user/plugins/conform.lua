@@ -24,6 +24,15 @@ local formatters_by_ft = {
 
 return {
   "stevearc/conform.nvim",
+  keys = {
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({ lsp_format = "fallback" })
+      end,
+      desc = "Code Format",
+    },
+  },
   opts = {
     formatters_by_ft = formatters_by_ft,
     format_on_save = {
