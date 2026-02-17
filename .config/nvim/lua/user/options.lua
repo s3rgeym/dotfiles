@@ -51,6 +51,13 @@ opt.hlsearch = true -- Highlight search matches
 opt.incsearch = true -- Incremental search
 opt.inccommand = "split" -- Live substitute preview
 
+-- Wildmenu
+opt.wildignorecase = true -- Ignore case in command line
+opt.wildignore = {
+  "*.pyc", "*.o", "*.obj", "*/.git/*", "*/node_modules/*",
+  "*/build/*", "*/dist/*", "*.swp", "*.DS_Store",
+}
+
 -- Completion
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.backspace = { "indent", "eol", "start" }
