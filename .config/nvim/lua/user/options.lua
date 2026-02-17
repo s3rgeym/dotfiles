@@ -9,7 +9,7 @@ opt.showmode = false -- Do not show current mode
 opt.shortmess:append("I") -- Skip startup intro
 opt.colorcolumn = "+1" -- Column right after textwidth
 opt.termguicolors = true -- Enable 24-bit colors
-opt.fillchars:append({ eob = " " }) -- Убрать "~" в конце файла
+opt.fillchars:append({ eob = " " }) -- Remove "~" at the end of the file
 
 -- Cursor and scrolling
 opt.scrolloff = 5 -- Context lines above/below cursor
@@ -65,9 +65,9 @@ opt.autoread = true -- Reload files changed externally
 opt.confirm = true -- Confirm before losing changes
 
 -- Session and Shada
--- В сессии не сохраняют options из-за конфликта с плагинами
+-- Options are not saved in sessions to avoid plugin conflicts
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal"
--- Shada-файлы хранят позицию курсора
+-- Shada files store cursor position, marks, and registers
 opt.shada = "!,'100,<1000,s10,h"
 
 -- Windows
@@ -79,12 +79,12 @@ opt.updatetime = 200 -- Faster CursorHold / diagnostics
 opt.timeoutlen = 500 -- Key sequence timeout
 
 -- Russian keyboard layout
--- Исп. <c-^> (Ctrl-6) для переключения внутренней раскладки
+-- Use <c-^> (Ctrl-6) to toggle internal keymap
 opt.keymap = "russian-jcukenwin"
 opt.iminsert = 0
 opt.imsearch = -1
 
--- При переключении раскладки сочетания продолжат работать
+-- Keep shortcuts working when switching layouts
 opt.langmap =
   [[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz]]
 
@@ -104,14 +104,14 @@ for _, group in ipairs(transparent_groups) do
   hl(0, group, { bg = "none" })
 end
 
--- Курсив
+-- Italic
 hl(0, "Comment", { italic = true })
 hl(0, "@comment", { italic = true })
 
--- Жирный
+-- Bold
 hl(0, "Keyword", { bold = true })
 hl(0, "Statement", { bold = true })
 hl(0, "Function", { bold = true })
 
--- Жирный курсив (акценты)
+-- Bold Italic (Accents)
 hl(0, "Todo", { bold = true, italic = true })
