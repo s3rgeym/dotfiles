@@ -13,6 +13,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "saghen/blink.cmp",
+    "ibhagwan/fzf-lua",
   },
   config = function()
     -- Обзяательно должен вызываться первым
@@ -93,12 +94,33 @@ return {
           )
         end
 
-        bufmap("gd", vim.lsp.buf.definition, "Go to Definition")
-        bufmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
+        local fzf = require("fzf-lua")
+
+        -- bufmap("gd", vim.lsp.buf.definition, "Go to Definition")
+        bufmap("gd", fzf.lsp_definitions, "Go to Definition")
+        -- bufmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
+        bufmap("gD", fzf.lsp_declarations, "Go to Declaration")
+        bufmap("gi", fzf.lsp_implementations, "Go to Implementation")
+        bufmap("gy", fzf.lsp_typedefs, "Go to Type Definition")
+        bufmap("grr", fzf.lsp_references, "List References")
+        bufmap("<leader>ld", fzf.lsp_document_symbols, "Document Symbols")
+        if client.supports_method("workspace/symbol") then
+          bufmap("<leader>lw", fzf.lsp_workspace_symbols, "Workspace Symbols")
+        end
+        -- No server check needed for diagnostics
+        bufmap("<leader>lD", fzf.diagnostics_document, "Document Diagnostics")
+
         bufmap("K", vim.lsp.buf.hover, "Show Documentation")
         -- <C-s>
         bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
-        bufmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol (use grn instead)")
+        if client.supports_method("textDocument/rename") then
+          bufmap(
+            "<leader>rn",
+            vim.lsp.buf.rename,
+            "Rename Symbol (use grn instead)"
+          )
+        end
+
         bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
         bufmap("[d", function()
           vim.diagnostic.jump({ count = -1 })
@@ -108,7 +130,8 @@ return {
         end, "Next Diagnostic")
 
         if client.supports_method("textDocument/codeAction") then
-          bufmap("<leader>ca", vim.lsp.buf.code_action, "Code Action (use gra instead)")
+          -- bufmap("<leader>ca", vim.lsp.buf.code_action, "Code Action (use gra instead)")
+          bufmap("<leader>ca", fzf.lsp_code_actions, "Code Action")
         end
 
         if client.server_capabilities.codeActionProvider then
