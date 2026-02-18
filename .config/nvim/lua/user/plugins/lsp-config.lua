@@ -96,31 +96,35 @@ return {
 
         local fzf = require("fzf-lua")
 
-        -- bufmap("gd", vim.lsp.buf.definition, "Go to Definition")
+        -- Навигация через fzf
         bufmap("gd", fzf.lsp_definitions, "Go to Definition")
-        -- bufmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
         bufmap("gD", fzf.lsp_declarations, "Go to Declaration")
-        bufmap("gi", fzf.lsp_implementations, "Go to Implementation")
-        bufmap("gy", fzf.lsp_typedefs, "Go to Type Definition")
+
+        -- Стандартные lsp-команды через fzf
         bufmap("grr", fzf.lsp_references, "List References")
-        bufmap("<leader>ld", fzf.lsp_document_symbols, "Document Symbols")
-        if client.supports_method("workspace/symbol") then
-          bufmap("<leader>lw", fzf.lsp_workspace_symbols, "Workspace Symbols")
-        end
-        -- No server check needed for diagnostics
-        bufmap("<leader>lD", fzf.diagnostics_document, "Document Diagnostics")
+        bufmap("gri", fzf.lsp_implementations, "List Implementations")
+        bufmap("grt", fzf.lsp_typedefs, "Type Definition")
+        bufmap("gra", fzf.lsp_code_actions, "Code Actions")
 
+        -- Комбинированный поиск
+        bufmap("gF", fzf.lsp_finder, "LSP Finder")
+
+        -- Символы файла
+        bufmap("gO", fzf.lsp_document_symbols, "Document Symbols")
+
+        -- LSP поиск и диагностика
+        bufmap("<leader>ls", fzf.lsp_workspace_symbols, "Workspace Symbols")
+        bufmap(
+          "<leader>ll",
+          fzf.lsp_live_workspace_symbols,
+          "Live Workspace Symbols"
+        )
+        bufmap("<leader>lx", fzf.diagnostics_document, "Document Diagnostics")
+        bufmap("<leader>lX", fzf.diagnostics_workspace, "Workspace Diagnostics")
+
+        -- Информация и прыжки по диагностике
         bufmap("K", vim.lsp.buf.hover, "Show Documentation")
-        -- <C-s>
         bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
-        if client.supports_method("textDocument/rename") then
-          bufmap(
-            "<leader>rn",
-            vim.lsp.buf.rename,
-            "Rename Symbol (use grn instead)"
-          )
-        end
-
         bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
         bufmap("[d", function()
           vim.diagnostic.jump({ count = -1 })
@@ -128,11 +132,6 @@ return {
         bufmap("]d", function()
           vim.diagnostic.jump({ count = 1 })
         end, "Next Diagnostic")
-
-        if client.supports_method("textDocument/codeAction") then
-          -- bufmap("<leader>ca", vim.lsp.buf.code_action, "Code Action (use gra instead)")
-          bufmap("<leader>ca", fzf.lsp_code_actions, "Code Action")
-        end
 
         if client.server_capabilities.codeActionProvider then
           bufmap("<leader>co", function()
