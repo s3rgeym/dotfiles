@@ -7,7 +7,11 @@ map("<leader>q", vim.cmd.quit, "Quit")
 map("<leader>Q", "<cmd>qa<cr>", "Quit All")
 map("<leader>a", "ggVG", "Select all")
 map("<Esc>", "<cmd>noh<cr><esc>", "Clear hlsearch")
-map("<leader>cd", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", "Change Directory for current window")
+map(
+  "<leader>cd",
+  "<cmd>lcd %:p:h<cr><cmd>pwd<cr>",
+  "Change Directory for current window"
+)
 
 -- Buffers
 map("<leader>d", "<cmd>bp<bar>bd #<cr>", "Delete Buffer")
@@ -31,8 +35,16 @@ map("<C-Left>", "<cmd>vertical resize -2<cr>", "Decrease Window Width")
 map("<C-Right>", "<cmd>vertical resize +2<cr>", "Increase Window Width")
 
 -- Movement
-map("<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Visual Up", expr = true, replace_keycodes = false })
-map("<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Visual Down", expr = true, replace_keycodes = false })
+map(
+  "<Up>",
+  "v:count == 0 ? 'gk' : 'k'",
+  { desc = "Visual Up", expr = true, replace_keycodes = false }
+)
+map(
+  "<Down>",
+  "v:count == 0 ? 'gj' : 'j'",
+  { desc = "Visual Down", expr = true, replace_keycodes = false }
+)
 
 -- Scroll
 
@@ -59,6 +71,7 @@ map("<A-Down>", ":m '>+1<CR>gv=gv", "Move Selection Down", "v")
 map("<CR>", function()
   return vim.fn.foldlevel(".") > 0 and "za" or "<CR>"
 end, { desc = "Toggle Fold", expr = true })
+map("z0", "zMzv", "Fold: Focus current")
 
 -- Vim
 map("<leader>ve", "<cmd>edit $MYVIMRC<cr>", "Edit Vim")
@@ -70,4 +83,3 @@ map("<leader>sl", "<cmd>source Session.vim<cr>", "Session Load")
 -- Package Management
 map("<leader>L", "<cmd>Lazy<cr>", "Lazy")
 map("<leader>M", "<cmd>Mason<cr>", "Mason")
-

@@ -6,17 +6,6 @@ return {
     -- "folke/trouble.nvim",
   },
   keys = {
-    -- LSP
-    -- { "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Go to Definition" },
-    -- { "gD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Go to Declaration" },
-    { "gi", "<cmd>FzfLua lsp_implementations<cr>", desc = "Go to Implementation" },
-    { "gy", "<cmd>FzfLua lsp_typedefs<cr>", desc = "[G]o to T[y]pe Definition" },
-    -- gr конфликтует с gra, gri, grt и тп
-    { "<leader>lr", "<cmd>FzfLua lsp_references<cr>", desc = "List References" },
-    { "<leader>ld", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Document Symbols" },
-    { "<leader>lw", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
-    { "<leader>lD", "<cmd>FzfLua diagnostics_document<cr>", desc = "Document Diagnostics" },
-
     -- Other
     { "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
     { "<leader>p", "<cmd>FzfLua files<cr>", desc = "Files" },
