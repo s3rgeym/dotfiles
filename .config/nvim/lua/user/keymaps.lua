@@ -16,6 +16,9 @@ map("<leader>D", "<cmd>%bd<bar>e #<bar>bd #<cr>", "Delete Other Buffers")
 -- Navigation
 map("<Tab>", vim.cmd.bnext, "Next Buffer")
 map("<S-Tab>", vim.cmd.bprev, "Previous Buffer")
+map("<BS>", "<C-^>", "Last Buffer")
+map("<A-Left>", "gT", "Previous Tab")
+map("<A-Right>", "gt", "Next Tab")
 map("<C-h>", "<cmd>wincmd h<cr>", "Window Left")
 map("<C-j>", "<cmd>wincmd j<cr>", "Window Down")
 map("<C-k>", "<cmd>wincmd k<cr>", "Window Up")
@@ -31,6 +34,8 @@ map("<C-Right>", "<cmd>vertical resize +2<cr>", "Increase Window Width")
 map("<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Visual Up", expr = true, replace_keycodes = false })
 map("<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Visual Down", expr = true, replace_keycodes = false })
 
+-- Scroll
+
 -- Split Windows
 map("<leader>sh", vim.cmd.split, "Split Horizontal")
 map("<leader>sv", vim.cmd.vsplit, "Split Vertical")
@@ -43,10 +48,12 @@ map("<Tab>", ">gv", "Increase Indent", "v")
 map("<S-tab>", "<gv", "Decrease Indent", "v")
 
 -- Move Lines
-map("<A-j>", ":m .+1<CR>==", "Move Down")
-map("<A-k>", ":m .-2<CR>==", "Move Up")
-map("<A-j>", ":m '>+1<CR>gv=gv", "Move Selection Down", "v")
-map("<A-k>", ":m '<-2<CR>gv=gv", "Move Selection Up", "v")
+map("<A-Up>", ":m .-2<CR>==", "Move Up")
+map("<A-Down>", ":m .+1<CR>==", "Move Down")
+
+-- Move Selection
+map("<A-Up>", ":m '<-2<CR>gv=gv", "Move Selection Up", "v")
+map("<A-Down>", ":m '>+1<CR>gv=gv", "Move Selection Down", "v")
 
 -- Folding
 map("<CR>", function()

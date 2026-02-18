@@ -96,6 +96,7 @@ return {
         bufmap("gd", vim.lsp.buf.definition, "Go to Definition")
         bufmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
         bufmap("K", vim.lsp.buf.hover, "Show Documentation")
+        -- <C-s>
         bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
         bufmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol (use grn instead)")
         bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
