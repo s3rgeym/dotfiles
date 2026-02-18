@@ -1,6 +1,6 @@
 local function keymap()
   if vim.opt.iminsert:get() > 0 and vim.b.keymap_name ~= "" then
-    return "⌨ " .. vim.b.keymap_name
+    return "\u{f11c} " .. vim.b.keymap_name
   end
   return ""
 end
@@ -16,14 +16,9 @@ return {
     require("lualine").setup({
       options = {
         globalstatus = true,
-        -- component_separators = { left = '', right = ''},
-        -- component_separators = { left = "│", right = "│" },
-        -- component_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
-        -- section_separators = { left = '', right = '' },
-        -- section_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        -- section_separators = { left = '', right = ''},
+        -- https://github.com/ryanoasis/powerline-extra-symbols/blob/master/img/fontforge.png
+        section_separators = { left = "\u{e0b8}", right = "\u{e0ba}" },
+        component_separators = { left = "\u{e0b9}", right = "\u{e0bb}" },
       },
       sections = {
         lualine_x = {

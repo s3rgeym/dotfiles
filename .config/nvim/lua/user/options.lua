@@ -10,6 +10,7 @@ o.shortmess:append("I") -- Skip startup intro
 o.colorcolumn = "+1" -- Column right after textwidth
 o.termguicolors = true -- Enable 24-bit colors
 o.fillchars:append({ eob = " " }) -- Remove "~" at the end of the file
+o.guicursor = "n-c:block,i-ci-ve:ver25,v-r-cr:hor20,o:hor50" -- Set cursor shape for different modes
 
 -- Cursor and scrolling
 o.scrolloff = 5 -- Context lines above/below cursor
