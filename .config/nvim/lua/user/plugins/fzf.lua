@@ -1,3 +1,6 @@
+-- Это лучше задать через rc
+-- vim.env.FZF_DEFAULT_OPTS = '--layout=reverse'
+
 return {
   "ibhagwan/fzf-lua",
   -- optional for icon support

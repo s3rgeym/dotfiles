@@ -10,6 +10,9 @@ export GOPATH="${GOPATH:-$HOME/go}"
 export EDITOR=nvim
 #export VISUAL=$EDITOR
 
+# Опция которая должна быть дефолтом
+export FZF_DEFAULT_OPTS='--layout=reverse'
+
 # Объявляет уникальные массивы для путей $PATH и $fpath.
 typeset -U path fpath
 
