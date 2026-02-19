@@ -75,6 +75,10 @@ o.undofile = true -- Persistent undo
 o.hidden = true -- Allow buffer switching without saving
 o.autoread = true -- Reload files changed externally
 o.confirm = true -- Confirm before losing changes
+-- Disables configuration lines inside text files (modelines).
+-- Although often off by default in some distributions,
+-- explicitly setting it to false prevents potential shell command injection.
+o.modeline = false
 
 -- Session and Shada
 -- Options are not saved in sessions to avoid plugin conflicts
