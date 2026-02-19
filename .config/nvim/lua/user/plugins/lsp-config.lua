@@ -5,7 +5,6 @@
 -- Пользовательские конфиги:
 -- - ~/.config/nvim/lsp — для переопределения или заданиях новых.
 -- - ~/.config/nvim/after/lsp — для расширения существующих.
-local utils = require("user.utils")
 
 return {
   "neovim/nvim-lspconfig",
@@ -13,8 +12,8 @@ return {
     -- opts передается для автоматического вызова setup
     { "mason-org/mason.nvim", opts = {} },
     "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
     "saghen/blink.cmp",
+    "b0o/schemastore.nvim",
     "ibhagwan/fzf-lua",
   },
   config = function()
@@ -57,6 +56,31 @@ return {
       root_markers = { ".git" },
     })
 
+    -- Автодополнение в package.json и др файлах
+    vim.lsp.config("jsonls", {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    })
+
+    -- vim.lsp.config("yamlls", {
+    --   settings = {
+    --     yaml = {
+    --       schemaStore = {
+    --         -- You must disable built-in schemaStore support if you want to use
+    --         -- this plugin and its advanced options like `ignore`.
+    --         enable = false,
+    --         -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+    --         url = "",
+    --       },
+    --       schemas = require("schemastore").yaml.schemas(),
+    --     },
+    --   },
+    -- })
+
     -- Включать требуется только сервера, поставленные вручную
     vim.lsp.enable({
       -- rust-analyzer поставляется вместе с rust, отдельная установка не требуется
@@ -84,51 +108,52 @@ return {
       group = lsp_group,
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        local bufnr = args.buf
-        local map = utils.create_buf_map(bufnr)
         local fzf = require("fzf-lua")
+
+        local bufnr = args.buf
+        local bufmap = require("user.utils").create_buf_map(bufnr)
 
         -- Навигация по коду
         -- В некоторых языках возвращается список, тогда fzf-lua бывает полезен
-        map("gd", fzf.lsp_definitions, "Go to Definition")
-        map("gD", fzf.lsp_declarations, "Go to Declaration")
+        bufmap("gd", fzf.lsp_definitions, "Go to Definition")
+        bufmap("gD", fzf.lsp_declarations, "Go to Declaration")
 
         -- Справка
-        map("K", vim.lsp.buf.hover, "Show Documentation")
-        map("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
+        bufmap("K", vim.lsp.buf.hover, "Show Documentation")
+        bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
 
         -- Встроенные сочетания
-        map("grr", fzf.lsp_references, "List References")
-        map("gri", fzf.lsp_implementations, "List Implementations")
-        map("grt", fzf.lsp_typedefs, "Type Definition")
+        bufmap("grr", fzf.lsp_references, "List References")
+        bufmap("gri", fzf.lsp_implementations, "List Implementations")
+        bufmap("grt", fzf.lsp_typedefs, "Type Definition")
 
         -- gra и grn неудобно вводить
-        map("<leader>ca", fzf.lsp_code_actions, "Code Actions")
-        map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+        bufmap("<leader>ca", fzf.lsp_code_actions, "Code Actions")
+        bufmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
 
         -- Диагностика
-        map("gl", vim.diagnostic.open_float, "Line Diagnostics")
-        map("[d", function()
+        bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
+        bufmap("[d", function()
           vim.diagnostic.jump({ count = -1 })
         end, "Prev Diagnostic")
-        map("]d", function()
+        bufmap("]d", function()
           vim.diagnostic.jump({ count = 1 })
         end, "Next Diagnostic")
 
         -- Прочие сочетания
-        map("gF", fzf.lsp_finder, "LSP Finder")
-        map("gO", fzf.lsp_document_symbols, "Document Symbols")
-        map("<leader>ls", fzf.lsp_workspace_symbols, "Workspace Symbols")
-        map(
+        bufmap("gF", fzf.lsp_finder, "LSP Finder")
+        bufmap("gO", fzf.lsp_document_symbols, "Document Symbols")
+        bufmap("<leader>ls", fzf.lsp_workspace_symbols, "Workspace Symbols")
+        bufmap(
           "<leader>ll",
           fzf.lsp_live_workspace_symbols,
           "Live Workspace Symbols"
         )
-        map("<leader>lx", fzf.diagnostics_document, "Document Diagnostics")
-        map("<leader>lX", fzf.diagnostics_workspace, "Workspace Diagnostics")
+        bufmap("<leader>lx", fzf.diagnostics_document, "Document Diagnostics")
+        bufmap("<leader>lX", fzf.diagnostics_workspace, "Workspace Diagnostics")
 
         if client.server_capabilities.codeActionProvider then
-          map("<leader>co", function()
+          bufmap("<leader>co", function()
             vim.lsp.buf.code_action({
               context = {
                 only = { "source.organizeImports" },
@@ -159,7 +184,7 @@ return {
         if client.supports_method("textDocument/inlayHint") then
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-          map("<leader>th", function()
+          bufmap("<leader>th", function()
             vim.lsp.inlay_hint.enable(
               not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
               { bufnr = bufnr }
