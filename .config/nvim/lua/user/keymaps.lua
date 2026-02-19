@@ -71,7 +71,6 @@ map("<A-Down>", ":m '>+1<CR>gv=gv", "Move Selection Down", "v")
 map("<CR>", function()
   return vim.fn.foldlevel(".") > 0 and "za" or "<CR>"
 end, { desc = "Toggle Fold", expr = true })
-map("z0", "zMzv", "Fold: Focus current")
 
 -- Vim
 map("<leader>ve", "<cmd>edit $MYVIMRC<cr>", "Edit Vim")

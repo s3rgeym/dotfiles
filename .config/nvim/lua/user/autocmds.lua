@@ -1,8 +1,8 @@
 local utils = require("user.utils")
-local au = vim.api.nvim_create_autocmd
+local aucmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
-au("TextYankPost", {
+aucmd("TextYankPost", {
   group = augroup,
   desc = "Highlight yanked text",
   callback = function()
@@ -10,7 +10,16 @@ au("TextYankPost", {
   end,
 })
 
-au("BufReadPost", {
+-- verbose set fo?
+-- Единственный способ задать настройки форматирования
+aucmd({ "BufEnter" }, {
+  group = augroup,
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o", "t" })
+  end,
+})
+
+aucmd("BufReadPost", {
   group = augroup,
   desc = "Restore last cursor position",
   callback = function(ev)
@@ -21,7 +30,7 @@ au("BufReadPost", {
   end,
 })
 
-au("BufWritePre", {
+aucmd("BufWritePre", {
   group = augroup,
   desc = "Create parent directories on save",
   callback = function(event)
@@ -36,19 +45,19 @@ au("BufWritePre", {
   end,
 })
 
-au({ "FocusGained", "BufEnter" }, {
+aucmd({ "FocusGained", "BufEnter" }, {
   group = augroup,
   desc = "Reload file if changed outside Neovim",
   command = "checktime",
 })
 
-au("TermOpen", {
+aucmd("TermOpen", {
   group = augroup,
   desc = "Start terminal in insert mode",
   command = "startinsert",
 })
 
-au("VimResized", {
+aucmd("VimResized", {
   group = augroup,
   desc = "Equalize window splits on resize",
   callback = function()
@@ -56,7 +65,7 @@ au("VimResized", {
   end,
 })
 
-au("VimEnter", {
+aucmd("VimEnter", {
   group = augroup,
   desc = "Autoload session",
   nested = true, -- Без этого LSP не запустятся?
@@ -71,7 +80,7 @@ au("VimEnter", {
   end,
 })
 
-au("VimLeavePre", {
+aucmd("VimLeavePre", {
   group = augroup,
   desc = "Save session on exit",
   callback = function()
@@ -83,16 +92,16 @@ au("VimLeavePre", {
   end,
 })
 
-au("SessionLoadPost", {
-  group = augroup,
-  callback = function()
-    vim.defer_fn(function()
-      vim.cmd("LspRestart")
-    end, 2000)
-  end,
-})
+-- aucmd("SessionLoadPost", {
+--   group = augroup,
+--   callback = function()
+--     vim.defer_fn(function()
+--       vim.cmd("LspRestart")
+--     end, 2000)
+--   end,
+-- })
 
--- au("VimEnter", {
+-- aucmd("VimEnter", {
 --   group = augroup,
 --   desc = "Change CWD to project root",
 --   callback = function()
@@ -103,7 +112,7 @@ au("SessionLoadPost", {
 --   end,
 -- })
 
-au({ "BufReadPre" }, {
+aucmd({ "BufReadPre" }, {
   group = augroup,
   desc = "Detect large file",
   callback = function(ev)
@@ -114,7 +123,7 @@ au({ "BufReadPre" }, {
   end,
 })
 
-au({ "BufReadPost" }, {
+aucmd({ "BufReadPost" }, {
   group = augroup,
   desc = "Disable syntax highlight for large files",
   callback = function(ev)
@@ -129,7 +138,7 @@ au({ "BufReadPost" }, {
 })
 
 -- Ненужное
-au("FileType", {
+aucmd("FileType", {
   group = augroup,
   desc = "Close special buffers with 'q'",
   pattern = { "help", "checkhealth", "qf", "man", "lspinfo" },

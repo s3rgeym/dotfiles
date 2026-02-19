@@ -34,7 +34,10 @@ o.autoindent = true -- Copy indent from previous line
 o.smartindent = true -- Smart indent for C-like code
 o.textwidth = 80 -- Preferred line length
 --opt.joinspaces = false -- One space after sentence join
-o.formatoptions = "crqnj"
+-- Не имеет эффекта
+--o.formatoptions:remove("c")
+--o.formatoptions:remove("r")
+--o.formatoptions:remove("o")
 o.keymodel = "startsel,stopsel" -- Shift + Arrows to select
 
 -- Invisible characters
@@ -55,17 +58,10 @@ o.inccommand = "split" -- Live substitute preview
 
 -- Wildmenu
 o.wildignorecase = true -- Ignore case in command line
-o.wildignore = {
-  "*.pyc",
-  "*.o",
-  "*.obj",
+o.wildignore:append({
   "*/.git/*",
   "*/node_modules/*",
-  "*/build/*",
-  "*/dist/*",
-  "*.swp",
-  "*.DS_Store",
-}
+})
 
 -- Completion
 o.completeopt = { "menu", "menuone", "noselect" }
