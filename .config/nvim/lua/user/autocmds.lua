@@ -14,6 +14,7 @@ aucmd("TextYankPost", {
 -- Единственный способ задать настройки форматирования
 aucmd({ "BufEnter" }, {
   group = augroup,
+  desc = "Set formatoptions",
   callback = function()
     vim.opt_local.formatoptions:remove({ "c", "r", "o", "t" })
   end,
