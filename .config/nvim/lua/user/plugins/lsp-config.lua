@@ -5,6 +5,8 @@
 -- Пользовательские конфиги:
 -- - ~/.config/nvim/lsp — для переопределения или заданиях новых.
 -- - ~/.config/nvim/after/lsp — для расширения существующих.
+local utils = require("user.utils")
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -83,58 +85,50 @@ return {
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
-
-        -- Установка сочетаний клавиш для конкретного буфера
-        local function bufmap(lhs, rhs, desc, mode)
-          vim.keymap.set(
-            mode or "n",
-            lhs,
-            rhs,
-            { desc = "LSP: " .. desc, buffer = bufnr }
-          )
-        end
-
+        local map = utils.create_buf_map(bufnr)
         local fzf = require("fzf-lua")
 
-        -- Навигация через fzf
-        bufmap("gd", fzf.lsp_definitions, "Go to Definition")
-        bufmap("gD", fzf.lsp_declarations, "Go to Declaration")
+        -- Навигация по коду
+        -- В некоторых языках возвращается список, тогда fzf-lua бывает полезен
+        map("gd", fzf.lsp_definitions, "Go to Definition")
+        map("gD", fzf.lsp_declarations, "Go to Declaration")
 
-        -- Стандартные lsp-команды через fzf
-        bufmap("grr", fzf.lsp_references, "List References")
-        bufmap("gri", fzf.lsp_implementations, "List Implementations")
-        bufmap("grt", fzf.lsp_typedefs, "Type Definition")
-        bufmap("gra", fzf.lsp_code_actions, "Code Actions")
+        -- Справка
+        map("K", vim.lsp.buf.hover, "Show Documentation")
+        map("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
 
-        -- Комбинированный поиск
-        bufmap("gF", fzf.lsp_finder, "LSP Finder")
+        -- Встроенные сочетания
+        map("grr", fzf.lsp_references, "List References")
+        map("gri", fzf.lsp_implementations, "List Implementations")
+        map("grt", fzf.lsp_typedefs, "Type Definition")
 
-        -- Символы файла
-        bufmap("gO", fzf.lsp_document_symbols, "Document Symbols")
+        -- gra и grn неудобно вводить
+        map("<leader>ca", fzf.lsp_code_actions, "Code Actions")
+        map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
 
-        -- LSP поиск и диагностика
-        bufmap("<leader>ls", fzf.lsp_workspace_symbols, "Workspace Symbols")
-        bufmap(
+        -- Диагностика
+        map("gl", vim.diagnostic.open_float, "Line Diagnostics")
+        map("[d", function()
+          vim.diagnostic.jump({ count = -1 })
+        end, "Prev Diagnostic")
+        map("]d", function()
+          vim.diagnostic.jump({ count = 1 })
+        end, "Next Diagnostic")
+
+        -- Прочие сочетания
+        map("gF", fzf.lsp_finder, "LSP Finder")
+        map("gO", fzf.lsp_document_symbols, "Document Symbols")
+        map("<leader>ls", fzf.lsp_workspace_symbols, "Workspace Symbols")
+        map(
           "<leader>ll",
           fzf.lsp_live_workspace_symbols,
           "Live Workspace Symbols"
         )
-        bufmap("<leader>lx", fzf.diagnostics_document, "Document Diagnostics")
-        bufmap("<leader>lX", fzf.diagnostics_workspace, "Workspace Diagnostics")
-
-        -- Информация и прыжки по диагностике
-        bufmap("K", vim.lsp.buf.hover, "Show Documentation")
-        bufmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
-        bufmap("gl", vim.diagnostic.open_float, "Line Diagnostics")
-        bufmap("[d", function()
-          vim.diagnostic.jump({ count = -1 })
-        end, "Prev Diagnostic")
-        bufmap("]d", function()
-          vim.diagnostic.jump({ count = 1 })
-        end, "Next Diagnostic")
+        map("<leader>lx", fzf.diagnostics_document, "Document Diagnostics")
+        map("<leader>lX", fzf.diagnostics_workspace, "Workspace Diagnostics")
 
         if client.server_capabilities.codeActionProvider then
-          bufmap("<leader>co", function()
+          map("<leader>co", function()
             vim.lsp.buf.code_action({
               context = {
                 only = { "source.organizeImports" },
@@ -145,26 +139,27 @@ return {
           end, "Code Organize Imports")
         end
 
-        if client.supports_method("textDocument/codeLens") then
-          vim.lsp.codelens.refresh({ bufnr = bufnr })
-          vim.api.nvim_create_autocmd(
-            { "BufEnter", "InsertLeave", "TextChanged" },
-            {
-              group = lsp_group,
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.codelens.refresh({ bufnr = bufnr })
-              end,
-            }
-          )
-
-          bufmap("<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
-        end
+        -- Абсолютно бесполезная вещь в динамически-типизированных языках
+        -- if client.supports_method("textDocument/codeLens") then
+        --   vim.lsp.codelens.refresh({ bufnr = bufnr })
+        --   vim.api.nvim_create_autocmd(
+        --     { "BufEnter", "InsertLeave", "TextChanged" },
+        --     {
+        --       group = lsp_group,
+        --       buffer = bufnr,
+        --       callback = function()
+        --         vim.lsp.codelens.refresh({ bufnr = bufnr })
+        --       end,
+        --     }
+        --   )
+        --
+        --   map("<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
+        -- end
 
         if client.supports_method("textDocument/inlayHint") then
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-          bufmap("<leader>th", function()
+          map("<leader>th", function()
             vim.lsp.inlay_hint.enable(
               not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
               { bufnr = bufnr }

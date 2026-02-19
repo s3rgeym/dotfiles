@@ -61,7 +61,7 @@ au("VimEnter", {
   desc = "Autoload session",
   nested = true, -- Без этого LSP не запустятся?
   callback = function()
-    local root = utils.find_project_root()
+    local root = utils.find_root()
     if root and vim.fn.argc() == 0 then
       local session_path = root .. "/Session.vim"
       if vim.fn.filereadable(session_path) == 1 then
@@ -75,7 +75,7 @@ au("VimLeavePre", {
   group = augroup,
   desc = "Save session on exit",
   callback = function()
-    local root = utils.find_project_root()
+    local root = utils.find_root()
     if root then
       local session_path = root .. "/Session.vim"
       vim.cmd("mksession! " .. vim.fn.fnameescape(session_path))
@@ -83,12 +83,32 @@ au("VimLeavePre", {
   end,
 })
 
+au("SessionLoadPost", {
+  group = augroup,
+  callback = function()
+    vim.defer_fn(function()
+      vim.cmd("LspRestart")
+    end, 2000)
+  end,
+})
+
+-- au("VimEnter", {
+--   group = augroup,
+--   desc = "Change CWD to project root",
+--   callback = function()
+--     local root = utils.find_project_root()
+--     if root then
+--       vim.cmd.cd(root)
+--     end
+--   end,
+-- })
+
 au({ "BufReadPre" }, {
   group = augroup,
   desc = "Detect large file",
   callback = function(ev)
     local ok, stats = pcall(vim.uv.fs_stat, ev.file)
-    if ok and stats and stats.size > 100000 then
+    if ok and stats and stats.size > 1000000 then
       vim.b[ev.buf].large_file = true
     end
   end,
