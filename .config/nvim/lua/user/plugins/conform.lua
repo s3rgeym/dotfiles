@@ -24,19 +24,21 @@ local formatters_by_ft = {
 
 return {
   "stevearc/conform.nvim",
-  keys = {
-    {
-      "<leader>cf",
-      function()
-        require("conform").format({ lsp_format = "fallback" })
-      end,
-      desc = "Code Format",
-    },
-  },
+  -- Если задан keys, то плагин загрузится лишь по сочетанию, те до ручного
+  -- вызова форматирования, оно не будет запускаться при сохранении
+  -- keys = {
+  --   {
+  --     "<leader>cf",
+  --     function()
+  --       require("conform").format({ lsp_format = "fallback" })
+  --     end,
+  --     desc = "Code Format",
+  --   },
+  -- },
   opts = {
     formatters_by_ft = formatters_by_ft,
     format_on_save = {
-      timeout_ms = 500,
+      timeout_ms = 5000,
       lsp_format = "fallback",
     },
     -- Настройки для форматтеров

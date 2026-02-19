@@ -35,6 +35,7 @@ o.smartindent = true -- Smart indent for C-like code
 o.textwidth = 80 -- Preferred line length
 --opt.joinspaces = false -- One space after sentence join
 o.formatoptions = "crqnj"
+o.keymodel = "startsel,stopsel" -- Shift + Arrows to select
 
 -- Invisible characters
 o.list = true
@@ -80,9 +81,8 @@ o.autoread = true -- Reload files changed externally
 o.confirm = true -- Confirm before losing changes
 
 -- Session and Shada
--- Global options are not saved in sessions to avoid plugin conflicts
-o.sessionoptions =
-  "buffers,curdir,folds,help,tabpages,winsize,terminal,localoptions"
+-- Options are not saved in sessions to avoid plugin conflicts
+o.sessionoptions = "buffers,curdir,tabpages,winsize"
 -- Shada files store cursor position, marks, and registers
 o.shada = "!,'100,<1000,s10,h"
 
@@ -103,31 +103,3 @@ o.imsearch = -1
 -- Keep shortcuts working when switching layouts
 o.langmap =
   [[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz]]
-
--- UI Appearance & Styling
-local hl = vim.api.nvim_set_hl
-
-local transparent_groups = {
-  "Normal",
-  "NormalNC",
-  "SignColumn",
-  "EndOfBuffer",
-  "LineNr",
-  "FoldColumn",
-}
-
-for _, group in ipairs(transparent_groups) do
-  hl(0, group, { bg = "none" })
-end
-
--- Italic
-hl(0, "Comment", { italic = true })
-hl(0, "@comment", { italic = true })
-
--- Bold
-hl(0, "Keyword", { bold = true })
-hl(0, "Statement", { bold = true })
-hl(0, "Function", { bold = true })
-
--- Bold Italic (Accents)
-hl(0, "Todo", { bold = true, italic = true })

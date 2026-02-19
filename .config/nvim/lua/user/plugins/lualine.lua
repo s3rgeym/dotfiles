@@ -17,8 +17,8 @@ return {
       options = {
         globalstatus = true,
         -- https://github.com/ryanoasis/powerline-extra-symbols/blob/master/img/fontforge.png
-        section_separators = { left = "\u{e0b8}", right = "\u{e0ba}" },
-        component_separators = { left = "\u{e0b9}", right = "\u{e0bb}" },
+        -- section_separators = { left = "\u{e0b8}", right = "\u{e0ba}" },
+        -- component_separators = { left = "\u{e0b9}", right = "\u{e0bb}" },
       },
       sections = {
         lualine_x = {
@@ -38,7 +38,7 @@ return {
           },
           {
             "filetype",
-            icon_only = true,
+            -- icon_only = true,
           },
           "lsp_status",
         },

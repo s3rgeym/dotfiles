@@ -1,3 +1,4 @@
+-- Это более минималистичная и быстрая версия which-key
 return {
   "nvim-mini/mini.clue",
   config = function()
