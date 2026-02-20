@@ -1,4 +1,3 @@
-local utils = require("user.utils")
 local aucmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
@@ -15,15 +14,15 @@ local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
 aucmd("VimEnter", {
   group = augroup,
-  desc = "Load session",
+  desc = "Session autoload",
   nested = true,
   callback = function()
-    local root = utils.find_root()
-    if root and vim.fn.argc() == 0 then
-      local session_path = root .. "/Session.vim"
-      if vim.fn.filereadable(session_path) == 1 then
-        vim.cmd("source " .. vim.fn.fnameescape(session_path))
-      end
+    if vim.fn.argc() ~= 0 then
+      return
+    end
+
+    if vim.fn.filereadable("Session.vim") == 1 then
+      vim.cmd("silent source Session.vim")
     end
   end,
 })
@@ -37,18 +36,6 @@ aucmd("VimEnter", {
 --     end, 2000)
 --   end,
 -- })
-
-aucmd("VimLeavePre", {
-  group = augroup,
-  desc = "Save session on exit",
-  callback = function()
-    local root = utils.find_root()
-    if root then
-      local session_path = root .. "/Session.vim"
-      vim.cmd("mksession! " .. vim.fn.fnameescape(session_path))
-    end
-  end,
-})
 
 aucmd({ "BufReadPre" }, {
   group = augroup,
