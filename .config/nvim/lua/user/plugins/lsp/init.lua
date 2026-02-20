@@ -10,6 +10,6 @@ return {
     "folke/which-key.nvim",
   },
   config = function()
-    require("user.lsp.config").setup()
+    require("user.plugins.lsp.config").setup()
   end,
 }

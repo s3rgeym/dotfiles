@@ -2,7 +2,7 @@ local M = {}
 
 M.on_attach = function(client, bufnr)
   -- Подключаем маппинги
-  require("user.lsp.mappings").setup(client, bufnr)
+  require("user.plugins.lsp.mappings").setup(client, bufnr)
 
   -- Включаем Inlay Hints по умолчанию
   if client.supports_method("textDocument/inlayHint") then

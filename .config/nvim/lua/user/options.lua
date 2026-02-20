@@ -82,7 +82,7 @@ o.modeline = false
 
 -- Session and Shada
 -- Options are not saved in sessions to avoid plugin conflicts
-o.sessionoptions = "blank,curdir,folds,help,tabpages,winsize"
+o.sessionoptions = "buffers,curdir,tabpages,winsize,help,folds,localoptions"
 -- Shada files store cursor position, marks, and registers
 o.shada = "!,'100,<1000,s10,h"
 

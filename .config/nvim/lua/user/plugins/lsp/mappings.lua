@@ -8,7 +8,7 @@ M.setup = function(client, bufnr)
     -- Навигация
     { "gd", fzf.lsp_definitions, desc = "Go to Definition", buffer = bufnr },
     { "gD", fzf.lsp_declarations, desc = "Go to Declaration", buffer = bufnr },
-    { "K", vim.lsp.buf.hover, desc = "Show Documentation", buffer = bufnr },
+    { "K",  vim.lsp.buf.hover, desc = "Show Documentation", buffer = bufnr },
     {
       "<C-k>",
       vim.lsp.buf.signature_help,
@@ -24,7 +24,7 @@ M.setup = function(client, bufnr)
       buffer = bufnr,
     },
     { "grt", fzf.lsp_typedefs, desc = "Type Definition", buffer = bufnr },
-    { "gF", fzf.lsp_finder, desc = "LSP Finder", buffer = bufnr },
+    { "gF",  fzf.lsp_finder, desc = "LSP Finder", buffer = bufnr },
     {
       "gO",
       fzf.lsp_document_symbols,
