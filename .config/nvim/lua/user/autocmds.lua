@@ -23,6 +23,20 @@ aucmd("VimEnter", {
 
     if vim.fn.filereadable("Session.vim") == 1 then
       vim.cmd("silent source Session.vim")
+      -- Без schedule ничего не отобразится
+      vim.schedule(function()
+        vim.notify("Session Restored", vim.log.levels.INFO)
+      end)
+    end
+  end,
+})
+
+aucmd("VimLeavePre", {
+  group = augroup,
+  desc = "Session autosave",
+  callback = function()
+    if vim.v.this_session ~= "" then
+      vim.cmd("mksession! " .. vim.fn.fnameescape(vim.v.this_session))
     end
   end,
 })
