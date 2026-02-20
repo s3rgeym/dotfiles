@@ -13,23 +13,5 @@ return {
       end,
       desc = "Buffer Local Keymaps (which-key)",
     },
-    {
-      "<leader>k",
-      function()
-        require("which-key").show()
-      end,
-      desc = "Show All Keymaps (which-key)",
-    },
-    {
-      "<leader>K",
-      function()
-        local mode = vim.fn.input("Enter mode: ")
-        if mode ~= "" then
-          require("which-key").show({ mode = mode })
-        end
-      end,
-      desc = "Show Mode Keymaps (which-key)",
-    },
   },
 }
-
