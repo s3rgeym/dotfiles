@@ -11,8 +11,8 @@ return {
   keys = {
     { "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
     { "<leader>:", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-    { "<leader>R", "<cmd>FzfLua resume<cr>", desc = "Resume Last Search" },
     { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Files" },
     { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Git Branches" },
     { "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "Git Commits" },
     { "<leader>gf", "<cmd>FzfLua git_files<cr>", desc = "Git Files" },
@@ -23,8 +23,8 @@ return {
     { "<leader>lo", "<cmd>FzfLua loclist<cr>", desc = "Loclist" },
     { "<leader>m", "<cmd>FzfLua marks<cr>", desc = "Marks" },
     { "<leader>o", "<cmd>FzfLua oldfiles<cr>", desc = "Oldfiles" },
-    { "<leader>p", "<cmd>FzfLua files<cr>", desc = "Files" },
     { "<leader>qf", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix" },
+    { "<leader>rs", "<cmd>FzfLua resume<cr>", desc = "Resume Search" },
   },
   config = function()
     -- calling setup is optional, most of the defaults are fine
