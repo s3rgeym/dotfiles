@@ -127,7 +127,7 @@ M.setup_lsp_keymaps = function(client, bufnr)
   end
 end
 
-M.keymaps = {
+M.mappings = {
   {
     "<leader>?",
     function()
@@ -145,7 +145,11 @@ M.keymaps = {
   { "<leader>wc", "<cmd>close<cr>", desc = "Window Close" },
   { "<leader>wo", "<cmd>only<cr>", desc = "Close Other Windows" },
   { "<Esc>", "<cmd>noh<cr><esc>", desc = "Clear hlsearch" },
-  { "<leader>cd", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", desc = "Change Directory" },
+  {
+    "<leader>cd",
+    "<cmd>lcd %:p:h<cr><cmd>pwd<cr>",
+    desc = "Change Directory",
+  },
 
   -- Buffers
   {
@@ -183,7 +187,12 @@ M.keymaps = {
 
   -- Movement (Normal)
   { "<Up>", "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Visual Up" },
-  { "<Down>", "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Visual Down" },
+  {
+    "<Down>",
+    "v:count == 0 ? 'gj' : 'j'",
+    expr = true,
+    desc = "Visual Down",
+  },
   { "<A-Up>", ":m .-2<CR>==", desc = "Move Line Up" },
   { "<A-Down>", ":m .+1<CR>==", desc = "Move Line Down" },
 

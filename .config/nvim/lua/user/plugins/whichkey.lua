@@ -3,6 +3,6 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "modern",
-    spec = require("user.keymaps").keymaps,
+    spec = require("user.keymaps").mappings,
   },
 }
