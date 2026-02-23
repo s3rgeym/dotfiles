@@ -24,9 +24,9 @@ aucmd("VimEnter", {
     if vim.fn.filereadable("Session.vim") == 1 then
       vim.cmd("silent source Session.vim")
       -- Без schedule ничего не отобразится
-      vim.schedule(function()
-        vim.notify("Session Restored", vim.log.levels.INFO)
-      end)
+      -- vim.schedule(function()
+      --   vim.notify("Session Restored", vim.log.levels.INFO)
+      -- end)
     end
   end,
 })
@@ -80,7 +80,11 @@ aucmd({ "BufEnter" }, {
   group = augroup,
   desc = "Clear formatoptions",
   callback = function()
-    vim.opt_local.formatoptions:remove({ "c", "r", "o", "t" })
+    -- По дефолту что-то типа ljcqrt
+    -- Отключаем форматирование при вставке
+    --vim.opt_local.formatoptions:remove({ "t" })
+    -- Убери c, если будет мешать
+    vim.opt_local.formatoptions = { c = true, j = true, q = true }
   end,
 })
 
