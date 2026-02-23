@@ -3,15 +3,6 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "modern",
-    spec = require("user.keymaps"),
-  },
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
+    spec = require("user.keymaps").keymaps,
   },
 }
