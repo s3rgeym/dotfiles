@@ -5,33 +5,10 @@
 
 return {
   "ibhagwan/fzf-lua",
-  -- optional for icon support
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    -- "folke/trouble.nvim",
-  },
-  keys = {
-    -- Еще иногда C-f, C-b, C-^, C-o переопределяют, но я ими пользуюсь
-    { "<c-g>", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
-    { "<c-p>", "<cmd>FzfLua files<cr>", desc = "Files" },
-    { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
-    { "<leader>fb", "<cmd>FzfLua builtin<cr>", desc = "Builtin" },
-    { "<leader>fc", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-    { "<leader>fh", "<cmd>FzfLua history<cr>", desc = "History" },
-    { "<leader>fj", "<cmd>FzfLua jumps<cr>", desc = "Jumps" },
-    { "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
-    { "<leader>fl", "<cmd>FzfLua loclist<cr>", desc = "Loclist" },
-    { "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Marks" },
-    { "<leader>fo", "<cmd>FzfLua oldfiles<cr>", desc = "Oldfiles" },
-    { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix" },
-    { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume Search" },
-    { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Git Branches" },
-    { "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "Git Commits" },
-    { "<leader>gf", "<cmd>FzfLua git_files<cr>", desc = "Git Files" },
-    { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Git Status" },
   },
   config = function()
-    -- calling setup is optional, most of the defaults are fine
     local fzf = require("fzf-lua")
 
     fzf.setup({
@@ -46,10 +23,5 @@ return {
 
     -- Без ... будет показывать ошибку
     fzf.register_ui_select()
-
-    -- Интеграция с trouble
-    -- local config = require("fzf-lua.config")
-    -- local actions = require("trouble.sources.fzf").actions
-    -- config.defaults.actions.files["ctrl-t"] = actions.open
   end,
 }
