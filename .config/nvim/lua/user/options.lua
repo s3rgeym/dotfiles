@@ -32,13 +32,14 @@ o.softtabstop = 2 -- Insert/delete spaces with Tab
 o.smarttab = true -- Tab respects shiftwidth at line start
 o.autoindent = true -- Copy indent from previous line
 o.smartindent = true -- Smart indent for C-like code
-o.textwidth = 80 -- Preferred line length
 --opt.joinspaces = false -- One space after sentence join
+o.textwidth = 80 -- Preferred line length
 -- Не имеет эффекта
 --o.formatoptions:remove("c")
 --o.formatoptions:remove("r")
 --o.formatoptions:remove("o")
-o.keymodel = "startsel,stopsel" -- Shift + Arrows to select
+-- В which-key всплывающее окно вызывает
+-- o.keymodel = "startsel,stopsel" -- Shift + Arrows to select
 
 -- Invisible characters
 o.list = true

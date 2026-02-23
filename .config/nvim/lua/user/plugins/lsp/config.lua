@@ -3,6 +3,9 @@ local M = {}
 M.setup = function()
   local handlers = require("user.plugins.lsp.handlers")
 
+  -- Конфиги самих языковых серверов в ~/.config/nvim/after/lsp. Они рекуривно
+  -- объединяются со встроенными.
+  -- Полностью переопределить конфиги можно в ~/.config/nvim/lsp.
   require("mason-lspconfig").setup({
     ensure_installed = {
       "bashls",
@@ -40,6 +43,7 @@ M.setup = function()
   vim.lsp.config("jsonls", {
     settings = {
       json = {
+        -- Дополнение в json через схемы
         schemas = require("schemastore").json.schemas(),
         validate = { enable = true },
       },
@@ -47,8 +51,12 @@ M.setup = function()
   })
 
   -- Включаем сервера
+  -- Включать нужно только сервера, установленные, минуя Mason
   vim.lsp.enable({
+    -- Идет вместе с rust
     "rust_analyzer",
+    -- Установлен через pnpm, так как через Mason при установке через pip
+    -- ставится nodejs-wheel — prebuilt Node.js
     "basedpyright",
   })
 

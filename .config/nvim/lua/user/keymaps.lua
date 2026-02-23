@@ -1,10 +1,18 @@
 return {
   -- General
-  { "<leader>a", "ggVG", desc = "Select all" },
+  { "<leader>a", "ggVG", desc = "Select [A]ll" },
+  -- + - primary регистр
+  { "<leader>y", "<cmd>%y+<cr>", desc = "Yank All" },
+  -- _ - blackhole, регистр типа /dev/null.
+  { "<leader>p", '<cmd>%delete _<cr>"+P', desc = "Paste All (Replace)" },
+  { "<leader>wc", "<cmd>close<cr>", desc = "Window Close" },
+  { "<leader>wo", "<cmd>only<cr>", desc = "Close Other Windows" },
   { "<Esc>", "<cmd>noh<cr><esc>", desc = "Clear hlsearch" },
   { "<leader>cd", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", desc = "Change Directory" },
 
   -- Buffers
+  -- {
+  --   { "<leader>b", group = "Buffers" },
   {
     "<leader>d",
     --"<cmd>execute len(getbufinfo({'buflisted':1}))>1 ? 'bp | bd #' : 'bd'<cr>",
@@ -16,8 +24,10 @@ return {
     "<cmd>%bd | e # | bd #<cr>",
     desc = "Delete Other Buffers",
   },
+  -- },
   { "<Tab>", vim.cmd.bnext, desc = "Next Buffer" },
   { "<S-Tab>", vim.cmd.bprev, desc = "Previous Buffer" },
+  -- Может некорректно работать в некоторых терминалах
   { "<BS>", "<C-^>", desc = "Last Buffer" },
 
   -- Tabs & Windows Navigation
@@ -54,18 +64,19 @@ return {
   },
 
   -- Indentation (Normal)
-  { "<", "<<_", desc = "Decrease Indent" },
-  { ">", ">>_", desc = "Increase Indent" },
+  -- { "<", "<<_", desc = "Decrease Indent" },
+  -- { ">", ">>_", desc = "Increase Indent" },
 
   -- Folding & System
-  {
-    "<CR>",
-    function()
-      return vim.fn.foldlevel(".") > 0 and "za" or "<CR>"
-    end,
-    expr = true,
-    desc = "Toggle Fold",
-  },
+  --Потенциально бажный
+  -- {
+  --   "<CR>",
+  --   function()
+  --     return vim.fn.foldlevel(".") > 0 and "za" or "<CR>"
+  --   end,
+  --   expr = true,
+  --   desc = "Toggle Fold",
+  -- },
   { "<leader>e", "<cmd>edit $MYVIMRC<cr>", desc = "Edit Vim Config" },
   { "<leader>ss", "<cmd>mksession!<cr>", desc = "Save Session" },
   { "<leader>sl", "<cmd>source Session.vim<cr>", desc = "Session Load" },
