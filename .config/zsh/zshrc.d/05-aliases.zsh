@@ -3,7 +3,7 @@
 # загрузки
 
 # Быстрый выход из терминала.
-alias q='exit'
+alias :q='exit'
 # Короткий вызов sudo.
 alias s='sudo'
 alias se='sudo -e'
@@ -23,4 +23,4 @@ alias chromium='flatpak run io.github.ungoogled_software.ungoogled_chromium'
 alias zj=zellij
 alias zed=zeditor
 
-alias flatinst="fltapak install --system"
+alias flatinst="flatpak install --system"

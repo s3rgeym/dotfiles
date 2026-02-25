@@ -1,4 +1,6 @@
 ---@diagnostic disable: missing-parameter
+local autocmd = vim.api.nvim_create_autocmd
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -7,6 +9,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "saghen/blink.cmp",
     "b0o/schemastore.nvim",
+    -- Для установки сочетаний
+    "folke/which-key.nvim",
   },
   config = function()
     -- Конфиги самих языковых серверов в ~/.config/nvim/after/lsp. Они рекуривно
@@ -79,15 +83,15 @@ return {
     })
 
     local lsp_group =
-      vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
+      vim.api.nvim_create_augroup("lsp_config", { clear = true })
 
-    vim.api.nvim_create_autocmd("LspAttach", {
+    autocmd("LspAttach", {
       group = lsp_group,
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        require("user.keymaps").setup_lsp_keymaps(client, bufnr)
+        require("core.mappings").lsp_mappings(client, bufnr)
 
         -- Включаем Inlay Hints по умолчанию
         if client.supports_method("textDocument/inlayHint") then
@@ -102,12 +106,12 @@ return {
           )
           vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
 
-          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+          autocmd({ "CursorHold", "CursorHoldI" }, {
             group = group,
             buffer = bufnr,
             callback = vim.lsp.buf.document_highlight,
           })
-          vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+          autocmd({ "CursorMoved", "CursorMovedI" }, {
             group = group,
             buffer = bufnr,
             callback = vim.lsp.buf.clear_references,

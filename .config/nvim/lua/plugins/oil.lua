@@ -2,8 +2,9 @@
 -- Можно так же попобовать альтернативу в виде mini-files
 return {
   "stevearc/oil.nvim",
-  keys = {
-    { "-", "<CMD>Oil<CR>", desc = "oil: Open parent directory" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "benomahony/oil-git.nvim",
   },
   opts = {
     default_file_explorer = true,
@@ -16,9 +17,8 @@ return {
     view_options = {
       show_hidden = true,
     },
-    -- Пропускаем подтверждение для переименования файлов
     skip_confirm_for_simple_edits = true,
+    prompt_save_on_select_new_entry = false,
   },
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
 }
