@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 local aucmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
@@ -83,8 +84,7 @@ aucmd({ "BufEnter" }, {
     -- По дефолту что-то типа ljcqrt
     -- Отключаем форматирование при вставке
     --vim.opt_local.formatoptions:remove({ "t" })
-    -- Убери c, если будет мешать
-    vim.opt_local.formatoptions = { c = true, j = true, q = true }
+    vim.opt_local.formatoptions = { j = true, q = true }
   end,
 })
 
@@ -123,6 +123,7 @@ aucmd("BufWritePre", {
   group = augroup,
   desc = "Create missing directories",
   callback = function(event)
+    -- Буферы с именами типа oil://
     if event.match:match("^%w+://") then
       return
     end

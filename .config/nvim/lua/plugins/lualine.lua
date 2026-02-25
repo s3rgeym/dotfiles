@@ -21,25 +21,45 @@ return {
         -- component_separators = { left = "\u{e0b9}", right = "\u{e0bb}" },
       },
       sections = {
+        lualine_a = {
+          {
+            "mode",
+            fmt = function(v)
+              return v:sub(1, 3)
+            end,
+          },
+        },
+        lualine_b = {
+          "branch",
+          "diff",
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            --sections = { "errors" },
+          },
+        },
+        -- Имя файла есть вверху
+        lualine_c = {},
+
         lualine_x = {
           keymap,
           -- Скрываем кодировку и окончания, если они дефолт = UTF-8/LF
-          {
-            "encoding",
-            cond = function()
-              return vim.bo.fileencoding ~= "utf-8"
-            end,
-          },
-          {
-            "fileformat",
-            cond = function()
-              return vim.bo.fileformat ~= "unix"
-            end,
-          },
-          {
-            "filetype",
-            -- icon_only = true,
-          },
+          -- {
+          --   "encoding",
+          --   cond = function()
+          --     return vim.bo.fileencoding ~= "utf-8"
+          --   end,
+          -- },
+          -- {
+          --   "fileformat",
+          --   cond = function()
+          --     return vim.bo.fileformat ~= "unix"
+          --   end,
+          -- },
+          -- {
+          --   "filetype",
+          --   -- icon_only = true,
+          -- },
           "lsp_status",
         },
 
