@@ -3,6 +3,6 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "modern",
-    spec = require("core.mappings").mappings,
+    spec = require("mappings").mappings,
   },
 }

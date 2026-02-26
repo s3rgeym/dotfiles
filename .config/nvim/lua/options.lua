@@ -1,4 +1,15 @@
+-- Эти настройки будут применены до загрузки init.lua
+local g = vim.g
 local o = vim.opt
+
+-- Клавишу leader надо объявить до загрузки плагинов
+g.mapleader = " "
+g.maplocalleader = g.mapleader
+
+if vim.fn.has("termguicolors") == 1 then
+  -- Некоторые плагины могут неправильно работать, если не установить это значение
+  vim.opt.termguicolors = true
+end
 
 -- Interface
 o.number = true -- Show absolute line numbers
@@ -7,7 +18,6 @@ o.signcolumn = "yes" -- Always show sign column
 o.laststatus = 3 -- Always display the status line
 o.showmode = false -- Do not show current mode
 o.shortmess:append("I") -- Skip startup intro
-o.colorcolumn = "+1" -- Column right after textwidth
 o.termguicolors = true -- Enable 24-bit colors
 o.fillchars:append({ eob = " " }) -- Remove "~" at the end of the file
 o.guicursor = "n-c:block,i-ci-ve:ver25,v-r-cr:hor20,o:hor50" -- Set cursor shape for different modes
