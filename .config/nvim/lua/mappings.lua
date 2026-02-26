@@ -270,6 +270,7 @@ M.mappings = {
 
   -- Fzf-lua
   -- Еще иногда C-f, C-b, C-^, C-o переопределяют, но я ими пользуюсь
+  -- Ctrl-G печатает имя текущего файла
   { "<C-g>", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
   { "<C-p>", "<cmd>FzfLua files<cr>", desc = "Files" },
   -- <C-\\> неудобно
