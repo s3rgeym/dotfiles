@@ -24,9 +24,9 @@ return {
         lualine_a = {
           {
             "mode",
-            fmt = function(v)
-              return v:sub(1, 3)
-            end,
+            -- fmt = function(v)
+            --   return v:sub(1, 3)
+            -- end,
           },
         },
         lualine_b = {

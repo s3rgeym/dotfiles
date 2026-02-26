@@ -83,7 +83,7 @@ return {
     })
 
     local lsp_group =
-      vim.api.nvim_create_augroup("lsp_config", { clear = true })
+      vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
 
     autocmd("LspAttach", {
       group = lsp_group,
@@ -91,7 +91,7 @@ return {
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        require("core.mappings").lsp_mappings(client, bufnr)
+        require("mappings").lsp_mappings(client, bufnr)
 
         -- Включаем Inlay Hints по умолчанию
         if client.supports_method("textDocument/inlayHint") then

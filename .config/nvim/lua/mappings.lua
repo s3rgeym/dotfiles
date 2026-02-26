@@ -120,7 +120,7 @@ M.lsp_mappings = function(client, bufnr)
   if client.supports_method("textDocument/rename") then
     wk.add({
       {
-        "<leader>r",
+        "<leader>rn",
         vim.lsp.buf.rename,
         desc = "Rename Symbol",
         buffer = bufnr,

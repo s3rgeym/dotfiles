@@ -1,9 +1,9 @@
 ---@diagnostic disable: undefined-field
-local aucmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
+local create_autocmd = vim.api.nvim_create_autocmd
+local group = vim.api.nvim_create_augroup("User", { clear = true })
 
--- aucmd("VimEnter", {
---   group = augroup,
+-- create_autocmd("VimEnter", {
+--   group = aucmd_group,
 --   desc = "Change CWD to project root",
 --   callback = function()
 --     local root = utils.find_project_root()
@@ -13,8 +13,8 @@ local augroup = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 --   end,
 -- })
 
-aucmd("VimEnter", {
-  group = augroup,
+create_autocmd("VimEnter", {
+  group = group,
   desc = "Session autoload",
   nested = true,
   callback = function()
@@ -32,8 +32,8 @@ aucmd("VimEnter", {
   end,
 })
 
-aucmd("VimLeavePre", {
-  group = augroup,
+create_autocmd("VimLeavePre", {
+  group = group,
   desc = "Session autosave",
   callback = function()
     if vim.v.this_session ~= "" then
@@ -42,8 +42,8 @@ aucmd("VimLeavePre", {
   end,
 })
 
--- aucmd("SessionLoadPost", {
---   group = augroup,
+-- create_autocmd("SessionLoadPost", {
+--   group = aucmd_group,
 --   desc = "Restart LSP after session load",
 --   callback = function()
 --     vim.defer_fn(function()
@@ -52,8 +52,21 @@ aucmd("VimLeavePre", {
 --   end,
 -- })
 
-aucmd({ "BufReadPre" }, {
-  group = augroup,
+create_autocmd({ "BufWinEnter", "BufReadPost", "FileType" }, {
+  group = group,
+  desc = "Set colorcolumn based on textwidth",
+  callback = function()
+    local tw = vim.bo.textwidth
+    if tw > 0 then
+      vim.wo.colorcolumn = tostring(tw + 1)
+    else
+      vim.wo.colorcolumn = ""
+    end
+  end,
+})
+
+create_autocmd({ "BufReadPre" }, {
+  group = group,
   desc = "Detect large files",
   callback = function(ev)
     local ok, stats = pcall(vim.uv.fs_stat, ev.file)
@@ -63,7 +76,7 @@ aucmd({ "BufReadPre" }, {
   end,
 })
 
-aucmd({ "BufRead", "BufNewFile" }, {
+create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.json",
   desc = "Enable json comments",
   callback = function()
@@ -71,14 +84,14 @@ aucmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
-aucmd({ "FocusGained", "BufEnter" }, {
-  group = augroup,
+create_autocmd({ "FocusGained", "BufEnter" }, {
+  group = group,
   desc = "Sync file changes",
   command = "checktime",
 })
 
-aucmd({ "BufEnter" }, {
-  group = augroup,
+create_autocmd({ "BufEnter" }, {
+  group = group,
   desc = "Clear formatoptions",
   callback = function()
     -- По дефолту что-то типа ljcqrt
@@ -88,8 +101,8 @@ aucmd({ "BufEnter" }, {
   end,
 })
 
-aucmd("BufReadPost", {
-  group = augroup,
+create_autocmd("BufReadPost", {
+  group = group,
   desc = "Restore cursor position",
   callback = function(ev)
     local row, col = unpack(vim.api.nvim_buf_get_mark(ev.buf, '"'))
@@ -99,8 +112,8 @@ aucmd("BufReadPost", {
   end,
 })
 
-aucmd({ "BufReadPost" }, {
-  group = augroup,
+create_autocmd({ "BufReadPost" }, {
+  group = group,
   desc = "Optimize for large files",
   callback = function(ev)
     if not vim.b[ev.buf].large_file then
@@ -112,15 +125,15 @@ aucmd({ "BufReadPost" }, {
   end,
 })
 
--- aucmd("BufReadCmd", {
---   group = augroup,
+-- create_autocmd("BufReadCmd", {
+--   group = aucmd_group,
 --   pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" },
 --   desc = "Open in external viewer",
 --   command = "exe 'silent !display <afile> &' | b# | bw! #",
 -- })
 
-aucmd("BufWritePre", {
-  group = augroup,
+create_autocmd("BufWritePre", {
+  group = group,
   desc = "Create missing directories",
   callback = function(event)
     -- Буферы с именами типа oil://
@@ -132,16 +145,16 @@ aucmd("BufWritePre", {
   end,
 })
 
-aucmd("TextYankPost", {
-  group = augroup,
+create_autocmd("TextYankPost", {
+  group = group,
   desc = "Highlight yanked text",
   callback = function()
     vim.highlight.on_yank({ timeout = 200 })
   end,
 })
 
-aucmd("FileType", {
-  group = augroup,
+create_autocmd("FileType", {
+  group = group,
   desc = "Close with 'q'",
   pattern = { "help", "checkhealth", "qf", "man", "lspinfo" },
   callback = function(event)
@@ -155,16 +168,22 @@ aucmd("FileType", {
   end,
 })
 
-aucmd("VimResized", {
-  group = augroup,
+create_autocmd("VimResized", {
+  group = group,
   desc = "Equalize window splits",
   callback = function()
     vim.cmd("tabdo wincmd =")
   end,
 })
 
-aucmd("TermOpen", {
-  group = augroup,
+create_autocmd("TermOpen", {
+  group = group,
   desc = "Terminal insert mode",
   command = "startinsert",
 })
+
+vim.api.nvim_create_user_command(
+  "SortJSON",
+  "%!jq -S .",
+  { desc = "Sort JSON keys alphabetically" }
+)
