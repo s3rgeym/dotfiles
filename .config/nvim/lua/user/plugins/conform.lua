@@ -35,20 +35,23 @@ return {
   --     desc = "Code Format",
   --   },
   -- },
-  opts = {
-    formatters_by_ft = formatters_by_ft,
-    format_on_save = {
-      timeout_ms = 3000,
-      lsp_format = "fallback",
-    },
-    -- Настройки для форматтеров
-    formatters = {
-      shfmt = {
-        prepend_args = { "-i", "2", "-ci", "-s" },
+  config = function()
+    require("conform").setup({
+      formatters_by_ft = formatters_by_ft,
+      format_on_save = {
+        timeout_ms = 3000,
+        lsp_format = "fallback",
       },
-      stylua = {
-        -- prepend_args = { "--config", vim.fn.expand("~/.config/stylua/stylua.toml") },
+      -- Настройки для форматтеров
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2", "-ci", "-s" },
+        },
+        stylua = {
+          -- prepend_args = { "--config", vim.fn.expand("~/.config/stylua/stylua.toml") },
+        },
       },
-    },
-  },
+    })
+    require("user.keymaps").setup("conform")
+  end,
 }

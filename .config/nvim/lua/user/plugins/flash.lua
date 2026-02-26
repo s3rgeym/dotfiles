@@ -2,6 +2,7 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
+  keys = require("user.keymaps").flash,
   ---@type Flash.Config
   opts = {
     modes = {

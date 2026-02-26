@@ -6,6 +6,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "benomahony/oil-git.nvim",
   },
+  keys = require("user.keymaps").oil,
   opts = {
     default_file_explorer = true,
     columns = {

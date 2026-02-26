@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-parameter
-local autocmd = vim.api.nvim_create_autocmd
+local create_autocmd = vim.api.nvim_create_autocmd
 
 return {
   "neovim/nvim-lspconfig",
@@ -85,13 +85,13 @@ return {
     local lsp_group =
       vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
 
-    autocmd("LspAttach", {
+    create_autocmd("LspAttach", {
       group = lsp_group,
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        require("mappings").lsp_mappings(client, bufnr)
+        require("user.keymaps").setup("lsp", bufnr)
 
         -- Включаем Inlay Hints по умолчанию
         if client.supports_method("textDocument/inlayHint") then
@@ -100,19 +100,24 @@ return {
 
         -- Подсветка упоминаний символа под курсором
         if client.supports_method("textDocument/documentHighlight") then
-          local group = vim.api.nvim_create_augroup(
+          local highlight_group = vim.api.nvim_create_augroup(
             "lsp_document_highlight",
             { clear = false }
           )
-          vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
 
-          autocmd({ "CursorHold", "CursorHoldI" }, {
-            group = group,
+          -- Очищаем старые команды только для ЭТОГО буфера перед созданием новых
+          vim.api.nvim_clear_autocmds({
+            group = highlight_group,
+            buffer = bufnr,
+          })
+
+          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            group = highlight_group,
             buffer = bufnr,
             callback = vim.lsp.buf.document_highlight,
           })
-          autocmd({ "CursorMoved", "CursorMovedI" }, {
-            group = group,
+          vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+            group = highlight_group,
             buffer = bufnr,
             callback = vim.lsp.buf.clear_references,
           })
