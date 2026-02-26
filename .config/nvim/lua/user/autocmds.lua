@@ -181,9 +181,3 @@ create_autocmd("TermOpen", {
   desc = "Terminal insert mode",
   command = "startinsert",
 })
-
-vim.api.nvim_create_user_command(
-  "SortJSON",
-  "%!jq -S .",
-  { desc = "Sort JSON keys alphabetically" }
-)

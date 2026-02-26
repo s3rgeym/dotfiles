@@ -10,4 +10,5 @@ return {
   --   })
   -- end,
   opts = {},
+  keys = require("user.keymaps").grug_far,
 }

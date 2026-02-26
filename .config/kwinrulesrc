@@ -4,6 +4,7 @@ rules=b5f1a2b9-d66e-476d-add4-365abf651e5a
 
 [b5f1a2b9-d66e-476d-add4-365abf651e5a]
 Description=Chrome PiP
+Enabled=false
 above=true
 aboverule=2
 title=Picture in picture
