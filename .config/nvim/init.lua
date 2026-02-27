@@ -1,6 +1,7 @@
 -- Настройки лучше загрузить до плагинов
 require("user.options")
 require("user.autocmds")
+require("user.keymaps").set_keymaps("general")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -17,6 +18,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("user.plugins")
-require("user.keymaps").setup("general")
+require("lazy").setup({
+  spec = "user.plugins",
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
+})
 -- Файлы ./plugin/*.lua и ./after/plugin/*.lua загрузятся автоматически

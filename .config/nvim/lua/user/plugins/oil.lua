@@ -5,8 +5,9 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "benomahony/oil-git.nvim",
+    { "JezerM/oil-lsp-diagnostics.nvim", opts = {} },
   },
-  keys = require("user.keymaps").oil,
+  keys = require("user.keymaps").get_keymaps("oil"),
   opts = {
     default_file_explorer = true,
     columns = {
@@ -21,5 +22,6 @@ return {
     skip_confirm_for_simple_edits = true,
     prompt_save_on_select_new_entry = false,
   },
+  -- Отключаем ленивую загрузку. Это нужно для замены netrw.
   lazy = false,
 }
