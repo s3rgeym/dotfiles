@@ -1,13 +1,14 @@
 -- Я решил отказаться от использования which-key для объявления сочетаний
--- и пользоваться по возможности возможностями самого lazy
+-- и пользоваться по возможности keys в lazy
 local M = {}
 
+M.get_keymaps = function(group_name)
+  return M[group_name] or {}
+end
+
 -- TODO: заменить чем-то встроенным из lazy
-M.setup = function(group_name, bufnr)
-  local keys = M[group_name]
-  if not keys then
-    return
-  end
+M.set_keymaps = function(group_name, bufnr)
+  local keys = M.get_keymaps(group_name)
   local default_opts = { silent = true, noremap = true, buffer = bufnr }
   for _, map in ipairs(keys) do
     local lhs = map[1]
@@ -53,12 +54,12 @@ M.general = {
   -- Buffers
   --{ "<leader>b", group = "Buffers" },
   {
-    "<leader>x",
+    "<leader>bd",
     "<cmd>bp | bd #<cr>",
     desc = "Delete Buffer",
   },
   {
-    "<leader>X",
+    "<leader>bD",
     "<cmd>%bd | e # | bd #<cr>",
     desc = "Delete Other Buffers",
   },
@@ -80,8 +81,8 @@ M.general = {
   { "<A-Right>", "<cmd>vertical resize +2<cr>", desc = "Increase Width" },
 
   -- Split Windows
-  { "<leader>sh", vim.cmd.split, desc = "Split Horizontal" },
-  { "<leader>sv", vim.cmd.vsplit, desc = "Split Vertical" },
+  { "<leader>h", vim.cmd.split, desc = "Split Horizontal" },
+  { "<leader>v", vim.cmd.vsplit, desc = "Split Vertical" },
 
   -- Movement
   { "<Up>", "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Visual Up" },
@@ -178,22 +179,22 @@ M.lsp = {
     desc = "Document Symbols",
   },
   {
-    "<leader>rn",
+    "grn",
     vim.lsp.buf.rename,
     desc = "Rename Symbol",
   },
   {
-    "<leader>ca",
+    "gra",
     "<cmd>FzfLua lsp_code_actions<cr>",
     desc = "Code Actions",
   },
   {
-    "<leader>lw",
+    "<leader>ls",
     "<cmd>FzfLua lsp_workspace_symbols<cr>",
     desc = "Workspace Symbols",
   },
   {
-    "<leader>lW",
+    "<leader>lS",
     "<cmd>FzfLua lsp_live_workspace_symbols<cr>",
     desc = "Live Workspace Symbols",
   },
@@ -215,7 +216,7 @@ M.fzf_lua = {
   { "<C-g>", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
   { "<C-p>", "<cmd>FzfLua files<cr>", desc = "Files" },
   -- <C-\\> неудобно
-  { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+  { "<C-^>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
   -- { "<leader>f", group = "Fzf" },
   {
     "<C-k>",

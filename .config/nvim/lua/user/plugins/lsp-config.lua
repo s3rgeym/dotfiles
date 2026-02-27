@@ -91,7 +91,7 @@ return {
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        require("user.keymaps").setup("lsp", bufnr)
+        require("user.keymaps").set_keymaps("lsp", bufnr)
 
         -- Включаем Inlay Hints по умолчанию
         if client.supports_method("textDocument/inlayHint") then

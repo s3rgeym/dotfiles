@@ -1,7 +1,7 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  keys = require("user.keymaps").which_key,
+  keys = require("user.keymaps").get_keymaps("which_key"),
   opts = {
     preset = "modern",
     spec = {

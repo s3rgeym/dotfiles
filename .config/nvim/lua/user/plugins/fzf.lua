@@ -24,6 +24,6 @@ return {
     -- Без ... будет показывать ошибку
     fzf.register_ui_select()
 
-    require("user.keymaps").setup("fzf_lua")
+    require("user.keymaps").set_keymaps("fzf_lua")
   end,
 }
