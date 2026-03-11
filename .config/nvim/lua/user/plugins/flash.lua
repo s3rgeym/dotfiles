@@ -1,8 +1,9 @@
 -- Я им не пользуюсь. Его можно выкинуть
 return {
   "folke/flash.nvim",
+  enabled = false,
   event = "VeryLazy",
-  keys = require("user.keymaps").get_keymaps("flash"),
+  keys = require("user.keymaps").get("flash"),
   ---@type Flash.Config
   opts = {
     modes = {

@@ -17,8 +17,10 @@ return {
       options = {
         globalstatus = true,
         -- https://github.com/ryanoasis/powerline-extra-symbols/blob/master/img/fontforge.png
-        -- section_separators = { left = "\u{e0b8}", right = "\u{e0ba}" },
-        -- component_separators = { left = "\u{e0b9}", right = "\u{e0bb}" },
+        -- section_separators = { left = "\u{e0bc}", right = "\u{e0be}" },
+        -- component_separators = { left = "\u{e0bd}", right = "\u{e0bf}" },
+        section_separators = { left = "", rigth = "" },
+        component_separators = { left = "│", right = "│" },
       },
       sections = {
         lualine_a = {
@@ -39,28 +41,32 @@ return {
           },
         },
         -- Имя файла есть вверху
-        lualine_c = {},
+        lualine_c = {
+          {
+            "filename",
+            path = 1,
+          },
+        },
 
         lualine_x = {
           keymap,
-          -- Скрываем кодировку и окончания, если они дефолт = UTF-8/LF
-          -- {
-          --   "encoding",
-          --   cond = function()
-          --     return vim.bo.fileencoding ~= "utf-8"
-          --   end,
-          -- },
-          -- {
-          --   "fileformat",
-          --   cond = function()
-          --     return vim.bo.fileformat ~= "unix"
-          --   end,
-          -- },
-          -- {
-          --   "filetype",
-          --   -- icon_only = true,
-          -- },
           "lsp_status",
+          {
+            "encoding",
+            -- cond = function()
+            --   return vim.bo.fileencoding ~= "utf-8"
+            -- end,
+          },
+          {
+            "fileformat",
+            -- cond = function()
+            --   return vim.bo.fileformat ~= "unix"
+            -- end,
+          },
+          {
+            "filetype",
+            -- icon_only = true,
+          },
         },
 
         lualine_y = { "progress" },

@@ -79,7 +79,7 @@ return {
       },
       underline = true,
       severity_sort = true,
-      update_in_insert = false,
+      -- update_in_insert = true, -- Закомментируй, если будет мешать
     })
 
     local lsp_group =
@@ -91,7 +91,7 @@ return {
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        require("user.keymaps").set_keymaps("lsp", bufnr)
+        require("user.keymaps").setup("lsp", bufnr)
 
         -- Включаем Inlay Hints по умолчанию
         if client.supports_method("textDocument/inlayHint") then
