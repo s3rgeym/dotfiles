@@ -24,6 +24,8 @@ ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/fzf
 # Огромный набор алиасов и функций для работы с Git
 ohmyzsh/ohmyzsh path:plugins/git
+# Автоматическая активация вирт окружений
+ohmyzsh/ohmyzsh path:plugins/python
 # Автодополнение имен хостов из файла ~/.ssh/config
 ohmyzsh/ohmyzsh path:plugins/ssh
 # Позволяет добавить sudo к команде, дважды нажав Esc
@@ -42,8 +44,7 @@ Aloxaf/fzf-tab
 # Автоматически закрывает парные скобки и кавычки при вводе
 hlissner/zsh-autopair
 # Автоматически загружает переменные из .env файлов при входе в каталог
-hyperupcall/autoenv
-# Автоматически активирует Python virtualenv при переходе в папку проекта
+#hyperupcall/autoenv
 MichaelAquilina/zsh-autoswitch-virtualenv
 # Напоминает о существовании алиаса, если вы ввели команду целиком
 MichaelAquilina/zsh-you-should-use

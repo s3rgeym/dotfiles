@@ -12,12 +12,13 @@ return {
         diagnosticMode = "workspace",
         -- Настройки встроенных подсказок (inlay hints) в редакторе.
         inlayHints = {
-          variableTypes = true,
+          variableTypes = false,
           functionReturnTypes = true,
           callArgumentNames = true,
-          genericTypes = true,
+          genericTypes = false,
         },
       },
     },
   },
 }
+

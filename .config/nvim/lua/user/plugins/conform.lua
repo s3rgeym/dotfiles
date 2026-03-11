@@ -52,6 +52,6 @@ return {
         },
       },
     })
-    require("user.keymaps").set_keymaps("conform")
+    require("user.keymaps").setup("conform")
   end,
 }

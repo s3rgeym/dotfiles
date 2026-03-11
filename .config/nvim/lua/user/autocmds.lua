@@ -84,10 +84,12 @@ create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
-create_autocmd({ "FocusGained", "BufEnter" }, {
+-- Чтобы вручную не вводить :e!
+-- Я не уверен что тут нужен BufEnter
+create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
   group = group,
   desc = "Sync file changes",
-  command = "checktime",
+  command = "if mode() != 'c' | checktime | endif",
 })
 
 create_autocmd({ "BufEnter" }, {

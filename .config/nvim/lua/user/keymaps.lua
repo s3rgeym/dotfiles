@@ -6,8 +6,9 @@ local keymaps = {
   general = {
     { "<leader>q", vim.cmd.quit, desc = "Quit" },
     { "<leader>Q", "<cmd>qa!<cr>", desc = "Quit All" },
+    { "<leader>x", "<cmd>x<cr>", desc = "Save and Quit" },
     { "<leader>w", vim.cmd.write, desc = "Save" },
-    { "<leader>a", "ggVG", desc = "Select All" },
+    { "gA", "ggVG", desc = "Select All" },
     --Select + - primary регистр
     --{ "<leader>y", "<cmd>%y+<cr>", desc = "Yank All" },
     -- _ - blackhole, регистр типа /dev/null.
@@ -66,15 +67,10 @@ local keymaps = {
     { "<leader>v", vim.cmd.vsplit, desc = "Split Vertical" },
 
     -- Movement
-    { "<Up>", "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Visual Up" },
-    {
-      "<Down>",
-      "v:count == 0 ? 'gj' : 'j'",
-      expr = true,
-      desc = "Visual Down",
-    },
-    { "<A-k>", ":m .-2<CR>==", desc = "Move Line Up" },
-    { "<A-j>", ":m .+1<CR>==", desc = "Move Line Down" },
+    { "<Up>", "gk" },
+    { "<Down>", "gj" },
+    { "<A-k>", "<cmd>m .-2<CR>==", desc = "Move Line Up" },
+    { "<A-j>", "<cmd>m .+1<CR>==", desc = "Move Line Down" },
 
     { "<A-k>", ":m '<-2<CR>gv=gv", desc = "Move Selection Up", mode = "v" },
     { "<A-j>", ":m '>+1<CR>gv=gv", desc = "Move Selection Down", mode = "v" },
@@ -84,7 +80,8 @@ local keymaps = {
     { "<Tab>", ">gv", desc = "Increase Indent", mode = "v" },
     { "<S-Tab>", "<gv", desc = "Decrease Indent", mode = "v" },
     -- Vim
-    { "<leader>e", "<cmd>edit $MYVIMRC<cr>", desc = "Edit Vim Config" },
+    { "<leader>ev", "<cmd>edit $MYVIMRC<cr>", desc = "Edit Vimrc" },
+    { "<leader>sv", "<cmd>source $MYVIMRC<cr>", desc = "Source Vimrc" },
 
     -- Session
     { "<leader>ss", "<cmd>mksession!<cr>", desc = "Save Session" },
@@ -316,13 +313,13 @@ local keymaps = {
   },
 }
 
-M.get_keymaps = function(group_name)
+M.get = function(group_name)
   return keymaps[group_name] or {}
 end
 
 -- TODO: заменить чем-то встроенным из lazy
-M.set_keymaps = function(group_name, bufnr)
-  local keys = M.get_keymaps(group_name)
+function M.setup(group_name, bufnr)
+  local keys = M.get(group_name)
   local default_opts = { silent = true, noremap = true, buffer = bufnr }
   for _, map in ipairs(keys) do
     local lhs = map[1]

@@ -33,3 +33,6 @@ zstyle :prompt:pure:git:fetch only_upstream yes
 
 # Включает "ленивую" загрузку nvm для ускорения старта zsh.
 zstyle ':omz:plugins:nvm' lazy yes
+
+# Какие-то странные сообщения выводит вместо включения виртуального окружения
+export AUTOSWITCH_SILENT=1
