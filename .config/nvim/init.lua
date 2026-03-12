@@ -1,8 +1,3 @@
--- Настройки лучше загрузить до плагинов
-require("user.options")
-require("user.autocmds")
-require("user.keymaps").setup("general")
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
@@ -17,6 +12,11 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
+-- Настройки лучше загрузить до плагинов
+require("user.options")
+require("user.autocmds")
+require("user.keymaps")
 
 require("lazy").setup({
   spec = "user.plugins",

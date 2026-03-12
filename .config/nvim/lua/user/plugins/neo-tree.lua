@@ -7,6 +7,9 @@ return {
     "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-web-devicons", -- optional, but recommended
   },
+  keys = {
+    { "<C-n>", "<cmd>Neotree toggle<cr>", desc = "Neo-Tree Toggle" },
+  },
   opts = {
     filesystem = {
       follow_current_file = {

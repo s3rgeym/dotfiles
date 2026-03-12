@@ -7,7 +7,9 @@ return {
     "benomahony/oil-git.nvim",
     { "JezerM/oil-lsp-diagnostics.nvim", opts = {} },
   },
-  keys = require("user.keymaps").get("oil"),
+  keys = {
+    { "-", "<cmd>Oil<cr>", desc = "Open parent in Oil" },
+  },
   opts = {
     default_file_explorer = true,
     columns = {
