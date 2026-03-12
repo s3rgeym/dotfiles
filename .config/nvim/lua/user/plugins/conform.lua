@@ -52,6 +52,5 @@ return {
         },
       },
     })
-    require("user.keymaps").setup("conform")
   end,
 }

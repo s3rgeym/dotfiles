@@ -19,8 +19,8 @@ return {
         -- https://github.com/ryanoasis/powerline-extra-symbols/blob/master/img/fontforge.png
         -- section_separators = { left = "\u{e0bc}", right = "\u{e0be}" },
         -- component_separators = { left = "\u{e0bd}", right = "\u{e0bf}" },
-        section_separators = { left = "", rigth = "" },
-        component_separators = { left = "│", right = "│" },
+        -- section_separators = { left = "", rigth = "" },
+        -- component_separators = { left = "│", right = "│" },
       },
       sections = {
         lualine_a = {
