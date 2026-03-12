@@ -16,7 +16,7 @@ return {
       function()
         require("grug-far").open()
       end,
-      desc = "grug-far: Search and Replace",
+      desc = "Search and Replace (grug-far)",
     },
   },
 }
