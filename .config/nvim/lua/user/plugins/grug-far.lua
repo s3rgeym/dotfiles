@@ -18,28 +18,5 @@ return {
       end,
       desc = "grug-far: Search and Replace",
     },
-    {
-      "<leader>sw",
-      function()
-        require("grug-far").open({
-          prefills = {
-            search = vim.fn.expand("<cword>"),
-          },
-        })
-      end,
-      mode = { "n", "v" },
-      desc = "grug-far: [S]earch and Replace [W]ord",
-    },
-    {
-      "<leader>sf",
-      function()
-        require("grug-far").open({
-          prefills = {
-            paths = vim.fn.expand("%"),
-          },
-        })
-      end,
-      desc = "grug-far: [S]earch and Replace in [F]ile",
-    },
   },
 }

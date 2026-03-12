@@ -1,8 +1,7 @@
 ---@diagnostic disable: undefined-field
-local create_autocmd = vim.api.nvim_create_autocmd
 local group = vim.api.nvim_create_augroup("User", { clear = true })
 
--- create_autocmd("VimEnter", {
+-- vim.api.nvim_create_autocmd("VimEnter", {
 --   group = aucmd_group,
 --   desc = "Change CWD to project root",
 --   callback = function()
@@ -13,7 +12,7 @@ local group = vim.api.nvim_create_augroup("User", { clear = true })
 --   end,
 -- })
 
-create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd("VimEnter", {
   group = group,
   desc = "Session autoload",
   nested = true,
@@ -32,7 +31,7 @@ create_autocmd("VimEnter", {
   end,
 })
 
-create_autocmd("VimLeavePre", {
+vim.api.nvim_create_autocmd("VimLeavePre", {
   group = group,
   desc = "Session autosave",
   callback = function()
@@ -42,7 +41,7 @@ create_autocmd("VimLeavePre", {
   end,
 })
 
--- create_autocmd("SessionLoadPost", {
+-- vim.api.nvim_create_autocmd("SessionLoadPost", {
 --   group = aucmd_group,
 --   desc = "Restart LSP after session load",
 --   callback = function()
@@ -52,7 +51,7 @@ create_autocmd("VimLeavePre", {
 --   end,
 -- })
 
-create_autocmd({ "BufWinEnter", "BufReadPost", "FileType" }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter", "BufReadPost", "FileType" }, {
   group = group,
   desc = "Set colorcolumn based on textwidth",
   callback = function()
@@ -65,7 +64,7 @@ create_autocmd({ "BufWinEnter", "BufReadPost", "FileType" }, {
   end,
 })
 
-create_autocmd({ "BufReadPre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = group,
   desc = "Detect large files",
   callback = function(ev)
@@ -76,7 +75,7 @@ create_autocmd({ "BufReadPre" }, {
   end,
 })
 
-create_autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.json",
   desc = "Enable json comments",
   callback = function()
@@ -86,13 +85,16 @@ create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- Чтобы вручную не вводить :e!
 -- Я не уверен что тут нужен BufEnter
-create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  group = group,
-  desc = "Sync file changes",
-  command = "if mode() != 'c' | checktime | endif",
-})
+vim.api.nvim_create_autocmd(
+  { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
+  {
+    group = group,
+    desc = "Sync file changes",
+    command = "if mode() != 'c' | checktime | endif",
+  }
+)
 
-create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = group,
   desc = "Clear formatoptions",
   callback = function()
@@ -103,7 +105,7 @@ create_autocmd({ "BufEnter" }, {
   end,
 })
 
-create_autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("BufReadPost", {
   group = group,
   desc = "Restore cursor position",
   callback = function(ev)
@@ -114,7 +116,7 @@ create_autocmd("BufReadPost", {
   end,
 })
 
-create_autocmd({ "BufReadPost" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   group = group,
   desc = "Optimize for large files",
   callback = function(ev)
@@ -127,14 +129,14 @@ create_autocmd({ "BufReadPost" }, {
   end,
 })
 
--- create_autocmd("BufReadCmd", {
+-- vim.api.nvim_create_autocmd("BufReadCmd", {
 --   group = aucmd_group,
 --   pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" },
 --   desc = "Open in external viewer",
 --   command = "exe 'silent !display <afile> &' | b# | bw! #",
 -- })
 
-create_autocmd("BufWritePre", {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = group,
   desc = "Create missing directories",
   callback = function(event)
@@ -147,7 +149,7 @@ create_autocmd("BufWritePre", {
   end,
 })
 
-create_autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   group = group,
   desc = "Highlight yanked text",
   callback = function()
@@ -155,7 +157,7 @@ create_autocmd("TextYankPost", {
   end,
 })
 
-create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   group = group,
   desc = "Close with 'q'",
   pattern = { "help", "checkhealth", "qf", "man", "lspinfo" },
@@ -170,7 +172,7 @@ create_autocmd("FileType", {
   end,
 })
 
-create_autocmd("VimResized", {
+vim.api.nvim_create_autocmd("VimResized", {
   group = group,
   desc = "Equalize window splits",
   callback = function()
@@ -178,7 +180,7 @@ create_autocmd("VimResized", {
   end,
 })
 
-create_autocmd("TermOpen", {
+vim.api.nvim_create_autocmd("TermOpen", {
   group = group,
   desc = "Terminal insert mode",
   command = "startinsert",
