@@ -1,5 +1,4 @@
 ---@diagnostic disable: missing-parameter
-local create_autocmd = vim.api.nvim_create_autocmd
 
 return {
   "neovim/nvim-lspconfig",
@@ -9,8 +8,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "saghen/blink.cmp",
     "b0o/schemastore.nvim",
-    -- Для установки сочетаний
-    "folke/which-key.nvim",
   },
   config = function()
     -- Конфиги самих языковых серверов в ~/.config/nvim/after/lsp. Они рекуривно
@@ -85,61 +82,84 @@ return {
     local lsp_group =
       vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
 
-    create_autocmd("LspAttach", {
+    vim.api.nvim_create_autocmd("LspAttach", {
       group = lsp_group,
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
         local function map(mode, lhs, rhs, desc)
-          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc, silent = true, noremap = true })
+          vim.keymap.set(mode, lhs, rhs, {
+            buffer = bufnr,
+            desc = "LSP: " .. desc,
+            silent = true,
+            noremap = true,
+          })
         end
 
-        -- Диагностика и базовые переопределения стандартных клавиш Neovim 0.10+
-        -- Добавляются всегда
-        map("n", "gl", vim.diagnostic.open_float, "Line Diagnostics")
-        map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, "Prev Diagnostic")
-        map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, "Next Diagnostic")
-        map("n", "<leader>d", "<cmd>FzfLua diagnostics_document<cr>", "Document Diagnostics")
-        map("n", "<leader>D", "<cmd>FzfLua diagnostics_workspace<cr>", "Workspace Diagnostics")
-
-        -- Эти клавиши переопределяют стандарты Neovim, ставим их безусловно
         map("n", "K", vim.lsp.buf.hover, "Show Documentation")
+        map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
         map("n", "grn", vim.lsp.buf.rename, "Rename Symbol")
-        map("n", "gra", "<cmd>FzfLua lsp_code_actions<cr>", "Code Actions")
-        map("n", "grr", "<cmd>FzfLua lsp_references<cr>", "List References")
-        map("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", "List Implementations")
-        map("n", "gO", "<cmd>FzfLua lsp_document_symbols<cr>", "Document Symbols")
+        map("n", "gra", function()
+          require("fzf-lua").lsp_code_actions()
+        end, "Code Actions")
+        map("n", "grr", function()
+          require("fzf-lua").lsp_references()
+        end, "List References")
+        map("n", "gri", function()
+          require("fzf-lua").lsp_implementations()
+        end, "List Implementations")
+        map("n", "gO", function()
+          require("fzf-lua").lsp_document_symbols()
+        end, "Document Symbols")
 
-        -- Условные сочетания на основе возможностей клиента
-        if client.supports_method("textDocument/signatureHelp") then
-          vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature Help", silent = true, noremap = true })
-        end
+        map("n", "gd", function()
+          require("fzf-lua").lsp_definitions()
+        end, "Go to Definition")
 
-        if client.supports_method("textDocument/definition") then
-          map("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", "Go to Definition")
-        end
+        map("n", "gD", function()
+          require("fzf-lua").lsp_declarations()
+        end, "Go to Declaration")
 
-        if client.supports_method("textDocument/declaration") then
-          map("n", "gD", "<cmd>FzfLua lsp_declarations<cr>", "Go to Declaration")
-        end
+        map("n", "grt", function()
+          require("fzf-lua").lsp_typedefs()
+        end, "Type Definition")
 
-        if client.supports_method("textDocument/typeDefinition") then
-          map("n", "grt", "<cmd>FzfLua lsp_typedefs<cr>", "Type Definition")
-        end
+        map("n", "gF", function()
+          require("fzf-lua").lsp_finder()
+        end, "Finder")
 
-        if client.supports_method("textDocument/references") or client.supports_method("textDocument/definition") then
-          map("n", "gF", "<cmd>FzfLua lsp_finder<cr>", "LSP Finder")
-        end
+        map("n", "gl", vim.diagnostic.open_float, "Line Diagnostics")
+        map("n", "[d", function()
+          vim.diagnostic.jump({ count = -1 })
+        end, "Prev Diagnostic")
+        map("n", "]d", function()
+          vim.diagnostic.jump({ count = 1 })
+        end, "Next Diagnostic")
+        map("n", "<leader>ld", function()
+          require("fzf-lua").diagnostics_document()
+        end, "Document Diagnostics")
+        map("n", "<leader>lD", function()
+          require("fzf-lua").diagnostics_workspace()
+        end, "Workspace Diagnostics")
 
-        if client.supports_method("workspace/symbol") then
-          map("n", "<leader>ls", "<cmd>FzfLua lsp_workspace_symbols<cr>", "Workspace Symbols")
-          map("n", "<leader>lS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", "Live Workspace Symbols")
-        end
+        map("n", "<leader>sw", function()
+          require("fzf-lua").lsp_workspace_symbols()
+        end, "Workspace Symbols")
+        -- Одно и тоже по сути
+        -- map("n", "<leader>sW", function()
+        --   require("fzf-lua").lsp_live_workspace_symbols()
+        -- end, "Live Workspace Symbols")
 
         -- Включаем Inlay Hints по умолчанию
         if client.supports_method("textDocument/inlayHint") then
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+          vim.lsp.inlay_hint.enable(true)
+
+          map("n", "<leader>th", function()
+            vim.lsp.inlay_hint.enable(
+              not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+            )
+          end, "Switch Toggle")
         end
 
         -- Подсветка упоминаний символа под курсором

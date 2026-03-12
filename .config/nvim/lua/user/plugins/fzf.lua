@@ -8,13 +8,14 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
+  -- Если есть поле keys, то плагин загрузится лишь при вызове этих сочетаний!
   keys = {
     -- Еще иногда C-f, C-b, C-^, C-o переопределяют, но я ими пользуюсь
     -- Ctrl-G печатает имя текущего файла
     { "<C-g>", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
     { "<C-p>", "<cmd>FzfLua files<cr>", desc = "Files" },
     -- <C-\\> неудобно
-    { "<C-^>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
     -- { "<leader>f", group = "Fzf" },
     {
       "<C-k>",
@@ -52,5 +53,9 @@ return {
 
     -- Без ... будет показывать ошибку
     fzf.register_ui_select()
+
+    vim.keymap.set({ "n", "v", "i" }, "<C-x><C-f>", function()
+      fzf.complete_path()
+    end, { silent = true, desc = "Fuzzy complete path" })
   end,
 }
