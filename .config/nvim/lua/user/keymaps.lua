@@ -16,6 +16,7 @@ map("n", "<leader>q", vim.cmd.quit, "Quit")
 map("n", "<leader>Q", "<cmd>qa!<cr>", "Quit All")
 map("n", "<leader>x", "<cmd>x<cr>", "Save and Quit")
 map("n", "<leader>w", vim.cmd.write, "Save")
+-- Может конфликтовать
 map("n", "<leader>a", "ggVG", "Select All")
 
 -- Paste keeping current register
@@ -42,27 +43,29 @@ map("n", "<Tab>", vim.cmd.bnext, "Next Buffer")
 map("n", "<S-Tab>", vim.cmd.bprev, "Previous Buffer")
 map("n", "<BS>", "<C-^>", "Last Buffer")
 
--- Window Navigation
+-- Window navigation
 map("n", "<C-Left>", "<cmd>wincmd h<cr>", "Window Left")
 map("n", "<C-Down>", "<cmd>wincmd j<cr>", "Window Down")
 map("n", "<C-Up>", "<cmd>wincmd k<cr>", "Window Up")
 map("n", "<C-Right>", "<cmd>wincmd l<cr>", "Window Right")
 
--- Resize Windows
+-- Resize windows
 map("n", "<A-Up>", "<cmd>resize +2<cr>", "Increase Height")
 map("n", "<A-Down>", "<cmd>resize -2<cr>", "Decrease Height")
 map("n", "<A-Left>", "<cmd>vertical resize -2<cr>", "Decrease Width")
 map("n", "<A-Right>", "<cmd>vertical resize +2<cr>", "Increase Width")
 
--- Split Windows
+-- Split windows
 map("n", "<leader>h", vim.cmd.split, "Split Horizontal")
 map("n", "<leader>v", vim.cmd.vsplit, "Split Vertical")
 
--- Movement
+-- Movement through wrapped lines
 map("n", "<Up>", "gk")
 map("n", "<Down>", "gj")
+map("i", "<Up>", "<C-o>gk")
+map("i", "<Down>", "<C-o>gj")
 
--- Move Lines
+-- Move lines
 map("n", "<A-k>", "<cmd>m .-2<CR>==", "Move Line Up")
 map("n", "<A-j>", "<cmd>m .+1<CR>==", "Move Line Down")
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", "Move Selection Up")

@@ -40,7 +40,15 @@ return {
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
-      documentation = { auto_show = true },
+      menu = {
+        --auto_show = false,
+        -- Без этой настройки при перемещении курсора в режиме редактирования
+        -- постоянно будет выскакивать менб с вариантами
+        auto_show_delay_ms = 500,
+      },
+      documentation = {
+        auto_show = true,
+      },
     },
 
     signature = {

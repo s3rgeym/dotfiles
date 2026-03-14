@@ -99,9 +99,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   desc = "Clear formatoptions",
   callback = function()
     -- По дефолту что-то типа ljcqrt
-    -- Отключаем форматирование при вставке
-    --vim.opt_local.formatoptions:remove({ "t" })
-    vim.opt_local.formatoptions = { j = true, q = true }
+    -- vim.opt_local.formatoptions = { j = true, q = true }
+    vim.opt_local.formatoptions = { c = true, t = true, q = true }
   end,
 })
 
