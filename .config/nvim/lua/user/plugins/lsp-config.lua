@@ -89,7 +89,7 @@ return {
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         local bufnr = args.buf
 
-        local function map(mode, lhs, rhs, desc)
+        local function bufmap(mode, lhs, rhs, desc)
           vim.keymap.set(mode, lhs, rhs, {
             buffer = bufnr,
             desc = "LSP: " .. desc,
@@ -98,53 +98,53 @@ return {
           })
         end
 
-        map("n", "K", vim.lsp.buf.hover, "Show Documentation")
-        map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
-        map("n", "grn", vim.lsp.buf.rename, "Rename Symbol")
-        map("n", "gra", function()
+        bufmap("n", "K", vim.lsp.buf.hover, "Show Documentation")
+        bufmap("i", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+        bufmap("n", "grn", vim.lsp.buf.rename, "Rename Symbol")
+        bufmap("n", "gra", function()
           require("fzf-lua").lsp_code_actions()
         end, "Code Actions")
-        map("n", "grr", function()
+        bufmap("n", "grr", function()
           require("fzf-lua").lsp_references()
         end, "List References")
-        map("n", "gri", function()
+        bufmap("n", "gri", function()
           require("fzf-lua").lsp_implementations()
         end, "List Implementations")
-        map("n", "gO", function()
+        bufmap("n", "gO", function()
           require("fzf-lua").lsp_document_symbols()
         end, "Document Symbols")
 
-        map("n", "gd", function()
+        bufmap("n", "gd", function()
           require("fzf-lua").lsp_definitions()
         end, "Go to Definition")
 
-        map("n", "gD", function()
+        bufmap("n", "gD", function()
           require("fzf-lua").lsp_declarations()
         end, "Go to Declaration")
 
-        map("n", "grt", function()
+        bufmap("n", "grt", function()
           require("fzf-lua").lsp_typedefs()
         end, "Type Definition")
 
-        map("n", "gF", function()
+        bufmap("n", "gF", function()
           require("fzf-lua").lsp_finder()
         end, "Finder")
 
-        map("n", "gl", vim.diagnostic.open_float, "Line Diagnostics")
-        map("n", "[d", function()
+        bufmap("n", "gl", vim.diagnostic.open_float, "Line Diagnostics")
+        bufmap("n", "[d", function()
           vim.diagnostic.jump({ count = -1 })
         end, "Prev Diagnostic")
-        map("n", "]d", function()
+        bufmap("n", "]d", function()
           vim.diagnostic.jump({ count = 1 })
         end, "Next Diagnostic")
-        map("n", "<leader>ld", function()
+        bufmap("n", "<leader>ld", function()
           require("fzf-lua").diagnostics_document()
         end, "Document Diagnostics")
-        map("n", "<leader>lD", function()
+        bufmap("n", "<leader>lD", function()
           require("fzf-lua").diagnostics_workspace()
         end, "Workspace Diagnostics")
 
-        map("n", "<leader>sw", function()
+        bufmap("n", "<leader>sw", function()
           require("fzf-lua").lsp_workspace_symbols()
         end, "Workspace Symbols")
         -- Одно и тоже по сути
@@ -156,7 +156,7 @@ return {
         if client.supports_method("textDocument/inlayHint") then
           vim.lsp.inlay_hint.enable(true)
 
-          map("n", "<leader>th", function()
+          bufmap("n", "<leader>th", function()
             vim.lsp.inlay_hint.enable(
               not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
             )
