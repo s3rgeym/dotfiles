@@ -1,15 +1,6 @@
 -- Я решил отказаться от использования which-key для объявления сочетаний
 -- и пользоваться по возможности keys в lazy
-
-local function map(mode, lhs, rhs, opts_or_desc)
-  local opts = { silent = true, noremap = true }
-  if type(opts_or_desc) == "string" then
-    opts.desc = opts_or_desc
-  elseif type(opts_or_desc) == "table" then
-    opts = vim.tbl_extend("force", opts, opts_or_desc)
-  end
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
+local map = require("user.utils").map
 
 -- General
 map("n", "<leader>q", vim.cmd.quit, "Quit")
