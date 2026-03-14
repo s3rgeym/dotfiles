@@ -2,6 +2,12 @@
 -- через fzf
 -- Это лучше задать через rc
 -- vim.env.FZF_DEFAULT_OPTS = '--layout=reverse'
+local function fzf(func_name, ...)
+  local args = { ... }
+  return function()
+    require("fzf-lua")[func_name](unpack(args))
+  end
+end
 
 return {
   "ibhagwan/fzf-lua",
@@ -12,36 +18,38 @@ return {
   keys = {
     -- Еще иногда C-f, C-b, C-^, C-o переопределяют, но я ими пользуюсь
     -- Ctrl-G печатает имя текущего файла
-    { "<C-g>", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
-    { "<C-p>", "<cmd>FzfLua files<cr>", desc = "Files" },
-    -- <C-\\> неудобно
-    { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<C-g>", fzf("live_grep"), desc = "Grep" },
+    { "<C-p>", fzf("files"), desc = "Files" },
+    -- <C-\\> неудобно, а до <C-^> тянуться неудобно
+    { "<leader>b", fzf("buffers"), desc = "Buffers" },
     -- { "<leader>f", group = "Fzf" },
-    {
-      "<C-k>",
-      "<cmd>FzfLua builtin commands<cr>",
-      desc = "Builtin Commands",
-    },
+    { "<C-k>", fzf("builtin"), desc = "Builtin Commands" },
     -- Find
-    { "<leader>fc", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-    { "<leader>fh", "<cmd>FzfLua history<cr>", desc = "History" },
-    { "<leader>fj", "<cmd>FzfLua jumps<cr>", desc = "Jumps" },
-    { "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
-    { "<leader>fl", "<cmd>FzfLua loclist<cr>", desc = "Loclist" },
-    { "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Marks" },
-    { "<leader>fo", "<cmd>FzfLua oldfiles<cr>", desc = "Oldfiles" },
-    { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix" },
-    { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume Last Search" },
+    { "<leader>fc", fzf("commands"), desc = "Commands" },
+    { "<leader>fh", fzf("history"), desc = "History" },
+    { "<leader>fj", fzf("jumps"), desc = "Jumps" },
+    { "<leader>fk", fzf("keymaps"), desc = "Keymaps" },
+    { "<leader>fl", fzf("loclist"), desc = "Loclist" },
+    { "<leader>fm", fzf("marks"), desc = "Marks" },
+    { "<leader>fo", fzf("oldfiles"), desc = "Oldfiles" },
+    { "<leader>fq", fzf("quickfix"), desc = "Quickfix" },
+    { "<leader>fr", fzf("resume"), desc = "Resume Last Search" },
     -- Git
-    { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Git Branches" },
-    { "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "Git Commits" },
-    { "<leader>gf", "<cmd>FzfLua git_files<cr>", desc = "Git Files" },
-    { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Git Status" },
+    { "<leader>gb", fzf("git_branches"), desc = "Git Branches" },
+    { "<leader>gc", fzf("git_commits"), desc = "Git Commits" },
+    { "<leader>gf", fzf("git_files"), desc = "Git Files" },
+    { "<leader>gs", fzf("git_status"), desc = "Git Status" },
+    {
+      "<C-x><C-f>",
+      fzf("complete_path"),
+      desc = "Fuzzy complete path",
+      mode = { "n", "v", "i" },
+    },
   },
   config = function()
-    local fzf = require("fzf-lua")
+    local fzf_lua = require("fzf-lua")
 
-    fzf.setup({
+    fzf_lua.setup({
       -- [Fzf-lua] Invalid border style 'border-line', will use 'rounded'.
       winopts = {
         border = "rounded",
@@ -52,10 +60,6 @@ return {
     })
 
     -- Без ... будет показывать ошибку
-    fzf.register_ui_select()
-
-    vim.keymap.set({ "n", "v", "i" }, "<C-x><C-f>", function()
-      fzf.complete_path()
-    end, { silent = true, desc = "Fuzzy complete path" })
+    fzf_lua.register_ui_select()
   end,
 }
