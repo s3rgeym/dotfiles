@@ -36,7 +36,8 @@ return {
   --   },
   -- },
   config = function()
-    require("conform").setup({
+    local conform = require("conform")
+    conform.setup({
       formatters_by_ft = formatters_by_ft,
       format_on_save = {
         timeout_ms = 3000,
@@ -52,5 +53,8 @@ return {
         },
       },
     })
+    require("user.utils").map("n", "<leader>cf", function()
+      conform.format({ lsp_format = "fallback" })
+    end, "Code Format")
   end,
 }
