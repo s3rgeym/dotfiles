@@ -53,7 +53,7 @@ return {
         },
       },
     })
-    require("user.utils").map("n", "<leader>cf", function()
+    require("utils").map("n", "<leader>cf", function()
       conform.format({ lsp_format = "fallback" })
     end, "Code Format")
   end,

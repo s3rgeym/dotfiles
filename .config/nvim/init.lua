@@ -14,12 +14,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Настройки лучше загрузить до плагинов
-require("user.options")
-require("user.autocmds")
-require("user.keymaps")
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
 
 require("lazy").setup({
-  spec = "user.plugins",
+  spec = "plugins",
   change_detection = {
     enabled = false,
     notify = false,

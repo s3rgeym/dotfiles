@@ -1,6 +1,6 @@
 -- Я решил отказаться от использования which-key для объявления сочетаний
 -- и пользоваться по возможности keys в lazy
-local map = require("user.utils").map
+local map = require("utils").map
 
 -- General
 map("n", "<leader>q", vim.cmd.quit, "Quit")
@@ -8,10 +8,10 @@ map("n", "<leader>Q", "<cmd>qa!<cr>", "Quit All")
 map("n", "<leader>x", "<cmd>x<cr>", "Save and Quit")
 map("n", "<leader>w", vim.cmd.write, "Save")
 -- Может конфликтовать
-map("n", "<leader>a", "ggVG", "Select All")
+map("n", "gA", "ggVG", "Select All")
 
 -- Paste keeping current register
-map("v", "<leader>p", '"_dP"', "Paste keeping current register")
+-- map("v", "<leader>p", '"_dP"', "Paste keeping current register")
 
 -- Clear hlsearch
 map("n", "<Esc>", "<cmd>noh<cr><esc>", "Clear hlsearch")

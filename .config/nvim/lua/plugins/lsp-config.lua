@@ -1,5 +1,4 @@
 ---@diagnostic disable: missing-parameter
-
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
