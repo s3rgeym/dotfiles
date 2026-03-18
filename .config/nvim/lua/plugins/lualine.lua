@@ -7,6 +7,7 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
+  --enabled = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -19,8 +20,8 @@ return {
         -- https://github.com/ryanoasis/powerline-extra-symbols/blob/master/img/fontforge.png
         -- section_separators = { left = "\u{e0bc}", right = "\u{e0be}" },
         -- component_separators = { left = "\u{e0bd}", right = "\u{e0bf}" },
-        -- section_separators = { left = "", rigth = "" },
-        -- component_separators = { left = "│", right = "│" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "│", right = "│" },
       },
       sections = {
         lualine_a = {
@@ -44,7 +45,7 @@ return {
         lualine_c = {
           {
             "filename",
-            path = 4,
+            path = 0,
           },
         },
 
@@ -73,7 +74,12 @@ return {
         lualine_z = { "location" },
       },
       tabline = {
-        lualine_a = { "buffers" },
+        lualine_a = {
+          {
+            "buffers",
+            -- mode = 4,
+          },
+        },
         lualine_z = {
           {
             "tabs",

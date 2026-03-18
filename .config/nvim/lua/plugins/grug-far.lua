@@ -14,7 +14,14 @@ return {
     {
       "<leader>sr",
       function()
-        require("grug-far").open()
+        -- local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+        require("grug-far").open({
+          transient = true,
+          prefills = {
+            -- ripgrep из репы арча не понимает шаблоны типа "*.lua"
+            -- filesFilter = ext and "*." .. ext or nil,
+          },
+        })
       end,
       desc = "Search and Replace (grug-far)",
     },

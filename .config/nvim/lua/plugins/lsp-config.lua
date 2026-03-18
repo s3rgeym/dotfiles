@@ -2,8 +2,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- opts передается для автоматического вызова setup
-    { "mason-org/mason.nvim", opts = {} },
+    "mason-org/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "saghen/blink.cmp",
     "b0o/schemastore.nvim",
