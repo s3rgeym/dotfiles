@@ -26,8 +26,8 @@ map(
 )
 
 -- Buffers
-map("n", "<leader>d", "<cmd>bp | bd #<cr>", "Delete Buffer")
-map("n", "<leader>D", "<cmd>%bd | e # | bd #<cr>", "Delete Other Buffers")
+map("n", "<leader>bd", "<cmd>bp | bd #<cr>", "Delete Buffer")
+map("n", "<leader>bD", "<cmd>%bd | e # | bd #<cr>", "Delete Other Buffers")
 
 -- Navigation
 map("n", "<Tab>", vim.cmd.bnext, "Next Buffer")

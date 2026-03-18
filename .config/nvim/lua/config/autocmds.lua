@@ -51,26 +51,35 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter", "BufReadPost", "FileType" }, {
-  group = group,
-  desc = "Set colorcolumn based on textwidth",
-  callback = function()
-    local tw = vim.bo.textwidth
-    if tw > 0 then
-      vim.wo.colorcolumn = tostring(tw + 1)
-    else
-      vim.wo.colorcolumn = ""
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWinEnter", "BufReadPost", "FileType" }, {
+--   group = group,
+--   desc = "Set colorcolumn based on textwidth",
+--   callback = function()
+--     local tw = vim.bo.textwidth
+--     if tw > 0 then
+--       vim.wo.colorcolumn = tostring(tw + 1)
+--     else
+--       vim.wo.colorcolumn = ""
+--     end
+--   end,
+-- })
 
+-- https://vim.fandom.com/wiki/Faster_loading_of_large_files
 vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = group,
-  desc = "Detect large files",
+  desc = "Disable syntax highlighting for big files",
   callback = function(ev)
     local ok, stats = pcall(vim.uv.fs_stat, ev.file)
-    if ok and stats and stats.size > 1000000 then
-      vim.b[ev.buf].large_file = true
+    if ok and stats and stats.size > 10 * 1024 * 1024 then
+      vim.opt.eventignore:append("FileType")
+
+      local buf = ev.buf
+
+      -- local options
+      vim.bo[buf].swapfile = false
+      vim.bo[buf].bufhidden = "unload"
+      vim.bo[buf].buftype = "nowrite"
+      vim.bo[buf].undolevels = -1
     end
   end,
 })
@@ -112,19 +121,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     if row > 0 and row <= vim.api.nvim_buf_line_count(ev.buf) then
       pcall(vim.api.nvim_win_set_cursor, 0, { row, col })
     end
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  group = group,
-  desc = "Optimize for large files",
-  callback = function(ev)
-    if not vim.b[ev.buf].large_file then
-      return
-    end
-    vim.cmd("syntax clear")
-    pcall(vim.treesitter.stop, ev.buf)
-    vim.bo[ev.buf].filetype = ""
   end,
 })
 
